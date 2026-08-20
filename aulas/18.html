@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+
+                        Tema
+
+                    </span>
+
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">18</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 18
+
+            </span>
+
+
+            <h2>
+
+                Compreensões em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como utilizar
+                <strong>compreensões</strong> para criar novas
+                coleções de forma mais simples e expressiva.
+
+                Vamos conhecer <strong>list comprehension</strong>,
+                <strong>dictionary comprehension</strong> e
+                <strong>set comprehension</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 List comprehension
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>List comprehension</strong> é uma forma
+                compacta de criar uma lista a partir de outra
+                sequência.
+
+                Em vez de escrever várias linhas utilizando um
+                <code>for</code>, podemos realizar a mesma tarefa
+                em uma única expressão.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Estrutura básica:</strong>
+
+                <br><br>
+
+                <code>
+                    [expressão for item in sequência]
+                </code>
+
+                <br><br>
+
+                A expressão define o valor que será colocado na
+                nova lista.
+
+            </div>
+
+
+            <!-- =================================================
+                 FOR TRADICIONAL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Forma tradicional
+
+            </h3>
+
+
+            <p class="description">
+
+                Imagine que queremos criar uma lista contendo o
+                dobro dos números de 1 até 5.
+
+                Podemos fazer isso utilizando um
+                <code>for</code> tradicional:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        lista_for.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [1, 2, 3, 4, 5]
+
+                        </div>
+
+
+                        <div>
+
+                            dobrados = []
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            numeros:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            dobrados.append(
+                            numero * 2)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(dobrados)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [2, 4, 6, 8, 10]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 LIST COMPREHENSION
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚡ Utilizando list comprehension
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos escrever a mesma lógica utilizando uma
+                list comprehension:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        list_comprehension.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [1, 2, 3, 4, 5]
+
+                        </div>
+
+
+                        <div>
+
+                            dobrados =
+                            [
+                            numero * 2
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            numeros
+                            ]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(dobrados)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [2, 4, 6, 8, 10]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Pense na list comprehension como:
+
+                <br><br>
+
+                <code>
+                    "Para cada item, faça alguma coisa e coloque
+                    o resultado em uma nova lista."
+                </code>
+
+            </div>
+
+
+            <!-- =================================================
+                 LIST COM IF
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 List comprehension com condição
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos utilizar uma condição
+                <code>if</code> dentro da compreensão.
+
+                Por exemplo, podemos criar uma lista contendo
+                somente os números pares.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        pares.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [1, 2, 3, 4, 5, 6]
+
+                        </div>
+
+
+                        <div>
+
+                            pares = [
+
+                            numero
+
+                            <span class="keyword">
+                                for
+                            </span>
+
+                            numero
+
+                            <span class="keyword">
+                                in
+                            </span>
+
+                            numeros
+
+                            <span class="keyword">
+                                if
+                            </span>
+
+                            numero % 2 == 0
+
+                            ]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(pares)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [2, 4, 6]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DICTIONARY COMPREHENSION
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📖 Dictionary comprehension
+
+            </h3>
+
+
+            <p class="description">
+
+                Assim como podemos criar listas utilizando
+                compreensões, também podemos criar
+                <strong>dicionários</strong>.
+
+                Essa técnica é chamada de
+                <strong>dictionary comprehension</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Estrutura básica:</strong>
+
+                <br><br>
+
+                <code>
+                    {chave: valor for item in sequência}
+                </code>
+
+            </div>
+
+
+            <p class="description">
+
+                Por exemplo, podemos criar um dicionário onde
+                cada número é uma chave e seu dobro é o valor.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        dictionary_comprehension.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [1, 2, 3, 4]
+
+                        </div>
+
+
+                        <div>
+
+                            resultado = {
+
+                            numero: numero * 2
+
+                            <span class="keyword">
+                                for
+                            </span>
+
+                            numero
+
+                            <span class="keyword">
+                                in
+                            </span>
+
+                            numeros
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        {1: 2, 2: 4, 3: 6, 4: 8}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    O número é utilizado como
+                    <strong>chave</strong>.
+                </li>
+
+                <li>
+                    O dobro do número é utilizado como
+                    <strong>valor</strong>.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 DICTIONARY COM IF
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Dictionary comprehension com condição
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos utilizar condições para decidir
+                quais elementos serão adicionados ao dicionário.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        filtro_dicionario.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [1, 2, 3, 4, 5, 6]
+
+                        </div>
+
+
+                        <div>
+
+                            pares = {
+
+                            numero: numero * 2
+
+                            <span class="keyword">
+                                for
+                            </span>
+
+                            numero
+
+                            <span class="keyword">
+                                in
+                            </span>
+
+                            numeros
+
+                            <span class="keyword">
+                                if
+                            </span>
+
+                            numero % 2 == 0
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(pares)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        {2: 4, 4: 8, 6: 12}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SET COMPREHENSION
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔵 Set comprehension
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos criar conjuntos utilizando
+                compreensões.
+
+                Essa técnica é chamada de
+                <strong>set comprehension</strong>.
+
+                O resultado será um <code>set</code>, que não
+                mantém elementos duplicados.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Estrutura básica:</strong>
+
+                <br><br>
+
+                <code>
+                    {expressão for item in sequência}
+                </code>
+
+                <br><br>
+
+                A principal diferença visual é que utilizamos
+                chaves <code>{ }</code>, mas sem utilizar
+                <code>chave: valor</code> como acontece nos
+                dicionários.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        set_comprehension.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [1, 2, 3, 4, 5]
+
+                        </div>
+
+
+                        <div>
+
+                            quadrados = {
+
+                            numero ** 2
+
+                            <span class="keyword">
+                                for
+                            </span>
+
+                            numero
+
+                            <span class="keyword">
+                                in
+                            </span>
+
+                            numeros
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(quadrados)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        {1, 4, 9, 16, 25}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DUPLICADOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ♻️ Removendo duplicados
+
+            </h3>
+
+
+            <p class="description">
+
+                Como conjuntos não armazenam elementos duplicados,
+                podemos utilizar uma set comprehension para
+                transformar e eliminar repetições ao mesmo tempo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        duplicados.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros =
+                            [1, 2, 2, 3, 3, 3, 4]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            unicos = {
+
+                            numero
+
+                            <span class="keyword">
+                                for
+                            </span>
+
+                            numero
+
+                            <span class="keyword">
+                                in
+                            </span>
+
+                            numeros
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(unicos)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        {1, 2, 3, 4}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 COMPARAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🆚 Tipos de compreensão
+
+            </h3>
+
+
+            <p class="description">
+
+                As três principais formas de compreensão estudadas
+                nesta aula trabalham com estruturas diferentes.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    <strong>
+                        List comprehension
+                    </strong>
+                    — cria uma <code>list</code>.
+
+                </li>
+
+
+                <li>
+
+                    <strong>
+                        Dictionary comprehension
+                    </strong>
+                    — cria um <code>dict</code> com
+                    <code>chave: valor</code>.
+
+                </li>
+
+
+                <li>
+
+                    <strong>
+                        Set comprehension
+                    </strong>
+                    — cria um <code>set</code> e não mantém
+                    elementos duplicados.
+
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 APLICAÇÃO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Compreensões aplicadas a QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Compreensões são bastante úteis em automação de
+                testes porque permitem transformar e filtrar
+                dados de forma compacta.
+
+                Por exemplo, podemos extrair somente os nomes
+                de usuários aprovados em uma lista de resultados.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        resultados_qa.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            testes = [
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            {
+                            <span class="string">
+                                "nome"
+                            </span>:
+                            <span class="string">
+                                "Login"
+                            </span>,
+                            <span class="string">
+                                "aprovado"
+                            </span>:
+                            <span class="keyword">
+                                True
+                            </span>
+                            },
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            {
+                            <span class="string">
+                                "nome"
+                            </span>:
+                            <span class="string">
+                                "Cadastro"
+                            </span>,
+                            <span class="string">
+                                "aprovado"
+                            </span>:
+                            <span class="keyword">
+                                False
+                            </span>
+                            },
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            {
+                            <span class="string">
+                                "nome"
+                            </span>:
+                            <span class="string">
+                                "Logout"
+                            </span>,
+                            <span class="string">
+                                "aprovado"
+                            </span>:
+                            <span class="keyword">
+                                True
+                            </span>
+                            }
+
+                        </div>
+
+
+                        <div>
+
+                            ]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            aprovados = [
+
+                            teste[
+                            <span class="string">
+                                "nome"
+                            </span>]
+
+                            <span class="keyword">
+                                for
+                            </span>
+
+                            teste
+
+                            <span class="keyword">
+                                in
+                            </span>
+
+                            testes
+
+                            <span class="keyword">
+                                if
+                            </span>
+
+                            teste[
+                            <span class="string">
+                                "aprovado"
+                            </span>]
+
+                            ]
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(aprovados)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        ['Login', 'Logout']
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Pense como QA:</strong>
+
+                <br><br>
+
+                Imagine uma lista contendo dezenas ou centenas
+                de resultados de testes.
+
+                <br><br>
+
+                Compreensões podem ajudar a filtrar rapidamente
+                os casos aprovados, extrair informações específicas
+                ou transformar os dados para uma nova estrutura.
+
+            </div>
+
+
+            <!-- =================================================
+                 CUIDADOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ Evitando exageros
+
+            </h3>
+
+
+            <p class="description">
+
+                Compreensões deixam o código compacto, mas isso
+                não significa que devemos colocar toda a lógica
+                possível dentro de uma única linha.
+
+                Se uma compreensão ficar difícil de entender,
+                utilizar um <code>for</code> tradicional pode ser
+                uma escolha melhor.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Boa prática:</strong>
+
+                <br><br>
+
+                Prefira código que seja fácil de ler e entender.
+
+                <br><br>
+
+                Uma linha curta não é necessariamente melhor
+                do que algumas linhas bem organizadas.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma lista chamada
+                <code>notas</code> contendo:
+
+                <code>5, 7, 8, 4, 10, 6</code>.
+
+                Depois:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Utilize uma <strong>list comprehension</strong>
+                    para criar uma lista somente com as notas
+                    maiores ou iguais a 7.
+                </li>
+
+                <li>
+                    Utilize uma <strong>dictionary comprehension</strong>
+                    para criar um dicionário onde a nota seja a
+                    chave e seu dobro seja o valor.
+                </li>
+
+                <li>
+                    Utilize uma <strong>set comprehension</strong>
+                    para criar um conjunto contendo o dobro de
+                    cada nota.
+                </li>
+
+            </ul>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        desafio.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            notas =
+                            [5, 7, 8, 4, 10, 6]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            aprovadas = [
+
+                            nota
+
+                            <span class="keyword">
+                                for
+                            </span>
+
+                            nota
+
+                            <span class="keyword">
+                                in
+                            </span>
+
+                            notas
+
+                            <span class="keyword">
+                                if
+                            </span>
+
+                            nota &gt;= 7
+
+                            ]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            dobro = {
+
+                            nota: nota * 2
+
+                            <span class="keyword">
+                                for
+                            </span>
+
+                            nota
+
+                            <span class="keyword">
+                                in
+                            </span>
+
+                            notas
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            valores_unicos = {
+
+                            nota * 2
+
+                            <span class="keyword">
+                                for
+                            </span>
+
+                            nota
+
+                            <span class="keyword">
+                                in
+                            </span>
+
+                            notas
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • <strong>List comprehension</strong> cria listas
+                de forma compacta.<br>
+
+                • A estrutura básica é
+                <code>[expressão for item in sequência]</code>.<br>
+
+                • Podemos utilizar <code>if</code> para filtrar
+                elementos.<br>
+
+                • <strong>Dictionary comprehension</strong> cria
+                dicionários utilizando
+                <code>chave: valor</code>.<br>
+
+                • <strong>Set comprehension</strong> cria conjuntos
+                e elimina valores duplicados.<br>
+
+                • Compreensões são úteis para transformar e
+                filtrar dados.<br>
+
+                • Em automação de QA, elas podem facilitar o
+                tratamento de listas de resultados, dados de
+                testes e informações extraídas de sistemas.<br>
+
+                • Clareza e legibilidade devem ser priorizadas
+                quando uma compreensão ficar muito complexa.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

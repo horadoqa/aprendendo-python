@@ -1,11 +1,961 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+    <title>Hora do QA | Aprendendo Python</title>
 </head>
+
 <body>
-    <h1>Página 3</h1>
+
+    <!-- =====================================================
+     HEADER
+====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+     CONTEÚDO
+====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+         PAGINAÇÃO
+    ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">3</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+         AULA
+    ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 03
+
+            </span>
+
+
+            <h2>
+
+                Operadores em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como utilizar
+                <strong>operadores</strong> em Python para realizar
+                cálculos, comparar valores, combinar condições e
+                atribuir valores às variáveis.
+
+                Também veremos a <strong>precedência</strong>,
+                que determina a ordem em que as operações são
+                executadas.
+
+            </p>
+
+
+            <!-- =================================================
+             CONCEITO 1
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                ➕ Operadores aritméticos
+
+            </h3>
+
+            <p class="description">
+
+                Os operadores aritméticos são utilizados para
+                realizar operações matemáticas com números.
+
+            </p>
+
+            <ul>
+
+                <li>
+                    <strong>+</strong> — adição.
+                </li>
+
+                <li>
+                    <strong>-</strong> — subtração.
+                </li>
+
+                <li>
+                    <strong>*</strong> — multiplicação.
+                </li>
+
+                <li>
+                    <strong>/</strong> — divisão.
+                </li>
+
+                <li>
+                    <strong>//</strong> — divisão inteira.
+                </li>
+
+                <li>
+                    <strong>%</strong> — resto da divisão.
+                </li>
+
+                <li>
+                    <strong>**</strong> — exponenciação.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                Os operadores aritméticos permitem que o programa
+                realize cálculos matemáticos diretamente no código.
+
+            </div>
+
+
+            <!-- =================================================
+             CÓDIGO ARITMÉTICOS
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                💻 Código
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        operadores_aritmeticos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            a = 10
+                        </div>
+
+                        <div>
+                            b = 3
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(a + b)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(a - b)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(a * b)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(a / b)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(a % b)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(a ** b)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             RESULTADO
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        13
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        7
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        30
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        3.3333333333333335
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        1
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        1000
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 2
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ Operadores de comparação
+
+            </h3>
+
+            <p class="description">
+
+                Os operadores de comparação são utilizados para
+                comparar valores.
+
+                O resultado de uma comparação sempre será um valor
+                booleano: <code>True</code> ou <code>False</code>.
+
+            </p>
+
+            <ul>
+
+                <li>
+                    <strong>==</strong> — igual a.
+                </li>
+
+                <li>
+                    <strong>!=</strong> — diferente de.
+                </li>
+
+                <li>
+                    <strong>&gt;</strong> — maior que.
+                </li>
+
+                <li>
+                    <strong>&lt;</strong> — menor que.
+                </li>
+
+                <li>
+                    <strong>&gt;=</strong> — maior ou igual a.
+                </li>
+
+                <li>
+                    <strong>&lt;=</strong> — menor ou igual a.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Atenção:</strong>
+
+                O operador <code>==</code> é usado para comparar
+                valores.
+
+                Já o operador <code>=</code> é usado para atribuir
+                um valor a uma variável.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        comparacao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            idade = 20
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(idade == 20)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(idade != 18)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(idade &gt; 18)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(idade &lt; 18)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(idade &gt;= 20)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 3
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Operadores lógicos
+
+            </h3>
+
+            <p class="description">
+
+                Os operadores lógicos permitem combinar ou inverter
+                condições.
+
+            </p>
+
+            <ul>
+
+                <li>
+                    <strong>and</strong> — retorna
+                    <code>True</code> quando todas as condições
+                    forem verdadeiras.
+                </li>
+
+                <li>
+                    <strong>or</strong> — retorna
+                    <code>True</code> quando pelo menos uma
+                    condição for verdadeira.
+                </li>
+
+                <li>
+                    <strong>not</strong> — inverte o valor lógico
+                    de uma condição.
+                </li>
+
+            </ul>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        logicos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            idade = 25
+                        </div>
+
+                        <div>
+                            tem_carteira = <span class="keyword">True</span>
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            idade &gt;= 18
+                            <span class="keyword">and</span>
+                            tem_carteira)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            idade &lt; 18
+                            <span class="keyword">or</span>
+                            tem_carteira)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            <span class="keyword">not</span>
+                            tem_carteira)
+                        </div>
+
+                        <div>
+                            <span class="comment">
+                                # Resultado: True, True, False
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 4
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Operadores de atribuição
+
+            </h3>
+
+            <p class="description">
+
+                Os operadores de atribuição são utilizados para
+                armazenar valores em variáveis.
+
+                Além do operador <code>=</code>, Python possui
+                operadores que permitem realizar uma operação e
+                atribuir o resultado à própria variável.
+
+            </p>
+
+            <ul>
+
+                <li>
+                    <strong>=</strong> — atribuição.
+                </li>
+
+                <li>
+                    <strong>+=</strong> — adiciona e atribui.
+                </li>
+
+                <li>
+                    <strong>-=</strong> — subtrai e atribui.
+                </li>
+
+                <li>
+                    <strong>*=</strong> — multiplica e atribui.
+                </li>
+
+                <li>
+                    <strong>/=</strong> — divide e atribui.
+                </li>
+
+            </ul>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        atribuicao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            pontos = 10
+                        </div>
+
+                        <div>
+                            pontos += 5
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(pontos)
+                        </div>
+
+                        <div>
+                            pontos -= 3
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(pontos)
+                        </div>
+
+                        <div>
+                            pontos *= 2
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 5
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                📐 Precedência de operadores
+
+            </h3>
+
+            <p class="description">
+
+                Quando uma expressão possui vários operadores,
+                Python segue uma ordem de prioridade para decidir
+                qual operação será executada primeiro.
+
+            </p>
+
+            <p class="description">
+
+                De forma simplificada, podemos lembrar desta ordem:
+
+            </p>
+
+            <ol>
+
+                <li>
+                    <strong>()</strong> — parênteses.
+                </li>
+
+                <li>
+                    <strong>**</strong> — exponenciação.
+                </li>
+
+                <li>
+                    <strong>*, /, //, %</strong> — multiplicação
+                    e divisões.
+                </li>
+
+                <li>
+                    <strong>+, -</strong> — adição e subtração.
+                </li>
+
+                <li>
+                    Comparações e operadores lógicos.
+                </li>
+
+            </ol>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                Na expressão
+                <code>10 + 2 * 3</code>,
+                a multiplicação acontece primeiro.
+
+                Portanto, o resultado será
+                <code>16</code>.
+
+                Podemos utilizar parênteses para deixar a ordem
+                explícita:
+
+                <code>(10 + 2) * 3</code> resulta em
+                <code>36</code>.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        precedencia.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            resultado1 = 10 + 2 * 3
+                        </div>
+
+                        <div>
+                            resultado2 = (10 + 2) * 3
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(resultado1)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(resultado2)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             RESULTADO PRECEDÊNCIA
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        16
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        36
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             RESUMO
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Operadores aritméticos realizam cálculos.<br>
+                • Operadores de comparação verificam relações entre valores.<br>
+                • Comparações retornam <code>True</code> ou <code>False</code>.<br>
+                • <code>and</code>, <code>or</code> e <code>not</code> são operadores lógicos.<br>
+                • Operadores de atribuição armazenam e atualizam valores.<br>
+                • <code>==</code> compara valores, enquanto <code>=</code> atribui valores.<br>
+                • A precedência determina a ordem das operações.<br>
+                • Parênteses podem ser usados para definir explicitamente a ordem de execução.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+         PAGINAÇÃO INFERIOR
+    ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+     FOOTER
+====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+    <script src="../assets/script.js"></script>
+
+
 </body>
+
 </html>

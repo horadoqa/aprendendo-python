@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">27</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 27
+
+            </span>
+
+
+            <h2>
+
+                Trabalhando com JSON em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender a trabalhar com
+                arquivos e dados no formato <strong>JSON</strong>.
+
+                Vamos conhecer o módulo <strong>json</strong>,
+                aprender a utilizar <strong>json.load()</strong>
+                e <strong>json.dump()</strong>, além de entender
+                por que JSON é tão utilizado na comunicação entre
+                aplicações e <strong>APIs</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 O que é JSON?
+
+            </h3>
+
+
+            <p class="description">
+
+                JSON significa <strong>JavaScript Object
+                    Notation</strong>.
+
+                Apesar do nome fazer referência ao JavaScript,
+                JSON é um formato muito utilizado para trocar
+                dados entre diferentes sistemas e linguagens
+                de programação.
+
+            </p>
+
+
+            <p class="description">
+
+                Os dados são organizados principalmente utilizando
+                estruturas semelhantes a dicionários e listas
+                do Python.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Um objeto JSON pode representar um usuário:
+
+                <br><br>
+
+                <code>
+                    {<br>
+                    &nbsp;&nbsp;"nome": "Maria",<br>
+                    &nbsp;&nbsp;"idade": 25,<br>
+                    &nbsp;&nbsp;"ativo": true<br>
+                    }
+                </code>
+
+            </div>
+
+
+            <!-- =================================================
+                 JSON X PYTHON
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐍 JSON e Python
+
+            </h3>
+
+
+            <p class="description">
+
+                Muitas estruturas do JSON possuem equivalentes
+                diretos em Python.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Objeto JSON → <strong>dicionário</strong>
+                    em Python.
+                </li>
+
+                <li>
+                    Array JSON → <strong>lista</strong>
+                    em Python.
+                </li>
+
+                <li>
+                    String JSON → <strong>str</strong>
+                    em Python.
+                </li>
+
+                <li>
+                    Número JSON → <strong>int</strong> ou
+                    <strong>float</strong>.
+                </li>
+
+                <li>
+                    <code>true</code> / <code>false</code> →
+                    <strong>True</strong> / <strong>False</strong>.
+                </li>
+
+                <li>
+                    <code>null</code> → <strong>None</strong>.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Atenção:</strong>
+
+                <br><br>
+
+                JSON utiliza <code>true</code>,
+                <code>false</code> e <code>null</code>.
+
+                <br><br>
+
+                Em Python, utilizamos
+                <code>True</code>, <code>False</code> e
+                <code>None</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 MÓDULO JSON
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐍 Importando o módulo <code>json</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Python possui um módulo chamado
+                <strong>json</strong> que fornece ferramentas
+                para trabalhar com esse formato.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        importacao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            json
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 JSON LOAD
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📖 Lendo JSON com <code>json.load()</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando temos um arquivo JSON salvo no computador,
+                podemos utilizar <strong>json.load()</strong>
+                para ler seu conteúdo e transformar os dados
+                em estruturas Python.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, imagine que o arquivo
+                <code>usuario.json</code> possui:
+
+            </p>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    usuario.json
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        {
+
+                    </div>
+
+                    <div>
+
+                        &nbsp;&nbsp;"nome": "Maria",
+
+                    </div>
+
+                    <div>
+
+                        &nbsp;&nbsp;"idade": 25,
+
+                    </div>
+
+                    <div>
+
+                        &nbsp;&nbsp;"email": "maria@email.com"
+
+                    </div>
+
+                    <div>
+
+                        }
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos ler esse arquivo com
+                <code>json.load()</code>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        ler_json.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            json
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "usuario.json"
+                            </span>,
+                            <span class="string">
+                                "r"
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            usuario =
+                            json.<span class="function">
+                                load
+                            </span>(arquivo)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            usuario[
+                            <span class="string">
+                                "nome"
+                            </span>])
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Maria
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                <code>json.load()</code> é utilizado para ler
+                JSON a partir de um <strong>arquivo</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 JSON DUMP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💾 Salvando JSON com <code>json.dump()</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Para salvar dados Python em um arquivo JSON,
+                podemos utilizar <strong>json.dump()</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Primeiro criamos uma estrutura Python e depois
+                utilizamos <code>json.dump()</code> para gravá-la
+                no arquivo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        salvar_json.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            json
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            usuario = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "nome"
+                            </span>:
+                            <span class="string">
+                                "Maria"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "idade"
+                            </span>: 25
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "usuario.json"
+                            </span>,
+                            <span class="string">
+                                "w"
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora adicionamos o <code>json.dump()</code>
+                dentro do bloco:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        dump.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            json
+
+                        </div>
+
+
+                        <div>
+
+                            usuario = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "nome"
+                            </span>:
+                            <span class="string">
+                                "Maria"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "idade"
+                            </span>: 25
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "usuario.json"
+                            </span>,
+                            <span class="string">
+                                "w"
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            json.<span class="function">
+                                dump
+                            </span>(
+                            usuario,
+                            arquivo)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                <code>json.dump()</code> é utilizado para salvar
+                dados JSON em um <strong>arquivo</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 INDENT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✨ Deixando o JSON organizado
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar o parâmetro
+                <strong>indent</strong> para deixar o JSON
+                formatado e mais fácil de ler.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        json_formatado.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            json
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            dados = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "nome"
+                            </span>:
+                            <span class="string">
+                                "Maria"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "idade"
+                            </span>: 25
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            json.<span class="function">
+                                dumps
+                            </span>(
+                            dados,
+                            indent=4))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+                        {
+                    </div>
+
+                    <div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"nome": "Maria",
+                    </div>
+
+                    <div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"idade": 25
+                    </div>
+
+                    <div>
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 LOAD X DUMP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 <code>load()</code> x <code>dump()</code>
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 Uma forma fácil de lembrar:</strong>
+
+                <br><br>
+
+                <code>load()</code> → carrega JSON de um
+                <strong>arquivo</strong> para Python.
+
+                <br><br>
+
+                <code>dump()</code> → grava dados Python em um
+                <strong>arquivo JSON</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 APIs
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌐 APIs e JSON
+
+            </h3>
+
+
+            <p class="description">
+
+                JSON é um dos formatos mais utilizados para
+                transportar dados entre aplicações.
+
+                Por isso, ele aparece frequentemente quando
+                trabalhamos com <strong>APIs</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Uma API pode receber uma requisição e devolver
+                uma resposta contendo dados em JSON.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo de resposta de uma API:</strong>
+
+                <br><br>
+
+                <code>
+                    {<br>
+                    &nbsp;&nbsp;"id": 101,<br>
+                    &nbsp;&nbsp;"nome": "Maria",<br>
+                    &nbsp;&nbsp;"email": "maria@email.com",<br>
+                    &nbsp;&nbsp;"ativo": true<br>
+                    }
+                </code>
+
+            </div>
+
+
+            <!-- =================================================
+                 JSON EM TESTES DE API
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 JSON em testes de API
+
+            </h3>
+
+
+            <p class="description">
+
+                Para quem trabalha com QA, JSON é especialmente
+                importante porque APIs frequentemente utilizam
+                esse formato para enviar e receber dados.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos analisar uma resposta JSON e verificar
+                se os valores retornados pela API estão de acordo
+                com o esperado.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        validar_resposta.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            resposta = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "status"
+                            </span>:
+                            <span class="string">
+                                "aprovado"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "usuario"
+                            </span>:
+                            <span class="string">
+                                "Maria"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                assert
+                            </span>
+                            resposta[
+                            <span class="string">
+                                "status"
+                            </span>] ==
+                            <span class="string">
+                                "aprovado"
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 No QA:</strong>
+
+                <br><br>
+
+                JSON pode aparecer em:
+
+                <br><br>
+
+                • Requisições de APIs.<br>
+
+                • Respostas de APIs.<br>
+
+                • Dados enviados no corpo de uma requisição.<br>
+
+                • Arquivos de configuração.<br>
+
+                • Massa de dados para testes.<br>
+
+                • Automação de testes de API.
+
+            </div>
+
+
+            <!-- =================================================
+                 LOAD E DUMP PRÁTICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔧 Exemplo prático completo
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos combinar leitura e escrita para carregar
+                um arquivo JSON, alterar seus dados e salvar
+                novamente o resultado.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        atualizar_usuario.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            json
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "usuario.json"
+                            </span>,
+                            <span class="string">
+                                "r"
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            usuario =
+                            json.<span class="function">
+                                load
+                            </span>(arquivo)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            usuario[
+                            <span class="string">
+                                "ativo"
+                            </span>] =
+                            <span class="keyword">
+                                True
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "usuario.json"
+                            </span>,
+                            <span class="string">
+                                "w"
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            json.<span class="function">
+                                dump
+                            </span>(
+                            usuario,
+                            arquivo,
+                            indent=4)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Usuário atualizado!"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um arquivo chamado
+                <code>produtos.json</code> contendo uma lista
+                de produtos.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • Crie pelo menos três produtos.<br>
+
+                • Cada produto deve possuir
+                <code>nome</code> e <code>preco</code>.<br>
+
+                • Utilize <code>json.dump()</code> para salvar
+                os dados.<br>
+
+                • Depois, utilize <code>json.load()</code> para
+                ler o arquivo.<br>
+
+                • Percorra os produtos utilizando um
+                <code>for</code>.<br>
+
+                • Mostre o nome e o preço de cada produto.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • JSON é um formato muito utilizado para troca
+                de dados entre sistemas.<br>
+
+                • O módulo <code>json</code> permite trabalhar
+                com JSON em Python.<br>
+
+                • <code>json.load()</code> lê JSON a partir
+                de um arquivo.<br>
+
+                • <code>json.dump()</code> salva dados em um
+                arquivo JSON.<br>
+
+                • Objetos JSON são semelhantes a dicionários
+                Python.<br>
+
+                • Arrays JSON são semelhantes a listas
+                Python.<br>
+
+                • <code>true</code>, <code>false</code> e
+                <code>null</code> correspondem a
+                <code>True</code>, <code>False</code> e
+                <code>None</code> em Python.<br>
+
+                • JSON é muito utilizado em APIs.<br>
+
+                • Em QA, JSON é importante para testes de APIs,
+                dados de teste e automações.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

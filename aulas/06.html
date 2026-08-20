@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+     CONTEÚDO
+====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+         PAGINAÇÃO
+    ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">6</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+         AULA
+    ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 06
+
+            </span>
+
+
+            <h2>
+
+                Repetição em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como executar um
+                determinado trecho de código várias vezes utilizando
+                estruturas de <strong>repetição</strong>.
+
+                Vamos conhecer os comandos <strong>while</strong>,
+                <strong>for</strong> e <strong>range()</strong>,
+                além de aprender como controlar um loop utilizando
+                <strong>break</strong> e <strong>continue</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+             CONCEITO 1
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 O comando while
+
+            </h3>
+
+            <p class="description">
+
+                O comando <strong>while</strong> repete um bloco de
+                código enquanto uma determinada condição for
+                verdadeira.
+
+                Ele é muito útil quando não sabemos exatamente
+                quantas vezes uma ação deverá ser repetida.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Pense no <code>while</code> como:
+
+                <br><br>
+
+                <strong>"Enquanto esta condição for verdadeira,
+                    continue executando."</strong>
+
+            </div>
+
+
+            <!-- =================================================
+             CÓDIGO WHILE
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                💻 Código
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        while.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            contador = 1
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">while</span>
+                            contador &lt;= 5:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(contador)
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            contador += 1
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="comment">
+                                # O loop termina quando contador chegar a 6
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             RESULTADO
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        1
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        2
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        3
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        4
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        5
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Cuidado com loops infinitos:</strong>
+
+                <br><br>
+
+                É importante garantir que a condição do
+                <code>while</code> eventualmente se torne falsa.
+
+                No exemplo acima, <code>contador += 1</code>
+                faz com que o contador avance até que o loop
+                seja encerrado.
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 2
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🔁 O comando for
+
+            </h3>
+
+            <p class="description">
+
+                O comando <strong>for</strong> é utilizado para
+                percorrer uma sequência de valores.
+
+                Ele é especialmente útil quando sabemos quantas
+                vezes queremos repetir uma determinada operação
+                ou quando precisamos percorrer uma coleção de
+                elementos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        for.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            nomes = [
+                            <span class="string">"Ana"</span>,
+                            <span class="string">"João"</span>,
+                            <span class="string">"Maria"</span>
+                            ]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">for</span>
+                            nome <span class="keyword">in</span> nomes:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(nome)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Ana
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        João
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Maria
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                O <code>for</code> pega cada elemento da sequência,
+                um de cada vez, e executa o bloco de código para
+                aquele elemento.
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 3
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🔢 range()
+
+            </h3>
+
+
+            <p class="description">
+
+                A função <strong>range()</strong> gera uma sequência
+                de números que pode ser utilizada principalmente
+                com o <code>for</code>.
+
+                Ela é muito útil quando queremos repetir uma ação
+                uma quantidade determinada de vezes.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Atenção:</strong>
+
+                <br><br>
+
+                O valor final informado no <code>range()</code>
+                não é incluído.
+
+                Por exemplo,
+                <code>range(5)</code> gera os valores
+                <code>0</code>, <code>1</code>, <code>2</code>,
+                <code>3</code> e <code>4</code>.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        range.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            <span class="keyword">for</span>
+                            numero <span class="keyword">in</span>
+                            <span class="function">range</span>(5):
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(numero)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="comment">
+                                # Começa em 0 e termina antes de 5
+                            </span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="comment">
+                                # Resultado: 0, 1, 2, 3, 4
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             RANGE COM INÍCIO E FIM
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 range() com início e fim
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos informar um valor inicial e um
+                valor final.
+
+                Nesse caso, a sequência começa no primeiro valor
+                e termina antes do segundo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        range_inicio.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            <span class="keyword">for</span>
+                            numero <span class="keyword">in</span>
+                            <span class="function">range</span>(1, 6):
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(numero)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="comment">
+                                # Resultado: 1, 2, 3, 4, 5
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             RANGE COM PASSO
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                👣 range() com passo
+
+            </h3>
+
+
+            <p class="description">
+
+                O terceiro parâmetro do <code>range()</code> permite
+                definir o <strong>passo</strong> da sequência.
+
+                Assim podemos, por exemplo, contar de dois em dois.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        range_passo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            <span class="keyword">for</span>
+                            numero <span class="keyword">in</span>
+                            <span class="function">range</span>(0, 10, 2):
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(numero)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="comment">
+                                # Resultado: 0, 2, 4, 6, 8
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 4
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🛑 break
+
+            </h3>
+
+
+            <p class="description">
+
+                O comando <strong>break</strong> interrompe
+                imediatamente o loop.
+
+                Ele é útil quando encontramos uma condição que
+                indica que não precisamos continuar a repetição.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        break.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            <span class="keyword">for</span>
+                            numero <span class="keyword">in</span>
+                            <span class="function">range</span>(1, 11):
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">if</span>
+                            numero == 5:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">break</span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(numero)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="comment">
+                                # O loop termina ao encontrar o 5
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        1
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        2
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        3
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        4
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 5
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                ⏭️ continue
+
+            </h3>
+
+
+            <p class="description">
+
+                O comando <strong>continue</strong> não encerra
+                o loop.
+
+                Ele apenas interrompe a execução daquela iteração
+                e faz o programa passar para a próxima repetição.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        continue.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            <span class="keyword">for</span>
+                            numero <span class="keyword">in</span>
+                            <span class="function">range</span>(1, 6):
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">if</span>
+                            numero == 3:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">continue</span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(numero)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="comment">
+                                # O número 3 é ignorado
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        1
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        2
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        4
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        5
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             WHILE + INPUT
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🎮 Programa interativo com while
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora vamos utilizar um <code>while</code> para
+                criar um pequeno programa interativo.
+
+                O programa continuará perguntando a senha até que
+                o usuário informe a senha correta.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        senha.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            senha = <span class="string">""</span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">while</span>
+                            senha != <span class="string">"python123"</span>:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            senha =
+                            <span class="function">input</span>(
+                            <span class="string">"Digite a senha: "</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            <span class="string">"Acesso permitido!"</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="comment">
+                                # O loop termina quando a senha estiver correta
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Observe:</strong>
+
+                <br><br>
+
+                O <code>while</code> verifica a condição antes de
+                cada repetição.
+
+                Enquanto a senha for diferente de
+                <code>"python123"</code>, o programa continuará
+                solicitando uma nova tentativa.
+
+            </div>
+
+
+            <!-- =================================================
+             PROGRAMA COM FOR
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Pequeno programa com for
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar o <code>for</code> para executar
+                uma tarefa uma quantidade determinada de vezes.
+
+                No exemplo abaixo, o programa simula cinco tentativas
+                de execução de um teste.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        teste.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            <span class="keyword">for</span>
+                            tentativa <span class="keyword">in</span>
+                            <span class="function">range</span>(1, 6):
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            f<span class="string">"Executando teste {tentativa}"</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            <span class="string">"Testes finalizados."</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="comment">
+                                # São realizadas 5 execuções
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             RESULTADO
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Executando teste 1
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Executando teste 2
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Executando teste 3
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Executando teste 4
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Executando teste 5
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Testes finalizados.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             BREAK X CONTINUE
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ break x continue
+
+            </h3>
+
+
+            <p class="description">
+
+                É importante entender a diferença entre os dois
+                comandos.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🛑 break</strong>
+
+                <br><br>
+
+                Encerra completamente o loop.
+
+                <br><br>
+
+                <strong>⏭️ continue</strong>
+
+                <br><br>
+
+                Pula a iteração atual e continua com a próxima
+                repetição.
+
+            </div>
+
+
+            <!-- =================================================
+             DESAFIO
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa que peça ao usuário para informar
+                números.
+
+                O programa deve continuar solicitando números até
+                que o usuário digite <code>0</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                Regras:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Se o número for positivo, mostre
+                    <strong>"Número positivo"</strong>.
+                </li>
+
+                <li>
+                    Se o número for negativo, mostre
+                    <strong>"Número negativo"</strong>.
+                </li>
+
+                <li>
+                    Se o usuário digitar <code>0</code>, utilize
+                    <strong>break</strong> para encerrar o programa.
+                </li>
+
+                <li>
+                    Utilize <strong>while</strong> para controlar
+                    a repetição.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                Comece com:
+
+                <br><br>
+
+                <code>while True:</code>
+
+                <br><br>
+
+                Depois, receba o número com
+                <code>input()</code> e utilize as condições para
+                decidir quando continuar ou quando utilizar
+                <code>break</code>.
+
+            </div>
+
+
+            <!-- =================================================
+             RESUMO
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • <code>while</code> repete um código enquanto uma
+                condição for verdadeira.<br>
+
+                • <code>for</code> percorre elementos de uma
+                sequência.<br>
+
+                • <code>range()</code> cria uma sequência de números
+                para ser utilizada em repetições.<br>
+
+                • <code>range()</code> não inclui o valor final.<br>
+
+                • Podemos definir início, fim e passo no
+                <code>range()</code>.<br>
+
+                • <code>break</code> encerra completamente um loop.<br>
+
+                • <code>continue</code> pula a iteração atual e
+                continua o loop.<br>
+
+                • É importante evitar loops infinitos quando
+                utilizamos <code>while</code>.<br>
+
+                • Estruturas de repetição permitem automatizar
+                tarefas que precisam ser executadas várias vezes.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+         PAGINAÇÃO INFERIOR
+    ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+     FOOTER
+====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

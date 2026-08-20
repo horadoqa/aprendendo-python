@@ -1,0 +1,2077 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">66</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 66
+
+            </span>
+
+
+            <h2>
+
+                Avaliação de modelos
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos aprender como descobrir se um
+                modelo de <strong>Machine Learning</strong> está
+                realmente funcionando bem.
+
+                Para isso, vamos conhecer métricas muito utilizadas
+                em problemas de classificação:
+
+                <strong>Accuracy</strong>,
+                <strong>Precision</strong>,
+                <strong>Recall</strong> e
+                <strong>F1-score</strong>.
+
+                Também vamos conhecer o conceito de
+                <strong>Cross-validation</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Aprender a avaliar modelos de classificação usando
+                diferentes métricas e entender por que uma única
+                métrica nem sempre é suficiente.
+
+            </div>
+
+
+            <!-- =================================================
+                 POR QUE AVALIAR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🤔 Por que avaliar um modelo?
+
+            </h3>
+
+
+            <p class="description">
+
+                Treinar um modelo não significa que ele seja bom.
+
+                Um algoritmo pode fazer previsões incorretas,
+                memorizar os dados de treinamento ou apresentar um
+                desempenho ruim em determinados tipos de exemplos.
+
+            </p>
+
+
+            <p class="description">
+
+                Por isso, precisamos utilizar métricas para comparar
+                as previsões do modelo com os resultados reais.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Pense assim:</strong>
+
+                <br><br>
+
+                O modelo faz uma previsão.
+
+                <br><br>
+
+                Nós comparamos essa previsão com a resposta correta.
+
+                <br><br>
+
+                Quanto melhor for a correspondência entre as
+                previsões e os resultados reais, melhor tende a ser
+                o desempenho do modelo.
+
+            </div>
+
+
+            <!-- =================================================
+                 MATRIZ DE CONFUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 Matriz de confusão
+
+            </h3>
+
+
+            <p class="description">
+
+                Antes de estudar as métricas, precisamos entender
+                quatro conceitos importantes:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    <strong>Verdadeiro Positivo (TP)</strong> —
+                    o modelo previu positivo e estava correto.
+
+                </li>
+
+                <li>
+
+                    <strong>Verdadeiro Negativo (TN)</strong> —
+                    o modelo previu negativo e estava correto.
+
+                </li>
+
+                <li>
+
+                    <strong>Falso Positivo (FP)</strong> —
+                    o modelo previu positivo, mas estava errado.
+
+                </li>
+
+                <li>
+
+                    <strong>Falso Negativo (FN)</strong> —
+                    o modelo previu negativo, mas estava errado.
+
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>📊 Exemplo:</strong>
+
+                <br><br>
+
+                Imagine um modelo que detecta spam.
+
+                <br><br>
+
+                <strong>TP:</strong> identificou um spam como spam.<br>
+
+                <strong>TN:</strong> identificou um e-mail normal como
+                normal.<br>
+
+                <strong>FP:</strong> marcou um e-mail normal como
+                spam.<br>
+
+                <strong>FN:</strong> deixou passar um spam como se
+                fosse normal.
+
+            </div>
+
+
+            <!-- =================================================
+                 MATRIZ
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 Visualizando a matriz de confusão
+
+            </h3>
+
+
+            <div class="confusion-matrix">
+
+                <div class="matrix-title">
+                    Matriz de Confusão
+                </div>
+
+                <div class="matrix-grid">
+
+                    <div></div>
+
+                    <div class="matrix-header">
+                        Previsto Positivo
+                    </div>
+
+                    <div class="matrix-header">
+                        Previsto Negativo
+                    </div>
+
+
+                    <div class="matrix-header">
+                        Real Positivo
+                    </div>
+
+                    <div class="matrix-cell true-positive">
+                        TP
+                        <span>
+                            Verdadeiro Positivo
+                        </span>
+                    </div>
+
+                    <div class="matrix-cell false-negative">
+                        FN
+                        <span>
+                            Falso Negativo
+                        </span>
+                    </div>
+
+
+                    <div class="matrix-header">
+                        Real Negativo
+                    </div>
+
+                    <div class="matrix-cell false-positive">
+                        FP
+                        <span>
+                            Falso Positivo
+                        </span>
+                    </div>
+
+                    <div class="matrix-cell true-negative">
+                        TN
+                        <span>
+                            Verdadeiro Negativo
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 Dica para memorizar:</strong>
+
+                <br><br>
+
+                <strong>Verdadeiro</strong> significa que a previsão
+                acertou.
+
+                <br>
+
+                <strong>Falso</strong> significa que a previsão
+                errou.
+
+                <br><br>
+
+                <strong>Positivo</strong> e
+                <strong>Negativo</strong> representam a classe
+                prevista.
+
+            </div>
+
+
+            <!-- =================================================
+                 ACCURACY
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 1. Accuracy
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>Accuracy</strong>, ou acurácia, representa a
+                proporção de previsões que o modelo acertou.
+
+            </p>
+
+
+            <p class="description">
+
+                A fórmula é:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Accuracy =
+                    (TP + TN) / (TP + TN + FP + FN)
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Por exemplo, se o modelo fez 100 previsões e acertou
+                90 delas, sua accuracy será:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        accuracy.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            acertos = 90
+
+                        </div>
+
+                        <div>
+
+                            total = 100
+
+                        </div>
+
+                        <div>
+
+                            accuracy = acertos / total
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        0.9
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Isso representa uma accuracy de
+                <strong>90%</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Cuidado:</strong>
+
+                <br><br>
+
+                Accuracy pode ser enganosa quando as classes estão
+                muito desbalanceadas.
+
+            </div>
+
+
+            <!-- =================================================
+                 CLASSES DESBALANCEADAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ Classes desbalanceadas
+
+            </h3>
+
+
+            <p class="description">
+
+                Imagine um conjunto com 1.000 exemplos:
+
+                <br><br>
+
+                • 990 são negativos.<br>
+                • 10 são positivos.
+
+            </p>
+
+
+            <p class="description">
+
+                Um modelo que sempre responder "negativo" acertaria
+                990 exemplos.
+
+                Sua accuracy seria de <strong>99%</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🚨 O problema:</strong>
+
+                <br><br>
+
+                Apesar dos 99% de accuracy, o modelo não conseguiu
+                identificar nenhum dos exemplos positivos.
+
+                Por isso, outras métricas podem ser mais úteis.
+
+            </div>
+
+
+            <!-- =================================================
+                 PRECISION
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 2. Precision
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>Precision</strong>, ou precisão, responde à
+                seguinte pergunta:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    "Entre tudo que o modelo classificou como
+                    positivo, quantos realmente eram positivos?"
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                A fórmula é:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Precision =
+                    TP / (TP + FP)
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                A precision é especialmente importante quando
+                queremos evitar muitos <strong>falsos positivos</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Um sistema de classificação de spam marcou
+                20 e-mails como spam.
+
+                <br><br>
+
+                Se 18 realmente eram spam:
+
+                <br><br>
+
+                Precision = 18 / 20 = 0.90
+
+                <br><br>
+
+                Ou seja, <strong>90%</strong> dos e-mails marcados
+                como spam realmente eram spam.
+
+            </div>
+
+
+            <!-- =================================================
+                 RECALL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 3. Recall
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>Recall</strong>, ou sensibilidade, responde
+                a outra pergunta:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    "Entre todos os positivos reais, quantos o modelo
+                    conseguiu encontrar?"
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                A fórmula é:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Recall =
+                    TP / (TP + FN)
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Recall é especialmente importante quando queremos
+                evitar muitos <strong>falsos negativos</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Imagine que existem 100 casos positivos.
+
+                O modelo conseguiu identificar 90 deles.
+
+                <br><br>
+
+                Recall = 90 / 100 = 0.90
+
+                <br><br>
+
+                Portanto, o modelo possui
+                <strong>90% de recall</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 PRECISION X RECALL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚔️ Precision x Recall
+
+            </h3>
+
+
+            <p class="description">
+
+                Precision e Recall analisam aspectos diferentes
+                do modelo.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Precision:</strong>
+
+                <br>
+
+                "Quando digo positivo, estou geralmente certo?"
+
+                <br><br>
+
+                <strong>Recall:</strong>
+
+                <br>
+
+                "Estou encontrando a maioria dos positivos?"
+
+            </div>
+
+
+            <p class="description">
+
+                Em alguns problemas, podemos aceitar mais falsos
+                positivos para evitar perder casos positivos.
+
+                Em outros, queremos reduzir ao máximo os falsos
+                positivos.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplos:</strong>
+
+                <br><br>
+
+                <strong>Detecção de doença:</strong>
+
+                Recall pode ser muito importante, pois não queremos
+                deixar passar muitos casos positivos.
+
+                <br><br>
+
+                <strong>Filtro de spam:</strong>
+
+                Precision pode ser importante para evitar que
+                e-mails legítimos sejam classificados como spam.
+
+            </div>
+
+
+            <!-- =================================================
+                 F1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ 4. F1-score
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>F1-score</strong> combina Precision e
+                Recall em uma única métrica.
+
+            </p>
+
+
+            <p class="description">
+
+                Ele utiliza a média harmônica entre as duas métricas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    F1 =
+                    2 × (Precision × Recall)
+                    /
+                    (Precision + Recall)
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                O F1 tende a ser alto quando Precision e Recall
+                também são altos.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Precision = 0.80
+
+                <br>
+
+                Recall = 0.60
+
+                <br><br>
+
+                O F1-score ficará entre esses valores, equilibrando
+                as duas métricas.
+
+            </div>
+
+
+            <!-- =================================================
+                 SCIKIT LEARN METRICS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐍 Métricas com Scikit-learn
+
+            </h3>
+
+
+            <p class="description">
+
+                O Scikit-learn possui funções prontas para calcular
+                essas métricas.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        metricas.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.metrics
+                            <span class="keyword">
+                                import
+                            </span>
+                            (
+
+                        </div>
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;accuracy_score,
+
+                        </div>
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;precision_score,
+
+                        </div>
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;recall_score,
+
+                        </div>
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;f1_score
+
+                        </div>
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            y_real = [1, 1, 0, 0, 1]
+
+                        </div>
+
+
+                        <div>
+
+                            y_pred = [1, 1, 0, 1, 0]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(
+                            accuracy_score(
+                            y_real,
+                            y_pred))
+
+                        </div>
+
+
+                        <div>
+
+                            print(
+                            precision_score(
+                            y_real,
+                            y_pred))
+
+                        </div>
+
+
+                        <div>
+
+                            print(
+                            recall_score(
+                            y_real,
+                            y_pred))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Também podemos calcular o F1-score:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        f1.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            f1 = f1_score(y_real, y_pred)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(f1)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CLASSIFICATION REPORT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📊 Classification Report
+
+            </h3>
+
+
+            <p class="description">
+
+                O Scikit-learn também possui uma função que reúne
+                várias métricas em um único relatório:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        classification_report.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.metrics
+                            <span class="keyword">
+                                import
+                            </span>
+                            classification_report
+
+                        </div>
+
+
+                        <div>
+
+                            print(
+                            classification_report(
+                            y_real,
+                            y_pred))
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        precision
+                        recall
+                        f1-score
+                        support
+
+                    </div>
+
+
+                    <div>
+
+                        0
+                        0.67
+                        1.00
+                        0.80
+                        2
+
+                    </div>
+
+
+                    <div>
+
+                        1
+                        1.00
+                        0.67
+                        0.80
+                        3
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O relatório apresenta as principais métricas para
+                cada classe, além de informações agregadas.
+
+            </p>
+
+
+            <!-- =================================================
+                 CROSS VALIDATION
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 5. Cross-validation
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora imagine que dividimos nossos dados em treino
+                e teste apenas uma vez.
+
+                Dependendo de quais exemplos caíram em cada grupo,
+                nossa avaliação pode variar.
+
+            </p>
+
+
+            <p class="description">
+
+                A <strong>Cross-validation</strong>, ou validação
+                cruzada, ajuda a obter uma avaliação mais robusta
+                utilizando diferentes divisões dos dados.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Ideia básica:</strong>
+
+                <br><br>
+
+                Em vez de fazer apenas uma divisão, os dados são
+                divididos em várias partes.
+
+                O modelo é treinado e avaliado várias vezes,
+                utilizando diferentes partes para validação.
+
+            </div>
+
+
+            <!-- =================================================
+                 K FOLD
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 K-Fold Cross-validation
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das estratégias mais conhecidas é a
+                <strong>K-Fold Cross-validation</strong>.
+
+                Imagine que temos cinco partes:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Fold 1 | Fold 2 | Fold 3 | Fold 4 | Fold 5
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Em cada rodada, uma parte é utilizada para validação
+                e as outras partes são utilizadas para treinamento.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Rodada 1</strong>
+
+                <br>
+
+                Treino: 2, 3, 4, 5
+
+                <br>
+
+                Validação: 1
+
+                <br><br>
+
+
+                <strong>Rodada 2</strong>
+
+                <br>
+
+                Treino: 1, 3, 4, 5
+
+                <br>
+
+                Validação: 2
+
+                <br><br>
+
+
+                <strong>Rodada 3</strong>
+
+                <br>
+
+                Treino: 1, 2, 4, 5
+
+                <br>
+
+                Validação: 3
+
+                <br><br>
+
+                E assim por diante.
+
+            </div>
+
+
+            <p class="description">
+
+                Ao final, podemos calcular a média dos resultados
+                obtidos nas diferentes rodadas.
+
+            </p>
+
+
+            <!-- =================================================
+                 CROSS VALIDAÇÃO CÓDIGO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💻 Cross-validation com Scikit-learn
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        cross_validation.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.model_selection
+                            <span class="keyword">
+                                import
+                            </span>
+                            cross_val_score
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.linear_model
+                            <span class="keyword">
+                                import
+                            </span>
+                            LogisticRegression
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            modelo = LogisticRegression()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            scores = cross_val_score(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            modelo,
+                            X,
+                            y,
+                            cv=5
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O parâmetro <code>cv=5</code> indica que estamos
+                utilizando cinco divisões.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        media.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            print(scores)
+
+                        </div>
+
+
+                        <div>
+
+                            media = scores.mean()
+
+                        </div>
+
+
+                        <div>
+
+                            print(media)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [0.90 0.85 0.95 0.90 0.90]
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Média: 0.90
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 Para lembrar:</strong>
+
+                <br><br>
+
+                Cross-validation ajuda a verificar se o desempenho
+                do modelo é consistente em diferentes divisões dos
+                dados.
+
+            </div>
+
+
+            <!-- =================================================
+                 COMPARAÇÃO DAS MÉTRICAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ Comparando as métricas
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Accuracy</strong>
+
+                <br>
+
+                Percentual geral de previsões corretas.
+
+                <br><br>
+
+
+                <strong>🎯 Precision</strong>
+
+                <br>
+
+                Entre os positivos previstos, quantos realmente
+                eram positivos?
+
+                <br><br>
+
+
+                <strong>🔎 Recall</strong>
+
+                <br>
+
+                Entre os positivos reais, quantos foram encontrados?
+
+                <br><br>
+
+
+                <strong>⚖️ F1-score</strong>
+
+                <br>
+
+                Equilíbrio entre Precision e Recall.
+
+                <br><br>
+
+
+                <strong>🔄 Cross-validation</strong>
+
+                <br>
+
+                Avalia o modelo em diferentes divisões dos dados.
+
+            </div>
+
+
+            <!-- =================================================
+                 QUANDO USAR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧭 Qual métrica escolher?
+
+            </h3>
+
+
+            <p class="description">
+
+                Não existe uma única métrica que seja sempre a
+                melhor.
+
+                A escolha depende do problema.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Accuracy</strong>
+
+                <br>
+
+                Pode ser adequada quando as classes estão
+                relativamente equilibradas e os erros têm
+                importância semelhante.
+
+                <br><br>
+
+
+                <strong>Precision</strong>
+
+                <br>
+
+                Útil quando falsos positivos são especialmente
+                problemáticos.
+
+                <br><br>
+
+
+                <strong>Recall</strong>
+
+                <br>
+
+                Útil quando falsos negativos são especialmente
+                problemáticos.
+
+                <br><br>
+
+
+                <strong>F1</strong>
+
+                <br>
+
+                Útil quando queremos equilibrar Precision e Recall.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO PRÁTICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏥 Exemplo prático: diagnóstico
+
+            </h3>
+
+
+            <p class="description">
+
+                Imagine um modelo que tenta identificar pacientes
+                que podem possuir determinada doença.
+
+            </p>
+
+
+            <p class="description">
+
+                Nesse caso, um <strong>falso negativo</strong> pode
+                ser especialmente preocupante:
+
+                o modelo diz que o paciente não possui a doença,
+                quando na realidade possui.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Nesse cenário:</strong>
+
+                <br><br>
+
+                Podemos dar bastante atenção ao
+                <strong>Recall</strong>, pois queremos encontrar
+                uma grande proporção dos casos positivos.
+
+                <br><br>
+
+                Porém, isso não significa que devemos ignorar
+                Precision, Accuracy ou F1.
+
+            </div>
+
+
+            <!-- =================================================
+                 ERROS COMUNS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ Erros comuns
+
+            </h3>
+
+
+            <ul>
+
+                <li>
+
+                    Utilizar apenas Accuracy em qualquer problema.
+
+                </li>
+
+                <li>
+
+                    Ignorar o desbalanceamento das classes.
+
+                </li>
+
+                <li>
+
+                    Confundir Precision com Recall.
+
+                </li>
+
+                <li>
+
+                    Avaliar o modelo apenas nos dados de treinamento.
+
+                </li>
+
+                <li>
+
+                    Utilizar os dados de teste repetidamente para
+                    tomar decisões sobre o modelo.
+
+                </li>
+
+                <li>
+
+                    Considerar uma única divisão de dados como
+                    garantia de desempenho.
+
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 EXERCÍCIOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Exercícios
+
+            </h3>
+
+
+            <strong>Exercício 1 — Accuracy</strong>
+
+            <p class="description">
+
+                Crie duas listas contendo valores reais e previsões
+                de um classificador.
+
+                Calcule a Accuracy utilizando
+                <code>accuracy_score()</code>.
+
+            </p>
+
+
+            <strong>Exercício 2 — Precision e Recall</strong>
+
+            <p class="description">
+
+                Utilize as mesmas previsões e calcule:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Precision.
+                </li>
+
+                <li>
+                    Recall.
+                </li>
+
+                <li>
+                    F1-score.
+                </li>
+
+            </ul>
+
+
+            <strong>Exercício 3 — Classification Report</strong>
+
+            <p class="description">
+
+                Utilize <code>classification_report()</code> para
+                visualizar todas as principais métricas de uma
+                vez.
+
+            </p>
+
+
+            <strong>Exercício 4 — Cross-validation</strong>
+
+            <p class="description">
+
+                Crie um modelo de classificação e utilize
+                <code>cross_val_score()</code> com cinco folds.
+
+                Calcule a média das pontuações.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio:</strong>
+
+                <br><br>
+
+                Imagine que você está desenvolvendo um sistema
+                para detectar uma doença.
+
+                <br><br>
+
+                Qual métrica você priorizaria?
+
+                <br><br>
+
+                E se estivesse desenvolvendo um filtro de spam?
+
+                <br><br>
+
+                Explique suas escolhas pensando nos
+                <strong>falsos positivos</strong> e
+                <strong>falsos negativos</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • <strong>Accuracy</strong> mede a proporção geral
+                de acertos.<br>
+
+                • <strong>Precision</strong> mede a qualidade dos
+                positivos previstos.<br>
+
+                • <strong>Recall</strong> mede quantos positivos
+                reais foram encontrados.<br>
+
+                • <strong>F1-score</strong> combina Precision e
+                Recall.<br>
+
+                • <strong>TP</strong> representa verdadeiro
+                positivo.<br>
+
+                • <strong>TN</strong> representa verdadeiro
+                negativo.<br>
+
+                • <strong>FP</strong> representa falso positivo.<br>
+
+                • <strong>FN</strong> representa falso negativo.<br>
+
+                • <strong>Cross-validation</strong> permite avaliar
+                o modelo em diferentes divisões dos dados.<br>
+
+                • A métrica ideal depende do problema e do custo
+                de cada tipo de erro.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Agora você sabe avaliar modelos!
+
+            </h3>
+
+
+            <p class="description">
+
+                Um dos pontos mais importantes de Machine Learning
+                é entender que criar um modelo é apenas uma parte
+                do trabalho.
+
+                Precisamos saber se suas previsões são confiáveis
+                e quais tipos de erro ele está cometendo.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Próxima etapa:</strong>
+
+                <br><br>
+
+                Na próxima aula, vamos estudar como preparar e
+                transformar os dados antes do treinamento, incluindo
+                normalização, padronização e outras técnicas de
+                pré-processamento.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

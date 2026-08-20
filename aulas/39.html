@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">39</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 39
+
+            </span>
+
+
+            <h2>
+
+                Gerenciamento de dependências
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como gerenciar as
+                <strong>dependências</strong> de um projeto Python.
+
+                Vamos entender como utilizar o arquivo
+                <strong>requirements.txt</strong>, instalar pacotes
+                e controlar as versões das bibliotecas utilizadas
+                pelo projeto.
+
+            </p>
+
+
+            <p class="description">
+
+                O gerenciamento de dependências é essencial em
+                projetos profissionais, principalmente em automação
+                de testes, pois garante que diferentes ambientes
+                utilizem versões compatíveis das mesmas bibliotecas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Uma dependência é uma biblioteca ou pacote externo
+                que o seu projeto precisa para funcionar.
+
+                <br><br>
+
+                O gerenciamento dessas dependências permite saber
+                <strong>o que está instalado</strong>,
+                <strong>qual versão está sendo utilizada</strong>
+                e <strong>como reproduzir o ambiente</strong>
+                em outro computador.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 O que são dependências?
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando criamos um projeto Python, muitas vezes
+                precisamos utilizar bibliotecas que não fazem parte
+                diretamente do código que escrevemos.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, um projeto de automação de testes pode
+                utilizar bibliotecas como:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <code>pytest</code> — execução de testes.
+                </li>
+
+                <li>
+                    <code>requests</code> — comunicação HTTP.
+                </li>
+
+                <li>
+                    <code>selenium</code> — automação de navegadores.
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Essas bibliotecas são dependências do projeto.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Se um teste utiliza <code>pytest</code>, o projeto
+                depende do pytest para executar aquele teste.
+
+            </div>
+
+
+            <!-- =================================================
+                 INSTALAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📥 Instalação de pacotes
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>pip</strong> é utilizado para instalar
+                pacotes Python.
+
+                Podemos instalar uma biblioteca utilizando:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            python -m pip install requests
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, o pacote <code>requests</code> será
+                instalado no ambiente Python atualmente utilizado.
+
+            </p>
+
+
+            <p class="description">
+
+                Também podemos instalar vários pacotes de uma vez:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            python -m pip install pytest requests
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Boa prática:</strong>
+
+                <br><br>
+
+                Utilize
+
+                <code>python -m pip</code>
+
+                para garantir que o pip utilizado está associado
+                ao interpretador Python desejado.
+
+            </div>
+
+
+            <!-- =================================================
+                 REQUIREMENTS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📄 requirements.txt
+
+            </h3>
+
+
+            <p class="description">
+
+                O arquivo <code>requirements.txt</code> é utilizado
+                para registrar as dependências de um projeto Python.
+
+            </p>
+
+
+            <p class="description">
+
+                Um exemplo de arquivo pode ser:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        requirements.txt
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            pytest==8.4.1
+
+                        </div>
+
+
+                        <div>
+
+                            requests==2.32.4
+
+                        </div>
+
+
+                        <div>
+
+                            selenium==4.34.2
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Cada linha representa uma dependência que o projeto
+                precisa.
+
+                Neste exemplo, também estamos especificando a
+                versão de cada biblioteca.
+
+            </p>
+
+
+            <!-- =================================================
+                 VERSIONAMENTO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔢 Versionamento de pacotes
+
+            </h3>
+
+
+            <p class="description">
+
+                Bibliotecas Python possuem versões.
+
+                Por exemplo:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        exemplos.txt
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            requests==2.32.4
+
+                        </div>
+
+
+                        <div>
+
+                            requests&gt;=2.30.0
+
+                        </div>
+
+
+                        <div>
+
+                            requests&lt;3.0.0
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos utilizar diferentes operadores para definir
+                quais versões são aceitas.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <code>==</code> — versão exata.
+                </li>
+
+                <li>
+                    <code>&gt;=</code> — versão maior ou igual.
+                </li>
+
+                <li>
+                    <code>&lt;=</code> — versão menor ou igual.
+                </li>
+
+                <li>
+                    <code>&gt;</code> — versão maior.
+                </li>
+
+                <li>
+                    <code>&lt;</code> — versão menor.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                <code>requests==2.32.4</code>
+
+                significa que o projeto deve utilizar exatamente
+                a versão <code>2.32.4</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 MAJOR MINOR PATCH
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 Major, Minor e Patch
+
+            </h3>
+
+
+            <p class="description">
+
+                Muitas bibliotecas utilizam um padrão de versionamento
+                conhecido como <strong>Versionamento Semântico</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Uma versão como:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        versão.txt
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            2.32.4
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                pode ser dividida conceitualmente em:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>2</strong> — Major.
+                </li>
+
+                <li>
+                    <strong>32</strong> — Minor.
+                </li>
+
+                <li>
+                    <strong>4</strong> — Patch.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Atenção:</strong>
+
+                <br><br>
+
+                Uma mudança de versão <strong>major</strong> pode
+                indicar alterações incompatíveis.
+
+                <br><br>
+
+                Alterações <strong>minor</strong> normalmente adicionam
+                funcionalidades mantendo compatibilidade.
+
+                <br><br>
+
+                Alterações <strong>patch</strong> geralmente estão
+                relacionadas a correções e ajustes.
+
+            </div>
+
+
+            <!-- =================================================
+                 LISTANDO PACOTES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 Listando pacotes instalados
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos verificar quais pacotes estão instalados
+                utilizando:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            python -m pip list
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Também podemos consultar informações específicas
+                sobre um pacote:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            python -m pip show requests
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FREEZE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ❄️ pip freeze
+
+            </h3>
+
+
+            <p class="description">
+
+                O comando <code>pip freeze</code> mostra os pacotes
+                instalados junto com suas versões.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            pytest==8.4.1
+
+                        </div>
+
+
+                        <div>
+
+                            requests==2.32.4
+
+                        </div>
+
+
+                        <div>
+
+                            selenium==4.34.2
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos redirecionar essa saída diretamente para
+                um arquivo:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            python -m pip freeze &gt; requirements.txt
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 INSTALAÇÃO REQUIREMENTS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📥 Instalando todas as dependências
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando recebemos um projeto que possui um
+                <code>requirements.txt</code>, não precisamos
+                instalar cada pacote manualmente.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos instalar todas as dependências utilizando:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            python -m pip install -r requirements.txt
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Na prática:</strong>
+
+                <br><br>
+
+                Esse comando é muito útil quando outro
+                desenvolvedor ou QA precisa configurar o projeto
+                em uma nova máquina.
+
+            </div>
+
+
+            <!-- =================================================
+                 ATUALIZAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Atualizando pacotes
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos atualizar um pacote utilizando:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            python -m pip install --upgrade requests
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Depois de atualizar uma dependência, é importante
+                revisar o ambiente e, quando apropriado, atualizar
+                o arquivo de dependências utilizado pelo projeto.
+
+            </p>
+
+
+            <!-- =================================================
+                 REMOÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗑️ Removendo pacotes
+
+            </h3>
+
+
+            <p class="description">
+
+                Para remover uma biblioteca:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            python -m pip uninstall requests
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Dependências em projetos de QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Em automação de testes, o gerenciamento de
+                dependências ajuda a manter o ambiente previsível.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, podemos ter um projeto com:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        requirements.txt
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            pytest==8.4.1
+
+                        </div>
+
+
+                        <div>
+
+                            requests==2.32.4
+
+                        </div>
+
+
+                        <div>
+
+                            selenium==4.34.2
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Dessa maneira, quando outro QA configurar o projeto,
+                poderá instalar as mesmas dependências utilizando
+                um único comando.
+
+            </p>
+
+
+            <!-- =================================================
+                 BOAS PRÁTICAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ Boas práticas
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>Para manter o projeto organizado:</strong>
+
+                <br><br>
+
+                • Utilize ambientes virtuais.<br>
+
+                • Registre as dependências do projeto.<br>
+
+                • Controle as versões das bibliotecas quando
+                necessário.<br>
+
+                • Evite instalar pacotes desnecessários.<br>
+
+                • Revise dependências antes de atualizá-las.<br>
+
+                • Mantenha o arquivo de dependências atualizado.<br>
+
+                • Não versione a pasta <code>.venv</code> no Git.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um projeto Python chamado
+                <code>projeto_dependencias</code> e pratique o
+                gerenciamento de pacotes.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • Crie e ative um ambiente virtual.<br>
+
+                • Instale o <code>pytest</code>.<br>
+
+                • Instale o <code>requests</code>.<br>
+
+                • Verifique os pacotes instalados com
+                <code>pip list</code>.<br>
+
+                • Consulte informações do
+                <code>requests</code> com <code>pip show</code>.<br>
+
+                • Gere um <code>requirements.txt</code>.<br>
+
+                • Confira as versões registradas no arquivo.<br>
+
+                • Remova o <code>requests</code>.<br>
+
+                • Reinstale as dependências utilizando
+                <code>requirements.txt</code>.<br>
+
+                • Verifique novamente os pacotes instalados.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Dependências são bibliotecas necessárias para
+                o funcionamento de um projeto.<br>
+
+                • <code>pip install</code> instala pacotes Python.<br>
+
+                • <code>pip uninstall</code> remove pacotes.<br>
+
+                • <code>pip list</code> mostra os pacotes instalados.<br>
+
+                • <code>pip show</code> apresenta informações sobre
+                um pacote.<br>
+
+                • <code>pip freeze</code> lista os pacotes com suas
+                versões.<br>
+
+                • <code>requirements.txt</code> registra as
+                dependências do projeto.<br>
+
+                • <code>pip install -r requirements.txt</code>
+                instala todas as dependências registradas.<br>
+
+                • O versionamento ajuda a controlar quais versões
+                das bibliotecas são utilizadas.<br>
+
+                • Gerenciar dependências corretamente torna os
+                projetos mais previsíveis e reproduzíveis.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

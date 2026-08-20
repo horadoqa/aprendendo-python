@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">34</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 34
+
+            </span>
+
+
+            <h2>
+
+                Polimorfismo
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender o conceito de
+                <strong>polimorfismo</strong> na Programação
+                Orientada a Objetos.
+
+                Vamos entender como diferentes objetos podem
+                responder ao mesmo método de maneiras diferentes
+                utilizando <strong>sobrescrita de métodos</strong>
+                e o conceito de <strong>duck typing</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 O que é polimorfismo?
+
+            </h3>
+
+
+            <p class="description">
+
+                A palavra <strong>polimorfismo</strong> significa
+                "muitas formas".
+
+                Na Programação Orientada a Objetos, o polimorfismo
+                permite que objetos diferentes respondam ao mesmo
+                método de maneiras diferentes.
+
+            </p>
+
+
+            <p class="description">
+
+                Isso permite escrever códigos mais flexíveis,
+                porque podemos trabalhar com diferentes objetos
+                utilizando uma mesma interface ou comportamento.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                O mesmo método pode existir em diferentes classes,
+                mas cada classe pode implementar esse método de
+                uma maneira diferente.
+
+            </div>
+
+
+            <!-- =================================================
+                 SOBRESCRITA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔁 Sobrescrita de métodos
+
+            </h3>
+
+
+            <p class="description">
+
+                A <strong>sobrescrita de métodos</strong> acontece
+                quando uma classe filha cria um método com o mesmo
+                nome de um método existente na classe pai.
+
+            </p>
+
+
+            <p class="description">
+
+                Dessa forma, a classe filha pode fornecer seu
+                próprio comportamento para aquele método.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        animais.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Animal:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                emitir_som
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Som do animal"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Cachorro(Animal):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                emitir_som
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Au au!"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Gato(Animal):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                emitir_som
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Miau!"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cachorro = Cachorro()
+
+                        </div>
+
+
+                        <div>
+
+                            gato = Gato()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXECUÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Executando os métodos
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        exemplo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            cachorro.emitir_som()
+
+                        </div>
+
+
+                        <div>
+
+                            gato.emitir_som()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Cada objeto possui seu próprio comportamento
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Au au!
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Miau!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Observe que os dois objetos possuem o mesmo método:
+
+                <code>emitir_som()</code>.
+
+                Porém, cada classe implementa esse método de uma
+                forma diferente.
+
+                Isso é um exemplo de <strong>polimorfismo</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 MESMA INTERFACE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 Uma mesma interface
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos criar uma função que recebe um objeto e
+                simplesmente chama o método
+                <code>emitir_som()</code>.
+
+                A função não precisa saber exatamente qual é o
+                tipo do objeto.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        polimorfismo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                fazer_som
+                            </span>(animal):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            animal.<span class="function">
+                                emitir_som
+                            </span>()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cachorro = Cachorro()
+
+                        </div>
+
+
+                        <div>
+
+                            gato = Gato()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                fazer_som
+                            </span>(cachorro)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                fazer_som
+                            </span>(gato)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                A função <code>fazer_som()</code> funciona com
+                diferentes objetos porque ambos possuem o método
+                <code>emitir_som()</code>.
+
+            </p>
+
+
+            <!-- =================================================
+                 DUCK TYPING
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🦆 Duck typing
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>Duck typing</strong> é uma característica
+                importante da linguagem Python.
+
+                A ideia pode ser resumida pela seguinte frase:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 "Se anda como um pato e faz quack como
+                    um pato, então podemos tratá-lo como um pato."</strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Em Python, não precisamos necessariamente verificar
+                a classe de um objeto.
+
+                O mais importante é saber se o objeto possui o
+                comportamento que precisamos utilizar.
+
+            </p>
+
+
+            <!-- =================================================
+                 EXEMPLO DUCK TYPING
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🦆 Exemplo de Duck Typing
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        duck_typing.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Cachorro:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                falar
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Au au!"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Pessoa:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                falar
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Olá!"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                fazer_falar
+                            </span>(objeto):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            objeto.<span class="function">
+                                falar
+                            </span>()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                fazer_falar
+                            </span>(Cachorro())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                A função <code>fazer_falar()</code> não verifica
+                se o objeto é um cachorro ou uma pessoa.
+
+                Ela apenas espera que o objeto tenha um método
+                chamado <code>falar()</code>.
+
+            </p>
+
+
+            <!-- =================================================
+                 RESULTADO DUCK TYPING
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Au au!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO PRÁTICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Polimorfismo no QA
+
+            </h3>
+
+
+            <p class="description">
+
+                O polimorfismo é bastante útil em automação de
+                testes.
+
+                Podemos, por exemplo, trabalhar com diferentes
+                tipos de navegadores que possuem comportamentos
+                semelhantes.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        navegadores.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Chrome:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                abrir
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Abrindo Chrome"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Firefox:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                abrir
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Abrindo Firefox"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                iniciar_teste
+                            </span>(navegador):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            navegador.<span class="function">
+                                abrir
+                            </span>()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                iniciar_teste
+                            </span>(Chrome())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                A função <code>iniciar_teste()</code> pode receber
+                diferentes objetos, desde que eles possuam o método
+                <code>abrir()</code>.
+
+                Essa flexibilidade é uma das grandes vantagens do
+                polimorfismo e do duck typing em Python.
+
+            </p>
+
+
+            <!-- =================================================
+                 BOAS PRÁTICAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ Boas práticas
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>Ao utilizar polimorfismo:</strong>
+
+                <br><br>
+
+                • Prefira interfaces e comportamentos claros.<br>
+
+                • Evite verificar o tipo do objeto sem necessidade.<br>
+
+                • Aproveite o duck typing quando fizer sentido.<br>
+
+                • Mantenha os métodos com responsabilidades bem
+                definidas.<br>
+
+                • Utilize herança quando existir uma relação
+                realmente adequada entre as classes.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie duas classes chamadas
+                <code>Pix</code> e <code>Cartao</code>.
+
+                As duas classes devem possuir um método chamado
+                <code>pagar()</code>, mas cada uma deve apresentar
+                uma mensagem diferente.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • Crie a classe <code>Pix</code>.<br>
+
+                • Crie a classe <code>Cartao</code>.<br>
+
+                • Crie o método <code>pagar()</code> nas duas
+                classes.<br>
+
+                • Faça cada classe implementar o método de forma
+                diferente.<br>
+
+                • Crie uma função chamada
+                <code>realizar_pagamento()</code>.<br>
+
+                • A função deve receber um objeto e chamar
+                <code>pagar()</code>.<br>
+
+                • Teste a função passando objetos das duas classes.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Polimorfismo significa que diferentes objetos
+                podem responder ao mesmo método de formas
+                diferentes.<br>
+
+                • A sobrescrita permite que uma classe filha
+                implemente novamente um método da classe pai.<br>
+
+                • O mesmo método pode possuir comportamentos
+                diferentes em classes diferentes.<br>
+
+                • Duck typing permite trabalhar com objetos
+                baseando-se em seus comportamentos.<br>
+
+                • Em Python, muitas vezes importa mais o que o
+                objeto consegue fazer do que o tipo exato dele.<br>
+
+                • Polimorfismo ajuda a criar códigos mais
+                flexíveis e reutilizáveis.<br>
+
+                • Esses conceitos são muito úteis em automação
+                de testes e projetos de QA.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

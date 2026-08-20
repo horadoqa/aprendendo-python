@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">11</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 11
+
+            </span>
+
+
+            <h2>
+
+                Dicionários em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender a trabalhar com
+                <strong>dicionários</strong>, uma estrutura de
+                dados muito utilizada para armazenar informações
+                organizadas em pares de <strong>chave e valor</strong>.
+
+                Vamos aprender como criar dicionários, acessar
+                informações, utilizar <strong>get()</strong>,
+                visualizar chaves e valores com
+                <strong>keys()</strong> e
+                <strong>values()</strong>, percorrer os dados
+                com <strong>items()</strong> e também alterar
+                e remover informações.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗂️ O que é um dicionário?
+
+            </h3>
+
+
+            <p class="description">
+
+                Um dicionário é uma estrutura que armazena
+                informações no formato de
+                <strong>chave e valor</strong>.
+
+                Cada chave funciona como um identificador para
+                encontrar o valor correspondente.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Pense em um dicionário como uma ficha de cadastro.
+
+                <br><br>
+
+                <code>nome</code> → é a chave.<br>
+                <code>"Maria"</code> → é o valor.
+
+                <br><br>
+
+                A estrutura fica assim:
+
+                <br><br>
+
+                <code>
+                    chave → valor
+                </code>
+
+            </div>
+
+
+            <!-- =================================================
+                 CRIANDO DICIONÁRIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Criando um dicionário
+
+            </h3>
+
+
+            <p class="description">
+
+                Os dicionários são criados utilizando
+                <strong>chaves</strong> <code>{}</code>.
+
+                Cada informação possui uma chave e um valor
+                separados por dois pontos <code>:</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        dicionarios.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            pessoa = {
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>,
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"idade"</span>: 25,
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"profissao"</span>:
+                            <span class="string">"QA"</span>
+                        </div>
+
+                        <div>
+                            }
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(pessoa)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        {'nome': 'Maria', 'idade': 25, 'profissao': 'QA'}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ACESSANDO VALORES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Acessando valores
+
+            </h3>
+
+
+            <p class="description">
+
+                Para acessar um valor de um dicionário,
+                utilizamos sua chave entre colchetes.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        acesso.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            pessoa = {
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>,
+                            <span class="string">"idade"</span>: 25
+                            }
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            pessoa[
+                            <span class="string">"nome"</span>])
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            pessoa[
+                            <span class="string">"idade"</span>])
+                        </div>
+
+                        <div></div>
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Maria
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        25
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 GET
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛡️ get()
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>get()</strong> permite acessar
+                um valor utilizando sua chave.
+
+                Uma vantagem é que podemos informar um valor
+                padrão caso a chave não exista.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        get.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            pessoa = {
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>,
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"idade"</span>: 25
+                        </div>
+
+                        <div>
+                            }
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            pessoa.get(
+                            <span class="string">"nome"</span>))
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            pessoa.get(
+                            <span class="string">"cidade"</span>,
+                            <span class="string">"Não informado"</span>))
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Maria
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Não informado
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Diferença:</strong>
+
+                <br><br>
+
+                <code>pessoa["cidade"]</code> gera um erro se
+                a chave não existir.
+
+                <br><br>
+
+                <code>
+                    pessoa.get("cidade", "Não informado")
+                </code>
+
+                permite definir um valor padrão.
+
+            </div>
+
+
+            <!-- =================================================
+                 KEYS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔑 keys()
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>keys()</strong> retorna todas as
+                chaves existentes no dicionário.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        keys.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            pessoa = {
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>,
+                            <span class="string">"idade"</span>: 25,
+                            <span class="string">"profissao"</span>:
+                            <span class="string">"QA"</span>
+                            }
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            pessoa.keys())
+                        </div>
+
+                        <div></div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        dict_keys(['nome', 'idade', 'profissao'])
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 VALUES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💎 values()
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>values()</strong> retorna todos
+                os valores armazenados no dicionário.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        values.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            pessoa = {
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>,
+                            <span class="string">"idade"</span>: 25,
+                            <span class="string">"profissao"</span>:
+                            <span class="string">"QA"</span>
+                            }
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            pessoa.values())
+                        </div>
+
+                        <div></div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        dict_values(['Maria', 25, 'QA'])
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ITEMS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 items()
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>items()</strong> permite acessar
+                as chaves e os valores ao mesmo tempo.
+
+                Ele é muito utilizado junto com o
+                <strong>for</strong> para percorrer um dicionário.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        items.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            pessoa = {
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>,
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"idade"</span>: 25,
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"profissao"</span>:
+                            <span class="string">"QA"</span>
+                        </div>
+
+                        <div>
+                            }
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">for</span> chave,
+                            valor <span class="keyword">in</span>
+                            pessoa.items():
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            chave, valor)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        nome Maria
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        idade 25
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        profissao QA
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ALTERAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✏️ Alterando valores
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos alterar o valor de uma chave simplesmente
+                atribuindo um novo valor a ela.
+
+                Se a chave já existir, seu valor será atualizado.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        alteracao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            pessoa = {
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>,
+                            <span class="string">"idade"</span>: 25
+                            }
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            pessoa[
+                            <span class="string">"idade"</span>] = 26
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            pessoa[
+                            <span class="string">"idade"</span>])
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        26
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ADICIONANDO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ➕ Adicionando informações
+
+            </h3>
+
+
+            <p class="description">
+
+                Para adicionar uma nova informação, basta utilizar
+                uma chave que ainda não existe.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        adicionar.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            pessoa = {
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>
+                            }
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            pessoa[
+                            <span class="string">"cidade"</span>] =
+                            <span class="string">"Petrópolis"</span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(pessoa)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        {'nome': 'Maria', 'cidade': 'Petrópolis'}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 REMOÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗑️ Removendo informações
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos remover informações de um dicionário
+                utilizando o comando <strong>del</strong>.
+
+                Também podemos utilizar <strong>pop()</strong>
+                quando queremos remover uma chave e, ao mesmo
+                tempo, obter o valor removido.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        remocao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            pessoa = {
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>,
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"idade"</span>: 25,
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"cidade"</span>:
+                            <span class="string">"Petrópolis"</span>
+                        </div>
+
+                        <div>
+                            }
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">del</span> pessoa[
+                            <span class="string">"cidade"</span>]
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        {'nome': 'Maria', 'idade': 25}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 POP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📤 Removendo com pop()
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>pop()</strong> remove uma chave
+                do dicionário e retorna o valor associado a ela.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        pop.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            pessoa = {
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>,
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"idade"</span>: 25
+                        </div>
+
+                        <div>
+                            }
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            idade = pessoa.pop(
+                            <span class="string">"idade"</span>)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(idade)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        25
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROGRAMA PRÁTICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Programa prático
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora vamos criar um pequeno cadastro de usuário.
+
+                O programa terá informações iniciais, irá
+                adicionar uma nova informação, alterar um valor,
+                consultar dados e percorrer todo o dicionário.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        cadastro.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            usuario = {
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Carlos"</span>,
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"idade"</span>: 30,
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"profissao"</span>:
+                            <span class="string">"Tester"</span>
+                        </div>
+
+                        <div>
+                            }
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            usuario[
+                            <span class="string">"cidade"</span>] =
+                            <span class="string">"Petrópolis"</span>
+                        </div>
+
+                        <div>
+                            usuario[
+                            <span class="string">"idade"</span>] = 31
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            usuario.get(
+                            <span class="string">"nome"</span>))
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">for</span> chave,
+                            valor <span class="keyword">in</span>
+                            usuario.items():
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            chave, valor)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Carlos
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        nome Carlos
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        idade 31
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        profissao Tester
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        cidade Petrópolis
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa para armazenar informações de
+                um produto utilizando um dicionário.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>O programa deve:</strong>
+
+                <br><br>
+
+                • Criar um dicionário com nome, preço, categoria
+                e estoque.<br>
+
+                • Exibir o nome do produto.<br>
+
+                • Utilizar <code>get()</code> para consultar uma
+                informação.<br>
+
+                • Exibir todas as chaves utilizando
+                <code>keys()</code>.<br>
+
+                • Exibir todos os valores utilizando
+                <code>values()</code>.<br>
+
+                • Percorrer o dicionário utilizando
+                <code>items()</code>.<br>
+
+                • Alterar o preço do produto.<br>
+
+                • Adicionar uma nova informação ao dicionário.<br>
+
+                • Remover uma informação utilizando
+                <code>pop()</code> ou <code>del</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Dicionários armazenam informações em pares de
+                <strong>chave e valor</strong>.<br>
+
+                • Dicionários são criados utilizando
+                <code>{}</code>.<br>
+
+                • Podemos acessar valores utilizando suas
+                chaves.<br>
+
+                • <code>get()</code> permite consultar valores
+                com segurança e definir um valor padrão.<br>
+
+                • <code>keys()</code> retorna as chaves do
+                dicionário.<br>
+
+                • <code>values()</code> retorna os valores.<br>
+
+                • <code>items()</code> permite acessar chave e
+                valor ao mesmo tempo.<br>
+
+                • Podemos alterar valores utilizando sua chave.<br>
+
+                • Podemos adicionar novas informações utilizando
+                uma nova chave.<br>
+
+                • <code>del</code> remove uma chave do
+                dicionário.<br>
+
+                • <code>pop()</code> remove uma chave e pode
+                retornar o valor removido.<br>
+
+                • Dicionários são muito úteis para representar
+                informações estruturadas.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

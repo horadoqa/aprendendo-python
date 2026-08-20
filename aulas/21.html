@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">21</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 21
+
+            </span>
+
+
+            <h2>
+
+                Pacotes em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como organizar
+                projetos Python utilizando <strong>pacotes</strong>.
+
+                Vamos entender como estruturar pastas, conhecer
+                o arquivo <strong>__init__.py</strong> e aprender
+                como organizar módulos de forma mais profissional.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 O que são pacotes?
+
+            </h3>
+
+
+            <p class="description">
+
+                Um pacote é uma forma de organizar vários módulos
+                Python dentro de uma mesma estrutura de pastas.
+
+                Enquanto um módulo normalmente é um arquivo
+                <code>.py</code>, um pacote pode reunir vários
+                módulos relacionados.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Pense em um módulo como um arquivo que contém
+                funcionalidades.
+
+                <br><br>
+
+                Um pacote é como uma pasta que organiza vários
+                módulos que possuem alguma relação entre si.
+
+            </div>
+
+
+            <!-- =================================================
+                 MÓDULO X PACOTE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 Módulo x Pacote
+
+            </h3>
+
+
+            <p class="description">
+
+                É importante diferenciar esses dois conceitos.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    <strong>Módulo</strong> — normalmente é um
+                    arquivo Python, como
+                    <code>validacoes.py</code>.
+
+                </li>
+
+
+                <li>
+
+                    <strong>Pacote</strong> — é uma estrutura de
+                    diretórios utilizada para organizar módulos
+                    relacionados.
+
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo:</strong>
+
+                <br><br>
+
+                <code>
+                    validacoes.py
+                </code>
+
+                é um módulo.
+
+                <br><br>
+
+                Já uma pasta como:
+
+                <br><br>
+
+                <code>
+                    validacoes/
+                </code>
+
+                pode ser utilizada como um pacote para organizar
+                vários módulos de validação.
+
+            </div>
+
+
+            <!-- =================================================
+                 ESTRUTURA DE PASTAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📁 Estrutura de pastas
+
+            </h3>
+
+
+            <p class="description">
+
+                Em projetos pequenos, podemos ter poucos arquivos.
+
+                Conforme o projeto cresce, porém, é importante
+                separar as responsabilidades em diferentes
+                pastas e arquivos.
+
+            </p>
+
+
+            <p class="description">
+
+                Um projeto de automação de testes, por exemplo,
+                pode ter uma estrutura como esta:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+
+                    projeto_qa/
+                    <br>
+                    ├── main.py
+                    <br>
+                    │
+                    <br>
+                    ├── testes/
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;├── __init__.py
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;├── teste_login.py
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;└── teste_cadastro.py
+                    <br>
+                    │
+                    <br>
+                    ├── validacoes/
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;├── __init__.py
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;└── respostas.py
+                    <br>
+                    │
+                    <br>
+                    └── dados/
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;└── usuarios.py
+
+                </code>
+
+            </div>
+
+
+            <p class="description">
+
+                Dessa forma, cada pasta possui uma
+                responsabilidade específica.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    <code>testes/</code> — contém os testes.
+
+                </li>
+
+
+                <li>
+
+                    <code>validacoes/</code> — contém funções
+                    relacionadas às validações.
+
+                </li>
+
+
+                <li>
+
+                    <code>dados/</code> — contém dados ou funções
+                    relacionadas aos dados utilizados nos testes.
+
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 INIT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧱 <code>__init__.py</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O arquivo <code>__init__.py</code> é um arquivo
+                especial utilizado dentro de pacotes Python.
+
+                Ele pode ser utilizado para inicializar o pacote
+                e também para organizar quais recursos queremos
+                disponibilizar por meio dele.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                Em versões modernas do Python, uma pasta pode
+                funcionar como pacote mesmo sem um arquivo
+                <code>__init__.py</code> em alguns cenários.
+
+                <br><br>
+
+                Porém, o <code>__init__.py</code> continua sendo
+                muito utilizado em projetos por deixar explícita
+                a intenção de tratar aquela pasta como um pacote
+                e permitir inicializações e imports organizados.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO INIT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💻 Exemplo de <code>__init__.py</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Imagine que temos um pacote chamado
+                <code>validacoes</code>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+
+                    <span class="dot yellow"></span>
+
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        validacoes/__init__.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            .respostas
+                            <span class="keyword">
+                                import
+                            </span>
+                            validar_status
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Função disponível através
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # do pacote validacoes
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, o pacote pode disponibilizar a
+                função <code>validar_status</code> diretamente
+                para outros arquivos.
+
+            </p>
+
+
+            <!-- =================================================
+                 IMPORTANDO PACOTE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📥 Importando módulos de um pacote
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos acessar um módulo que está dentro de um
+                pacote utilizando a notação com ponto.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+
+                    <span class="dot yellow"></span>
+
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        main.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            validacoes
+                            <span class="keyword">
+                                import
+                            </span>
+                            respostas
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            status = 200
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            respostas.validar_status(status)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        True
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FROM PACKAGE IMPORT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Importando diretamente do pacote
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos organizar o
+                <code>__init__.py</code> para permitir que
+                determinadas funções sejam importadas diretamente
+                pelo pacote.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, imagine a seguinte estrutura:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+
+                    projeto_qa/
+                    <br>
+                    ├── main.py
+                    <br>
+                    └── validacoes/
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;└── respostas.py
+
+                </code>
+
+            </div>
+
+
+            <p class="description">
+
+                No arquivo <code>__init__.py</code> podemos
+                escrever:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+
+                    <span class="dot yellow"></span>
+
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        validacoes/__init__.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            .respostas
+                            <span class="keyword">
+                                import
+                            </span>
+                            validar_status
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Exportando a função pelo pacote
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora podemos importar a função diretamente:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+
+                    <span class="dot yellow"></span>
+
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        main.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            validacoes
+                            <span class="keyword">
+                                import
+                            </span>
+                            validar_status
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            <span class="function">
+                                validar_status
+                            </span>(200)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        True
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SUBPACOTES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗂️ Subpacotes
+
+            </h3>
+
+
+            <p class="description">
+
+                Um pacote também pode conter outros pacotes.
+
+                Isso é útil em projetos maiores, onde precisamos
+                organizar ainda mais as funcionalidades.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+
+                    projeto_qa/
+                    <br>
+                    ├── main.py
+                    <br>
+                    │
+                    <br>
+                    ├── testes/
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;├── __init__.py
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;└── api/
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── teste_login.py
+                    <br>
+                    │
+                    <br>
+                    └── utils/
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;└── dados.py
+
+                </code>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, <code>api</code> é um subpacote
+                dentro do pacote <code>testes</code>.
+
+            </p>
+
+
+            <!-- =================================================
+                 PROJETO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Organização de um projeto de QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Em automação de testes, uma boa organização de
+                pastas facilita bastante a manutenção do projeto.
+
+                Uma estrutura possível é:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+
+                    automacao_qa/
+                    <br>
+                    │
+                    <br>
+                    ├── testes/
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;├── __init__.py
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;├── login/
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── __init__.py
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── teste_login.py
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;│
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;└── cadastro/
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── teste_cadastro.py
+                    <br>
+                    │
+                    <br>
+                    ├── utils/
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;├── __init__.py
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;├── validacoes.py
+                    <br>
+                    │&nbsp;&nbsp;&nbsp;└── dados.py
+                    <br>
+                    │
+                    <br>
+                    └── main.py
+
+                </code>
+
+            </div>
+
+
+            <p class="description">
+
+                Uma estrutura como essa permite separar os testes
+                por funcionalidade e manter funções auxiliares
+                em um local específico.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Pense como QA:</strong>
+
+                <br><br>
+
+                Um projeto de testes pode crescer rapidamente.
+
+                <br><br>
+
+                Separar testes, dados e funções auxiliares em
+                pacotes ajuda a encontrar os arquivos com mais
+                facilidade e reduz a duplicação de código.
+
+            </div>
+
+
+            <!-- =================================================
+                 BOAS PRÁTICAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ Boas práticas
+
+            </h3>
+
+
+            <p class="description">
+
+                Ao organizar projetos Python, algumas práticas
+                ajudam a manter o código mais limpo e fácil de
+                entender.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    Organize arquivos por responsabilidade.
+
+                </li>
+
+
+                <li>
+
+                    Evite colocar todo o código em um único
+                    arquivo.
+
+                </li>
+
+
+                <li>
+
+                    Utilize nomes claros para arquivos e pastas.
+
+                </li>
+
+
+                <li>
+
+                    Evite duplicar funções que podem ser
+                    reutilizadas.
+
+                </li>
+
+
+                <li>
+
+                    Utilize módulos e pacotes para separar
+                    funcionalidades relacionadas.
+
+                </li>
+
+
+                <li>
+
+                    Mantenha uma estrutura de projeto simples
+                    e consistente.
+
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um pequeno projeto de automação de QA
+                utilizando pacotes.
+
+                Sua estrutura deverá conter:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    Um pacote chamado <code>testes</code>.
+
+                </li>
+
+
+                <li>
+
+                    Um pacote chamado <code>utils</code>.
+
+                </li>
+
+
+                <li>
+
+                    Um arquivo <code>validacoes.py</code> dentro
+                    de <code>utils</code>.
+
+                </li>
+
+
+                <li>
+
+                    Um arquivo <code>teste_login.py</code> dentro
+                    de <code>testes</code>.
+
+                </li>
+
+
+                <li>
+
+                    Um <code>__init__.py</code> em cada pacote.
+
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Depois, crie uma função
+                <code>validar_login()</code> dentro de
+                <code>validacoes.py</code> e utilize essa função
+                no arquivo <code>teste_login.py</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+
+                    <span class="dot yellow"></span>
+
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        validacoes.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                validar_login
+                            </span>(usuario, senha):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            usuario ==
+                            <span class="string">
+                                "admin"
+                            </span>
+                            <span class="keyword">
+                                and
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            senha ==
+                            <span class="string">
+                                "1234"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # teste_login.py
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Um <strong>pacote</strong> organiza módulos
+                relacionados.<br>
+
+                • Projetos maiores podem ser divididos em
+                diferentes pastas e pacotes.<br>
+
+                • <code>__init__.py</code> é um arquivo especial
+                associado à organização de pacotes Python.<br>
+
+                • Podemos importar módulos que estão dentro
+                de pacotes.<br>
+
+                • Um pacote pode conter outros pacotes,
+                chamados de <strong>subpacotes</strong>.<br>
+
+                • Uma boa estrutura de pastas facilita a
+                manutenção do projeto.<br>
+
+                • Em automação de QA, podemos separar testes,
+                dados, validações e utilitários em diferentes
+                pacotes.<br>
+
+                • Organizar o código corretamente ajuda a evitar
+                duplicação e facilita a reutilização.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

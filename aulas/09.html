@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">9</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 09
+
+            </span>
+
+
+            <h2>
+
+                Listas em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender a trabalhar com
+                <strong>listas</strong>, uma das estruturas de
+                dados mais importantes do Python.
+
+                Vamos aprender como criar listas, acessar seus
+                elementos através de <strong>índices</strong>,
+                adicionar e remover itens e organizar os dados
+                utilizando métodos como
+                <strong>append()</strong>,
+                <strong>insert()</strong>,
+                <strong>remove()</strong> e
+                <strong>pop()</strong>.
+
+                Também veremos como ordenar os elementos de uma
+                lista.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 Criando listas
+
+            </h3>
+
+            <p class="description">
+
+                Uma lista é uma coleção de valores armazenados
+                dentro de colchetes <code>[]</code>.
+
+                Uma lista pode armazenar vários valores e esses
+                valores podem ser de diferentes tipos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        listas.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            frutas = [
+                            <span class="string">"maçã"</span>,
+                            <span class="string">"banana"</span>,
+                            <span class="string">"laranja"</span>
+                            ]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            numeros = [10, 20, 30, 40]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            misturada = [
+                            <span class="string">"Python"</span>,
+                            10,
+                            <span class="keyword">True</span>
+                            ]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(frutas)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        ['maçã', 'banana', 'laranja']
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Listas são representadas por
+                <strong>colchetes</strong> e podem armazenar
+                vários elementos.
+
+                <br><br>
+
+                Exemplo:
+
+                <br><br>
+
+                <code>
+                    nomes = ["Ana", "Carlos", "Maria"]
+                </code>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCEITO 2
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔢 Índices
+
+            </h3>
+
+
+            <p class="description">
+
+                Assim como acontece com as strings, os elementos
+                de uma lista possuem índices.
+
+                O primeiro elemento está no índice
+                <code>0</code>, o segundo no índice
+                <code>1</code> e assim por diante.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Para a lista:
+
+                <br><br>
+
+                <code>
+                    frutas = ["maçã", "banana", "laranja"]
+                </code>
+
+                <br><br>
+
+                Temos:
+
+                <br><br>
+
+                <code>
+                    frutas[0] → "maçã"<br>
+                    frutas[1] → "banana"<br>
+                    frutas[2] → "laranja"
+                </code>
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        indices.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            frutas = [
+                            <span class="string">"maçã"</span>,
+                            <span class="string">"banana"</span>,
+                            <span class="string">"laranja"</span>
+                            ]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(frutas[0])
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(frutas[1])
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(frutas[2])
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        maçã
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        banana
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        laranja
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ÍNDICES NEGATIVOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔙 Índices negativos
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos acessar elementos começando pelo
+                final da lista.
+
+                O índice <code>-1</code> representa o último
+                elemento, <code>-2</code> o penúltimo e assim
+                por diante.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        indices_negativos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            frutas = [
+                            <span class="string">"maçã"</span>,
+                            <span class="string">"banana"</span>,
+                            <span class="string">"laranja"</span>
+                            ]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(frutas[-1])
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(frutas[-2])
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        laranja
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        banana
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ADICIONANDO ELEMENTOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ➕ Adicionando elementos
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos adicionar novos elementos a uma lista
+                utilizando métodos específicos.
+
+                Os dois principais métodos para isso são
+                <strong>append()</strong> e
+                <strong>insert()</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 APPEND
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📌 append()
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>append()</strong> adiciona um
+                novo elemento ao <strong>final da lista</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        append.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            frutas = [
+                            <span class="string">"maçã"</span>,
+                            <span class="string">"banana"</span>
+                            ]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            frutas.append(
+                            <span class="string">"laranja"</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(frutas)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        ['maçã', 'banana', 'laranja']
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 INSERT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📍 insert()
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>insert()</strong> permite
+                adicionar um elemento em uma posição específica
+                da lista.
+
+                Sua sintaxe é:
+
+                <br><br>
+
+                <code>lista.insert(posicao, valor)</code>
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        insert.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            frutas = [
+                            <span class="string">"maçã"</span>,
+                            <span class="string">"laranja"</span>
+                            ]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            frutas.insert(1,
+                            <span class="string">"banana"</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(frutas)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        ['maçã', 'banana', 'laranja']
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Diferença:</strong>
+
+                <br><br>
+
+                <code>append()</code> adiciona no final.
+
+                <br><br>
+
+                <code>insert()</code> permite escolher a posição.
+
+            </div>
+
+
+            <!-- =================================================
+                 REMOVENDO ELEMENTOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ➖ Removendo elementos
+
+            </h3>
+
+
+            <p class="description">
+
+                Python possui diferentes formas de remover
+                elementos de uma lista.
+
+                Nesta aula vamos conhecer
+                <strong>remove()</strong> e
+                <strong>pop()</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 REMOVE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗑️ remove()
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>remove()</strong> remove um
+                elemento informando o seu <strong>valor</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        remove.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            frutas = [
+                            <span class="string">"maçã"</span>,
+                            <span class="string">"banana"</span>,
+                            <span class="string">"laranja"</span>
+                            ]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            frutas.remove(
+                            <span class="string">"banana"</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(frutas)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        ['maçã', 'laranja']
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 POP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📤 pop()
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>pop()</strong> remove um elemento
+                utilizando seu índice.
+
+                Quando nenhum índice é informado, ele remove o
+                último elemento da lista.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        pop.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            frutas = [
+                            <span class="string">"maçã"</span>,
+                            <span class="string">"banana"</span>,
+                            <span class="string">"laranja"</span>
+                            ]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            removida = frutas.pop(1)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(removida)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(frutas)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        banana
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        ['maçã', 'laranja']
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Diferença entre remove() e pop():</strong>
+
+                <br><br>
+
+                <code>remove()</code> → remove pelo
+                <strong>valor</strong>.
+
+                <br><br>
+
+                <code>pop()</code> → remove pelo
+                <strong>índice</strong> e pode retornar o elemento
+                removido.
+
+            </div>
+
+
+            <!-- =================================================
+                 ORDENAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔤 Ordenação
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos organizar os elementos de uma lista em
+                ordem utilizando o método
+                <strong>sort()</strong>.
+
+                Por padrão, os valores são organizados em ordem
+                crescente ou alfabética.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        ordenacao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            numeros = [50, 10, 40, 20, 30]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            numeros.sort()
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(numeros)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        [10, 20, 30, 40, 50]
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ORDEM DECRESCENTE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔽 Ordem decrescente
+
+            </h3>
+
+
+            <p class="description">
+
+                Para ordenar uma lista do maior para o menor,
+                podemos utilizar o argumento
+                <code>reverse=True</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        ordem_decrescente.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            numeros = [10, 50, 20, 40, 30]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            numeros.sort(reverse=<span class="keyword">True</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(numeros)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        [50, 40, 30, 20, 10]
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROGRAMA PRÁTICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Programa prático
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora vamos juntar vários conceitos da aula.
+
+                O programa começa com uma lista de nomes,
+                adiciona um novo nome, remove outro elemento,
+                organiza a lista e mostra o resultado final.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        cadastro.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            nomes = [
+                            <span class="string">"Carlos"</span>,
+                            <span class="string">"Ana"</span>,
+                            <span class="string">"Maria"</span>
+                            ]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            nomes.append(
+                            <span class="string">"João"</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            nomes.insert(1,
+                            <span class="string">"Pedro"</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            nomes.remove(
+                            <span class="string">"Carlos"</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            nomes.sort()
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(nomes)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        ['Ana', 'João', 'Maria', 'Pedro']
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa para gerenciar uma lista de
+                compras.
+
+                O programa deve começar com alguns produtos e
+                permitir que você faça alterações na lista.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>O programa deve:</strong>
+
+                <br><br>
+
+                • Criar uma lista com pelo menos cinco produtos.<br>
+
+                • Adicionar um novo produto usando
+                <code>append()</code>.<br>
+
+                • Inserir um produto em uma posição específica
+                usando <code>insert()</code>.<br>
+
+                • Remover um produto usando
+                <code>remove()</code>.<br>
+
+                • Remover um item usando
+                <code>pop()</code>.<br>
+
+                • Ordenar a lista usando
+                <code>sort()</code>.<br>
+
+                • Exibir a lista final.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        desafio.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            compras = [
+                            <span class="string">"arroz"</span>,
+                            <span class="string">"feijão"</span>,
+                            <span class="string">"leite"</span>
+                            ]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            compras.append(
+                            <span class="string">"pão"</span>)
+                        </div>
+
+                        <div>
+                            compras.insert(1,
+                            <span class="string">"café"</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            compras.remove(
+                            <span class="string">"leite"</span>)
+                        </div>
+
+                        <div>
+                            compras.pop()
+                        </div>
+
+                        <div>
+                            compras.sort()
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Listas armazenam vários elementos em uma única
+                estrutura.<br>
+
+                • Listas são criadas utilizando
+                <code>[]</code>.<br>
+
+                • Os elementos possuem índices que começam em
+                <code>0</code>.<br>
+
+                • Índices negativos permitem acessar elementos
+                começando pelo final.<br>
+
+                • <code>append()</code> adiciona um elemento no
+                final da lista.<br>
+
+                • <code>insert()</code> adiciona um elemento em
+                uma posição específica.<br>
+
+                • <code>remove()</code> remove um elemento pelo
+                seu valor.<br>
+
+                • <code>pop()</code> remove um elemento pelo
+                índice e pode retornar o elemento removido.<br>
+
+                • <code>sort()</code> organiza os elementos da
+                lista.<br>
+
+                • <code>sort(reverse=True)</code> organiza os
+                elementos em ordem decrescente.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

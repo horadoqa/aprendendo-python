@@ -1,0 +1,2869 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">76</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA 76 — PROGRAMAÇÃO FUNCIONAL
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+                AULA 76
+            </span>
+
+
+            <h2>
+                Programação funcional
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos conhecer alguns conceitos importantes
+                da <strong>programação funcional</strong> em Python.
+
+                Vamos aprender como utilizar as funções
+                <strong>map</strong>,
+                <strong>filter</strong> e
+                <strong>reduce</strong>
+                para transformar, selecionar e combinar dados.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Aprender a utilizar <code>map()</code>,
+                <code>filter()</code> e <code>reduce()</code>,
+                entendendo quando cada uma dessas funções pode
+                ser útil.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É PROGRAMAÇÃO FUNCIONAL?
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 O que é programação funcional?
+
+            </h3>
+
+
+            <p class="description">
+
+                A <strong>programação funcional</strong> é um paradigma
+                de programação que utiliza funções como uma das
+                principais ferramentas para transformar e processar dados.
+
+            </p>
+
+
+            <p class="description">
+
+                Python permite utilizar vários conceitos da programação
+                funcional, como:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Funções como valores.
+                </li>
+
+                <li>
+                    Funções de ordem superior.
+                </li>
+
+                <li>
+                    <code>map()</code>.
+                </li>
+
+                <li>
+                    <code>filter()</code>.
+                </li>
+
+                <li>
+                    <code>reduce()</code>.
+                </li>
+
+                <li>
+                    Funções lambda.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Ideia principal:</strong>
+
+                <br><br>
+
+                Em vez de escrever sempre loops manualmente,
+                podemos utilizar funções para descrever
+                transformações e operações sobre coleções de dados.
+
+            </div>
+
+
+            <!-- =================================================
+                 FUNÇÕES COMO VALORES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔧 Funções como valores
+
+            </h3>
+
+
+            <p class="description">
+
+                Em Python, funções são objetos.
+
+                Isso significa que podemos armazená-las em variáveis,
+                passá-las como argumentos para outras funções e
+                retorná-las como resultado.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        funcoes.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            dobro(numero):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            numero * 2
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            funcao = dobro
+
+                        </div>
+
+
+                        <div>
+
+                            print(funcao(5))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        10
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                A variável <code>funcao</code> passou a apontar para
+                a função <code>dobro</code>.
+
+                Por isso podemos chamá-la normalmente.
+
+            </p>
+
+
+            <!-- =================================================
+                 LAMBDA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚡ Funções lambda
+
+            </h3>
+
+
+            <p class="description">
+
+                As funções <strong>lambda</strong> são pequenas funções
+                que normalmente são utilizadas quando precisamos de
+                uma função simples e rápida.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        lambda.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            dobro =
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            x: x * 2
+
+                        </div>
+
+
+                        <div>
+
+                            print(dobro(5))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        10
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MAP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗺️ 1. map()
+
+            </h3>
+
+
+            <p class="description">
+
+                A função <code>map()</code> aplica uma função a cada
+                elemento de um iterável.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Dados
+
+                    →
+
+                    Função
+
+                    →
+
+                    Novos dados
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Por exemplo, podemos multiplicar todos os números
+                de uma lista por 2.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        map.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [1, 2, 3, 4, 5]
+
+                        </div>
+
+
+                        <div>
+
+                            resultado = map(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            x: x * 2,
+                            numeros
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O resultado de <code>map()</code> é um iterador.
+                Podemos convertê-lo para uma lista:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        map.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            resultado = list(resultado)
+
+                        </div>
+
+
+                        <div>
+
+                            print(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [2, 4, 6, 8, 10]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MAP COM FUNÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 map() com uma função própria
+
+            </h3>
+
+
+            <p class="description">
+
+                Não precisamos utilizar obrigatoriamente uma função
+                lambda.
+
+                Podemos passar uma função criada anteriormente.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        map_funcao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            dobro(numero):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            numero * 2
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            numeros = [1, 2, 3, 4]
+
+                        </div>
+
+
+                        <div>
+
+                            resultado = list(
+                            map(dobro, numeros))
+
+                        </div>
+
+
+                        <div>
+
+                            print(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [2, 4, 6, 8]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Quando utilizar map()?</strong>
+
+                <br><br>
+
+                Quando queremos aplicar a mesma transformação
+                a todos os elementos de uma coleção.
+
+            </div>
+
+
+            <!-- =================================================
+                 FILTER
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 2. filter()
+
+            </h3>
+
+
+            <p class="description">
+
+                A função <code>filter()</code> é utilizada para
+                selecionar elementos que atendem a uma determinada
+                condição.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Dados
+
+                    →
+
+                    Condição
+
+                    →
+
+                    Elementos selecionados
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Por exemplo, podemos selecionar apenas os números
+                pares de uma lista.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        filter.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [1, 2, 3, 4, 5, 6]
+
+                        </div>
+
+
+                        <div>
+
+                            resultado = filter(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            x: x % 2 == 0,
+                            numeros
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Assim como <code>map()</code>, o resultado de
+                <code>filter()</code> é um iterador.
+
+                Podemos convertê-lo para uma lista:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        filter.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            resultado = list(resultado)
+
+                        </div>
+
+
+                        <div>
+
+                            print(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [2, 4, 6]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FILTER COM FUNÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 filter() com função própria
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        filter_funcao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            maior_que_dez(numero):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            numero > 10
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            numeros = [5, 10, 15, 20]
+
+                        </div>
+
+
+                        <div>
+
+                            resultado = list(
+                            filter(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            maior_que_dez,
+                            numeros))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [15, 20]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Quando utilizar filter()?</strong>
+
+                <br><br>
+
+                Quando queremos manter somente os elementos
+                que atendem a uma condição.
+
+            </div>
+
+
+            <!-- =================================================
+                 REDUCE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ➗ 3. reduce()
+
+            </h3>
+
+
+            <p class="description">
+
+                A função <code>reduce()</code> permite combinar
+                os elementos de uma sequência progressivamente
+                até obter um único resultado.
+
+            </p>
+
+
+            <p class="description">
+
+                Diferentemente de <code>map()</code>, que transforma
+                elementos, e <code>filter()</code>, que seleciona
+                elementos, <code>reduce()</code> acumula os valores.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Valor 1 + Valor 2
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Resultado + Valor 3
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Resultado + Valor 4
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Resultado final
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                A função <code>reduce()</code> está disponível no
+                módulo <code>functools</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        reduce.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            functools
+                            <span class="keyword">
+                                import
+                            </span>
+                            reduce
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            numeros = [1, 2, 3, 4, 5]
+
+                        </div>
+
+
+                        <div>
+
+                            resultado = reduce(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            a, b: a + b,
+                            numeros)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos imprimir o resultado:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        reduce.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            print(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        15
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 REDUCE MULTIPLICAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✖️ reduce() com multiplicação
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos utilizar <code>reduce()</code>
+                para multiplicar todos os valores.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        multiplicacao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            functools
+                            <span class="keyword">
+                                import
+                            </span>
+                            reduce
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            numeros = [1, 2, 3, 4]
+
+                        </div>
+
+
+                        <div>
+
+                            resultado = reduce(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            a, b: a * b,
+                            numeros)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        24
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Quando utilizar reduce()?</strong>
+
+                <br><br>
+
+                Quando precisamos transformar vários elementos
+                em um único resultado acumulado.
+
+            </div>
+
+
+            <!-- =================================================
+                 COMBINANDO AS FUNÇÕES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔗 Combinando map(), filter() e reduce()
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das possibilidades mais interessantes da
+                programação funcional é combinar diferentes
+                operações.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, podemos:
+
+            </p>
+
+
+            <ol>
+
+                <li>
+                    Selecionar números pares.
+                </li>
+
+                <li>
+                    Multiplicar cada número por 2.
+                </li>
+
+                <li>
+                    Somar todos os resultados.
+                </li>
+
+            </ol>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        combinando.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            functools
+                            <span class="keyword">
+                                import
+                            </span>
+                            reduce
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            numeros = [1, 2, 3, 4, 5, 6]
+
+                        </div>
+
+
+                        <div>
+
+                            pares = filter(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            x: x % 2 == 0,
+                            numeros)
+
+                        </div>
+
+
+                        <div>
+
+                            dobrados = map(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            x: x * 2,
+                            pares)
+
+                        </div>
+
+
+                        <div>
+
+                            resultado = reduce(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            a, b: a + b,
+                            dobrados)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        combinando.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            print(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        24
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🔍 O que aconteceu?</strong>
+
+                <br><br>
+
+                Números originais:
+
+                <br>
+
+                [1, 2, 3, 4, 5, 6]
+
+                <br><br>
+
+                <strong>filter()</strong>:
+
+                <br>
+
+                [2, 4, 6]
+
+                <br><br>
+
+                <strong>map()</strong>:
+
+                <br>
+
+                [4, 8, 12]
+
+                <br><br>
+
+                <strong>reduce()</strong>:
+
+                <br>
+
+                4 + 8 + 12 = 24
+
+            </div>
+
+
+            <!-- =================================================
+                 MAP VS FILTER VS REDUCE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ map() vs filter() vs reduce()
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    🗺️ map()
+
+                    <br>
+
+                    Transforma elementos.
+
+                    <br><br>
+
+                    🔎 filter()
+
+                    <br>
+
+                    Seleciona elementos.
+
+                    <br><br>
+
+                    ➕ reduce()
+
+                    <br>
+
+                    Combina elementos em um resultado.
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 FOR TRADICIONAL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Programação funcional vs for
+
+            </h3>
+
+
+            <p class="description">
+
+                Muitas operações realizadas com
+                <code>map()</code> e <code>filter()</code>
+                também podem ser feitas utilizando loops
+                tradicionais.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, para dobrar os valores:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        for.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [1, 2, 3, 4]
+
+                        </div>
+
+
+                        <div>
+
+                            resultado = []
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            numeros:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado.append(numero * 2)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Com <code>map()</code>, podemos escrever:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        map.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            resultado = list(
+                            map(
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            x: x * 2,
+                            numeros))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                Programação funcional não significa que
+                <code>map()</code>, <code>filter()</code> e
+                <code>reduce()</code> sejam sempre melhores.
+
+                Em Python, muitas vezes uma compreensão de lista
+                ou um <code>for</code> pode ser mais simples e legível.
+
+            </div>
+
+
+            <!-- =================================================
+                 MAP COM VÁRIOS ITERÁVEIS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧮 map() com vários iteráveis
+
+            </h3>
+
+
+            <p class="description">
+
+                O <code>map()</code> também pode receber mais de
+                um iterável.
+
+                Nesse caso, a função precisa receber os valores
+                correspondentes.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        map_multiplos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            a = [1, 2, 3]
+
+                        </div>
+
+
+                        <div>
+
+                            b = [10, 20, 30]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado = list(map(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            x, y: x + y,
+                            a, b))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [11, 22, 33]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FILTER COM STRINGS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔤 filter() com strings
+
+            </h3>
+
+
+            <p class="description">
+
+                O <code>filter()</code> também pode ser utilizado
+                com textos.
+
+                Podemos, por exemplo, selecionar apenas nomes
+                com mais de cinco caracteres.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        nomes.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            nomes = [
+                            "Ana",
+                            "Carlos",
+                            "Mariana",
+                            "João"
+                            ]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado = list(filter(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            nome: len(nome) > 5,
+                            nomes))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        ['Carlos', 'Mariana']
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 REDUCE COM INÍCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Valor inicial no reduce()
+
+            </h3>
+
+
+            <p class="description">
+
+                O <code>reduce()</code> também pode receber um
+                terceiro argumento: o valor inicial do acumulador.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        reduce_inicial.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            functools
+                            <span class="keyword">
+                                import
+                            </span>
+                            reduce
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            numeros = [1, 2, 3]
+
+                        </div>
+
+
+                        <div>
+
+                            resultado = reduce(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            a, b: a + b,
+                            numeros,
+                            10)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        16
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O cálculo começa com o valor inicial
+                <code>10</code>:
+
+                <br><br>
+
+                10 + 1 + 2 + 3 = 16
+
+            </p>
+
+
+            <!-- =================================================
+                 CUIDADOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ Cuidados com programação funcional
+
+            </h3>
+
+
+            <p class="description">
+
+                Embora essas funções sejam muito úteis, devemos
+                priorizar a <strong>clareza do código</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Uma expressão funcional muito complexa pode ser
+                mais difícil de entender do que um simples loop.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Regra prática:</strong>
+
+                <br><br>
+
+                Prefira a solução que seja mais clara e fácil
+                de manter.
+
+                <br><br>
+
+                Python valoriza bastante a legibilidade.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Exercício 1 — map()
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma lista contendo:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+
+                    [2, 4, 6, 8, 10]
+
+                </code>
+
+            </div>
+
+
+            <p class="description">
+
+                Utilize <code>map()</code> para criar uma nova lista
+                contendo o dobro de cada número.
+
+            </p>
+
+
+            <p class="description">
+
+                Resultado esperado:
+
+            </p>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Resultado
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [4, 8, 12, 16, 20]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 2
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Exercício 2 — filter()
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma lista contendo:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+
+                    [10, 15, 20, 25, 30, 35, 40]
+
+                </code>
+
+            </div>
+
+
+            <p class="description">
+
+                Utilize <code>filter()</code> para selecionar apenas
+                os números maiores ou iguais a 25.
+
+            </p>
+
+
+            <p class="description">
+
+                Resultado esperado:
+
+            </p>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Resultado
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [25, 30, 35, 40]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 3
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ➕ Exercício 3 — reduce()
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma lista:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+
+                    [5, 10, 15, 20]
+
+                </code>
+
+            </div>
+
+
+            <p class="description">
+
+                Utilize <code>reduce()</code> para calcular a soma
+                de todos os valores.
+
+            </p>
+
+
+            <p class="description">
+
+                Resultado esperado:
+
+            </p>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Resultado
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        50
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 4
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏆 Exercício 4 — Combinando funções
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma lista contendo números de 1 até 10.
+
+                Depois:
+
+            </p>
+
+
+            <ol>
+
+                <li>
+                    Utilize <code>filter()</code> para selecionar
+                    apenas os números pares.
+                </li>
+
+                <li>
+                    Utilize <code>map()</code> para multiplicar
+                    cada número por 3.
+                </li>
+
+                <li>
+                    Utilize <code>reduce()</code> para somar
+                    os resultados.
+                </li>
+
+            </ol>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Desafio:</strong>
+
+                <br><br>
+
+                Faça todo o processamento utilizando
+                <code>map()</code>, <code>filter()</code> e
+                <code>reduce()</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO EXTRA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Desafio extra — Notas
+
+            </h3>
+
+
+            <p class="description">
+
+                Considere as seguintes notas:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+
+                    [5, 7, 8, 4, 10, 6, 9]
+
+                </code>
+
+            </div>
+
+
+            <p class="description">
+
+                Crie um programa que:
+
+            </p>
+
+
+            <ol>
+
+                <li>
+                    Utilize <code>filter()</code> para selecionar
+                    apenas as notas maiores ou iguais a 7.
+                </li>
+
+                <li>
+                    Utilize <code>map()</code> para adicionar
+                    1 ponto a cada nota aprovada.
+                </li>
+
+                <li>
+                    Utilize <code>reduce()</code> para calcular
+                    a soma das notas resultantes.
+                </li>
+
+            </ol>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio final:</strong>
+
+                <br><br>
+
+                Tente resolver o problema primeiro utilizando
+                funções tradicionais.
+
+                <br><br>
+
+                Depois refaça utilizando
+                <code>map()</code>,
+                <code>filter()</code> e
+                <code>reduce()</code>.
+
+                <br><br>
+
+                Compare as duas soluções e veja qual delas
+                ficou mais clara.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que é programação funcional.<br>
+
+                • Como funções podem ser utilizadas como valores.<br>
+
+                • O que são funções de ordem superior.<br>
+
+                • Como utilizar funções <code>lambda</code>.<br>
+
+                • Como utilizar <code>map()</code>.<br>
+
+                • Como utilizar <code>filter()</code>.<br>
+
+                • Como utilizar <code>reduce()</code>.<br>
+
+                • Como importar <code>reduce</code> do módulo
+                <code>functools</code>.<br>
+
+                • Como combinar <code>map()</code>,
+                <code>filter()</code> e
+                <code>reduce()</code>.<br>
+
+                • Diferenças entre essas três funções.<br>
+
+                • Quando utilizar programação funcional.<br>
+
+                • A importância da legibilidade do código.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Você está pensando de forma funcional!
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora você conhece três ferramentas importantes
+                da programação funcional em Python.
+
+                <code>map()</code> permite transformar dados,
+                <code>filter()</code> permite selecionar dados
+                e <code>reduce()</code> permite combinar vários
+                valores em um único resultado.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    map()
+
+                    →
+
+                    Transformar
+
+                    <br><br>
+
+                    filter()
+
+                    →
+
+                    Selecionar
+
+                    <br><br>
+
+                    reduce()
+
+                    →
+
+                    Acumular
+
+                </strong>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Próxima etapa:</strong>
+
+                <br><br>
+
+                Na próxima aula, vamos avançar ainda mais na
+                organização e reutilização de código Python,
+                explorando conceitos importantes para escrever
+                programas mais robustos e profissionais.
+
+            </div>
+
+        </article>
+
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

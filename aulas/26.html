@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">26</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 26
+
+            </span>
+
+
+            <h2>
+
+                Trabalhando com arquivos CSV
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender a trabalhar com
+                arquivos <strong>CSV</strong> em Python.
+
+                Vamos aprender como <strong>ler</strong> e
+                <strong>escrever</strong> arquivos CSV utilizando
+                o módulo <strong>csv</strong> da biblioteca padrão
+                do Python.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📊 O que é CSV?
+
+            </h3>
+
+
+            <p class="description">
+
+                CSV significa <strong>Comma-Separated Values</strong>,
+                ou "valores separados por vírgula".
+
+            </p>
+
+
+            <p class="description">
+
+                É um formato de arquivo muito utilizado para
+                armazenar dados organizados em linhas e colunas.
+
+                Cada linha normalmente representa um registro
+                e cada coluna representa uma informação desse
+                registro.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Um arquivo chamado <code>usuarios.csv</code>
+                pode conter:
+
+                <br><br>
+
+                <code>
+                    nome,idade,cidade<br>
+                    Maria,25,Rio de Janeiro<br>
+                    João,30,São Paulo<br>
+                    Ana,28,Belo Horizonte
+                </code>
+
+            </div>
+
+
+            <!-- =================================================
+                 MÓDULO CSV
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐍 O módulo <code>csv</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Python possui um módulo chamado
+                <strong>csv</strong> que facilita o trabalho
+                com arquivos nesse formato.
+
+            </p>
+
+
+            <p class="description">
+
+                Para utilizar o módulo, basta fazer sua
+                importação:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        importacao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            csv
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                O módulo <code>csv</code> faz parte da biblioteca
+                padrão do Python.
+
+                <br><br>
+
+                Isso significa que não precisamos instalar uma
+                biblioteca externa para utilizá-lo.
+
+            </div>
+
+
+            <!-- =================================================
+                 LENDO CSV
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📖 Lendo um arquivo CSV
+
+            </h3>
+
+
+            <p class="description">
+
+                Para ler um CSV, podemos utilizar
+                <strong>csv.reader()</strong>.
+
+                Ele permite percorrer as linhas do arquivo
+                uma por uma.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        ler_csv.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            csv
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "usuarios.csv"
+                            </span>,
+                            <span class="string">
+                                "r"
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            leitor =
+                            csv.<span class="function">
+                                reader
+                            </span>(arquivo)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            linha
+                            <span class="keyword">
+                                in
+                            </span>
+                            leitor:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(linha)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        ['nome', 'idade', 'cidade']
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        ['Maria', '25', 'Rio de Janeiro']
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        ['João', '30', 'São Paulo']
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        ['Ana', '28', 'Belo Horizonte']
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CABEÇALHO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏷️ Trabalhando com o cabeçalho
+
+            </h3>
+
+
+            <p class="description">
+
+                Muitas vezes a primeira linha de um CSV contém
+                os nomes das colunas.
+
+                Podemos separar essa linha das demais informações
+                utilizando <code>next()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        cabecalho.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            csv
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "usuarios.csv"
+                            </span>,
+                            <span class="string">
+                                "r"
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            leitor =
+                            csv.<span class="function">
+                                reader
+                            </span>(arquivo)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            cabecalho =
+                            <span class="function">
+                                next
+                            </span>(leitor)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Colunas:"
+                            </span>,
+                            cabecalho)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            linha
+                            <span class="keyword">
+                                in
+                            </span>
+                            leitor:
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DICTREADER
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗂️ Lendo CSV como dicionário
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando o CSV possui um cabeçalho, podemos utilizar
+                <strong>csv.DictReader()</strong>.
+
+                Nesse caso, cada linha será representada como um
+                dicionário, utilizando os nomes das colunas como
+                chaves.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        dict_reader.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            csv
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "usuarios.csv"
+                            </span>,
+                            <span class="string">
+                                "r"
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            leitor =
+                            csv.<span class="function">
+                                DictReader
+                            </span>(arquivo)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            usuario
+                            <span class="keyword">
+                                in
+                            </span>
+                            leitor:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            usuario[
+                            <span class="string">
+                                "nome"
+                            </span>])
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Vantagem:</strong>
+
+                <br><br>
+
+                Com <code>DictReader</code>, podemos acessar
+                os valores utilizando o nome da coluna em vez
+                de trabalhar diretamente com posições.
+
+                <br><br>
+
+                Por exemplo:
+                <code>usuario["nome"]</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 ESCREVENDO CSV
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✏️ Escrevendo um arquivo CSV
+
+            </h3>
+
+
+            <p class="description">
+
+                Para criar um CSV, podemos utilizar
+                <strong>csv.writer()</strong>.
+
+                O método <code>writerow()</code> escreve uma
+                linha no arquivo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        escrever_csv.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            csv
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "usuarios.csv"
+                            </span>,
+                            <span class="string">
+                                "w"
+                            </span>,
+                            newline=<span class="string">
+                                ""
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            escritor =
+                            csv.<span class="function">
+                                writer
+                            </span>(arquivo)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            escritor.<span class="function">
+                                writerow
+                            </span>([
+                            <span class="string">
+                                "nome"
+                            </span>,
+                            <span class="string">
+                                "idade"
+                            </span>])
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            escritor.<span class="function">
+                                writerow
+                            </span>([
+                            <span class="string">
+                                "Maria"
+                            </span>,
+                            <span class="string">
+                                "25"
+                            </span>])
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            escritor.<span class="function">
+                                writerow
+                            </span>([
+                            <span class="string">
+                                "João"
+                            </span>,
+                            <span class="string">
+                                "30"
+                            </span>])
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO CSV
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 Resultado do arquivo
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    usuarios.csv
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        nome,idade
+
+                    </div>
+
+
+                    <div>
+
+                        Maria,25
+
+                    </div>
+
+
+                    <div>
+
+                        João,30
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DICTWRITER
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Escrevendo dicionários
+
+            </h3>
+
+
+            <p class="description">
+
+                Assim como podemos ler CSVs como dicionários,
+                também podemos escrever dados nesse formato
+                utilizando <strong>csv.DictWriter()</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        dict_writer.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            csv
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            campos = [
+                            <span class="string">
+                                "nome"
+                            </span>,
+                            <span class="string">
+                                "idade"
+                            </span>]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "usuarios.csv"
+                            </span>,
+                            <span class="string">
+                                "w"
+                            </span>,
+                            newline=<span class="string">
+                                ""
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            escritor =
+                            csv.<span class="function">
+                                DictWriter
+                            </span>(
+                            arquivo,
+                            fieldnames=campos)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            escritor.<span class="function">
+                                writeheader
+                            </span>()
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            escritor.<span class="function">
+                                writerow
+                            </span>({
+                            <span class="string">
+                                "nome"
+                            </span>:
+                            <span class="string">
+                                "Maria"
+                            </span>,
+                            <span class="string">
+                                "idade"
+                            </span>:
+                            <span class="string">
+                                "25"
+                            </span>})
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            escritor.<span class="function">
+                                writerow
+                            </span>({
+                            <span class="string">
+                                "nome"
+                            </span>:
+                            <span class="string">
+                                "João"
+                            </span>,
+                            <span class="string">
+                                "idade"
+                            </span>:
+                            <span class="string">
+                                "30"
+                            </span>})
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                <code>csv.reader()</code> trabalha com linhas
+                como listas.
+
+                <br><br>
+
+                <code>csv.DictReader()</code> trabalha com cada
+                linha como um dicionário.
+
+                <br><br>
+
+                <code>csv.writer()</code> escreve listas no CSV.
+
+                <br><br>
+
+                <code>csv.DictWriter()</code> escreve
+                dicionários no CSV.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO PRÁTICO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 CSV no QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Arquivos CSV são bastante úteis em testes e
+                automações porque permitem armazenar vários
+                conjuntos de dados de forma organizada.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, podemos utilizar um CSV para
+                armazenar diferentes usuários e utilizar cada
+                linha como um cenário de teste.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        dados_teste.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            csv
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "dados_teste.csv"
+                            </span>,
+                            <span class="string">
+                                "r"
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            leitor =
+                            csv.<span class="function">
+                                DictReader
+                            </span>(arquivo)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            usuario
+                            <span class="keyword">
+                                in
+                            </span>
+                            leitor:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            nome =
+                            usuario[
+                            <span class="string">
+                                "nome"
+                            </span>]
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Testando:"
+                            </span>,
+                            nome)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Exemplo de uso em testes:</strong>
+
+                <br><br>
+
+                Um arquivo CSV pode conter dezenas ou centenas
+                de usuários.
+
+                <br><br>
+
+                O programa pode percorrer cada linha e executar
+                o mesmo teste utilizando diferentes dados.
+
+                <br><br>
+
+                Essa técnica é conhecida como
+                <strong>teste orientado a dados</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa que leia um arquivo
+                <code>produtos.csv</code> contendo as colunas
+                <code>produto</code> e <code>preco</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • Utilize o módulo <code>csv</code>.<br>
+
+                • Utilize <code>DictReader</code>.<br>
+
+                • Percorra todos os produtos.<br>
+
+                • Mostre o nome e o preço de cada produto.<br>
+
+                • Ao final, informe quantos produtos foram
+                encontrados.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • CSV é um formato utilizado para armazenar
+                dados em linhas e colunas.<br>
+
+                • O módulo <code>csv</code> faz parte da
+                biblioteca padrão do Python.<br>
+
+                • <code>csv.reader()</code> permite ler linhas
+                de um CSV como listas.<br>
+
+                • <code>csv.DictReader()</code> permite ler
+                linhas como dicionários.<br>
+
+                • <code>csv.writer()</code> permite escrever
+                listas em arquivos CSV.<br>
+
+                • <code>csv.DictWriter()</code> permite escrever
+                dicionários em arquivos CSV.<br>
+
+                • <code>writerow()</code> escreve uma linha.<br>
+
+                • <code>writeheader()</code> escreve o cabeçalho
+                de um CSV.<br>
+
+                • O parâmetro <code>newline=""</code> é
+                recomendado ao abrir CSVs para escrita.<br>
+
+                • CSVs são muito úteis para armazenar dados de
+                testes e criar automações orientadas a dados.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

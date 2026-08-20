@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+
+                        Tema
+
+                    </span>
+
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">15</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 15
+
+            </span>
+
+
+            <h2>
+
+                Parâmetros avançados em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender recursos que tornam
+                as funções mais flexíveis e reutilizáveis.
+
+                Vamos conhecer os <strong>valores padrão</strong>,
+                os <strong>argumentos nomeados</strong>,
+                <strong>*args</strong> e
+                <strong>**kwargs</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚙️ Valores padrão
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos definir um valor padrão para um parâmetro.
+
+                Quando a função for chamada sem informar esse
+                argumento, Python utilizará automaticamente o
+                valor definido.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Um valor padrão funciona como uma opção que a
+                função já possui caso nenhuma outra seja informada.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        padrao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                saudacao
+                            </span>(
+                            nome,
+                            <span class="string">
+                                "Visitante"
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Olá,"
+                            </span>,
+                            nome)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                saudacao
+                            </span>(
+                            <span class="string">
+                                "Maria"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                saudacao
+                            </span>()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div></div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá, Maria
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá, Visitante
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                No primeiro exemplo, o argumento
+                <code>"Maria"</code> substitui o valor padrão.
+
+                Na segunda chamada, nenhum argumento foi
+                informado e Python utilizou
+                <code>"Visitante"</code>.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 2
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏷️ Argumentos nomeados
+
+            </h3>
+
+
+            <p class="description">
+
+                Argumentos nomeados permitem informar explicitamente
+                qual parâmetro estamos preenchendo.
+
+                Para isso, utilizamos o nome do parâmetro seguido
+                por <code>=</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        nomeados.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                cadastrar_usuario
+                            </span>(
+                            nome,
+                            idade):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            nome,
+                            idade)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                cadastrar_usuario
+                            </span>(
+                            idade=25,
+                            nome=
+                            <span class="string">
+                                "Ana"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div></div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Ana 25
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Vantagem:</strong>
+
+                <br><br>
+
+                Com argumentos nomeados, podemos deixar o código
+                mais claro e também alterar a ordem dos argumentos.
+
+                <br><br>
+
+                <code>
+                    cadastrar_usuario(idade=25, nome="Ana")
+                </code>
+
+                <br><br>
+
+                Nesse caso, a ordem não precisa ser a mesma da
+                definição da função.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCEITO 3
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 <code>*args</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O <code>*args</code> permite que uma função receba
+                uma quantidade variável de argumentos posicionais.
+
+                Os valores recebidos ficam disponíveis dentro da
+                função como uma <strong>tupla</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        args.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                somar
+                            </span>(*numeros):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            total = 0
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">for</span>
+                            numero
+                            <span class="keyword">in</span>
+                            numeros:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            total += numero
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            total
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="function">
+                                somar
+                            </span>(
+                            10, 20, 30))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        60
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos passar dois, três, quatro ou quantos
+                argumentos forem necessários.
+
+                O <code>*args</code> reúne todos esses argumentos
+                em uma tupla.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                O nome <code>args</code> é uma convenção.
+
+                <br><br>
+
+                Tecnicamente, poderíamos utilizar outro nome,
+                mas <code>*args</code> é o padrão mais utilizado
+                pelos desenvolvedores Python.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCEITO 4
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗂️ <code>**kwargs</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O <code>**kwargs</code> permite receber uma
+                quantidade variável de argumentos nomeados.
+
+                Esses valores ficam disponíveis dentro da função
+                como um <strong>dicionário</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        kwargs.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                cadastrar_teste
+                            </span>(**dados):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(dados)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                cadastrar_teste
+                            </span>(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            sistema=
+                            <span class="string">
+                                "Login"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            ambiente=
+                            <span class="string">
+                                "Homologação"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        {'sistema': 'Login',
+                        'ambiente': 'Homologação'}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                <code>*args</code> → vários argumentos
+                <strong>posicionais</strong>.
+
+                <br><br>
+
+                <code>**kwargs</code> → vários argumentos
+                <strong>nomeados</strong>.
+
+                <br><br>
+
+                <code>*args</code> normalmente resulta em uma
+                <strong>tupla</strong>.
+
+                <br><br>
+
+                <code>**kwargs</code> normalmente resulta em um
+                <strong>dicionário</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 COMBINANDO RECURSOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔀 Combinando parâmetros
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos combinar parâmetros normais, valores padrão,
+                <code>*args</code> e <code>**kwargs</code> em uma
+                mesma função.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        combinando.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                executar_teste
+                            </span>(
+                            nome,
+                            ambiente=
+                            <span class="string">
+                                "Homologação"
+                            </span>,
+                            *passos,
+                            **configuracoes):
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Teste:"
+                            </span>,
+                            nome)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Ambiente:"
+                            </span>,
+                            ambiente)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            passo
+                            <span class="keyword">
+                                in
+                            </span>
+                            passos:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(passo)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(configuracoes)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                A combinação desses recursos deve respeitar a
+                ordem esperada pela sintaxe do Python.
+
+                <br><br>
+
+                Não é necessário decorar todas as combinações agora.
+
+                O mais importante nesta aula é entender o papel
+                de cada recurso.
+
+            </div>
+
+
+            <!-- =================================================
+                 APLICAÇÃO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Aplicando em QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Esses recursos podem ser bastante úteis em testes
+                automatizados.
+
+                Por exemplo, podemos criar uma função capaz de
+                receber diferentes configurações de um teste sem
+                precisar criar uma nova função para cada cenário.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        teste_qa.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                criar_teste
+                            </span>(
+                            nome,
+                            **dados):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Teste:"
+                            </span>,
+                            nome)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Dados:"
+                            </span>,
+                            dados)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                criar_teste
+                            </span>(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "Login"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            usuario=
+                            <span class="string">
+                                "qa@teste.com"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            ambiente=
+                            <span class="string">
+                                "Homologação"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Teste: Login
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Dados: {'usuario': 'qa@teste.com',
+                        'ambiente': 'Homologação'}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma função chamada
+                <code>registrar_teste</code> que receba:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Um parâmetro obrigatório chamado
+                    <code>nome</code>.
+                </li>
+
+                <li>
+                    Um parâmetro <code>ambiente</code> com valor
+                    padrão <code>"Homologação"</code>.
+                </li>
+
+                <li>
+                    Vários passos utilizando
+                    <code>*args</code>.
+                </li>
+
+                <li>
+                    Informações adicionais utilizando
+                    <code>**kwargs</code>.
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Depois, exiba todas essas informações utilizando
+                <code>print()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        desafio.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                registrar_teste
+                            </span>(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            nome,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            ambiente=
+                            <span class="string">
+                                "Homologação"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            *passos,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            **informacoes
+
+                        </div>
+
+
+                        <div>
+
+                            ):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            nome)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            ambiente)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            passos)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            informacoes)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Podemos definir <strong>valores padrão</strong>
+                para parâmetros.<br>
+
+                • <strong>Argumentos nomeados</strong> permitem
+                informar explicitamente o parâmetro que receberá
+                cada valor.<br>
+
+                • <code>*args</code> recebe vários argumentos
+                posicionais e os armazena em uma tupla.<br>
+
+                • <code>**kwargs</code> recebe vários argumentos
+                nomeados e os armazena em um dicionário.<br>
+
+                • Esses recursos tornam as funções mais
+                flexíveis e reutilizáveis.<br>
+
+                • Em automação de testes, parâmetros avançados
+                podem facilitar a criação de funções reutilizáveis
+                para diferentes cenários.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

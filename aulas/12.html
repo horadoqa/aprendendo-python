@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">12</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 12
+
+            </span>
+
+
+            <h2>
+
+                Conjuntos em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender a trabalhar com
+                <strong>conjuntos</strong>, também conhecidos como
+                <strong>sets</strong>.
+
+                Conjuntos são estruturas utilizadas para armazenar
+                valores únicos, sem elementos duplicados.
+
+                Vamos aprender como criar conjuntos, realizar
+                <strong>união</strong>, <strong>interseção</strong>
+                e <strong>diferença</strong>, além de utilizar
+                conjuntos para remover valores duplicados.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🟢 O que é um set?
+
+            </h3>
+
+
+            <p class="description">
+
+                Um <strong>set</strong> é uma estrutura de dados
+                que armazena elementos únicos.
+
+                Isso significa que valores repetidos são
+                automaticamente eliminados.
+
+                Os conjuntos são criados utilizando
+                <strong>chaves</strong> <code>{}</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Uma lista pode conter valores repetidos:
+
+                <br><br>
+
+                <code>
+                    numeros = [1, 2, 2, 3, 3, 3]
+                </code>
+
+                <br><br>
+
+                Já um conjunto mantém apenas os valores únicos:
+
+                <br><br>
+
+                <code>
+                    numeros = {1, 2, 3}
+                </code>
+
+            </div>
+
+
+            <!-- =================================================
+                 CRIANDO SET
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Criando um conjunto
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        sets.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            numeros = {1, 2, 3, 4, 5}
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            frutas = {
+                            <span class="string">"maçã"</span>,
+                            <span class="string">"banana"</span>,
+                            <span class="string">"laranja"</span>
+                            }
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(numeros)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(frutas)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        {1, 2, 3, 4, 5}
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        {'maçã', 'banana', 'laranja'}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DUPLICADOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ♻️ Removendo duplicados
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das utilizações mais comuns dos conjuntos é
+                remover valores duplicados de uma lista.
+
+                Basta transformar a lista em um conjunto utilizando
+                <code>set()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        duplicados.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            numeros = [1, 2, 2, 3, 3, 4, 5, 5]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            unicos =
+                            <span class="function">set</span>(numeros)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(numeros)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(unicos)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        [1, 2, 2, 3, 3, 4, 5, 5]
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        {1, 2, 3, 4, 5}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                Para remover duplicados de uma lista:
+
+                <br><br>
+
+                <code>
+                    lista = list(set(lista))
+                </code>
+
+                <br><br>
+
+                O <code>set()</code> elimina os valores repetidos
+                e o <code>list()</code> transforma o resultado
+                novamente em uma lista.
+
+            </div>
+
+
+            <!-- =================================================
+                 UNIÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🤝 União
+
+            </h3>
+
+
+            <p class="description">
+
+                A <strong>união</strong> combina os elementos de
+                dois conjuntos.
+
+                Elementos repetidos aparecem apenas uma vez.
+
+                Podemos utilizar o operador
+                <code>|</code> ou o método
+                <code>union()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        uniao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            grupo_a = {1, 2, 3, 4}
+                        </div>
+
+                        <div>
+                            grupo_b = {3, 4, 5, 6}
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            resultado = grupo_a | grupo_b
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(resultado)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        {1, 2, 3, 4, 5, 6}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>Outra forma:</strong>
+
+                <br><br>
+
+                <code>
+                    resultado = grupo_a.union(grupo_b)
+                </code>
+
+                <br><br>
+
+                O resultado é o mesmo.
+
+            </div>
+
+
+            <!-- =================================================
+                 INTERSEÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔗 Interseção
+
+            </h3>
+
+
+            <p class="description">
+
+                A <strong>interseção</strong> retorna apenas os
+                elementos que existem nos dois conjuntos.
+
+                Podemos utilizar o operador
+                <code>&amp;</code> ou o método
+                <code>intersection()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        intersecao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            grupo_a = {1, 2, 3, 4}
+                        </div>
+
+                        <div>
+                            grupo_b = {3, 4, 5, 6}
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            resultado = grupo_a &amp; grupo_b
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(resultado)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        {3, 4}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                União → junta os elementos.
+
+                <br><br>
+
+                Interseção → encontra os elementos em comum.
+
+            </div>
+
+
+            <!-- =================================================
+                 DIFERENÇA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ➖ Diferença
+
+            </h3>
+
+
+            <p class="description">
+
+                A <strong>diferença</strong> retorna os elementos
+                que estão no primeiro conjunto, mas não estão no
+                segundo.
+
+                Utilizamos o operador <code>-</code> ou o método
+                <code>difference()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        diferenca.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            grupo_a = {1, 2, 3, 4}
+                        </div>
+
+                        <div>
+                            grupo_b = {3, 4, 5, 6}
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            resultado = grupo_a - grupo_b
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(resultado)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        {1, 2}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                A ordem importa na diferença.
+
+                <br><br>
+
+                <code>
+                    grupo_a - grupo_b
+                </code>
+
+                não necessariamente produz o mesmo resultado que:
+
+                <br><br>
+
+                <code>
+                    grupo_b - grupo_a
+                </code>
+
+            </div>
+
+
+            <!-- =================================================
+                 MÉTODOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛠️ Métodos para conjuntos
+
+            </h3>
+
+
+            <p class="description">
+
+                Além dos operadores, podemos utilizar métodos
+                específicos para realizar operações entre
+                conjuntos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        metodos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            a = {1, 2, 3, 4}
+                        </div>
+
+                        <div>
+                            b = {3, 4, 5, 6}
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            a.union(b))
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            a.intersection(b))
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            a.difference(b))
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            b.difference(a))
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        {1, 2, 3, 4, 5, 6}
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        {3, 4}
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        {1, 2}
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        {5, 6}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 REMOÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗑️ Removendo elementos
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos remover elementos de um conjunto
+                utilizando métodos como <strong>remove()</strong>
+                e <strong>discard()</strong>.
+
+                O método <code>remove()</code> gera um erro se
+                o elemento não existir.
+
+                Já <code>discard()</code> não gera erro caso o
+                elemento não esteja presente.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        remocao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            numeros = {10, 20, 30, 40}
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            numeros.remove(20)
+                        </div>
+
+                        <div>
+                            numeros.discard(50)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(numeros)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        {10, 30, 40}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROGRAMA PRÁTICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Programa prático
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora vamos criar um pequeno programa para
+                comparar os participantes de dois grupos.
+
+                O programa irá descobrir quais pessoas estão
+                nos dois grupos, quais estão apenas no primeiro
+                e quais estão em qualquer um dos grupos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        participantes.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            grupo_a = {
+                            <span class="string">"Ana"</span>,
+                            <span class="string">"Carlos"</span>,
+                            <span class="string">"Maria"</span>
+                            }
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            grupo_b = {
+                            <span class="string">"Maria"</span>,
+                            <span class="string">"João"</span>,
+                            <span class="string">"Pedro"</span>
+                            }
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            comuns = grupo_a &amp; grupo_b
+                        </div>
+
+                        <div>
+                            apenas_a = grupo_a - grupo_b
+                        </div>
+
+                        <div>
+                            todos = grupo_a | grupo_b
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            <span class="string">"Em ambos:"</span>,
+                            comuns)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            <span class="string">"Apenas A:"</span>,
+                            apenas_a)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            <span class="string">"Todos:"</span>,
+                            todos)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Em ambos: {'Maria'}
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Apenas A: {'Ana', 'Carlos'}
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Todos: {'Ana', 'Carlos', 'Maria', 'João', 'Pedro'}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TABELA RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📚 Operações com conjuntos
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>Principais operações:</strong>
+
+                <br><br>
+
+                <code>A | B</code> → União
+
+                <br><br>
+
+                <code>A &amp; B</code> → Interseção
+
+                <br><br>
+
+                <code>A - B</code> → Diferença
+
+                <br><br>
+
+                <code>A.union(B)</code> → União
+
+                <br><br>
+
+                <code>A.intersection(B)</code> → Interseção
+
+                <br><br>
+
+                <code>A.difference(B)</code> → Diferença
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa para comparar duas listas de
+                participantes de um evento.
+
+                Algumas pessoas podem aparecer nas duas listas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>O programa deve:</strong>
+
+                <br><br>
+
+                • Criar duas listas com nomes de participantes.<br>
+
+                • Transformar as listas em conjuntos usando
+                <code>set()</code>.<br>
+
+                • Descobrir quais participantes estão nos dois
+                grupos utilizando a interseção.<br>
+
+                • Descobrir quais participantes estão apenas no
+                primeiro grupo utilizando a diferença.<br>
+
+                • Criar um conjunto com todos os participantes
+                utilizando a união.<br>
+
+                • Exibir os resultados no terminal.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        desafio.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            lista_a = [
+                            <span class="string">"Ana"</span>,
+                            <span class="string">"Carlos"</span>,
+                            <span class="string">"Maria"</span>
+                            ]
+                        </div>
+
+                        <div>
+                            lista_b = [
+                            <span class="string">"Maria"</span>,
+                            <span class="string">"João"</span>,
+                            <span class="string">"Pedro"</span>
+                            ]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            a = <span class="function">set</span>(lista_a)
+                        </div>
+
+                        <div>
+                            b = <span class="function">set</span>(lista_b)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            a &amp; b)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            a - b)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            a | b)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • <code>set</code> representa um conjunto de
+                valores únicos.<br>
+
+                • Conjuntos não permitem elementos duplicados.<br>
+
+                • <code>set()</code> pode ser utilizado para
+                remover duplicados de uma lista.<br>
+
+                • <code>|</code> realiza a união entre conjuntos.<br>
+
+                • <code>&amp;</code> realiza a interseção entre
+                conjuntos.<br>
+
+                • <code>-</code> realiza a diferença entre
+                conjuntos.<br>
+
+                • <code>union()</code> realiza uma união.<br>
+
+                • <code>intersection()</code> realiza uma
+                interseção.<br>
+
+                • <code>difference()</code> realiza uma
+                diferença.<br>
+
+                • <code>remove()</code> remove um elemento e gera
+                erro se ele não existir.<br>
+
+                • <code>discard()</code> remove um elemento sem
+                gerar erro caso ele não exista.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,2005 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">52</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 52
+
+            </span>
+
+
+            <h2>
+
+                ORM com SQLAlchemy
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai conhecer o conceito de
+                <strong>ORM (Object-Relational Mapping)</strong>
+                e aprender como utilizar o
+                <strong>SQLAlchemy</strong> para trabalhar com
+                bancos de dados utilizando objetos Python.
+
+                Também veremos como criar
+                <strong>Models</strong> e representar
+                relacionamentos entre diferentes tabelas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                ORM significa
+                <strong>Object-Relational Mapping</strong>.
+
+                <br><br>
+
+                A ideia é permitir que objetos Python sejam
+                associados a registros de um banco de dados,
+                reduzindo a necessidade de escrever SQL
+                manualmente em todas as operações.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É ORM
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 O que é ORM?
+
+            </h3>
+
+
+            <p class="description">
+
+                Um ORM é uma técnica que cria uma relação entre
+                objetos da aplicação e tabelas do banco de dados.
+
+                Em vez de trabalhar diretamente com comandos SQL
+                para todas as operações, podemos utilizar
+                classes e objetos Python.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo:</strong>
+
+                <br><br>
+
+                Uma classe Python chamada
+                <code>Usuario</code> pode representar uma tabela
+                chamada <code>usuarios</code>.
+
+                <br><br>
+
+                Cada objeto <code>Usuario</code> pode representar
+                um registro dessa tabela.
+
+            </div>
+
+
+            <!-- =================================================
+                 SQL x ORM
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ SQL tradicional x ORM
+
+            </h3>
+
+
+            <p class="description">
+
+                Utilizando SQL diretamente, podemos escrever uma
+                consulta como:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        consulta.sql
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                SELECT
+                            </span>
+                            *
+                            <span class="keyword">
+                                FROM
+                            </span>
+                            usuarios;
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Com um ORM, podemos trabalhar com objetos e
+                métodos Python para realizar operações
+                semelhantes.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                ORM não elimina a necessidade de conhecer SQL.
+
+                <br><br>
+
+                Entender SQL continua sendo muito importante,
+                principalmente para QA, análise de dados,
+                debugging e otimização de consultas.
+
+            </div>
+
+
+            <!-- =================================================
+                 SQLALCHEMY
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐍 SQLAlchemy
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>SQLAlchemy</strong> é uma biblioteca
+                Python bastante utilizada para trabalhar com
+                bancos de dados relacionais.
+
+                Ela oferece ferramentas para executar SQL e
+                também recursos de ORM.
+
+            </p>
+
+
+            <p class="description">
+
+                Para utilizar o SQLAlchemy, podemos instalá-lo
+                utilizando o <code>pip</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        Terminal
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            pip install sqlalchemy
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ENGINE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚙️ Engine
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>Engine</strong> é responsável por
+                representar a conexão entre o SQLAlchemy e o
+                banco de dados.
+
+            </p>
+
+
+            <p class="description">
+
+                Para começar, podemos criar um Engine utilizando
+                <code>create_engine()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        database.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sqlalchemy
+                            <span class="keyword">
+                                import
+                            </span>
+                            create_engine
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            engine = create_engine(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "sqlite:///loja.db"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Neste exemplo:</strong>
+
+                <br><br>
+
+                O SQLAlchemy está utilizando SQLite apenas para
+                facilitar o exemplo.
+
+                <br><br>
+
+                O mesmo conceito pode ser utilizado com
+                PostgreSQL, MySQL e outros bancos suportados.
+
+            </div>
+
+
+            <!-- =================================================
+                 BASE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧱 Criando a Base
+
+            </h3>
+
+
+            <p class="description">
+
+                Para criar Models utilizando o SQLAlchemy ORM,
+                podemos utilizar uma classe base.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        models.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sqlalchemy.orm
+                            <span class="keyword">
+                                import
+                            </span>
+                            DeclarativeBase
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Base(DeclarativeBase):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                pass
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MODEL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Models
+
+            </h3>
+
+
+            <p class="description">
+
+                Um <strong>Model</strong> é uma classe Python
+                utilizada para representar uma tabela do banco
+                de dados.
+
+                Seus atributos representam as colunas da tabela.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        usuario.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sqlalchemy
+                            <span class="keyword">
+                                import
+                            </span>
+                            String
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sqlalchemy.orm
+                            <span class="keyword">
+                                import
+                            </span>
+                            Mapped, mapped_column
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Usuario(Base):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            __tablename__ =
+                            <span class="string">
+                                "usuarios"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            id: Mapped[int] =
+                            mapped_column(
+                            primary_key=True)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            nome: Mapped[str] =
+                            mapped_column(
+                            String(100))
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            email: Mapped[str] =
+                            mapped_column(
+                            String(150))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🔗 Relação:</strong>
+
+                <br><br>
+
+                Classe Python → Model
+
+                <br>
+
+                Model → Tabela
+
+                <br>
+
+                Atributo → Coluna
+
+                <br>
+
+                Objeto → Registro
+
+            </div>
+
+
+            <!-- =================================================
+                 CRIANDO TABELAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏗️ Criando as tabelas
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de criar os Models, podemos utilizar o
+                Engine para criar as tabelas correspondentes.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        criar_banco.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            database
+                            <span class="keyword">
+                                import
+                            </span>
+                            engine
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            models
+                            <span class="keyword">
+                                import
+                            </span>
+                            Base
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            Base.metadata.create_all(engine)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SESSION
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💾 Session
+
+            </h3>
+
+
+            <p class="description">
+
+                A <strong>Session</strong> é utilizada para
+                interagir com os objetos e persistir alterações
+                no banco de dados.
+
+                Podemos adicionar objetos, consultar registros,
+                atualizar dados e remover objetos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        inserir.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sqlalchemy.orm
+                            <span class="keyword">
+                                import
+                            </span>
+                            Session
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            database
+                            <span class="keyword">
+                                import
+                            </span>
+                            engine
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            models
+                            <span class="keyword">
+                                import
+                            </span>
+                            Usuario
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            Session(engine)
+                            <span class="keyword">
+                                as
+                            </span>
+                            session:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            usuario = Usuario(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            nome=
+                            <span class="string">
+                                "Maria"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            email=
+                            <span class="string">
+                                "maria@email.com"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            session.add(usuario)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            session.commit()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONSULTA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Consultando Models
+
+            </h3>
+
+
+            <p class="description">
+
+                Com o SQLAlchemy ORM podemos consultar objetos
+                utilizando recursos como <code>select()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        consulta.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sqlalchemy
+                            <span class="keyword">
+                                import
+                            </span>
+                            select
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sqlalchemy.orm
+                            <span class="keyword">
+                                import
+                            </span>
+                            Session
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            Session(engine)
+                            <span class="keyword">
+                                as
+                            </span>
+                            session:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            comando =
+                            select(Usuario)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            usuarios =
+                            session.scalars(
+                            comando).all()
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            usuario
+                            <span class="keyword">
+                                in
+                            </span>
+                            usuarios:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            usuario.nome)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RELACIONAMENTOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔗 Relacionamentos
+
+            </h3>
+
+
+            <p class="description">
+
+                Bancos relacionais permitem criar relações entre
+                diferentes tabelas.
+
+                Por exemplo, podemos ter uma tabela de
+                <strong>usuários</strong> e outra de
+                <strong>pedidos</strong>.
+
+                Um usuário pode possuir vários pedidos.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo:</strong>
+
+                <br><br>
+
+                Usuário 1
+
+                <br>
+
+                ├── Pedido 1
+
+                <br>
+
+                ├── Pedido 2
+
+                <br>
+
+                └── Pedido 3
+
+                <br><br>
+
+                Esse é um relacionamento
+                <strong>um-para-muitos</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 FOREIGN KEY
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔑 Foreign Key
+
+            </h3>
+
+
+            <p class="description">
+
+                Para representar uma relação entre tabelas,
+                utilizamos normalmente uma
+                <strong>chave estrangeira
+                    (Foreign Key)</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        pedido.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sqlalchemy
+                            <span class="keyword">
+                                import
+                            </span>
+                            ForeignKey
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sqlalchemy.orm
+                            <span class="keyword">
+                                import
+                            </span>
+                            Mapped, mapped_column
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Pedido(Base):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            __tablename__ =
+                            <span class="string">
+                                "pedidos"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            id: Mapped[int] =
+                            mapped_column(
+                            primary_key=True)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            usuario_id: Mapped[int] =
+                            mapped_column(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            ForeignKey(
+                            <span class="string">
+                                "usuarios.id"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            descricao: Mapped[str]
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RELATIONSHIP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Relationship
+
+            </h3>
+
+
+            <p class="description">
+
+                Além da chave estrangeira, o SQLAlchemy permite
+                representar o relacionamento diretamente nos
+                Models utilizando <code>relationship()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        relacionamento.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sqlalchemy
+                            <span class="keyword">
+                                import
+                            </span>
+                            ForeignKey
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sqlalchemy.orm
+                            <span class="keyword">
+                                import
+                            </span>
+                            relationship
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Usuario(Base):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            __tablename__ =
+                            <span class="string">
+                                "usuarios"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            id: Mapped[int] =
+                            mapped_column(
+                            primary_key=True)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pedidos =
+                            relationship(
+                            <span class="string">
+                                "Pedido"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Pedido(Base):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            __tablename__ =
+                            <span class="string">
+                                "pedidos"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            id: Mapped[int] =
+                            mapped_column(
+                            primary_key=True)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            usuario_id: Mapped[int] =
+                            mapped_column(
+                            ForeignKey(
+                            <span class="string">
+                                "usuarios.id"
+                            </span>))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🔗 Tipos de relacionamento:</strong>
+
+                <br><br>
+
+                • Um-para-um (1:1)
+
+                <br>
+
+                • Um-para-muitos (1:N)
+
+                <br>
+
+                • Muitos-para-muitos (N:N)
+
+                <br><br>
+
+                O tipo de relacionamento depende de como os
+                dados da aplicação estão relacionados.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO PRÁTICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛒 Exemplo prático
+
+            </h3>
+
+
+            <p class="description">
+
+                Imagine um sistema de vendas.
+
+                Temos clientes e pedidos.
+
+                Um cliente pode realizar vários pedidos, enquanto
+                cada pedido pertence a um cliente.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        venda.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            cliente = Usuario(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            nome=
+                            <span class="string">
+                                "Maria"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            email=
+                            <span class="string">
+                                "maria@email.com"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            pedido = Pedido(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            descricao=
+                            <span class="string">
+                                "Notebook"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Com o relacionamento configurado, podemos
+                associar os pedidos ao cliente e trabalhar com
+                esses objetos diretamente no Python.
+
+            </p>
+
+
+            <!-- =================================================
+                 ORM PARA QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 ORM para QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Para QA, conhecer ORM é importante porque muitas
+                aplicações modernas utilizam ferramentas como
+                SQLAlchemy para acessar bancos de dados.
+
+            </p>
+
+
+            <p class="description">
+
+                Durante testes automatizados, podemos utilizar
+                ORM para criar dados, consultar registros,
+                preparar cenários e validar o estado do banco
+                após uma operação.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo de fluxo de teste:</strong>
+
+                <br><br>
+
+                1. Criar um usuário através do Model.
+
+                <br><br>
+
+                2. Salvar o usuário no banco.
+
+                <br><br>
+
+                3. Executar uma ação na aplicação.
+
+                <br><br>
+
+                4. Consultar o banco através do ORM.
+
+                <br><br>
+
+                5. Validar se os dados foram persistidos
+                corretamente.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Exercício
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um pequeno sistema utilizando SQLAlchemy
+                com os Models <code>Cliente</code> e
+                <code>Pedido</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                O sistema deve permitir:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Criar clientes.
+                </li>
+
+                <li>
+                    Criar pedidos.
+                </li>
+
+                <li>
+                    Associar cada pedido a um cliente.
+                </li>
+
+                <li>
+                    Consultar todos os clientes.
+                </li>
+
+                <li>
+                    Consultar os pedidos de um cliente.
+                </li>
+
+                <li>
+                    Alterar informações de um cliente.
+                </li>
+
+                <li>
+                    Remover um pedido.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Desafio extra:</strong>
+
+                <br><br>
+
+                Crie uma função chamada
+                <code>listar_pedidos(cliente_id)</code>
+                que receba o ID de um cliente e retorne todos os
+                pedidos relacionados a ele.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • ORM significa
+                <strong>Object-Relational Mapping</strong>.<br>
+
+                • SQLAlchemy é uma biblioteca Python para
+                trabalhar com bancos de dados.<br>
+
+                • Um Model pode representar uma tabela do
+                banco.<br>
+
+                • Atributos do Model podem representar colunas.<br>
+
+                • Objetos podem representar registros.<br>
+
+                • <code>create_engine()</code> cria o Engine de
+                conexão.<br>
+
+                • <code>Session</code> permite trabalhar com
+                objetos e persistir alterações.<br>
+
+                • <code>ForeignKey</code> representa uma chave
+                estrangeira.<br>
+
+                • <code>relationship()</code> representa relações
+                entre Models.<br>
+
+                • Os relacionamentos podem ser 1:1, 1:N ou N:N.<br>
+
+                • ORM pode facilitar a criação de dados e
+                consultas em testes automatizados.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

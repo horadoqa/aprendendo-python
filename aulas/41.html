@@ -1,0 +1,2199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">41</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 41
+
+            </span>
+
+
+            <h2>
+
+                Testes
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender os fundamentos dos
+                <strong>testes automatizados em Python</strong>.
+
+                Vamos conhecer o módulo <strong>unittest</strong>,
+                o framework <strong>pytest</strong> e entender como
+                criar <strong>testes unitários</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Testes automatizados ajudam a verificar se o código
+                está funcionando conforme o esperado e permitem
+                identificar problemas rapidamente quando uma
+                alteração é realizada.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Um teste automatizado executa uma verificação
+                automaticamente e compara o resultado obtido com
+                o resultado esperado.
+
+                <br><br>
+
+                Se os resultados forem iguais, o teste passa.
+                Caso contrário, o teste falha.
+
+            </div>
+
+
+            <!-- =================================================
+                 TESTES UNITÁRIOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 O que são testes unitários?
+
+            </h3>
+
+
+            <p class="description">
+
+                Testes unitários verificam pequenas partes isoladas
+                de uma aplicação, normalmente funções ou métodos.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, imagine uma função responsável por
+                somar dois números:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        calculadora.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            somar(a, b):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            a + b
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos criar um teste para verificar se a função
+                retorna o resultado esperado.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Exemplo:</strong>
+
+                <br><br>
+
+                Se chamarmos
+                <code>somar(2, 3)</code>,
+                esperamos receber
+                <code>5</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 ASSERT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ Asserções
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma <strong>asserção</strong> verifica se uma
+                condição é verdadeira.
+
+                Nos testes, usamos asserções para comparar o
+                resultado obtido com o resultado esperado.
+
+            </p>
+
+
+            <p class="description">
+
+                Um exemplo simples:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        exemplo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">assert</span>
+                            2 + 3 == 5
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, o Python verifica se
+                <code>2 + 3 == 5</code> é verdadeiro.
+
+                Como a condição é verdadeira, nenhuma falha
+                acontece.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                Se uma asserção falhar, o teste deve indicar que
+                o comportamento esperado não foi encontrado.
+
+            </div>
+
+
+            <!-- =================================================
+                 UNITTEST
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧰 unittest
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>unittest</strong> é um framework de testes
+                que faz parte da biblioteca padrão do Python.
+
+                Isso significa que não precisamos instalar um
+                pacote adicional para utilizá-lo.
+
+            </p>
+
+
+            <p class="description">
+
+                Vamos criar um teste para nossa função
+                <code>somar()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        test_calculadora.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            unittest
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">from</span>
+                            calculadora
+                            <span class="keyword">import</span>
+                            somar
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">class</span>
+                            TestCalculadora(
+                            unittest.TestCase):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">def</span>
+                            test_somar(self):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado = somar(2, 3)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            self.assertEqual(resultado, 5)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O método <code>assertEqual()</code> verifica se
+                dois valores são iguais.
+
+            </p>
+
+
+            <p class="description">
+
+                Para executar os testes com unittest:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            python -m unittest
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO UNITTEST
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            &gt;
+                        </span>
+
+                        .
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            &gt;
+                        </span>
+
+                        Ran 1 test
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            &gt;
+                        </span>
+
+                        OK
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PRINCIPAIS ASSERTS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔍 Principais asserções do unittest
+
+            </h3>
+
+
+            <p class="description">
+
+                O unittest possui vários métodos para verificar
+                diferentes tipos de resultados.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        asserts.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            self.assertEqual(10, 10)
+
+                        </div>
+
+
+                        <div>
+
+                            self.assertNotEqual(10, 20)
+
+                        </div>
+
+
+                        <div>
+
+                            self.assertTrue(True)
+
+                        </div>
+
+
+                        <div>
+
+                            self.assertFalse(False)
+
+                        </div>
+
+
+                        <div>
+
+                            self.assertIsNone(None)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <ul>
+
+                <li>
+                    <code>assertEqual()</code> — verifica igualdade.
+                </li>
+
+                <li>
+                    <code>assertNotEqual()</code> — verifica diferença.
+                </li>
+
+                <li>
+                    <code>assertTrue()</code> — verifica se o valor
+                    é verdadeiro.
+                </li>
+
+                <li>
+                    <code>assertFalse()</code> — verifica se o valor
+                    é falso.
+                </li>
+
+                <li>
+                    <code>assertIsNone()</code> — verifica se o valor
+                    é <code>None</code>.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 PYTEST
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 pytest
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>pytest</strong> é um framework bastante
+                utilizado para automação de testes em Python.
+
+                Ele possui uma sintaxe simples e oferece diversos
+                recursos para criação e execução de testes.
+
+            </p>
+
+
+            <p class="description">
+
+                Diferentemente do unittest, podemos criar um teste
+                simples sem precisar criar uma classe.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        test_calculadora.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">from</span>
+                            calculadora
+                            <span class="keyword">import</span>
+                            somar
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            test_somar():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado = somar(2, 3)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">assert</span>
+                            resultado == 5
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Observe que o teste utiliza apenas uma função e
+                a palavra-chave <code>assert</code>.
+
+            </p>
+
+
+            <!-- =================================================
+                 INSTALANDO PYTEST
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📥 Instalando pytest
+
+            </h3>
+
+
+            <p class="description">
+
+                Como o pytest não faz parte da biblioteca padrão
+                do Python, precisamos instalá-lo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            python -m pip install pytest
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXECUTANDO PYTEST
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Executando testes com pytest
+
+            </h3>
+
+
+            <p class="description">
+
+                Para executar os testes, podemos utilizar:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            pytest
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO PYTEST
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado com pytest
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            &gt;
+                        </span>
+
+                        collected 1 item
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            &gt;
+                        </span>
+
+                        test_calculadora.py . [100%]
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            &gt;
+                        </span>
+
+                        1 passed
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 No pytest:</strong>
+
+                <br><br>
+
+                <code>.</code> representa um teste que passou.
+
+                <br><br>
+
+                Se um teste falhar, o pytest apresenta informações
+                sobre o erro para ajudar na investigação.
+
+            </div>
+
+
+            <!-- =================================================
+                 NOMENCLATURA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Nomenclatura dos testes
+
+            </h3>
+
+
+            <p class="description">
+
+                O pytest utiliza convenções para encontrar
+                automaticamente os arquivos e funções de teste.
+
+            </p>
+
+
+            <p class="description">
+
+                Um nome comum para o arquivo é:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        estrutura.txt
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            tests/
+
+                        </div>
+
+
+                        <div>
+
+                            └── test_calculadora.py
+
+                        </div>
+
+
+                        <div>
+
+                            └── test_login.py
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                As funções de teste normalmente começam com
+                <code>test_</code>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        test_exemplo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            test_soma():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado = 2 + 3
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">assert</span>
+                            resultado == 5
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Teste simples
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MÚLTIPLOS TESTES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Criando vários testes
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos criar vários testes para verificar
+                diferentes comportamentos da mesma função.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        test_calculadora.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            somar(a, b):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            a + b
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            test_soma_positivos():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">assert</span>
+                            somar(2, 3) == 5
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            test_soma_negativos():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">assert</span>
+                            somar(-2, -3) == -5
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            test_soma_com_zero():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">assert</span>
+                            somar(10, 0) == 10
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FALHA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ❌ Quando um teste falha
+
+            </h3>
+
+
+            <p class="description">
+
+                Um teste falha quando o resultado obtido é diferente
+                do resultado esperado.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        test_exemplo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            test_soma():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado = 2 + 2
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">assert</span>
+                            resultado == 5
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, o resultado será <code>4</code>,
+                mas estamos esperando <code>5</code>.
+
+                Portanto, o teste irá falhar.
+
+            </p>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            &gt;
+                        </span>
+
+                        FAILED test_exemplo.py
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            &gt;
+                        </span>
+
+                        assert 4 == 5
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TESTANDO EXCEÇÕES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ Testando exceções
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos testar se uma função gera uma
+                exceção quando recebe uma entrada inválida.
+
+            </p>
+
+
+            <p class="description">
+
+                Com pytest:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        test_divisao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            pytest
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            dividir(a, b):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            a / b
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        test_divisao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            test_divisao_por_zero():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">with</span>
+                            pytest.raises(ZeroDivisionError):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            dividir(10, 0)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 UNITTEST X PYTEST
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ unittest x pytest
+
+            </h3>
+
+
+            <p class="description">
+
+                Os dois podem ser utilizados para criar testes
+                automatizados, mas possuem estilos diferentes.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>unittest</strong>
+
+                <br><br>
+
+                • Faz parte da biblioteca padrão do Python.<br>
+
+                • Utiliza classes e métodos de teste.<br>
+
+                • Possui vários métodos de asserção.<br>
+
+                • É uma opção tradicional para testes em Python.
+
+                <br><br>
+
+                <strong>pytest</strong>
+
+                <br><br>
+
+                • Precisa ser instalado.<br>
+
+                • Possui sintaxe mais simples.<br>
+
+                • Utiliza <code>assert</code> diretamente.<br>
+
+                • Possui diversos recursos e plugins.<br>
+
+                • É muito utilizado em projetos de automação.
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Testes unitários no QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Em um projeto de QA, testes unitários podem ajudar
+                a validar funções responsáveis por regras de negócio,
+                cálculos, validações e transformações de dados.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, podemos ter uma função que verifica
+                se uma pessoa pode realizar um cadastro:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        cadastro.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            pode_cadastrar(idade):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            idade &gt;= 18
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Regra de negócio
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Apenas maiores de idade
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos testar diferentes cenários:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        test_cadastro.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">from</span>
+                            cadastro
+                            <span class="keyword">import</span>
+                            pode_cadastrar
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            test_maior_de_idade():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">assert</span>
+                            pode_cadastrar(25) ==
+                            <span class="keyword">True</span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            test_menor_de_idade():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">assert</span>
+                            pode_cadastrar(16) ==
+                            <span class="keyword">False</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ESTRUTURA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📁 Estrutura de um projeto de testes
+
+            </h3>
+
+
+            <p class="description">
+
+                Um projeto simples pode ser organizado desta forma:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        projeto/
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            projeto/
+
+                        </div>
+
+
+                        <div>
+
+                            ├── src/
+
+                        </div>
+
+
+                        <div>
+
+                            │ └── calculadora.py
+
+                        </div>
+
+
+                        <div>
+
+                            ├── tests/
+
+                        </div>
+
+
+                        <div>
+
+                            │ └── test_calculadora.py
+
+                        </div>
+
+
+                        <div>
+
+                            └── requirements.txt
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Organização:</strong>
+
+                <br><br>
+
+                <code>src/</code> → código da aplicação.
+
+                <br><br>
+
+                <code>tests/</code> → testes automatizados.
+
+                <br><br>
+
+                <code>requirements.txt</code> → dependências
+                utilizadas pelo projeto.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma pequena calculadora e escreva testes
+                unitários para validar suas funções.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • Crie uma função para somar dois números.<br>
+
+                • Crie uma função para subtrair dois números.<br>
+
+                • Crie uma função para multiplicar dois números.<br>
+
+                • Crie uma função para dividir dois números.<br>
+
+                • Crie pelo menos dois testes para cada função.<br>
+
+                • Teste valores positivos.<br>
+
+                • Teste valores negativos.<br>
+
+                • Teste divisão por zero.<br>
+
+                • Execute os testes utilizando
+                <code>pytest</code>.<br>
+
+                • Observe quais testes passaram e quais falharam.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Testes unitários verificam pequenas partes
+                isoladas do código.<br>
+
+                • Asserções comparam o resultado obtido com o
+                resultado esperado.<br>
+
+                • <code>unittest</code> faz parte da biblioteca
+                padrão do Python.<br>
+
+                • <code>unittest.TestCase</code> permite criar
+                classes de testes.<br>
+
+                • Métodos como <code>assertEqual()</code> ajudam
+                a validar resultados.<br>
+
+                • <code>pytest</code> é um framework bastante
+                utilizado para automação de testes em Python.<br>
+
+                • Testes com pytest podem utilizar diretamente
+                a palavra-chave <code>assert</code>.<br>
+
+                • Os arquivos de teste normalmente utilizam o
+                prefixo <code>test_</code>.<br>
+
+                • Testes podem verificar tanto resultados corretos
+                quanto comportamentos de erro.<br>
+
+                • Testes automatizados ajudam a aumentar a
+                confiabilidade e a qualidade do software.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

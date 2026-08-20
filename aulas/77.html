@@ -1,0 +1,2704 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">77</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA 77
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+                AULA 77
+            </span>
+
+
+            <h2>
+                Concorrência
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos conhecer os principais conceitos de
+                <strong>concorrência</strong> em Python.
+
+                Vamos aprender como executar diferentes tarefas de forma
+                concorrente utilizando as bibliotecas
+                <strong>threading</strong> e
+                <strong>multiprocessing</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Aprender a executar tarefas concorrentes em Python,
+                entender quando utilizar threads ou processos e
+                construir programas capazes de trabalhar com várias
+                tarefas de forma eficiente.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É CONCORRÊNCIA?
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚡ O que é concorrência?
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>Concorrência</strong> é a capacidade de um
+                programa lidar com várias tarefas durante o mesmo
+                período de execução.
+
+            </p>
+
+
+            <p class="description">
+
+                Isso não significa necessariamente que todas as tarefas
+                estão sendo executadas exatamente ao mesmo tempo.
+
+                O programa pode alternar entre diferentes tarefas
+                enquanto elas estão sendo executadas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Imagine um programa que precisa:
+
+                <br><br>
+
+                📥 Baixar um arquivo
+
+                <br>
+
+                🌐 Fazer uma requisição HTTP
+
+                <br>
+
+                📊 Processar dados
+
+                <br>
+
+                📝 Salvar um relatório
+
+                <br><br>
+
+                Em vez de esperar uma tarefa terminar completamente
+                para começar outra, podemos organizar essas tarefas
+                de forma concorrente.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCORRÊNCIA X PARALELISMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Concorrência x Paralelismo
+
+            </h3>
+
+
+            <p class="description">
+
+                Esses dois conceitos são relacionados, mas não são
+                exatamente a mesma coisa.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Concorrência</strong>
+
+                <br><br>
+
+                Várias tarefas progridem de forma intercalada.
+
+                <br><br>
+
+                <strong>Paralelismo</strong>
+
+                <br><br>
+
+                Várias tarefas podem realmente executar ao mesmo tempo,
+                utilizando diferentes núcleos de processamento.
+
+            </div>
+
+
+            <p class="description">
+
+                Em Python, <strong>threads</strong> são muito utilizadas
+                para tarefas que passam bastante tempo esperando,
+                enquanto <strong>processos</strong> podem ser úteis para
+                tarefas que exigem bastante processamento da CPU.
+
+            </p>
+
+
+            <!-- =================================================
+                 THREADING
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧵 1. Threading
+
+            </h3>
+
+
+            <p class="description">
+
+                O módulo <code>threading</code> permite criar
+                <strong>threads</strong>, que são fluxos de execução
+                dentro de um processo.
+
+            </p>
+
+
+            <p class="description">
+
+                Uma thread pode executar uma função enquanto outra
+                thread executa uma tarefa diferente.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Ideia:</strong>
+
+                <br><br>
+
+                Um processo
+
+                →
+
+                várias threads
+
+                →
+
+                várias tarefas concorrentes.
+
+            </div>
+
+
+            <!-- =================================================
+                 PRIMEIRA THREAD
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧱 Criando uma Thread
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos criar uma thread utilizando
+                <code>threading.Thread</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        thread.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            threading
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            tarefa():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Executando tarefa"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            thread =
+                            threading.Thread(
+                            target=tarefa)
+
+                        </div>
+
+
+                        <div>
+
+                            thread.start()
+
+                        </div>
+
+
+                        <div>
+
+                            thread.join()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 START
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶️ <code>start()</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>start()</code> inicia a execução da
+                thread.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    thread.start()
+
+                    <br><br>
+
+                    ↓
+
+                    <br><br>
+
+                    A thread começa a executar a função definida em
+                    <code>target</code>.
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 JOIN
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⏳ <code>join()</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>join()</code> faz o programa esperar
+                até que a thread termine.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        join.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            threading
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            thread =
+                            threading.Thread(
+                            target=tarefa)
+
+                        </div>
+
+
+                        <div>
+
+                            thread.start()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            thread.join()
+
+                        </div>
+
+
+                        <div>
+
+                            print(
+                            <span class="string">
+                                "Thread terminou"
+                            </span>
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Regra prática:</strong>
+
+                <br><br>
+
+                Use <code>join()</code> quando o programa precisa
+                esperar uma thread terminar antes de continuar.
+
+            </div>
+
+
+            <!-- =================================================
+                 VÁRIAS THREADS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧵🧵 Criando várias Threads
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos criar várias threads para executar diferentes
+                tarefas.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        varias_threads.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            threading
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            tarefa(numero):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                f"Tarefa {numero}"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            threads = []
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(5):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            thread =
+                            threading.Thread(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            target=tarefa,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            args=(numero,)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos armazenar as threads em uma lista e depois
+                aguardar todas elas utilizando <code>join()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        executar_threads.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            threads.append(thread)
+
+                        </div>
+
+
+                        <div>
+
+                            thread.start()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            thread
+                            <span class="keyword">
+                                in
+                            </span>
+                            threads:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            thread.join()
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SLEEP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💤 Trabalhando com <code>sleep()</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar <code>time.sleep()</code> para
+                simular uma tarefa que demora algum tempo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        sleep.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            time
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            tarefa():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            time.sleep(2)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Terminou"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            tarefa()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Se tivermos várias tarefas independentes que passam
+                bastante tempo esperando, threads podem ser úteis
+                para que elas avancem de maneira concorrente.
+
+            </p>
+
+
+            <!-- =================================================
+                 THREADING E I/O
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌐 Threading e tarefas de I/O
+
+            </h3>
+
+
+            <p class="description">
+
+                Threads são especialmente interessantes em tarefas
+                <strong>I/O-bound</strong>, nas quais o programa passa
+                bastante tempo esperando por operações externas.
+
+            </p>
+
+
+            <p class="description">
+
+                Exemplos:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Requisições HTTP.
+                </li>
+
+                <li>
+                    Leitura de arquivos.
+                </li>
+
+                <li>
+                    Comunicação com banco de dados.
+                </li>
+
+                <li>
+                    Operações de rede.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Ideia:</strong>
+
+                <br><br>
+
+                Enquanto uma tarefa está esperando uma operação de I/O,
+                outra thread pode continuar trabalhando.
+
+            </div>
+
+
+            <!-- =================================================
+                 MULTIPROCESSING
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🖥️ 2. Multiprocessing
+
+            </h3>
+
+
+            <p class="description">
+
+                O módulo <code>multiprocessing</code> permite criar
+                diferentes <strong>processos</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Cada processo possui seu próprio espaço de memória e
+                pode executar código independentemente dos outros
+                processos.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Processo</strong>
+
+                <br><br>
+
+                Um programa em execução.
+
+                <br><br>
+
+                <strong>Thread</strong>
+
+                <br><br>
+
+                Um fluxo de execução dentro de um processo.
+
+            </div>
+
+
+            <!-- =================================================
+                 CRIANDO PROCESSO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧱 Criando um processo
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        processo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            multiprocessing
+                            <span class="keyword">
+                                import
+                            </span>
+                            Process
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            tarefa():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Executando processo"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            processo =
+                            Process(target=tarefa)
+
+                        </div>
+
+
+                        <div>
+
+                            processo.start()
+
+                        </div>
+
+
+                        <div>
+
+                            processo.join()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MAIN
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛡️ <code>if __name__ == "__main__"</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Ao trabalhar com <code>multiprocessing</code>, é uma
+                boa prática colocar o código que inicia processos
+                dentro de:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        main.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            multiprocessing
+                            <span class="keyword">
+                                import
+                            </span>
+                            Process
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            tarefa():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Executando"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                if
+                            </span>
+                            __name__ ==
+                            <span class="string">
+                                "__main__"
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            processo =
+                            Process(target=tarefa)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            processo.start()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CPU BOUND
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧮 Multiprocessing e CPU
+
+            </h3>
+
+
+            <p class="description">
+
+                Processos são interessantes para tarefas
+                <strong>CPU-bound</strong>, ou seja, tarefas que exigem
+                bastante processamento.
+
+            </p>
+
+
+            <p class="description">
+
+                Exemplos:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Cálculos matemáticos pesados.
+                </li>
+
+                <li>
+                    Processamento de grandes quantidades de dados.
+                </li>
+
+                <li>
+                    Algoritmos computacionalmente intensivos.
+                </li>
+
+                <li>
+                    Processamento de imagens.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Regra geral:</strong>
+
+                <br><br>
+
+                I/O-bound
+
+                →
+
+                considere <code>threading</code>.
+
+                <br><br>
+
+                CPU-bound
+
+                →
+
+                considere <code>multiprocessing</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 CPU COUNT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Número de CPUs
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos descobrir quantos processadores lógicos estão
+                disponíveis utilizando <code>os.cpu_count()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        cpu.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            os
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(os.cpu_count())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 POOL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏊 Process Pool
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando temos várias tarefas semelhantes, podemos
+                utilizar um conjunto de processos através de
+                <code>Pool</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        pool.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            multiprocessing
+                            <span class="keyword">
+                                import
+                            </span>
+                            Pool
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            quadrado(numero):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            numero ** 2
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            Pool(4)
+                            <span class="keyword">
+                                as
+                            </span>
+                            pool:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultados =
+                            pool.map(
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O método <code>map()</code> distribui os elementos
+                para serem processados pela função.
+
+            </p>
+
+
+            <!-- =================================================
+                 COMPARAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ Threading x Multiprocessing
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>threading</strong>
+
+                <br><br>
+
+                🧵 Threads dentro do mesmo processo.
+
+                <br>
+
+                📡 Muito útil para tarefas I/O-bound.
+
+                <br>
+
+                🧠 Compartilham a memória do processo.
+
+                <br><br>
+
+
+                <strong>multiprocessing</strong>
+
+                <br><br>
+
+                🖥️ Processos separados.
+
+                <br>
+
+                🧮 Útil para tarefas CPU-bound.
+
+                <br>
+
+                🔒 Cada processo possui seu próprio espaço de memória.
+
+            </div>
+
+
+            <!-- =================================================
+                 GIL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔐 O GIL
+
+            </h3>
+
+
+            <p class="description">
+
+                Na implementação padrão do Python conhecida como
+                <strong>CPython</strong>, existe o
+                <strong>Global Interpreter Lock (GIL)</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                De forma simplificada, o GIL limita a execução
+                simultânea de código Python por múltiplas threads
+                dentro de um processo.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Por isso:</strong>
+
+                <br><br>
+
+                Threads continuam sendo muito úteis para operações de
+                I/O, mas para tarefas intensivas de CPU,
+                <strong>multiprocessing</strong> pode ser uma opção
+                melhor.
+
+            </div>
+
+
+            <!-- =================================================
+                 COMPARTILHAMENTO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔗 Compartilhando dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Threads de um mesmo processo podem acessar objetos
+                compartilhados.
+
+                Isso é conveniente, mas também pode criar problemas
+                quando várias threads modificam os mesmos dados.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Cuidado:</strong>
+
+                <br><br>
+
+                Duas threads podem tentar alterar o mesmo recurso
+                ao mesmo tempo.
+
+                Isso pode gerar uma
+                <strong>race condition</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 LOCK
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔒 Lock
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar um <code>Lock</code> para proteger
+                uma região crítica do código.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        lock.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            threading
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            lock = threading.Lock()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            lock:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Região protegida"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(
+                            <span class="string">
+                                "Fora do lock"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O bloco protegido pelo <code>Lock</code> permite
+                controlar o acesso concorrente a um recurso.
+
+            </p>
+
+
+            <!-- =================================================
+                 QUEUES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Filas e comunicação
+
+            </h3>
+
+
+            <p class="description">
+
+                Em programas concorrentes, muitas vezes precisamos
+                trocar informações entre threads ou processos.
+
+                Uma ferramenta comum para isso são as
+                <strong>queues</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        queue.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            queue
+                            <span class="keyword">
+                                import
+                            </span>
+                            Queue
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            fila = Queue()
+
+                        </div>
+
+
+                        <div>
+
+                            fila.put(
+                            <span class="string">
+                                "Tarefa 1"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            fila.put(
+                            <span class="string">
+                                "Tarefa 2"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(fila.get())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Uma fila permite organizar tarefas e dados de forma
+                segura entre diferentes partes de um programa.
+
+            </p>
+
+
+            <!-- =================================================
+                 EXEMPLO COMPLETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Projeto completo — Processamento concorrente
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos criar um pequeno programa que processa vários
+                números utilizando threads.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        projeto.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            threading
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            time
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            processar(numero):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                f"Processando {numero}"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            time.sleep(1)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                f"Finalizado {numero}"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            threads = []
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(5):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            thread =
+                            threading.Thread(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            target=processar,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            args=(numero,)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            threads.append(thread)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Depois podemos iniciar todas as threads e esperar
+                que terminem.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        projeto.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            thread
+                            <span class="keyword">
+                                in
+                            </span>
+                            threads:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            thread.start()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            thread
+                            <span class="keyword">
+                                in
+                            </span>
+                            threads:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            thread.join()
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 Fluxo:</strong>
+
+                <br><br>
+
+                Criar threads
+
+                →
+
+                iniciar threads
+
+                →
+
+                executar tarefas
+
+                →
+
+                aguardar com <code>join()</code>
+
+                →
+
+                continuar programa.
+
+            </div>
+
+
+            <!-- =================================================
+                 QUANDO USAR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Quando utilizar cada um?
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>Use threading quando:</strong>
+
+                <br><br>
+
+                ✔ O programa realiza muitas operações de I/O.
+
+                <br>
+
+                ✔ Existem tarefas independentes esperando por rede,
+                arquivos ou outros recursos.
+
+                <br>
+
+                ✔ Você deseja executar tarefas concorrentes dentro
+                do mesmo processo.
+
+                <br><br>
+
+
+                <strong>Use multiprocessing quando:</strong>
+
+                <br><br>
+
+                ✔ O trabalho exige bastante CPU.
+
+                <br>
+
+                ✔ Existem cálculos pesados.
+
+                <br>
+
+                ✔ Você deseja aproveitar múltiplos processos.
+
+            </div>
+
+
+            <!-- =================================================
+                 CUIDADOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ Cuidados com concorrência
+
+            </h3>
+
+
+            <p class="description">
+
+                Programação concorrente pode tornar um sistema mais
+                eficiente, mas também adiciona complexidade.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Race conditions.
+                </li>
+
+                <li>
+                    Deadlocks.
+                </li>
+
+                <li>
+                    Dados compartilhados.
+                </li>
+
+                <li>
+                    Sincronização.
+                </li>
+
+                <li>
+                    Dificuldade de depuração.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Boa prática:</strong>
+
+                <br><br>
+
+                Não utilize concorrência apenas porque ela existe.
+
+                Primeiro identifique se o problema realmente se
+                beneficia de múltiplas tarefas concorrentes.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que é concorrência.<br>
+
+                • Diferença entre concorrência e paralelismo.<br>
+
+                • O que são threads.<br>
+
+                • Como utilizar <code>threading</code>.<br>
+
+                • Como criar uma thread.<br>
+
+                • Como utilizar <code>start()</code>.<br>
+
+                • Como utilizar <code>join()</code>.<br>
+
+                • Como executar várias threads.<br>
+
+                • O que são tarefas I/O-bound.<br>
+
+                • O que é <code>multiprocessing</code>.<br>
+
+                • Como criar processos.<br>
+
+                • Como utilizar <code>Process</code>.<br>
+
+                • O que são tarefas CPU-bound.<br>
+
+                • Como utilizar <code>Pool</code>.<br>
+
+                • O que é o GIL.<br>
+
+                • O que são race conditions.<br>
+
+                • Como utilizar <code>Lock</code>.<br>
+
+                • Como compartilhar informações entre tarefas.<br>
+
+                • Quando escolher threads ou processos.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Exercícios
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora é hora de praticar.
+
+            </p>
+
+
+            <strong>
+                Exercício 1 — Threads
+            </strong>
+
+
+            <p class="description">
+
+                Crie três funções diferentes:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    baixar_arquivo()
+                </li>
+
+                <li>
+                    consultar_api()
+                </li>
+
+                <li>
+                    salvar_resultado()
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Execute as três funções utilizando threads.
+
+            </p>
+
+
+            <br>
+
+
+            <strong>
+                Exercício 2 — Processos
+            </strong>
+
+
+            <p class="description">
+
+                Crie uma função que receba um número e calcule o
+                quadrado de todos os números de uma lista.
+
+                Utilize <code>multiprocessing</code> para distribuir
+                o trabalho.
+
+            </p>
+
+
+            <br>
+
+
+            <strong>
+                Exercício 3 — Comparação
+            </strong>
+
+
+            <p class="description">
+
+                Crie um programa que execute várias tarefas usando
+                primeiro uma execução sequencial e depois
+                concorrente.
+
+                Compare os tempos de execução.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Crie um sistema de processamento de arquivos.
+
+                <br><br>
+
+                O programa deverá:
+
+                <br><br>
+
+                📁 Encontrar vários arquivos.
+
+                <br>
+
+                🧵 Processá-los usando threads.
+
+                <br>
+
+                📊 Contabilizar os resultados.
+
+                <br>
+
+                📝 Gerar um relatório final.
+
+                <br><br>
+
+                Depois crie uma segunda versão utilizando
+                <code>multiprocessing</code> e compare os resultados.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Agora você conhece concorrência!
+
+            </h3>
+
+
+            <p class="description">
+
+                Nesta aula, aprendemos que programas Python podem
+                trabalhar com várias tarefas utilizando threads e
+                processos.
+
+            </p>
+
+
+            <p class="description">
+
+                Também vimos que a escolha da estratégia depende do
+                tipo de problema.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    I/O-bound
+
+                    →
+
+                    Threading
+
+                    <br><br>
+
+                    CPU-bound
+
+                    →
+
+                    Multiprocessing
+
+                </strong>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Próxima etapa:</strong>
+
+                <br><br>
+
+                Na próxima aula, vamos avançar para outro conceito
+                importante de Python e programação moderna.
+
+                Vamos continuar explorando recursos que tornam os
+                programas mais eficientes, organizados e poderosos.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

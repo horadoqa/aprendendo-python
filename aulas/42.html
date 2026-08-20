@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">42</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 42
+
+            </span>
+
+
+            <h2>
+
+                Type hints
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como utilizar
+                <strong>type hints</strong> em Python para indicar
+                quais tipos de dados uma variável, parâmetro ou
+                função deve receber ou retornar.
+
+            </p>
+
+
+            <p class="description">
+
+                A tipagem ajuda a tornar o código mais claro,
+                facilita a manutenção e permite que ferramentas
+                de desenvolvimento encontrem possíveis problemas
+                antes mesmo da execução do programa.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Type hints são <strong>anotações</strong> que
+                descrevem os tipos esperados no código.
+
+                <br><br>
+
+                Python continua sendo uma linguagem de tipagem
+                dinâmica. As anotações não transformam Python
+                em uma linguagem estaticamente tipada.
+
+            </div>
+
+
+            <!-- =================================================
+                 ANOTAÇÕES DE TIPOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏷️ Anotações de tipos
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos informar o tipo esperado de uma variável
+                utilizando dois pontos <code>:</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        tipos.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            nome: str = <span class="string">"Maria"</span>
+
+                        </div>
+
+
+                        <div>
+
+                            idade: int = 25
+
+                        </div>
+
+
+                        <div>
+
+                            altura: float = 1.65
+
+                        </div>
+
+
+                        <div>
+
+                            aprovado: bool =
+                            <span class="keyword">True</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, estamos indicando que
+                <code>nome</code> deve ser uma string,
+                <code>idade</code> um inteiro,
+                <code>altura</code> um número decimal e
+                <code>aprovado</code> um booleano.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Atenção:</strong>
+
+                <br><br>
+
+                O Python não impede automaticamente que um valor
+                de outro tipo seja atribuído à variável.
+
+                As type hints funcionam principalmente como
+                documentação e podem ser analisadas por ferramentas
+                como linters, IDEs e verificadores de tipos.
+
+            </div>
+
+
+            <!-- =================================================
+                 PARÂMETROS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚙️ Type hints em funções
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos informar os tipos esperados pelos
+                parâmetros de uma função.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        funcoes.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            somar(a: int, b: int) -&gt; int:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            a + b
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse caso, estamos indicando que os parâmetros
+                <code>a</code> e <code>b</code> devem ser inteiros
+                e que a função deve retornar um inteiro.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🔎 Observe:</strong>
+
+                <br><br>
+
+                <code>a: int</code> → tipo esperado do parâmetro.
+
+                <br><br>
+
+                <code>-&gt; int</code> → tipo esperado do retorno
+                da função.
+
+            </div>
+
+
+            <!-- =================================================
+                 STRING
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔤 Type hints com strings
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos indicar que uma função recebe e retorna
+                textos utilizando <code>str</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        usuario.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            saudacao(nome: str) -&gt; str:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            <span class="string">f"Olá, {nome}!"</span>
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 LIST
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 List
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos indicar que uma variável ou parâmetro
+                representa uma lista.
+
+                Em Python moderno, podemos informar também o tipo
+                dos elementos armazenados na lista.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        listas.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            nomes: list[str] = [
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"Maria"</span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"João"</span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"Ana"</span>
+
+                        </div>
+
+
+                        <div>
+
+                            ]
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, <code>list[str]</code> indica uma
+                lista cujos elementos esperados são strings.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Tipagem dos elementos:</strong>
+
+                <br><br>
+
+                <code>list[str]</code> → lista de strings.<br>
+
+                <code>list[int]</code> → lista de inteiros.<br>
+
+                <code>list[float]</code> → lista de números
+                decimais.
+
+            </div>
+
+
+            <!-- =================================================
+                 LIST COM FUNÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Listas em funções
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos utilizar type hints para indicar
+                que uma função recebe uma lista e retorna uma lista.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        processamento.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            dobrar_numeros(
+                            numeros: list[int]
+                            ) -&gt; list[int]:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado = []
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">for</span>
+                            numero <span class="keyword">in</span>
+                            numeros:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado.append(numero * 2)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            resultado
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DICT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📖 Dict
+
+            </h3>
+
+
+            <p class="description">
+
+                Para dicionários, podemos informar o tipo das
+                chaves e dos valores utilizando
+                <code>dict[chave, valor]</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        dicionarios.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            usuario: dict[str, str] = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"email"</span>:
+                            <span class="string">"maria@email.com"</span>
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo:
+
+                <code>dict[str, str]</code> significa que as
+                chaves são strings e os valores também são strings.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplos:</strong>
+
+                <br><br>
+
+                <code>dict[str, int]</code> → chave string e valor
+                inteiro.
+
+                <br><br>
+
+                <code>dict[int, str]</code> → chave inteira e valor
+                string.
+
+            </div>
+
+
+            <!-- =================================================
+                 OPTIONAL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ❓ Optional
+
+            </h3>
+
+
+            <p class="description">
+
+                Às vezes uma variável pode receber um determinado
+                tipo de valor ou <code>None</code>.
+
+                Para representar esse comportamento, podemos
+                utilizar <strong>Optional</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Uma forma tradicional de escrever isso é:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        optional.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">from</span>
+                            typing
+                            <span class="keyword">import</span>
+                            Optional
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            nome: Optional[str] = <span class="keyword">None</span>
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Isso significa que <code>nome</code> pode conter
+                uma string ou <code>None</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🔎 Exemplo:</strong>
+
+                <br><br>
+
+                <code>Optional[str]</code>
+
+                <br><br>
+
+                significa:
+
+                <br><br>
+
+                <code>str</code> ou <code>None</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 OPTIONAL EM FUNÇÕES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚙️ Optional em funções
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos utilizar Optional em parâmetros
+                e retornos de funções.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        busca.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">from</span>
+                            typing
+                            <span class="keyword">import</span>
+                            Optional
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            buscar_usuario(id: int)
+                            -&gt; Optional[str]:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">if</span>
+                            id == 1:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            <span class="string">"Maria"</span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            <span class="keyword">None</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O retorno dessa função pode ser uma string quando
+                o usuário é encontrado ou <code>None</code> quando
+                não é encontrado.
+
+            </p>
+
+
+            <!-- =================================================
+                 TIPAGEM MODERNA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🆕 Tipagem moderna
+
+            </h3>
+
+
+            <p class="description">
+
+                Em versões modernas do Python, podemos utilizar
+                o operador <code>|</code> para representar
+                diferentes tipos possíveis.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, em vez de:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        antigo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">from</span>
+                            typing
+                            <span class="keyword">import</span>
+                            Optional
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos utilizar a sintaxe moderna:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        moderno.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            nome: str | <span class="keyword">None</span>
+                            = <span class="keyword">None</span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            buscar(id: int) -&gt; str | <span class="keyword">None</span>:
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Tipagem moderna:</strong>
+
+                <br><br>
+
+                <code>str | None</code> representa uma string
+                ou <code>None</code>.
+
+                <br><br>
+
+                Essa sintaxe é uma alternativa moderna ao uso de
+                <code>Optional[str]</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 LIST MODERNA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 Listagem moderna
+
+            </h3>
+
+
+            <p class="description">
+
+                A partir do Python 3.9, podemos utilizar
+                diretamente tipos como <code>list</code> e
+                <code>dict</code> para especificar os tipos
+                dos elementos.
+
+            </p>
+
+
+            <p class="description">
+
+                Forma moderna:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        moderno.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            nomes: list[str] = []
+
+                        </div>
+
+
+                        <div>
+
+                            idades: list[int] = []
+
+                        </div>
+
+
+                        <div>
+
+                            usuarios: dict[str, int] = {}
+
+                        </div>
+
+
+                        <div>
+
+                            valores: list[float] = []
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 Comparação:</strong>
+
+                <br><br>
+
+                Forma antiga:
+
+                <br>
+
+                <code>List[str]</code>
+
+                <br><br>
+
+                Forma moderna:
+
+                <br>
+
+                <code>list[str]</code>
+
+                <br><br>
+
+                Para projetos novos utilizando versões modernas
+                do Python, a segunda forma costuma ser preferível.
+
+            </div>
+
+
+            <!-- =================================================
+                 DICT MODERNO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📖 Dicionários com tipagem moderna
+
+            </h3>
+
+
+            <p class="description">
+
+                O mesmo conceito pode ser aplicado aos dicionários.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        usuarios.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            usuarios: dict[str, int] = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"Maria"</span>: 25,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"João"</span>: 30,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">"Ana"</span>: 22
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TYPE HINTS E QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Type hints no QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Type hints são especialmente úteis em projetos
+                de automação de testes, pois ajudam a deixar claro
+                quais tipos de dados as funções esperam receber.
+
+            </p>
+
+
+            <p class="description">
+
+                Imagine uma função utilizada para validar uma
+                resposta de uma API:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        validacao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            validar_status(
+                            status: int
+                            ) -&gt; bool:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            status == 200
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado: bool =
+                            validar_status(200)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                A anotação deixa explícito que a função recebe
+                um código de status inteiro e retorna um valor
+                booleano.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Benefício para QA:</strong>
+
+                <br><br>
+
+                Type hints tornam funções de automação mais
+                previsíveis e facilitam a leitura do código,
+                principalmente em projetos maiores.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Type hints permitem documentar os tipos
+                esperados no código.<br>
+
+                • Variáveis podem receber anotações como
+                <code>nome: str</code> e <code>idade: int</code>.<br>
+
+                • Parâmetros de funções podem possuir type hints.<br>
+
+                • O retorno de uma função pode ser indicado com
+                <code>-&gt;</code>.<br>
+
+                • <code>List</code> pode representar listas tipadas
+                usando a forma tradicional.<br>
+
+                • <code>Dict</code> pode representar dicionários
+                tipados usando a forma tradicional.<br>
+
+                • <code>Optional</code> representa um tipo que
+                também pode ser <code>None</code>.<br>
+
+                • A sintaxe moderna utiliza
+                <code>list[str]</code> e
+                <code>dict[str, int]</code>.<br>
+
+                • O operador <code>|</code> pode representar
+                múltiplos tipos, como <code>str | None</code>.<br>
+
+                • Type hints ajudam na documentação, manutenção
+                e qualidade do código.<br>
+
+                • Em QA, type hints podem tornar funções de
+                automação mais claras e previsíveis.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

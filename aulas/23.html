@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">23</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 23
+
+            </span>
+
+
+            <h2>
+
+                Criando exceções em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como criar e
+                disparar suas próprias exceções utilizando
+                <strong>raise</strong>.
+
+                Também vamos aprender a criar
+                <strong>exceções personalizadas</strong>
+                para representar situações específicas
+                da aplicação.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚨 O que é <code>raise</code>?
+
+            </h3>
+
+
+            <p class="description">
+
+                Até agora, aprendemos como tratar exceções
+                utilizando <code>try</code> e
+                <code>except</code>.
+
+                Porém, também podemos criar uma exceção
+                manualmente quando uma determinada condição
+                não for válida.
+
+            </p>
+
+
+            <p class="description">
+
+                Para isso, utilizamos a palavra-chave
+                <strong>raise</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                <code>raise</code> significa, basicamente:
+
+                <br><br>
+
+                "Python, pare a execução neste ponto e
+                informe que aconteceu uma situação de erro."
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO RAISE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💻 Usando <code>raise</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar <code>raise</code> para impedir
+                que uma operação continue quando uma condição
+                inválida for encontrada.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        raise.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            idade = 15
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                if
+                            </span>
+                            idade &lt; 18:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                raise
+                            </span>
+                            ValueError(
+                            <span class="string">
+                                "Idade mínima é 18 anos."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Acesso permitido."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            !
+                        </span>
+
+                        ValueError:
+                        Idade mínima é 18 anos.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                Quando o <code>raise</code> é executado, o
+                Python interrompe a execução naquele ponto
+                e dispara a exceção.
+
+                <br><br>
+
+                Por isso, o <code>print()</code> depois do
+                <code>raise</code> não será executado nesse
+                exemplo.
+
+            </div>
+
+
+            <!-- =================================================
+                 RAISE COM TRY
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛡️ Usando <code>raise</code> com
+                <code>try</code> e <code>except</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma exceção criada com <code>raise</code>
+                também pode ser capturada utilizando
+                <code>try</code> e <code>except</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        tratamento.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            idade = 15
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <span class="keyword">
+                                if
+                            </span>
+                            idade &lt; 18:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <span class="keyword">
+                                raise
+                            </span>
+                            ValueError(
+                            <span class="string">
+                                "Idade insuficiente."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                except
+                            </span>
+                            ValueError
+                            <span class="keyword">
+                                as
+                            </span>
+                            erro:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(erro)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Idade insuficiente.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCEITO 2
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 Exceções personalizadas
+
+            </h3>
+
+
+            <p class="description">
+
+                Python possui várias exceções prontas, como
+                <code>ValueError</code>,
+                <code>TypeError</code> e
+                <code>FileNotFoundError</code>.
+
+                Porém, em projetos maiores, podemos precisar
+                representar situações específicas da nossa
+                aplicação.
+
+            </p>
+
+
+            <p class="description">
+
+                Para isso, podemos criar uma
+                <strong>exceção personalizada</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Uma exceção personalizada normalmente é criada
+                utilizando uma classe que herda de
+                <code>Exception</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Uma exceção personalizada é uma classe criada
+                por nós para representar um tipo específico
+                de problema.
+
+            </div>
+
+
+            <!-- =================================================
+                 CRIANDO EXCEÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏗️ Criando nossa própria exceção
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos criar uma exceção chamada
+                <code>IdadeInvalidaError</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        excecao_personalizada.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            IdadeInvalidaError(
+                            Exception):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                pass
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            idade = -5
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                if
+                            </span>
+                            idade &lt; 0:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                raise
+                            </span>
+                            IdadeInvalidaError(
+                            <span class="string">
+                                "A idade não pode ser negativa."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            !
+                        </span>
+
+                        IdadeInvalidaError:
+                        A idade não pode ser negativa.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TRATANDO EXCEÇÃO PERSONALIZADA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Tratando uma exceção personalizada
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de criar nossa exceção, podemos utilizá-la
+                normalmente com <code>try</code> e
+                <code>except</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        tratamento_customizado.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            IdadeInvalidaError(
+                            Exception):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                pass
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            idade = -10
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            idade &lt; 0:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                raise
+                            </span>
+                            IdadeInvalidaError(
+                            <span class="string">
+                                "Idade inválida."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                except
+                            </span>
+                            IdadeInvalidaError
+                            <span class="keyword">
+                                as
+                            </span>
+                            erro:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(erro)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Idade inválida.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FUNÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔧 Exceções dentro de funções
+
+            </h3>
+
+
+            <p class="description">
+
+                É muito comum utilizar <code>raise</code> dentro
+                de funções para validar os dados recebidos.
+
+            </p>
+
+
+            <p class="description">
+
+                Dessa forma, a função pode informar ao código que
+                a chamou que uma determinada regra não foi
+                atendida.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        validacao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            validar_idade(idade):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <span class="keyword">
+                                if
+                            </span>
+                            idade &lt; 0:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <span class="keyword">
+                                raise
+                            </span>
+                            ValueError(
+                            <span class="string">
+                                "Idade inválida."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="keyword">
+                                True
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            validar_idade(-5)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                except
+                            </span>
+                            ValueError
+                            <span class="keyword">
+                                as
+                            </span>
+                            erro:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(erro)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Exceções personalizadas no QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Em automação de testes, exceções personalizadas
+                podem deixar o código mais claro e facilitar a
+                identificação de falhas.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, podemos criar uma exceção específica
+                para indicar que um teste não encontrou o resultado
+                esperado.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        teste_qa.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            TesteFalhouError(
+                            Exception):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                pass
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado = <span class="keyword">
+                                False
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                if
+                            </span>
+                            <span class="keyword">
+                                not
+                            </span>
+                            resultado:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                raise
+                            </span>
+                            TesteFalhouError(
+                            <span class="string">
+                                "O resultado esperado não foi encontrado."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Pense como QA:</strong>
+
+                <br><br>
+
+                Uma exceção personalizada pode deixar uma falha
+                muito mais fácil de entender.
+
+                <br><br>
+
+                Em vez de simplesmente indicar que "algo deu
+                errado", podemos criar uma exceção que explique
+                exatamente qual regra do teste não foi atendida.
+
+            </div>
+
+
+            <!-- =================================================
+                 BOAS PRÁTICAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ Boas práticas
+
+            </h3>
+
+
+            <ul>
+
+                <li>
+
+                    Utilize <code>raise</code> quando uma regra
+                    importante não for atendida.
+
+                </li>
+
+
+                <li>
+
+                    Escolha nomes claros para suas exceções
+                    personalizadas.
+
+                </li>
+
+
+                <li>
+
+                    Faça suas exceções personalizadas herdarem
+                    de <code>Exception</code>.
+
+                </li>
+
+
+                <li>
+
+                    Não crie uma exceção personalizada para
+                    situações que já possuem uma exceção
+                    adequada no Python.
+
+                </li>
+
+
+                <li>
+
+                    Utilize mensagens claras para facilitar a
+                    identificação do problema.
+
+                </li>
+
+
+                <li>
+
+                    Combine <code>raise</code> com
+                    <code>try</code> e <code>except</code>
+                    quando precisar disparar e tratar uma
+                    exceção.
+
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa para validar a idade de uma
+                pessoa.
+
+                O programa deverá:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    Criar uma exceção personalizada chamada
+                    <code>IdadeInvalidaError</code>.
+
+                </li>
+
+
+                <li>
+
+                    Criar uma função chamada
+                    <code>validar_idade()</code>.
+
+                </li>
+
+
+                <li>
+
+                    Utilizar <code>raise</code> quando a idade
+                    for menor que zero.
+
+                </li>
+
+
+                <li>
+
+                    Tratar a exceção utilizando
+                    <code>try</code> e <code>except</code>.
+
+                </li>
+
+
+                <li>
+
+                    Exibir uma mensagem informando se a idade
+                    é válida.
+
+                </li>
+
+            </ul>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        desafio.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            IdadeInvalidaError(
+                            Exception):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                pass
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            validar_idade(idade):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <span class="keyword">
+                                if
+                            </span>
+                            idade &lt; 0:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <span class="keyword">
+                                raise
+                            </span>
+                            IdadeInvalidaError(
+                            <span class="string">
+                                "Idade inválida."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="keyword">
+                                True
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            idade =
+                            <span class="function">
+                                int
+                            </span>(
+                            <span class="function">
+                                input
+                            </span>(
+                            <span class="string">
+                                "Digite sua idade: "
+                            </span>))
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            validar_idade(idade)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Idade válida!"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                except
+                            </span>
+                            IdadeInvalidaError
+                            <span class="keyword">
+                                as
+                            </span>
+                            erro:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(erro)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • <code>raise</code> permite disparar uma exceção
+                manualmente.<br>
+
+                • Podemos utilizar exceções para validar regras
+                do programa.<br>
+
+                • Uma exceção pode ser tratada com
+                <code>try</code> e <code>except</code>.<br>
+
+                • Podemos criar exceções personalizadas
+                utilizando classes.<br>
+
+                • Exceções personalizadas normalmente herdam
+                de <code>Exception</code>.<br>
+
+                • Podemos utilizar <code>as</code> para acessar
+                a mensagem da exceção.<br>
+
+                • <code>raise</code> é muito útil dentro de
+                funções de validação.<br>
+
+                • Em automação de QA, exceções personalizadas
+                podem deixar as falhas dos testes mais claras
+                e fáceis de identificar.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

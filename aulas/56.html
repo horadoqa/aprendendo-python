@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">56</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 56
+
+            </span>
+
+
+            <h2>
+
+                Web Scraping
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos aprender os conceitos básicos
+                de <strong>Web Scraping</strong> utilizando Python.
+
+                Web Scraping é o processo de coletar informações
+                disponíveis em páginas da internet de forma
+                automatizada.
+
+                Vamos conhecer a biblioteca
+                <strong>BeautifulSoup</strong>, aprender a
+                localizar elementos HTML e extrair informações
+                de uma página.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Aprender a acessar uma página HTML, interpretar
+                sua estrutura e extrair informações específicas
+                utilizando Python.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCEITO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌐 O que é Web Scraping?
+
+            </h3>
+
+
+            <p class="description">
+
+                Web Scraping é uma técnica utilizada para extrair
+                informações de páginas da internet de maneira
+                automatizada.
+
+            </p>
+
+
+            <p class="description">
+
+                Em vez de copiar informações manualmente,
+                podemos criar um programa que acessa uma página,
+                identifica os elementos desejados e coleta seus
+                dados.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplos de dados que podem ser extraídos:</strong>
+
+                <br><br>
+
+                • Títulos de páginas.<br>
+                • Notícias.<br>
+                • Preços publicados.<br>
+                • Links.<br>
+                • Nomes de produtos.<br>
+                • Informações públicas.<br>
+                • Resultados disponíveis em páginas HTML.
+
+            </div>
+
+
+            <!-- =================================================
+                 HTML
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧱 Entendendo o HTML
+
+            </h3>
+
+
+            <p class="description">
+
+                Antes de extrair dados, precisamos entender
+                minimamente como uma página HTML é estruturada.
+
+                Os elementos HTML são organizados em tags, como
+                <code>h1</code>, <code>p</code>,
+                <code>div</code>, <code>a</code> e
+                <code>span</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        pagina.html
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            &lt;h1&gt;
+                            <span class="string">
+                                Notícias de tecnologia
+                            </span>
+                            &lt;/h1&gt;
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &lt;p&gt;
+                            <span class="string">
+                                Python é uma linguagem popular.
+                            </span>
+                            &lt;/p&gt;
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &lt;a href=
+                            <span class="string">
+                                "https://exemplo.com"
+                            </span>
+                            &gt;
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                Acessar notícia
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &lt;/a&gt;
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 BEAUTIFULSOUP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🍲 Conhecendo o BeautifulSoup
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>BeautifulSoup</strong> é uma biblioteca
+                Python que facilita a análise de documentos HTML
+                e XML.
+
+                Ela permite localizar elementos da página e
+                acessar seus textos e atributos.
+
+            </p>
+
+
+            <p class="description">
+
+                Para instalar a biblioteca, podemos utilizar:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        terminal
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            pip install beautifulsoup4
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Atenção:</strong>
+
+                <br><br>
+
+                A biblioteca é instalada como
+                <code>beautifulsoup4</code>, mas normalmente
+                é importada no código como
+                <code>bs4</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 PRIMEIRO EXEMPLO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💻 Primeiro exemplo
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos criar um pequeno documento HTML e utilizar
+                o BeautifulSoup para analisá-lo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        scraping.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            bs4
+                            <span class="keyword">
+                                import
+                            </span>
+                            BeautifulSoup
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            html =
+                            <span class="string">
+                                "&lt;h1&gt;Olá Python!&lt;/h1&gt;"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            soup =
+                            BeautifulSoup(
+                            html,
+                            <span class="string">
+                                "html.parser"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(soup.h1.text)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá Python!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FIND
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Localizando elementos
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>find()</code> pode ser utilizado
+                para localizar o primeiro elemento que corresponde
+                a uma determinada tag.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        find.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            bs4
+                            <span class="keyword">
+                                import
+                            </span>
+                            BeautifulSoup
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            html =
+                            <span class="string">
+                                """
+                                &lt;h1&gt;Python&lt;/h1&gt;
+                                &lt;p&gt;Aprendendo Scraping&lt;/p&gt;
+                                """
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            soup =
+                            BeautifulSoup(
+                            html,
+                            <span class="string">
+                                "html.parser"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            titulo =
+                            soup.find(
+                            <span class="string">
+                                "h1"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(titulo.text)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FIND ALL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📚 Encontrando vários elementos
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando precisamos localizar vários elementos
+                semelhantes, podemos utilizar
+                <code>find_all()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        find_all.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            bs4
+                            <span class="keyword">
+                                import
+                            </span>
+                            BeautifulSoup
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            html =
+                            <span class="string">
+                                """
+                                &lt;p&gt;Python&lt;/p&gt;
+                                &lt;p&gt;Java&lt;/p&gt;
+                                &lt;p&gt;JavaScript&lt;/p&gt;
+                                """
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            soup =
+                            BeautifulSoup(
+                            html,
+                            <span class="string">
+                                "html.parser"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            paragrafos =
+                            soup.find_all(
+                            <span class="string">
+                                "p"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            paragrafo
+                            <span class="keyword">
+                                in
+                            </span>
+                            paragrafos:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(paragrafo.text)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Python
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Java
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        JavaScript
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CLASSES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Buscando por classes
+
+            </h3>
+
+
+            <p class="description">
+
+                Muitas páginas utilizam classes CSS para
+                identificar grupos de elementos.
+
+                Podemos utilizar essas classes para localizar
+                informações específicas.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        classes.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            bs4
+                            <span class="keyword">
+                                import
+                            </span>
+                            BeautifulSoup
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            html =
+                            <span class="string">
+                                """
+                                &lt;div class="produto"&gt;
+                                Notebook
+                                &lt;/div&gt;
+                                """
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            soup =
+                            BeautifulSoup(
+                            html,
+                            <span class="string">
+                                "html.parser"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            produto =
+                            soup.find(
+                            <span class="string">
+                                "div"
+                            </span>,
+                            class_=
+                            <span class="string">
+                                "produto"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(produto.text.strip())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ATRIBUTOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔗 Extraindo atributos
+
+            </h3>
+
+
+            <p class="description">
+
+                Além do texto, podemos extrair atributos dos
+                elementos HTML.
+
+                Um exemplo muito comum é o atributo
+                <code>href</code> de links.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        links.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            bs4
+                            <span class="keyword">
+                                import
+                            </span>
+                            BeautifulSoup
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            html =
+                            <span class="string">
+                                '&lt;a href="https://exemplo.com"&gt;
+                                Site&lt;/a&gt;'
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            soup =
+                            BeautifulSoup(
+                            html,
+                            <span class="string">
+                                "html.parser"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            link =
+                            soup.find(
+                            <span class="string">
+                                "a"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(link[
+                            <span class="string">
+                                "href"
+                            </span>
+                            ])
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 REQUESTS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌍 Acessando uma página da internet
+
+            </h3>
+
+
+            <p class="description">
+
+                Para fazer scraping de uma página real, normalmente
+                precisamos primeiro obter seu conteúdo HTML.
+
+                Uma biblioteca bastante utilizada para realizar
+                requisições HTTP é a <strong>requests</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        pagina.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            requests
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            bs4
+                            <span class="keyword">
+                                import
+                            </span>
+                            BeautifulSoup
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            url =
+                            <span class="string">
+                                "https://exemplo.com"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            resposta =
+                            requests.get(url)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            soup =
+                            BeautifulSoup(
+                            resposta.text,
+                            <span class="string">
+                                "html.parser"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(soup.title.text)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                Uma requisição HTTP pode falhar. Por isso,
+                programas reais devem verificar o status da
+                resposta e tratar possíveis erros.
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛠️ Projeto prático — Coletor de títulos
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos criar um pequeno programa que recebe um
+                documento HTML e coleta todos os títulos
+                <code>h2</code> encontrados na página.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        coletor.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            bs4
+                            <span class="keyword">
+                                import
+                            </span>
+                            BeautifulSoup
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            html =
+                            <span class="string">
+                                """
+                                &lt;h2&gt;Python&lt;/h2&gt;
+                                &lt;h2&gt;Automação&lt;/h2&gt;
+                                &lt;h2&gt;QA&lt;/h2&gt;
+                                """
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            soup =
+                            BeautifulSoup(
+                            html,
+                            <span class="string">
+                                "html.parser"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            titulos =
+                            soup.find_all(
+                            <span class="string">
+                                "h2"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            titulo
+                            <span class="keyword">
+                                in
+                            </span>
+                            titulos:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            texto =
+                            titulo.get_text(
+                            strip=True)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(texto)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Dados extraídos!
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Python
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Automação
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        QA
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CUIDADOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ Cuidados e limites
+
+            </h3>
+
+
+            <p class="description">
+
+                Web Scraping não significa que podemos coletar
+                qualquer informação de qualquer site sem
+                restrições.
+
+                Antes de automatizar uma coleta, é importante
+                entender as regras e condições do site.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Verifique os termos de uso do site.
+                </li>
+
+                <li>
+                    Respeite as políticas de acesso e o
+                    <code>robots.txt</code> quando aplicável.
+                </li>
+
+                <li>
+                    Evite enviar uma quantidade excessiva de
+                    requisições.
+                </li>
+
+                <li>
+                    Utilize intervalos entre requisições quando
+                    necessário.
+                </li>
+
+                <li>
+                    Não tente contornar mecanismos de segurança
+                    ou autenticação.
+                </li>
+
+                <li>
+                    Evite coletar dados pessoais ou informações
+                    sensíveis sem uma base legal adequada.
+                </li>
+
+                <li>
+                    Prefira APIs oficiais quando elas estiverem
+                    disponíveis.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🛡️ Regra de ouro:</strong>
+
+                <br><br>
+
+                Scraping deve ser utilizado de forma responsável.
+
+                <br><br>
+
+                O fato de uma informação estar visível em uma
+                página não significa que ela possa ser coletada,
+                armazenada ou utilizada sem considerar as regras
+                aplicáveis.
+
+            </div>
+
+
+            <!-- =================================================
+                 SCRAPING PARA QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Web Scraping para QA
+
+            </h3>
+
+
+            <p class="description">
+
+                O Web Scraping também pode ser útil em atividades
+                de QA.
+
+                Podemos utilizar a técnica para coletar
+                informações públicas e verificar se determinadas
+                informações estão presentes em uma página.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Validar títulos de páginas.
+                </li>
+
+                <li>
+                    Verificar links disponíveis.
+                </li>
+
+                <li>
+                    Conferir informações públicas.
+                </li>
+
+                <li>
+                    Comparar conteúdo esperado e encontrado.
+                </li>
+
+                <li>
+                    Coletar dados para testes.
+                </li>
+
+                <li>
+                    Criar verificações automatizadas de conteúdo.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Um teste automatizado pode acessar uma página
+                pública, localizar o título principal e verificar
+                se ele corresponde ao valor esperado.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio da aula
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa que analise um documento HTML
+                e extraia:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    O título da página.
+                </li>
+
+                <li>
+                    Todos os títulos <code>h2</code>.
+                </li>
+
+                <li>
+                    Todos os links encontrados.
+                </li>
+
+                <li>
+                    O texto de cada link.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Armazene os dados encontrados em uma lista de
+                dicionários e depois salve o resultado em um
+                arquivo JSON.
+
+                <br><br>
+
+                Assim você poderá combinar os conhecimentos das
+                aulas anteriores sobre estruturas de dados e
+                arquivos JSON com Web Scraping.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que é Web Scraping.<br>
+
+                • Como funciona a estrutura HTML de uma página.<br>
+
+                • Como instalar o
+                <code>beautifulsoup4</code>.<br>
+
+                • Como utilizar o
+                <code>BeautifulSoup</code>.<br>
+
+                • Como localizar elementos com
+                <code>find()</code>.<br>
+
+                • Como localizar vários elementos com
+                <code>find_all()</code>.<br>
+
+                • Como acessar o texto de elementos HTML.<br>
+
+                • Como extrair atributos como
+                <code>href</code>.<br>
+
+                • Como utilizar <code>requests</code> para obter
+                páginas HTTP.<br>
+
+                • Como extrair dados de forma automatizada.<br>
+
+                • Cuidados relacionados a requisições e
+                automação.<br>
+
+                • Por que é importante respeitar termos de uso,
+                políticas de acesso e privacidade.<br>
+
+                • Como Web Scraping pode ser utilizado em
+                atividades de QA.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

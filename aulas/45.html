@@ -1,0 +1,1999 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">45</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 45
+
+            </span>
+
+
+            <h2>
+
+                Consumindo APIs
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como consumir
+                <strong>APIs</strong> utilizando Python e a biblioteca
+                <strong>requests</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Vamos aprender como fazer requisições HTTP,
+                trabalhar com respostas em <strong>JSON</strong>,
+                enviar <strong>headers</strong> e utilizar
+                <strong>parâmetros</strong> em requisições.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Uma API permite que diferentes sistemas
+                troquem informações.
+
+                <br><br>
+
+                Com Python, podemos enviar uma requisição para
+                uma API, receber uma resposta e utilizar os dados
+                retornados no nosso programa ou em nossos testes.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É UMA API
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌐 O que é uma API?
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma <strong>API</strong> é uma interface que
+                permite que um sistema se comunique com outro
+                sistema.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, uma aplicação pode consultar uma API
+                para obter informações sobre usuários, produtos,
+                pedidos ou pagamentos.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🔄 Exemplo de comunicação:</strong>
+
+                <br><br>
+
+                Python
+
+                <br>
+
+                ↓
+
+                <br>
+
+                Requisição HTTP
+
+                <br>
+
+                ↓
+
+                <br>
+
+                API
+
+                <br>
+
+                ↓
+
+                <br>
+
+                Resposta JSON
+
+                <br>
+
+                ↓
+
+                <br>
+
+                Python
+
+            </div>
+
+
+            <!-- =================================================
+                 REQUESTS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📡 Biblioteca requests
+
+            </h3>
+
+
+            <p class="description">
+
+                A biblioteca <strong>requests</strong> facilita
+                o envio de requisições HTTP utilizando Python.
+
+            </p>
+
+
+            <p class="description">
+
+                Para utilizá-la, primeiro fazemos a importação:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        api.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            requests
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resposta =
+                            requests.get(
+                            <span class="string">
+                                "https://api.exemplo.com/usuarios"
+                            </span>
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O objeto armazenado em <code>resposta</code>
+                representa a resposta recebida da API.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Principais métodos:</strong>
+
+                <br><br>
+
+                <code>requests.get()</code> → consulta dados.
+
+                <br><br>
+
+                <code>requests.post()</code> → envia ou cria dados.
+
+                <br><br>
+
+                <code>requests.put()</code> → atualiza dados.
+
+                <br><br>
+
+                <code>requests.delete()</code> → remove dados.
+
+            </div>
+
+
+            <!-- =================================================
+                 STATUS CODE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚦 Verificando o status
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de fazer uma requisição, podemos verificar
+                o <strong>status code</strong> da resposta.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        status.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            requests
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resposta =
+                            requests.get(
+                            <span class="string">
+                                "https://api.exemplo.com/usuarios"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">print</span>(
+                            resposta.status_code)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 No QA:</strong>
+
+                <br><br>
+
+                O status code é uma das primeiras informações
+                verificadas em um teste de API.
+
+                <br><br>
+
+                Por exemplo:
+
+                <br><br>
+
+                <code>200</code> → requisição processada com sucesso.
+
+                <br>
+
+                <code>201</code> → recurso criado.
+
+                <br>
+
+                <code>400</code> → requisição inválida.
+
+                <br>
+
+                <code>404</code> → recurso não encontrado.
+
+                <br>
+
+                <code>500</code> → erro no servidor.
+
+            </div>
+
+
+            <!-- =================================================
+                 JSON
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Trabalhando com JSON
+
+            </h3>
+
+
+            <p class="description">
+
+                APIs frequentemente utilizam
+                <strong>JSON</strong> para enviar e receber
+                informações.
+
+            </p>
+
+
+            <p class="description">
+
+                Com <code>requests</code>, podemos utilizar
+                <code>response.json()</code> para transformar
+                uma resposta JSON em estruturas de dados Python.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        json.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            requests
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resposta =
+                            requests.get(
+                            <span class="string">
+                                "https://api.exemplo.com/usuarios/1"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            usuario = resposta.json()
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">print</span>(
+                            usuario)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Se a API retornar um objeto JSON, podemos trabalhar
+                com ele como um dicionário Python.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        acesso.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            usuario = resposta.json()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            nome = usuario[
+                            <span class="string">"nome"</span>]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">print</span>(nome)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 JSON LISTA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 JSON com listas
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma API também pode retornar uma lista de objetos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        lista.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            resposta =
+                            requests.get(
+                            <span class="string">
+                                "https://api.exemplo.com/usuarios"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            usuarios = resposta.json()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">for</span>
+                            usuario <span class="keyword">in</span>
+                            usuarios:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            usuario[
+                            <span class="string">"nome"</span>])
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 HEADERS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧾 Headers
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>Headers</strong> são informações adicionais
+                enviadas junto com a requisição HTTP.
+
+            </p>
+
+
+            <p class="description">
+
+                Eles podem informar, por exemplo, o formato dos
+                dados ou informações de autenticação.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        headers.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            requests
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            headers = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">
+                                "Accept"
+                            </span>:
+                            <span class="string">
+                                "application/json"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div>
+
+                            resposta =
+                            requests.get(
+                            <span class="string">
+                                "https://api.exemplo.com/usuarios"
+                            </span>,
+                            headers=headers)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Headers comuns:</strong>
+
+                <br><br>
+
+                <code>Accept</code> → informa quais formatos de
+                resposta o cliente aceita.
+
+                <br><br>
+
+                <code>Content-Type</code> → informa o formato do
+                conteúdo enviado.
+
+                <br><br>
+
+                <code>Authorization</code> → pode transportar
+                informações utilizadas para autenticação.
+
+            </div>
+
+
+            <!-- =================================================
+                 AUTHORIZATION
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔐 Header de autenticação
+
+            </h3>
+
+
+            <p class="description">
+
+                Algumas APIs exigem autenticação.
+
+                Nesse caso, podemos enviar informações de
+                autenticação através de headers.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        autenticacao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            requests
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            headers = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">
+                                "Authorization"
+                            </span>:
+                            <span class="string">
+                                "Bearer TOKEN"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div>
+
+                            resposta =
+                            requests.get(
+                            <span class="string">
+                                "https://api.exemplo.com/perfil"
+                            </span>,
+                            headers=headers)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                Tokens, senhas e chaves de API não devem ser
+                colocados diretamente no código de um projeto
+                real.
+
+                <br><br>
+
+                Em projetos reais, prefira variáveis de ambiente
+                ou mecanismos apropriados de gerenciamento de
+                segredos.
+
+            </div>
+
+
+            <!-- =================================================
+                 PARÂMETROS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Parâmetros
+
+            </h3>
+
+
+            <p class="description">
+
+                Algumas APIs permitem enviar parâmetros para
+                especificar melhor uma consulta.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, podemos pesquisar usuários utilizando
+                um nome.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        parametros.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            requests
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            params = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Depois, passamos o dicionário através do parâmetro
+                <code>params</code>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        busca.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            params = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resposta =
+                            requests.get(
+                            <span class="string">
+                                "https://api.exemplo.com/usuarios"
+                            </span>,
+                            params=params)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 O requests cuida da URL:</strong>
+
+                <br><br>
+
+                Se o parâmetro for <code>nome=Maria</code>, a
+                biblioteca monta os parâmetros da URL
+                automaticamente.
+
+                <br><br>
+
+                Isso evita a necessidade de montar manualmente
+                toda a query string.
+
+            </div>
+
+
+            <!-- =================================================
+                 VÁRIOS PARÂMETROS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔍 Vários parâmetros
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos enviar vários parâmetros ao mesmo tempo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        filtros.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            params = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">"idade"</span>: 25,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">"ativo"</span>:
+                            <span class="keyword">True</span>
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resposta =
+                            requests.get(
+                            <span class="string">
+                                "https://api.exemplo.com/usuarios"
+                            </span>,
+                            params=params)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 POST COM JSON
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📤 Enviando JSON
+
+            </h3>
+
+
+            <p class="description">
+
+                Ao enviar dados para uma API, podemos utilizar
+                o parâmetro <code>json</code> do
+                <code>requests</code> para enviar um objeto Python
+                como JSON.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        criar_usuario.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            requests
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            usuario = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">"idade"</span>: 25
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resposta =
+                            requests.post(
+                            <span class="string">
+                                "https://api.exemplo.com/usuarios"
+                            </span>,
+                            json=usuario)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Diferença importante:</strong>
+
+                <br><br>
+
+                <code>params=</code> → normalmente utilizado para
+                parâmetros de consulta.
+
+                <br><br>
+
+                <code>json=</code> → utilizado para enviar dados
+                no corpo da requisição como JSON.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO COMPLETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Exemplo completo
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos combinar os conceitos aprendidos em uma
+                única requisição.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        consulta.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            requests
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            headers = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">
+                                "Accept"
+                            </span>:
+                            <span class="string">
+                                "application/json"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div>
+
+                            params = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">"id"</span>: 10
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div>
+
+                            resposta =
+                            requests.get(
+                            <span class="string">
+                                "https://api.exemplo.com/usuarios"
+                            </span>,
+                            headers=headers,
+                            params=params)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TESTE DE API
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Consumindo APIs no QA
+
+            </h3>
+
+
+            <p class="description">
+
+                O consumo de APIs é muito importante para
+                profissionais de QA e automação de testes.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos verificar não apenas se a requisição
+                funciona, mas também se a resposta contém os
+                dados esperados.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        test_api.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            requests
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resposta =
+                            requests.get(
+                            <span class="string">
+                                "https://api.exemplo.com/usuarios/1"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">assert</span>
+                            resposta.status_code == 200
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            dados = resposta.json()
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">assert</span>
+                            dados[
+                            <span class="string">"id"</span>] == 1
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Pense como QA:</strong>
+
+                <br><br>
+
+                Não basta verificar apenas o status code.
+
+                <br><br>
+
+                Também podemos validar:
+
+                <br><br>
+
+                • Estrutura do JSON.<br>
+
+                • Valores retornados.<br>
+
+                • Headers.<br>
+
+                • Tempo de resposta.<br>
+
+                • Mensagens de erro.<br>
+
+                • Regras de negócio.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Exercício
+
+            </h3>
+
+
+            <p class="description">
+
+                Imagine uma API que possui o endpoint:
+
+                <code>/produtos</code>.
+
+                Crie mentalmente uma requisição para buscar
+                produtos de uma determinada categoria.
+
+            </p>
+
+
+            <p class="description">
+
+                Pense nos seguintes elementos:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Qual método HTTP utilizar?
+                </li>
+
+                <li>
+                    Qual parâmetro enviar?
+                </li>
+
+                <li>
+                    Qual header poderia ser utilizado?
+                </li>
+
+                <li>
+                    Como acessar o JSON retornado?
+                </li>
+
+                <li>
+                    Qual status code seria esperado em caso de
+                    sucesso?
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Possível solução:</strong>
+
+                <br><br>
+
+                Utilizar <code>GET</code> para consultar os
+                produtos.
+
+                <br><br>
+
+                Enviar a categoria através de
+                <code>params</code>.
+
+                <br><br>
+
+                Utilizar <code>Accept: application/json</code>
+                para indicar que esperamos JSON.
+
+                <br><br>
+
+                Utilizar <code>response.json()</code> para acessar
+                os dados retornados.
+
+                <br><br>
+
+                Esperar um status como <code>200</code> em uma
+                consulta bem-sucedida.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • <code>requests</code> facilita o consumo de APIs
+                utilizando Python.<br>
+
+                • <code>requests.get()</code> pode ser utilizado
+                para consultar dados.<br>
+
+                • <code>requests.post()</code> pode ser utilizado
+                para criar ou enviar dados.<br>
+
+                • <code>response.status_code</code> permite
+                verificar o status da resposta.<br>
+
+                • <code>response.json()</code> transforma uma
+                resposta JSON em uma estrutura Python.<br>
+
+                • <strong>Headers</strong> transportam informações
+                adicionais na requisição.<br>
+
+                • <code>params</code> permite enviar parâmetros
+                de consulta.<br>
+
+                • <code>json</code> permite enviar dados no corpo
+                da requisição em formato JSON.<br>
+
+                • APIs são muito utilizadas em sistemas modernos
+                e em automação de testes.<br>
+
+                • Em QA, podemos validar status, headers,
+                estrutura e conteúdo das respostas.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

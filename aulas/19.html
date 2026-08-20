@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+
+                        Tema
+
+                    </span>
+
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">19</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 19
+
+            </span>
+
+
+            <h2>
+
+                Recursão em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender o conceito de
+                <strong>recursão</strong>.
+
+                Uma função recursiva é uma função que chama a si
+                mesma para resolver um problema.
+
+                Também vamos entender a importância dos
+                <strong>casos-base</strong> e praticar o conceito
+                com alguns exercícios.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 O que é recursão?
+
+            </h3>
+
+
+            <p class="description">
+
+                Recursão acontece quando uma função chama a si
+                mesma durante sua execução.
+
+                A ideia é dividir um problema em partes menores
+                até chegar a uma situação simples o suficiente
+                para ser resolvida diretamente.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Uma função recursiva precisa de duas coisas:
+
+                <br><br>
+
+                • Um <strong>caso-base</strong>, que determina
+                quando a função deve parar.<br>
+
+                • Um <strong>caso recursivo</strong>, no qual a
+                função chama a si mesma com um problema menor.
+
+            </div>
+
+
+            <!-- =================================================
+                 PRIMEIRO EXEMPLO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 Primeiro exemplo
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos criar uma função que conta de um número até
+                zero.
+
+                A cada chamada, o número será reduzido em 1.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        contagem.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                contar
+                            </span>(numero):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            numero == 0:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(numero)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                contar
+                            </span>(numero - 1)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                contar
+                            </span>(5)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        5
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        4
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        3
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        1
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Observe que a função continua chamando a si mesma
+                enquanto <code>numero</code> for diferente de zero.
+
+                Quando o valor chega a <code>0</code>, o
+                <code>return</code> interrompe a recursão.
+
+            </p>
+
+
+            <!-- =================================================
+                 CASO-BASE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛑 Caso-base
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>caso-base</strong> é a condição que faz
+                a função parar de chamar a si mesma.
+
+                Sem ele, a função continuaria sendo executada
+                indefinidamente.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Muito importante:</strong>
+
+                <br><br>
+
+                Toda função recursiva precisa ter uma condição
+                de parada bem definida.
+
+                <br><br>
+
+                Sem um caso-base, podemos chegar a um erro
+                chamado <code>RecursionError</code>.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        caso_base.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                exemplo
+                            </span>(numero):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            numero == 0:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(numero)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                exemplo
+                            </span>(numero - 1)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Como identificar?</strong>
+
+                <br><br>
+
+                Neste exemplo:
+
+                <br><br>
+
+                <strong>Caso-base:</strong>
+                <code>numero == 0</code>
+
+                <br><br>
+
+                <strong>Caso recursivo:</strong>
+                <code>exemplo(numero - 1)</code>
+
+            </div>
+
+
+            <!-- =================================================
+                 FATORIAL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔢 Exemplo: fatorial
+
+            </h3>
+
+
+            <p class="description">
+
+                Um exemplo clássico de recursão é o cálculo do
+                <strong>fatorial</strong> de um número.
+
+                O fatorial de um número <code>n</code> é o produto
+                de todos os números inteiros positivos menores ou
+                iguais a ele.
+
+                Por exemplo:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>5! = 5 × 4 × 3 × 2 × 1 = 120</strong>
+
+                <br><br>
+
+                Também podemos definir:
+
+                <br><br>
+
+                <code>
+                    n! = n × (n - 1)!
+                </code>
+
+            </div>
+
+
+            <p class="description">
+
+                Essa definição é naturalmente recursiva porque o
+                cálculo de <code>n!</code> depende do cálculo de
+                <code>(n - 1)!</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        fatorial.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                fatorial
+                            </span>(numero):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            numero == 0:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            1
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            numero *
+                            <span class="function">
+                                fatorial
+                            </span>(
+                            numero - 1)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="function">
+                                fatorial
+                            </span>(5))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        120
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos visualizar as chamadas da seguinte forma:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+                    fatorial(5)
+                </code>
+
+                <br>
+                ↓
+
+                <br>
+
+                <code>
+                    5 × fatorial(4)
+                </code>
+
+                <br>
+                ↓
+
+                <code>
+                    5 × 4 × fatorial(3)
+                </code>
+
+                <br>
+                ↓
+
+                <code>
+                    5 × 4 × 3 × fatorial(2)
+                </code>
+
+                <br>
+                ↓
+
+                <code>
+                    5 × 4 × 3 × 2 × fatorial(1)
+                </code>
+
+                <br>
+                ↓
+
+                <code>
+                    5 × 4 × 3 × 2 × 1
+                </code>
+
+                <br>
+                ↓
+
+                <strong>
+                    120
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 SOMA RECURSIVA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ➕ Exemplo: soma de números
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar recursão para calcular a soma
+                dos números de <code>1</code> até um determinado
+                valor.
+
+                Por exemplo:
+
+                <strong>
+                    1 + 2 + 3 + 4 + 5 = 15
+                </strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        soma.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                soma
+                            </span>(numero):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            numero == 0:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            0
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            numero +
+                            <span class="function">
+                                soma
+                            </span>(
+                            numero - 1)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="function">
+                                soma
+                            </span>(5))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        15
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RECURSÃO X REPETIÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🆚 Recursão x repetição
+
+            </h3>
+
+
+            <p class="description">
+
+                Muitos problemas que podem ser resolvidos com
+                recursão também podem ser resolvidos utilizando
+                estruturas de repetição, como <code>for</code> e
+                <code>while</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                A soma de números pode ser feita com recursão,
+                mas também pode ser feita com um
+                <code>for</code>.
+
+                <br><br>
+
+                Em Python, a solução iterativa costuma ser mais
+                simples e eficiente para muitos problemas.
+
+                <br><br>
+
+                O objetivo da recursão é principalmente aprender
+                a pensar em problemas que podem ser divididos em
+                subproblemas menores.
+
+            </div>
+
+
+            <!-- =================================================
+                 PILHA DE CHAMADAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 A pilha de chamadas
+
+            </h3>
+
+
+            <p class="description">
+
+                Cada vez que uma função chama a si mesma, uma nova
+                chamada é adicionada à memória até que o caso-base
+                seja alcançado.
+
+                Depois disso, as chamadas começam a retornar,
+                uma por uma.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo com
+                    <code>contar(3)</code>:</strong>
+
+                <br><br>
+
+                <code>
+                    contar(3)
+                </code>
+
+                <br>
+                ↓
+
+                <br>
+
+                <code>
+                    contar(2)
+                </code>
+
+                <br>
+                ↓
+
+                <br>
+
+                <code>
+                    contar(1)
+                </code>
+
+                <br>
+                ↓
+
+                <br>
+
+                <code>
+                    contar(0)
+                </code>
+
+                <br><br>
+
+                Ao chegar ao caso-base, a função para de criar
+                novas chamadas e começa a retornar.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Exercício 1 — Contagem regressiva
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma função recursiva chamada
+                <code>contagem_regressiva()</code>.
+
+                Ela deve receber um número e imprimir todos os
+                valores até chegar a zero.
+
+                Teste utilizando o número <code>5</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                Seu caso-base pode verificar quando o número
+                chegar a <code>0</code>.
+
+                <br><br>
+
+                No caso recursivo, chame a função novamente
+                utilizando <code>numero - 1</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 2
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Exercício 2 — Fatorial
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma função chamada
+                <code>fatorial()</code> que utilize recursão
+                para calcular o fatorial de um número.
+
+                Teste com:
+
+                <code>5</code>.
+
+                O resultado esperado é:
+
+                <strong>120</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 3
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Exercício 3 — Soma
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma função chamada <code>soma()</code> que
+                receba um número e retorne a soma de todos os
+                números de <code>1</code> até esse valor.
+
+                Por exemplo:
+
+                <code>soma(5)</code> deve retornar
+                <strong>15</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 4
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Exercício 4 — Potência
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma função recursiva chamada
+                <code>potencia()</code> que receba dois valores:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <code>base</code>
+                </li>
+
+                <li>
+                    <code>expoente</code>
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                A função deve calcular a potência sem utilizar
+                o operador <code>**</code>.
+
+                Por exemplo:
+
+                <code>potencia(2, 4)</code>
+
+                deve retornar:
+
+                <strong>16</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                Você pode pensar em:
+
+                <br><br>
+
+                <code>
+                    2⁴ = 2 × 2 × 2 × 2
+                </code>
+
+                <br><br>
+
+                A cada chamada recursiva, diminua o expoente
+                em 1.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Desafio — Validação recursiva
+
+            </h3>
+
+
+            <p class="description">
+
+                Imagine que você recebeu uma lista contendo
+                resultados de testes.
+
+                Crie uma função recursiva chamada
+                <code>contar_aprovados()</code> que receba uma
+                lista de valores booleanos e conte quantos testes
+                possuem o valor <code>True</code>.
+
+                Exemplo:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        desafio_qa.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            resultados = [
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                True
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                False
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                True
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                True
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            ]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Crie sua função aqui
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Resultado esperado: 3
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                Pense em duas situações:
+
+                <br><br>
+
+                <strong>Caso-base:</strong>
+
+                quando não houver mais elementos para analisar.
+
+                <br><br>
+
+                <strong>Caso recursivo:</strong>
+
+                verificar o primeiro elemento e continuar a análise
+                do restante da lista.
+
+            </div>
+
+
+            <!-- =================================================
+                 CUIDADOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ Cuidados com a recursão
+
+            </h3>
+
+
+            <p class="description">
+
+                A recursão é uma ferramenta importante, mas deve
+                ser utilizada com cuidado.
+
+                Uma função que cria chamadas recursivas demais
+                pode consumir muita memória e atingir o limite
+                de recursão do Python.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Sempre defina um caso-base.
+                </li>
+
+                <li>
+                    Garanta que cada chamada esteja se aproximando
+                    do caso-base.
+                </li>
+
+                <li>
+                    Evite utilizar recursão quando um
+                    <code>for</code> ou <code>while</code> tornar
+                    a solução mais simples.
+                </li>
+
+                <li>
+                    Priorize código claro e fácil de manter.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • <strong>Recursão</strong> acontece quando uma
+                função chama a si mesma.<br>
+
+                • Toda função recursiva precisa de um
+                <strong>caso-base</strong>.<br>
+
+                • O caso-base determina quando a recursão deve
+                parar.<br>
+
+                • O <strong>caso recursivo</strong> reduz o
+                problema e chama a função novamente.<br>
+
+                • O fatorial é um exemplo clássico de problema
+                que pode ser resolvido com recursão.<br>
+
+                • Recursão pode ser utilizada para resolver
+                problemas dividindo-os em partes menores.<br>
+
+                • Muitos problemas recursivos também podem ser
+                resolvidos com <code>for</code> ou
+                <code>while</code>.<br>
+
+                • É importante evitar recursões desnecessariamente
+                profundas.<br>
+
+                • Em QA e automação, entender recursão ajuda a
+                trabalhar com estruturas e problemas que possuem
+                níveis ou elementos aninhados.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

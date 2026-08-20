@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">59</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 59
+
+            </span>
+
+
+            <h2>
+
+                NumPy
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos conhecer o
+                <strong>NumPy</strong>, uma das principais
+                bibliotecas Python para trabalhar com números,
+                arrays e operações matemáticas.
+
+                O NumPy é muito utilizado em áreas como análise
+                de dados, ciência de dados, inteligência artificial,
+                testes e processamento de grandes volumes de
+                informações.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Aprender a criar arrays utilizando NumPy,
+                realizar operações matemáticas e entender como
+                a vetorização permite trabalhar com vários valores
+                de maneira eficiente.
+
+            </div>
+
+
+            <!-- =================================================
+                 INSTALAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Instalando o NumPy
+
+            </h3>
+
+
+            <p class="description">
+
+                O NumPy não faz parte da biblioteca padrão do
+                Python.
+
+                Para utilizá-lo, precisamos instalar o pacote
+                utilizando o <strong>pip</strong>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        terminal
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            pip install numpy
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 IMPORT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐍 Importando o NumPy
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois da instalação, podemos importar a biblioteca
+                no nosso programa.
+
+                A convenção mais utilizada é chamar o NumPy de
+                <strong>np</strong>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        exemplo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            numpy
+                            <span class="keyword">
+                                as
+                            </span>
+                            np
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(np.__version__)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ARRAYS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔢 Arrays
+
+            </h3>
+
+
+            <p class="description">
+
+                Um dos principais recursos do NumPy são os
+                <strong>arrays</strong>.
+
+                Um array pode armazenar vários valores e permite
+                realizar operações matemáticas diretamente sobre
+                todos os seus elementos.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos criar um array utilizando
+                <strong>np.array()</strong>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        arrays.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            numpy
+                            <span class="keyword">
+                                as
+                            </span>
+                            np
+
+                        </div>
+
+
+                        <div>
+
+                            numeros = np.array(
+                            [10, 20, 30, 40, 50])
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(numeros)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [10 20 30 40 50]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ÍNDICES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Acessando elementos
+
+            </h3>
+
+
+            <p class="description">
+
+                Assim como acontece com listas do Python,
+                podemos acessar elementos de um array utilizando
+                índices.
+
+                O primeiro elemento possui índice
+                <strong>0</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        indices.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            numpy
+                            <span class="keyword">
+                                as
+                            </span>
+                            np
+
+                        </div>
+
+
+                        <div>
+
+                            numeros = np.array(
+                            [10, 20, 30, 40, 50])
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(numeros[0])
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(numeros[2])
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(numeros[-1])
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 OPERAÇÕES MATEMÁTICAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ➕ Operações matemáticas
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das grandes vantagens do NumPy é poder realizar
+                operações matemáticas diretamente sobre os arrays.
+
+                Podemos somar, subtrair, multiplicar e dividir
+                seus elementos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        operacoes.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            numpy
+                            <span class="keyword">
+                                as
+                            </span>
+                            np
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            numeros = np.array(
+                            [10, 20, 30])
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(numeros + 5)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(numeros - 5)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(numeros * 2)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(numeros / 10)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(numeros ** 2)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [15 25 35]
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [ 5 15 25]
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [20 40 60]
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [1. 2. 3.]
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [100 400 900]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 OPERAÇÕES ENTRE ARRAYS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔢 Operações entre arrays
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos realizar operações entre dois arrays.
+                Os elementos correspondentes serão utilizados na
+                operação.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        arrays_operacoes.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            numpy
+                            <span class="keyword">
+                                as
+                            </span>
+                            np
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            a = np.array([10, 20, 30])
+
+                        </div>
+
+
+                        <div>
+
+                            b = np.array([1, 2, 3])
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            soma = a + b
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(soma)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                No exemplo acima, o NumPy realiza a operação
+                elemento por elemento:
+
+                <br><br>
+
+                <code>10 + 1 = 11</code><br>
+                <code>20 + 2 = 22</code><br>
+                <code>30 + 3 = 33</code>
+
+            </div>
+
+
+            <!-- =================================================
+                 VETORIZAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚡ Vetorização
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>Vetorização</strong> é a capacidade de
+                realizar uma operação sobre vários elementos de
+                uma vez, sem precisar escrever um
+                <code>for</code> para cada elemento.
+
+            </p>
+
+
+            <p class="description">
+
+                Em Python puro, poderíamos fazer:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        python.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [10, 20, 30, 40]
+
+                        </div>
+
+
+                        <div>
+
+                            resultado = []
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            numeros:
+
+                            resultado.append(numero * 2)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Com NumPy, podemos realizar a mesma operação de
+                maneira vetorizada:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        numpy.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            numpy
+                            <span class="keyword">
+                                as
+                            </span>
+                            np
+
+                        </div>
+
+
+                        <div>
+
+                            numeros = np.array(
+                            [10, 20, 30, 40])
+
+                        </div>
+
+
+                        <div>
+
+                            resultado = numeros * 2
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Por que isso é importante?</strong>
+
+                <br><br>
+
+                A vetorização permite escrever operações sobre
+                grandes conjuntos de dados de maneira mais
+                expressiva e, em muitos casos, mais eficiente do
+                que executar loops Python elemento por elemento.
+
+            </div>
+
+
+            <!-- =================================================
+                 FUNÇÕES MATEMÁTICAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📊 Funções matemáticas
+
+            </h3>
+
+
+            <p class="description">
+
+                O NumPy também fornece diversas funções matemáticas
+                prontas para trabalhar com arrays.
+
+                Por exemplo, podemos calcular a soma, média,
+                maior e menor valor.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        estatisticas.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            numpy
+                            <span class="keyword">
+                                as
+                            </span>
+                            np
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            notas = np.array(
+                            [7, 8, 9, 10])
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(np.sum(notas))
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(np.mean(notas))
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(np.max(notas))
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(np.min(notas))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        34
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        8.5
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        10
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        7
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ARRAYS BIDIMENSIONAIS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧮 Arrays bidimensionais
+
+            </h3>
+
+
+            <p class="description">
+
+                O NumPy também trabalha com estruturas
+                bidimensionais, semelhantes a tabelas ou
+                matrizes.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        matriz.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            numpy
+                            <span class="keyword">
+                                as
+                            </span>
+                            np
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            matriz = np.array([
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;[1, 2, 3],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;[4, 5, 6]
+
+                        </div>
+
+
+                        <div>
+
+                            ])
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos acessar uma posição específica informando
+                o índice da linha e da coluna:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        acesso.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(matriz[0, 1])
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 NUMPY NO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 NumPy no dia a dia do QA
+
+            </h3>
+
+
+            <p class="description">
+
+                O NumPy pode ser útil em atividades de QA que
+                envolvem grandes quantidades de dados.
+
+                Por exemplo, podemos utilizá-lo para realizar
+                cálculos, comparar resultados, analisar métricas
+                e preparar dados para testes.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Imagine que um teste produziu os seguintes tempos
+                de resposta em milissegundos:
+
+                <br><br>
+
+                <code>
+                    [120, 150, 110, 180, 140]
+                </code>
+
+                <br><br>
+
+                Com NumPy podemos calcular rapidamente a média,
+                o menor e o maior tempo:
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        metricas.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            numpy
+                            <span class="keyword">
+                                as
+                            </span>
+                            np
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            tempos = np.array([
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            120, 150, 110, 180, 140
+
+                        </div>
+
+
+                        <div>
+
+                            ])
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Média:"
+                            </span>,
+                            np.mean(tempos))
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Máximo:"
+                            </span>,
+                            np.max(tempos))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio da aula
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa utilizando NumPy para analisar
+                os resultados de cinco testes automatizados.
+
+                Cada teste terá um tempo de execução em segundos.
+
+            </p>
+
+
+            <p class="description">
+
+                O programa deverá:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Criar um array com os tempos dos testes.
+                </li>
+
+                <li>
+                    Calcular o tempo médio.
+                </li>
+
+                <li>
+                    Encontrar o menor tempo.
+                </li>
+
+                <li>
+                    Encontrar o maior tempo.
+                </li>
+
+                <li>
+                    Criar um novo array multiplicando todos os
+                    tempos por 2.
+                </li>
+
+                <li>
+                    Utilizar vetorização para realizar pelo menos
+                    uma operação.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Considere que qualquer teste com tempo superior
+                a <code>2.0</code> segundos deve ser considerado
+                lento.
+
+                Crie uma operação vetorizada que identifique os
+                testes que ultrapassaram esse limite.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que é o NumPy.<br>
+
+                • Como instalar e importar a biblioteca.<br>
+
+                • Como criar arrays com
+                <code>np.array()</code>.<br>
+
+                • Como acessar elementos de um array.<br>
+
+                • Como trabalhar com arrays bidimensionais.<br>
+
+                • Como realizar operações matemáticas.<br>
+
+                • Como realizar operações entre arrays.<br>
+
+                • O conceito de vetorização.<br>
+
+                • Como utilizar funções como
+                <code>sum()</code>, <code>mean()</code>,
+                <code>max()</code> e <code>min()</code>
+                do NumPy.<br>
+
+                • Como o NumPy pode ser utilizado em atividades
+                de QA e análise de dados.
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                🎓 Aula concluída!
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora você já conhece uma das bibliotecas mais
+                importantes do ecossistema Python para trabalhar
+                com dados numéricos.
+
+                Na próxima etapa, podemos utilizar esse
+                conhecimento para explorar análise e manipulação
+                de dados em conjuntos maiores.
+
+            </p>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

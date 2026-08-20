@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">10</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 10
+
+            </span>
+
+
+            <h2>
+
+                Tuplas em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender a trabalhar com
+                <strong>tuplas</strong>, uma estrutura de dados
+                muito parecida com as listas.
+
+                Vamos aprender como criar tuplas, acessar seus
+                elementos através de <strong>índices</strong>,
+                utilizar índices negativos, descobrir o tamanho
+                de uma tupla e percorrer seus valores.
+
+                Também vamos entender uma das principais
+                diferenças entre listas e tuplas:
+                <strong>tuplas são imutáveis</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Criando tuplas
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma tupla é uma coleção de valores que,
+                normalmente, é criada utilizando
+                <strong>parênteses</strong>.
+
+                Assim como uma lista, uma tupla pode armazenar
+                vários elementos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        tuplas.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            frutas = (
+                            <span class="string">"maçã"</span>,
+                            <span class="string">"banana"</span>,
+                            <span class="string">"laranja"</span>
+                            )
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            numeros = (10, 20, 30, 40)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(frutas)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(numeros)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        ('maçã', 'banana', 'laranja')
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        (10, 20, 30, 40)
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Listas normalmente utilizam
+                <code>[]</code>.
+
+                <br><br>
+
+                Tuplas normalmente utilizam
+                <code>()</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCEITO 2
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔢 Índices
+
+            </h3>
+
+
+            <p class="description">
+
+                Assim como acontece com as listas, os elementos
+                de uma tupla possuem índices.
+
+                O primeiro elemento está no índice
+                <code>0</code>, o segundo no índice
+                <code>1</code> e assim por diante.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        indices.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            cores = (
+                            <span class="string">"azul"</span>,
+                            <span class="string">"verde"</span>,
+                            <span class="string">"vermelho"</span>
+                            )
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(cores[0])
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(cores[1])
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(cores[2])
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        azul
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        verde
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        vermelho
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ÍNDICES NEGATIVOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔙 Índices negativos
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos acessar os elementos de uma tupla
+                começando pelo final.
+
+                O índice <code>-1</code> representa o último
+                elemento, enquanto <code>-2</code> representa o
+                penúltimo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        negativos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            frutas = (
+                            <span class="string">"maçã"</span>,
+                            <span class="string">"banana"</span>,
+                            <span class="string">"laranja"</span>
+                            )
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(frutas[-1])
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(frutas[-2])
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        laranja
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        banana
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TAMANHO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📏 Tamanho da tupla
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar a função <strong>len()</strong>
+                para descobrir quantos elementos existem dentro
+                de uma tupla.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        tamanho.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            frutas = (
+                            <span class="string">"maçã"</span>,
+                            <span class="string">"banana"</span>,
+                            <span class="string">"laranja"</span>
+                            )
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            quantidade =
+                            <span class="function">len</span>(frutas)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(quantidade)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        3
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 IMUTABILIDADE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔒 Tuplas são imutáveis
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das principais características das tuplas é
+                que elas são <strong>imutáveis</strong>.
+
+                Isso significa que, depois de criada, não podemos
+                alterar diretamente seus elementos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        imutavel.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            cores = (
+                            <span class="string">"azul"</span>,
+                            <span class="string">"verde"</span>,
+                            <span class="string">"vermelho"</span>
+                            )
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            cores[0] =
+                            <span class="string">"amarelo"</span>
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ⚠️ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        TypeError: 'tuple' object does not support item assignment
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                Se você precisa de uma estrutura que possa ser
+                alterada depois de criada, normalmente utilizará
+                uma <strong>lista</strong>.
+
+                <br><br>
+
+                Se os dados não devem ser alterados, uma
+                <strong>tupla</strong> pode ser uma boa escolha.
+
+            </div>
+
+
+            <!-- =================================================
+                 PERCORRENDO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Percorrendo uma tupla
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar o comando <strong>for</strong>
+                para percorrer todos os elementos de uma tupla.
+
+                Esse recurso será muito utilizado em programas
+                que precisam analisar vários valores.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        percorrendo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            frutas = (
+                            <span class="string">"maçã"</span>,
+                            <span class="string">"banana"</span>,
+                            <span class="string">"laranja"</span>
+                            )
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">for</span> fruta
+                            <span class="keyword">in</span> frutas:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(fruta)
+                        </div>
+
+                        <div></div>
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        maçã
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        banana
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        laranja
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MÉTODOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Métodos de tuplas
+
+            </h3>
+
+
+            <p class="description">
+
+                As tuplas possuem alguns métodos úteis.
+
+                Dois deles são <strong>count()</strong>, que
+                conta quantas vezes um valor aparece, e
+                <strong>index()</strong>, que informa a posição
+                de um determinado valor.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        metodos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            numeros = (10, 20, 10, 30, 10)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            numeros.count(10))
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            numeros.index(20))
+                        </div>
+
+                        <div></div>
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        3
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        1
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 LISTA X TUPLA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ Lista x Tupla
+
+            </h3>
+
+
+            <p class="description">
+
+                Listas e tuplas possuem várias características em
+                comum, mas existe uma diferença fundamental entre
+                elas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>📋 Lista</strong>
+
+                <br><br>
+
+                • Utiliza <code>[]</code>.<br>
+                • Pode ser alterada depois de criada.<br>
+                • Possui métodos como
+                <code>append()</code>,
+                <code>insert()</code>,
+                <code>remove()</code> e
+                <code>pop()</code>.
+
+                <br><br>
+
+                <strong>📦 Tupla</strong>
+
+                <br><br>
+
+                • Utiliza <code>()</code>.<br>
+                • Não pode ter seus elementos alterados
+                diretamente.<br>
+                • É útil para representar conjuntos de valores
+                que não devem ser modificados.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESEMPACOTAMENTO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📤 Desempacotamento
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos atribuir os valores de uma tupla a várias
+                variáveis ao mesmo tempo.
+
+                Esse recurso é chamado de
+                <strong>desempacotamento</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        desempacotamento.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            pessoa = (
+                            <span class="string">"Maria"</span>,
+                            25,
+                            <span class="string">"QA"</span>
+                            )
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            nome, idade, profissao = pessoa
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(nome)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(idade)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Maria
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        25
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROGRAMA PRÁTICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Programa prático
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora vamos criar um pequeno programa que utiliza
+                uma tupla para armazenar informações de um
+                produto.
+
+                Depois, vamos desempacotar os valores e exibi-los
+                no terminal.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        produto.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            produto = (
+                            <span class="string">"Notebook"</span>,
+                            3500.00,
+                            <span class="string">"Eletrônicos"</span>
+                            )
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            nome, preco, categoria = produto
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(nome)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(preco)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(categoria)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Notebook
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        3500.0
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Eletrônicos
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa que utilize uma tupla para
+                armazenar informações de um aluno.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>O programa deve:</strong>
+
+                <br><br>
+
+                • Criar uma tupla contendo o nome do aluno,
+                sua idade e sua nota.<br>
+
+                • Exibir o nome utilizando seu índice.<br>
+
+                • Exibir a nota utilizando seu índice.<br>
+
+                • Utilizar <code>len()</code> para descobrir
+                quantos elementos existem na tupla.<br>
+
+                • Utilizar desempacotamento para colocar cada
+                informação em uma variável.<br>
+
+                • Exibir as informações no terminal.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Tuplas são estruturas de dados que armazenam
+                vários valores.<br>
+
+                • Tuplas normalmente são criadas utilizando
+                <code>()</code>.<br>
+
+                • Os elementos possuem índices que começam em
+                <code>0</code>.<br>
+
+                • Índices negativos permitem acessar elementos
+                começando pelo final.<br>
+
+                • <code>len()</code> informa a quantidade de
+                elementos.<br>
+
+                • Tuplas são <strong>imutáveis</strong>.<br>
+
+                • <code>count()</code> conta ocorrências de um
+                valor.<br>
+
+                • <code>index()</code> encontra a posição de um
+                valor.<br>
+
+                • Tuplas podem ser percorridas com
+                <code>for</code>.<br>
+
+                • É possível desempacotar uma tupla em várias
+                variáveis.<br>
+
+                • Listas são indicadas quando os dados precisam
+                ser alterados; tuplas são úteis quando os dados
+                devem permanecer fixos.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

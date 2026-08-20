@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">44</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 44
+
+            </span>
+
+
+            <h2>
+
+                HTTP
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender os principais
+                conceitos do <strong>HTTP</strong>, o protocolo
+                utilizado para comunicação entre clientes e
+                servidores na web.
+
+            </p>
+
+
+            <p class="description">
+
+                Vamos entender o que são
+                <strong>requests</strong> e
+                <strong>responses</strong>, conhecer os métodos
+                <strong>GET</strong>, <strong>POST</strong>,
+                <strong>PUT</strong> e <strong>DELETE</strong>,
+                além dos principais <strong>status codes</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Quando você acessa uma página, envia um formulário
+                ou utiliza uma API, normalmente existe uma
+                comunicação HTTP acontecendo entre um cliente e
+                um servidor.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É HTTP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌐 O que é HTTP?
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>HTTP</strong> significa
+                <strong>HyperText Transfer Protocol</strong>.
+                É um protocolo utilizado para comunicação na web.
+
+            </p>
+
+
+            <p class="description">
+
+                De forma simplificada, um cliente envia uma
+                <strong>request</strong> para um servidor e o
+                servidor retorna uma <strong>response</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🔄 Comunicação HTTP:</strong>
+
+                <br><br>
+
+                Cliente → Request → Servidor
+
+                <br><br>
+
+                Servidor → Response → Cliente
+
+            </div>
+
+
+            <!-- =================================================
+                 REQUEST
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📤 Request
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma <strong>request</strong> é uma requisição
+                enviada pelo cliente para o servidor.
+
+            </p>
+
+
+            <p class="description">
+
+                O cliente pode solicitar dados, enviar informações,
+                alterar recursos ou excluir dados.
+
+            </p>
+
+
+            <p class="description">
+
+                Uma requisição HTTP pode conter informações como:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Método HTTP.
+                </li>
+
+                <li>
+                    URL.
+                </li>
+
+                <li>
+                    Headers.
+                </li>
+
+                <li>
+                    Parâmetros.
+                </li>
+
+                <li>
+                    Body, quando necessário.
+                </li>
+
+            </ul>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        request.txt
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            GET /usuarios HTTP/1.1
+
+                        </div>
+
+
+                        <div>
+
+                            Host: exemplo.com
+
+                        </div>
+
+
+                        <div>
+
+                            Accept: application/json
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESPONSE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📥 Response
+
+            </h3>
+
+
+            <p class="description">
+
+                A <strong>response</strong> é a resposta enviada
+                pelo servidor depois de receber uma request.
+
+            </p>
+
+
+            <p class="description">
+
+                Uma resposta normalmente possui um
+                <strong>status code</strong>, headers e,
+                dependendo da situação, um conteúdo no body.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        response.txt
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            HTTP/1.1 200 OK
+
+                        </div>
+
+
+                        <div>
+
+                            Content-Type: application/json
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Resumindo:</strong>
+
+                <br><br>
+
+                <strong>Request</strong> → pedido feito pelo
+                cliente.
+
+                <br><br>
+
+                <strong>Response</strong> → resposta enviada pelo
+                servidor.
+
+            </div>
+
+
+            <!-- =================================================
+                 GET
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 GET
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>GET</strong> é utilizado
+                principalmente para solicitar ou consultar
+                informações de um servidor.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, podemos utilizar GET para buscar
+                uma lista de usuários.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        get.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            requests
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resposta =
+                            requests.get(
+                            <span class="string">
+                                "https://api.exemplo.com/usuarios"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">print</span>(
+                            resposta.status_code)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 GET no QA:</strong>
+
+                <br><br>
+
+                Em testes de API, GET é muito utilizado para
+                verificar se determinados recursos podem ser
+                consultados corretamente.
+
+            </div>
+
+
+            <!-- =================================================
+                 POST
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📤 POST
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>POST</strong> é utilizado
+                normalmente para enviar dados ao servidor e
+                criar um novo recurso.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        post.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            requests
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            dados = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div>
+
+                            resposta =
+                            requests.post(
+                            <span class="string">
+                                "https://api.exemplo.com/usuarios"
+                            </span>,
+                            json=dados)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O conteúdo enviado ao servidor geralmente fica
+                no <strong>body</strong> da requisição.
+
+            </p>
+
+
+            <!-- =================================================
+                 PUT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✏️ PUT
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>PUT</strong> é utilizado para
+                atualizar um recurso existente.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, podemos atualizar os dados de um
+                usuário identificado pelo número <code>10</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        put.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            requests
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            dados = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria Silva"</span>
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div>
+
+                            resposta =
+                            requests.put(
+                            <span class="string">
+                                "https://api.exemplo.com/usuarios/10"
+                            </span>,
+                            json=dados)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DELETE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗑️ DELETE
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>DELETE</strong> é utilizado para
+                solicitar a remoção de um recurso.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        delete.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            requests
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resposta =
+                            requests.delete(
+                            <span class="string">
+                                "https://api.exemplo.com/usuarios/10"
+                            </span>
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 Os quatro métodos:</strong>
+
+                <br><br>
+
+                <strong>GET</strong> → consultar.
+
+                <br><br>
+
+                <strong>POST</strong> → criar/enviar.
+
+                <br><br>
+
+                <strong>PUT</strong> → atualizar.
+
+                <br><br>
+
+                <strong>DELETE</strong> → remover.
+
+            </div>
+
+
+            <!-- =================================================
+                 STATUS CODES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚦 Status codes
+
+            </h3>
+
+
+            <p class="description">
+
+                O servidor utiliza <strong>status codes</strong>
+                para informar o resultado de uma requisição.
+
+            </p>
+
+
+            <p class="description">
+
+                Os códigos são divididos em grupos de acordo com
+                o primeiro número.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    <strong>1xx</strong> — informações.
+
+                </li>
+
+
+                <li>
+
+                    <strong>2xx</strong> — sucesso.
+
+                </li>
+
+
+                <li>
+
+                    <strong>3xx</strong> — redirecionamento.
+
+                </li>
+
+
+                <li>
+
+                    <strong>4xx</strong> — erro relacionado à
+                    requisição do cliente.
+
+                </li>
+
+
+                <li>
+
+                    <strong>5xx</strong> — erro no servidor.
+
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 PRINCIPAIS STATUS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📊 Principais status codes
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>200 OK</strong>
+
+                <br>
+
+                A requisição foi processada com sucesso.
+
+                <br><br>
+
+
+                <strong>201 Created</strong>
+
+                <br>
+
+                Um novo recurso foi criado.
+
+                <br><br>
+
+
+                <strong>204 No Content</strong>
+
+                <br>
+
+                A requisição foi processada com sucesso,
+                mas não há conteúdo para retornar.
+
+                <br><br>
+
+
+                <strong>400 Bad Request</strong>
+
+                <br>
+
+                A requisição possui algum problema.
+
+                <br><br>
+
+
+                <strong>401 Unauthorized</strong>
+
+                <br>
+
+                A requisição não possui autenticação válida.
+
+                <br><br>
+
+
+                <strong>403 Forbidden</strong>
+
+                <br>
+
+                O servidor entendeu a requisição, mas não permite
+                o acesso ao recurso.
+
+                <br><br>
+
+
+                <strong>404 Not Found</strong>
+
+                <br>
+
+                O recurso solicitado não foi encontrado.
+
+                <br><br>
+
+
+                <strong>500 Internal Server Error</strong>
+
+                <br>
+
+                O servidor encontrou um erro interno.
+
+            </div>
+
+
+            <!-- =================================================
+                 TESTANDO STATUS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Verificando um status code
+
+            </h3>
+
+
+            <p class="description">
+
+                Em automação de testes, podemos verificar
+                diretamente o status retornado pela API.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        teste_api.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            requests
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resposta =
+                            requests.get(
+                            <span class="string">
+                                "https://api.exemplo.com/usuarios/1"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">assert</span>
+                            resposta.status_code == 200
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 No QA:</strong>
+
+                <br><br>
+
+                O status code é uma das primeiras informações que
+                podemos verificar ao testar uma API.
+
+                <br><br>
+
+                Por exemplo, uma consulta bem-sucedida pode esperar
+                <code>200</code>, enquanto a criação de um recurso
+                pode esperar <code>201</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 REQUEST + RESPONSE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Request e Response na prática
+
+            </h3>
+
+
+            <p class="description">
+
+                Imagine que um teste precisa consultar um usuário.
+
+                O fluxo pode ser representado assim:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>1️⃣ Cliente</strong>
+
+                <br>
+
+                Envia um GET para
+                <code>/usuarios/10</code>.
+
+                <br><br>
+
+                ↓
+
+                <br><br>
+
+                <strong>2️⃣ Servidor</strong>
+
+                <br>
+
+                Processa a requisição.
+
+                <br><br>
+
+                ↓
+
+                <br><br>
+
+                <strong>3️⃣ Response</strong>
+
+                <br>
+
+                Retorna <code>200 OK</code> e os dados do usuário.
+
+                <br><br>
+
+                ↓
+
+                <br><br>
+
+                <strong>4️⃣ Teste</strong>
+
+                <br>
+
+                Verifica se o status e os dados estão corretos.
+
+            </div>
+
+
+            <!-- =================================================
+                 BODY JSON
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Body e JSON
+
+            </h3>
+
+
+            <p class="description">
+
+                APIs frequentemente utilizam <strong>JSON</strong>
+                para transportar dados entre cliente e servidor.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        usuario.json
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">"id"</span>: 10,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;
+                            <span class="string">"ativo"</span>:
+                            <span class="keyword">true</span>
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Exercício
+
+            </h3>
+
+
+            <p class="description">
+
+                Imagine uma API de usuários.
+
+                Identifique qual método HTTP seria mais adequado
+                para cada operação:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    Consultar todos os usuários.
+
+                </li>
+
+
+                <li>
+
+                    Criar um novo usuário.
+
+                </li>
+
+
+                <li>
+
+                    Atualizar os dados de um usuário.
+
+                </li>
+
+
+                <li>
+
+                    Excluir um usuário.
+
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Resposta:</strong>
+
+                <br><br>
+
+                Consultar → <code>GET</code>
+
+                <br><br>
+
+                Criar → <code>POST</code>
+
+                <br><br>
+
+                Atualizar → <code>PUT</code>
+
+                <br><br>
+
+                Excluir → <code>DELETE</code>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • HTTP é um protocolo utilizado para comunicação
+                entre clientes e servidores.<br>
+
+                • <strong>Request</strong> é a requisição enviada
+                pelo cliente.<br>
+
+                • <strong>Response</strong> é a resposta enviada
+                pelo servidor.<br>
+
+                • <code>GET</code> é utilizado principalmente para
+                consultar recursos.<br>
+
+                • <code>POST</code> é utilizado principalmente para
+                criar ou enviar dados.<br>
+
+                • <code>PUT</code> é utilizado para atualizar
+                recursos.<br>
+
+                • <code>DELETE</code> é utilizado para remover
+                recursos.<br>
+
+                • Status codes indicam o resultado da requisição.<br>
+
+                • <code>2xx</code> representa sucesso.<br>
+
+                • <code>4xx</code> representa erros relacionados
+                à requisição.<br>
+
+                • <code>5xx</code> representa erros no servidor.<br>
+
+                • Em QA, status codes e conteúdo da response são
+                informações importantes para validar APIs.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,2540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">73</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA 73 — DECORATORS
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+                AULA 73
+            </span>
+
+
+            <h2>
+                Decorators
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos aprender um recurso muito poderoso
+                do Python chamado <strong>Decorator</strong>.
+
+                Decorators permitem adicionar comportamentos a funções
+                e métodos sem precisar alterar diretamente o código
+                original.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Entender como decorators funcionam, criar decorators
+                personalizados e aprender como utilizar a sintaxe
+                <code>@decorator</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É DECORATOR?
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎨 O que é um Decorator?
+
+            </h3>
+
+
+            <p class="description">
+
+                Um <strong>decorator</strong> é uma função que recebe
+                outra função como argumento e retorna uma nova função
+                com algum comportamento adicional.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Função original
+
+                    →
+
+                    Decorator
+
+                    →
+
+                    Nova função
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Isso permite adicionar funcionalidades sem modificar
+                diretamente a função original.
+
+            </p>
+
+
+            <!-- =================================================
+                 FUNÇÕES COMO OBJETOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Funções também são objetos
+
+            </h3>
+
+
+            <p class="description">
+
+                Para entender decorators, precisamos lembrar de um
+                conceito importante:
+
+                <strong>funções podem ser armazenadas em variáveis,
+                    passadas como argumentos e retornadas por outras
+                    funções.</strong>
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        funcao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            saudacao():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print("Olá!")
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            funcao = saudacao
+
+                        </div>
+
+
+                        <div>
+
+                            funcao()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, a variável <code>funcao</code> passou a
+                apontar para a função <code>saudacao</code>.
+
+            </p>
+
+
+            <!-- =================================================
+                 FUNÇÃO COMO ARGUMENTO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Função como argumento
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos passar uma função para outra função.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        argumento.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            executar(funcao):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            funcao()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            mensagem():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print("Executando função...")
+
+                        </div>
+
+
+                        <div>
+
+                            executar(mensagem)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CRIANDO UM DECORATOR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛠️ Criando nosso primeiro Decorator
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos criar um decorator que imprime uma mensagem antes
+                e depois da execução de uma função.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        decorator.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            meu_decorator(funcao):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            wrapper():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print("Antes")
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            funcao()
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print("Depois")
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            wrapper
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            saudacao():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print("Olá!")
+
+                        </div>
+
+
+                        <div>
+
+                            nova_funcao = meu_decorator(saudacao)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora podemos executar a nova função:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        executar.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            nova_funcao()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Antes
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá!
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Depois
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SINTAXE @
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✨ A sintaxe <code>@</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O Python possui uma sintaxe especial para utilizar
+                decorators.
+
+            </p>
+
+
+            <p class="description">
+
+                Em vez de escrever:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        sem_at.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            saudacao():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print("Olá!")
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            saudacao =
+                            meu_decorator(saudacao)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            saudacao()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos utilizar a forma mais elegante:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        com_at.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            @meu_decorator
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            saudacao():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print("Olá!")
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            saudacao()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                A sintaxe:
+
+                <br><br>
+
+                <code>@meu_decorator</code>
+
+                <br><br>
+
+                é equivalente a aplicar o decorator manualmente
+                depois da definição da função.
+
+            </div>
+
+
+            <!-- =================================================
+                 WRAPPER
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 A função wrapper
+
+            </h3>
+
+
+            <p class="description">
+
+                A função interna normalmente recebe o nome
+                <code>wrapper</code>.
+
+                Ela é responsável por executar a função original
+                adicionando o novo comportamento.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Decorator
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    wrapper
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    função original
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 ARGUMENTOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 Decorators com argumentos
+
+            </h3>
+
+
+            <p class="description">
+
+                E se a função original receber argumentos?
+
+                Nesse caso, o wrapper precisa conseguir recebê-los
+                também.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos utilizar <code>*args</code> e
+                <code>**kwargs</code> para aceitar diferentes tipos
+                de argumentos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        argumentos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            decorator(funcao):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            wrapper(*args, **kwargs):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print("Executando...")
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            funcao(*args, **kwargs)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            wrapper
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            @decorator
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora podemos decorar funções que recebem parâmetros.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        exemplo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            @decorator
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            somar(a, b):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            a + b
+
+                        </div>
+
+
+                        <div>
+
+                            print(somar(10, 20))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Executando...
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        30
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RETORNO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ↩️ Preservando o retorno
+
+            </h3>
+
+
+            <p class="description">
+
+                Um decorator não precisa apenas executar uma função.
+                Ele também pode retornar o resultado produzido por ela.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        retorno.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            decorator(funcao):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            wrapper(*args, **kwargs):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado =
+                            funcao(*args, **kwargs)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            resultado
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            wrapper
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 functools.wraps
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 <code>functools.wraps</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando usamos decorators, algumas informações da função
+                original podem ser substituídas pela função
+                <code>wrapper</code>.
+
+                Para preservar essas informações, podemos utilizar
+                <code>functools.wraps</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        wraps.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            functools
+                            <span class="keyword">
+                                import
+                            </span>
+                            wraps
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            decorator(funcao):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            @wraps(funcao)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            wrapper(*args, **kwargs):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            funcao(*args, **kwargs)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            wrapper
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Boa prática:</strong>
+
+                <br><br>
+
+                Ao criar decorators reais, normalmente utilizamos
+                <code>@wraps(funcao)</code> para preservar metadados
+                da função original.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO PRÁTICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⏱️ Exemplo prático — Medindo tempo
+
+            </h3>
+
+
+            <p class="description">
+
+                Decorators são muito úteis para criar funcionalidades
+                reutilizáveis.
+
+                Um exemplo é medir quanto tempo uma função demora
+                para executar.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        tempo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            time
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            medir_tempo(funcao):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            wrapper(*args, **kwargs):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            inicio = time.time()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado =
+                            funcao(*args, **kwargs)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            fim = time.time()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            fim - inicio
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            resultado
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                return
+                            </span>
+                            wrapper
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 LOGGING
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Exemplo prático — Logging
+
+            </h3>
+
+
+            <p class="description">
+
+                Outro uso comum é registrar informações sobre a
+                execução das funções.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        log.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            registrar(funcao):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            wrapper(*args, **kwargs):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            "Executando:",
+                            funcao.__name__
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado =
+                            funcao(*args, **kwargs)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            resultado
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            wrapper
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DECORATORS COM ARGUMENTOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎛️ Decorators que recebem argumentos
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos criar decorators configuráveis.
+
+                Nesse caso, temos uma função externa que recebe os
+                argumentos e retorna o decorator.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        decorator_configuravel.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            repetir(quantidade):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            decorator(funcao):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            wrapper():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            _ <span class="keyword">
+                                in
+                            </span>
+                            range(quantidade):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            funcao()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            wrapper
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            decorator
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            @repetir(3)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DECORATORS ANINHADOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧱 Vários decorators
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma função pode receber mais de um decorator.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        varios.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            @decorator_a
+
+                        </div>
+
+
+                        <div>
+
+                            @decorator_b
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            minha_funcao():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print("Executando")
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            minha_funcao()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Atenção:</strong>
+
+                <br><br>
+
+                Quando vários decorators são utilizados, a ordem
+                em que eles são aplicados importa.
+
+            </div>
+
+
+            <!-- =================================================
+                 CASOS DE USO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Onde decorators são utilizados?
+
+            </h3>
+
+
+            <p class="description">
+
+                Decorators aparecem frequentemente em projetos reais
+                de Python.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Logging.
+                </li>
+
+                <li>
+                    Medição de tempo.
+                </li>
+
+                <li>
+                    Autenticação.
+                </li>
+
+                <li>
+                    Controle de acesso.
+                </li>
+
+                <li>
+                    Cache.
+                </li>
+
+                <li>
+                    Validação.
+                </li>
+
+                <li>
+                    Monitoramento.
+                </li>
+
+                <li>
+                    APIs e frameworks web.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🌐 Exemplo:</strong>
+
+                <br><br>
+
+                Frameworks como Flask e FastAPI utilizam decorators
+                para definir rotas e comportamentos das aplicações.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Exercício 1 — Mensagem antes da função
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um decorator chamado <code>avisar</code> que
+                mostre a mensagem:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+                    "A função será executada!"
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                antes de executar qualquer função decorada.
+
+            </p>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 2
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Exercício 2 — Logging
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um decorator chamado <code>log</code> que mostre
+                o nome da função antes de executá-la.
+
+            </p>
+
+
+            <p class="description">
+
+                Teste com:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        exercicio.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            @log
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            calcular():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            10 + 20
+
+                        </div>
+
+
+                        <div>
+
+                            print(calcular())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 3
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Exercício 3 — Medir execução
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um decorator chamado <code>medir_tempo</code>
+                que calcule quanto tempo uma função demora para
+                executar.
+
+            </p>
+
+
+            <p class="description">
+
+                Teste utilizando uma função que percorra um intervalo
+                grande de números.
+
+            </p>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 4
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Exercício 4 — Decorator com argumentos
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um decorator chamado <code>repetir</code> que
+                receba a quantidade de vezes que uma função deverá
+                ser executada.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    @repetir(5)
+
+                    <br><br>
+
+                    minha_funcao()
+
+                </strong>
+
+                <br><br>
+
+                A função deverá ser executada 5 vezes.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏆 Desafio — Sistema de autenticação
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um decorator chamado
+                <code>verificar_login</code>.
+
+                Ele deverá verificar se o usuário está autenticado
+                antes de permitir a execução de determinada função.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Regra:</strong>
+
+                <br><br>
+
+                Se o usuário estiver autenticado:
+
+                <br>
+
+                → executar a função.
+
+                <br><br>
+
+                Caso contrário:
+
+                <br>
+
+                → mostrar uma mensagem informando que o acesso
+                foi negado.
+
+            </div>
+
+
+            <!-- =================================================
+                 FLUXO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧭 Como um decorator funciona?
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Função original
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    @decorator
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Decorator recebe a função
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Wrapper é criado
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Wrapper executa comportamento adicional
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Função original é executada
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que são decorators.<br>
+
+                • Como funções podem ser utilizadas como objetos.<br>
+
+                • Como passar funções como argumentos.<br>
+
+                • Como criar um decorator.<br>
+
+                • Como utilizar a sintaxe <code>@</code>.<br>
+
+                • Como criar funções <code>wrapper</code>.<br>
+
+                • Como trabalhar com <code>*args</code> e
+                <code>**kwargs</code>.<br>
+
+                • Como preservar retornos das funções.<br>
+
+                • Como utilizar <code>functools.wraps</code>.<br>
+
+                • Como criar decorators com argumentos.<br>
+
+                • Como utilizar vários decorators.<br>
+
+                • Aplicações práticas de decorators.<br>
+
+                • Como criar decorators para logging,
+                autenticação e medição de tempo.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Você dominou Decorators!
+
+            </h3>
+
+
+            <p class="description">
+
+                Decorators são uma das ferramentas mais poderosas
+                do Python para modificar ou ampliar o comportamento
+                de funções e métodos de maneira reutilizável.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Função
+
+                    →
+
+                    Decorator
+
+                    →
+
+                    Wrapper
+
+                    →
+
+                    Novo comportamento
+
+                </strong>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Próxima etapa:</strong>
+
+                <br><br>
+
+                Na próxima aula, vamos avançar para outro recurso
+                importante do Python e entender como trabalhar com
+                <strong>context managers e a instrução
+                    <code>with</code></strong>.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

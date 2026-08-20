@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">33</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 33
+
+            </span>
+
+
+            <h2>
+
+                Herança
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender o conceito de
+                <strong>herança</strong> na Programação Orientada
+                a Objetos.
+
+                Vamos entender como criar
+                <strong>classes pai e classes filha</strong> e
+                como utilizar <strong>super()</strong> para
+                aproveitar comportamentos da classe pai.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌳 O que é herança?
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>Herança</strong> é um recurso da
+                Programação Orientada a Objetos que permite criar
+                uma nova classe baseada em outra classe.
+
+            </p>
+
+
+            <p class="description">
+
+                A classe que fornece os comportamentos é chamada
+                de <strong>classe pai</strong>.
+
+                A classe que herda esses comportamentos é chamada
+                de <strong>classe filha</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Pense em herança como uma relação entre classes.
+
+                <br><br>
+
+                A classe filha pode aproveitar atributos e métodos
+                da classe pai e também pode adicionar seus próprios
+                comportamentos.
+
+            </div>
+
+
+            <!-- =================================================
+                 CLASSE PAI
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                👨 Classe pai
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos começar criando uma classe chamada
+                <code>Animal</code>.
+
+                Ela terá um método que representa um
+                comportamento comum aos animais.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        animal.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Animal:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, nome):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.nome = nome
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                emitir_som
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "O animal emitiu um som."
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CLASSE FILHA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                👧 Classe filha
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora podemos criar uma classe
+                <code>Cachorro</code> que herda de
+                <code>Animal</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                Para indicar a herança em Python, colocamos a
+                classe pai entre parênteses após o nome da classe
+                filha.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        cachorro.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Animal:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                emitir_som
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Som do animal"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Cachorro(Animal):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                latir
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Au au!"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cachorro = Cachorro()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                A classe <code>Cachorro</code> possui seu próprio
+                método <code>latir()</code>, mas também herda o
+                método <code>emitir_som()</code> da classe
+                <code>Animal</code>.
+
+            </p>
+
+
+            <!-- =================================================
+                 UTILIZANDO A HERANÇA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Utilizando métodos herdados
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        exemplo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            cachorro = Cachorro()
+
+                        </div>
+
+
+                        <div>
+
+                            cachorro.emitir_som()
+
+                        </div>
+
+
+                        <div>
+
+                            cachorro.latir()
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Som do animal
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Au au!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SUPER
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🦸 O que é super()?
+
+            </h3>
+
+
+            <p class="description">
+
+                A função <code>super()</code> permite acessar
+                métodos e comportamentos da classe pai a partir
+                da classe filha.
+
+            </p>
+
+
+            <p class="description">
+
+                Ela é muito utilizada quando queremos aproveitar
+                o código da classe pai e adicionar novos
+                comportamentos na classe filha.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                <code>super()</code> significa, de forma simples:
+
+                <br><br>
+
+                "Quero utilizar o comportamento da classe pai."
+
+            </div>
+
+
+            <!-- =================================================
+                 SUPER INIT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏗️ Utilizando super() no __init__
+
+            </h3>
+
+
+            <p class="description">
+
+                Um dos usos mais comuns de <code>super()</code>
+                acontece dentro do método
+                <code>__init__</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                Dessa forma, a classe filha pode aproveitar o
+                construtor da classe pai e depois adicionar seus
+                próprios atributos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        funcionario.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Pessoa:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, nome):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.nome = nome
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Funcionario(Pessoa):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, nome, cargo):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                super
+                            </span>().<span class="function">
+                                __init__
+                            </span>(nome)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.cargo = cargo
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            funcionario = Funcionario(
+                            <span class="string">
+                                "Maria"
+                            </span>,
+                            <span class="string">
+                                "QA"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            funcionario.nome)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            funcionario.cargo)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO SUPER
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Maria
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        QA
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, <code>Funcionario</code> herda
+                de <code>Pessoa</code>.
+
+                O <code>super().__init__(nome)</code> chama o
+                construtor da classe pai e inicializa o atributo
+                <code>nome</code>.
+
+            </p>
+
+
+            <!-- =================================================
+                 SUPER COM MÉTODOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 super() com métodos
+
+            </h3>
+
+
+            <p class="description">
+
+                O <code>super()</code> também pode ser utilizado
+                para chamar métodos da classe pai.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        teste.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Animal:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                emitir_som
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Som genérico"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Cachorro(Animal):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                emitir_som
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                super
+                            </span>().<span class="function">
+                                emitir_som
+                            </span>()
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Au au!"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse caso, o método da classe filha chama primeiro
+                o comportamento da classe pai utilizando
+                <code>super()</code> e depois adiciona seu próprio
+                comportamento.
+
+            </p>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Som genérico
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Au au!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 HERANÇA NO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Herança no QA
+
+            </h3>
+
+
+            <p class="description">
+
+                A herança pode ser muito útil em automação de
+                testes para compartilhar comportamentos comuns
+                entre diferentes classes.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, podemos criar uma classe base para
+                testes que possua métodos comuns, como abrir uma
+                página ou realizar login.
+
+                Classes específicas podem herdar esses métodos e
+                adicionar comportamentos próprios.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        teste_base.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            TesteBase:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                abrir_sistema
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Sistema aberto"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            TesteLogin(TesteBase):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                executar
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                self
+                            </span>.<span class="function">
+                                abrir_sistema
+                            </span>()
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Executando teste de login"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma classe chamada
+                <code>Funcionario</code> e outra chamada
+                <code>Desenvolvedor</code>.
+
+                Faça <code>Desenvolvedor</code> herdar de
+                <code>Funcionario</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • A classe <code>Funcionario</code> deve possuir
+                os atributos <code>nome</code> e
+                <code>salario</code>.<br>
+
+                • A classe <code>Desenvolvedor</code> deve possuir
+                o atributo <code>linguagem</code>.<br>
+
+                • Utilize <code>super()</code> para chamar o
+                construtor da classe pai.<br>
+
+                • Crie um método chamado
+                <code>apresentar()</code>.<br>
+
+                • Exiba os dados do funcionário e a linguagem
+                utilizada pelo desenvolvedor.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Herança permite criar uma classe baseada em
+                outra classe.<br>
+
+                • A classe que fornece os comportamentos é a
+                <strong>classe pai</strong>.<br>
+
+                • A classe que herda os comportamentos é a
+                <strong>classe filha</strong>.<br>
+
+                • A classe filha pode utilizar métodos da classe
+                pai.<br>
+
+                • A classe filha também pode criar seus próprios
+                atributos e métodos.<br>
+
+                • <code>super()</code> permite acessar
+                comportamentos da classe pai.<br>
+
+                • <code>super().__init__()</code> é utilizado
+                frequentemente para aproveitar o construtor da
+                classe pai.<br>
+
+                • <code>super()</code> também pode chamar métodos
+                da classe pai.<br>
+
+                • Herança ajuda a reutilizar código e organizar
+                melhor aplicações orientadas a objetos.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

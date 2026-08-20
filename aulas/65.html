@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">65</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 65
+
+            </span>
+
+
+            <h2>
+
+                Scikit-learn
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos começar a criar modelos de
+                <strong>Machine Learning</strong> utilizando a
+                biblioteca <strong>Scikit-learn</strong>.
+
+                Vamos conhecer três tipos importantes de problemas:
+
+                <strong>regressão</strong>,
+                <strong>classificação</strong> e
+                <strong>clustering</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Aprender a identificar diferentes tipos de
+                problemas de Machine Learning e conhecer modelos
+                básicos do Scikit-learn para resolvê-los.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É SCIKIT-LEARN
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 O que é Scikit-learn?
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>Scikit-learn</strong> é uma das principais
+                bibliotecas Python para Machine Learning.
+
+                Ela oferece ferramentas para treinamento,
+                avaliação e utilização de diversos algoritmos.
+
+            </p>
+
+
+            <p class="description">
+
+                Entre os recursos disponíveis estão algoritmos para:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Regressão.
+                </li>
+
+                <li>
+                    Classificação.
+                </li>
+
+                <li>
+                    Clustering.
+                </li>
+
+                <li>
+                    Pré-processamento.
+                </li>
+
+                <li>
+                    Avaliação de modelos.
+                </li>
+
+                <li>
+                    Separação de dados para treino e teste.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 INSTALAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Instalando o Scikit-learn
+
+            </h3>
+
+
+            <p class="description">
+
+                Caso a biblioteca ainda não esteja instalada,
+                podemos utilizar o <code>pip</code>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        terminal
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            pip install scikit-learn
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                O nome do pacote instalado é
+                <code>scikit-learn</code>, mas normalmente
+                utilizamos <code>sklearn</code> nos imports.
+
+            </div>
+
+
+            <!-- =================================================
+                 FLUXO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Fluxo básico
+
+            </h3>
+
+
+            <p class="description">
+
+                Independentemente do algoritmo utilizado, muitos
+                projetos seguem uma estrutura parecida:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Dados
+                    →
+                    Separação
+                    →
+                    Treinamento
+                    →
+                    Previsão
+                    →
+                    Avaliação
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Primeiro preparamos os dados, depois treinamos um
+                modelo e finalmente utilizamos dados de teste para
+                verificar seu desempenho.
+
+            </p>
+
+
+            <!-- =================================================
+                 REGRESSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📈 1. Regressão
+
+            </h3>
+
+
+            <p class="description">
+
+                A <strong>regressão</strong> é utilizada quando
+                queremos prever um valor numérico.
+
+            </p>
+
+
+            <p class="description">
+
+                Alguns exemplos:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Prever o preço de uma casa.
+                </li>
+
+                <li>
+                    Prever vendas de uma empresa.
+                </li>
+
+                <li>
+                    Estimar temperatura.
+                </li>
+
+                <li>
+                    Prever o consumo de energia.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Pergunta típica de regressão:</strong>
+
+                <br><br>
+
+                "Qual será o preço desta casa?"
+
+                <br><br>
+
+                A resposta é um número, como
+                <strong>R$ 450.000</strong>.
+
+            </div>
+
+
+            <p class="description">
+
+                Um dos algoritmos mais simples para começar é a
+                <strong>Regressão Linear</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        regressao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.linear_model
+                            <span class="keyword">
+                                import
+                            </span>
+                            LinearRegression
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            X = [[1], [2], [3], [4], [5]]
+
+                        </div>
+
+
+                        <div>
+
+                            y = [2, 4, 6, 8, 10]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            modelo = LinearRegression()
+
+                        </div>
+
+
+                        <div>
+
+                            modelo.fit(X, y)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            previsao =
+                            modelo.predict([[6]])
+
+                        </div>
+
+
+                        <div>
+
+                            print(previsao)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O método <code>fit()</code> treina o modelo com os
+                dados fornecidos.
+
+                Depois utilizamos <code>predict()</code> para fazer
+                uma previsão.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 Resumindo:</strong>
+
+                <br><br>
+
+                <strong>Regressão → resultado numérico.</strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 VISUALIZAÇÃO REGRESSÃO
+            ================================================== -->
+
+            <p class="description">
+
+                Para visualizar intuitivamente uma regressão
+                linear, podemos observar como o modelo tenta
+                encontrar uma linha que represente a relação entre
+                os pontos:
+
+            </p>
+
+
+            ::contentReference[oaicite:0]{index=0}
+
+
+
+            <!-- =================================================
+                 CLASSIFICAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏷️ 2. Classificação
+
+            </h3>
+
+
+            <p class="description">
+
+                A <strong>classificação</strong> é utilizada quando
+                queremos colocar uma observação em uma categoria.
+
+            </p>
+
+
+            <p class="description">
+
+                Exemplos:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    E-mail é spam ou não é spam.
+                </li>
+
+                <li>
+                    Cliente vai cancelar ou não vai cancelar.
+                </li>
+
+                <li>
+                    Imagem contém gato ou cachorro.
+                </li>
+
+                <li>
+                    Transação é normal ou suspeita.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Pergunta típica de classificação:</strong>
+
+                <br><br>
+
+                "Este e-mail é spam?"
+
+                <br><br>
+
+                A resposta pode ser uma categoria:
+
+                <strong>spam</strong> ou
+                <strong>não spam</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 LOGISTIC REGRESSION
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔢 Regressão Logística
+
+            </h3>
+
+
+            <p class="description">
+
+                Apesar do nome conter "regressão", a
+                <strong>Regressão Logística</strong> é muito
+                utilizada em problemas de classificação.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        classificacao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.linear_model
+                            <span class="keyword">
+                                import
+                            </span>
+                            LogisticRegression
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            X = [
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;[1],
+                            [2],
+                            [3],
+                            [4],
+                            [5],
+                            [6]
+
+                        </div>
+
+
+                        <div>
+
+                            ]
+
+                        </div>
+
+
+                        <div>
+
+                            y = [0, 0, 0, 1, 1, 1]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            modelo = LogisticRegression()
+
+                        </div>
+
+
+                        <div>
+
+                            modelo.fit(X, y)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(modelo.predict([[5.5]]))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O modelo aprende a relação entre as features e as
+                categorias e depois pode classificar novos
+                exemplos.
+
+            </p>
+
+
+            <!-- =================================================
+                 CLASSIFICAÇÃO VISUAL
+            ================================================== -->
+
+            <p class="description">
+
+                Em uma classificação binária, também podemos pensar
+                em uma fronteira ou limiar que separa as diferentes
+                classes:
+
+            </p>
+
+
+            ::contentReference[oaicite:1]{index=1}
+
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 Resumindo:</strong>
+
+                <br><br>
+
+                <strong>Classificação → categorias ou classes.</strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 CLUSTERING
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔵 3. Clustering
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>clustering</strong>, ou agrupamento, é
+                diferente dos exemplos anteriores.
+
+                Aqui não fornecemos necessariamente um label para
+                cada exemplo.
+
+            </p>
+
+
+            <p class="description">
+
+                O algoritmo tenta encontrar grupos de elementos
+                semelhantes dentro dos próprios dados.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Imagine uma loja que possui milhares de clientes.
+
+                Podemos utilizar clustering para encontrar grupos
+                de clientes com comportamentos semelhantes.
+
+            </div>
+
+
+            <p class="description">
+
+                Por exemplo:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Clientes que compram frequentemente.
+                </li>
+
+                <li>
+                    Clientes que gastam pouco.
+                </li>
+
+                <li>
+                    Clientes que compram produtos específicos.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 KMEANS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔵 K-Means
+
+            </h3>
+
+
+            <p class="description">
+
+                Um dos algoritmos mais conhecidos para clustering
+                é o <strong>K-Means</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos utilizar o Scikit-learn para criar um
+                modelo K-Means:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        clustering.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.cluster
+                            <span class="keyword">
+                                import
+                            </span>
+                            KMeans
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            X = [
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;[1, 2],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;[1, 3],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;[8, 8],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;[9, 8]
+
+                        </div>
+
+
+                        <div>
+
+                            ]
+
+                        </div>
+
+
+                        <div>
+
+                            modelo = KMeans(
+                            n_clusters=2,
+                            random_state=42)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        clustering_treino.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            modelo.fit(X)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            grupos = modelo.labels_
+
+                        </div>
+
+
+                        <div>
+
+                            print(grupos)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O parâmetro <code>n_clusters=2</code> indica que
+                queremos encontrar dois grupos.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 Resumindo:</strong>
+
+                <br><br>
+
+                <strong>Clustering → encontrar grupos em dados sem
+                    labels previamente definidos.</strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 COMPARAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ Regressão x Classificação x Clustering
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>📈 Regressão</strong>
+
+                <br>
+
+                Prevê um valor numérico.
+
+                <br><br>
+
+                Exemplo:
+
+                <strong>preço = R$ 500.000</strong>
+
+                <br><br>
+
+
+                <strong>🏷️ Classificação</strong>
+
+                <br>
+
+                Prevê uma categoria.
+
+                <br><br>
+
+                Exemplo:
+
+                <strong>spam = sim</strong>
+
+                <br><br>
+
+
+                <strong>🔵 Clustering</strong>
+
+                <br>
+
+                Encontra grupos semelhantes nos dados.
+
+                <br><br>
+
+                Exemplo:
+
+                <strong>grupo 1, grupo 2, grupo 3</strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 FIT E PREDICT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔧 fit() e predict()
+
+            </h3>
+
+
+            <p class="description">
+
+                Muitos modelos do Scikit-learn possuem uma
+                interface semelhante.
+
+                O método <code>fit()</code> é utilizado para
+                treinar o modelo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        modelo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            modelo.fit(X_train, y_train)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            previsoes =
+                            modelo.predict(X_test)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(previsoes)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Essa padronização é uma das características que
+                tornam o Scikit-learn bastante conveniente para
+                experimentar diferentes algoritmos.
+
+            </p>
+
+
+            <!-- =================================================
+                 TREINO E TESTE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Treino e teste
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos combinar os conceitos da aula anterior com
+                os modelos do Scikit-learn.
+
+                Primeiro separamos os dados:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        treino_teste.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.model_selection
+                            <span class="keyword">
+                                import
+                            </span>
+                            train_test_split
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            X_train, X_test, y_train, y_test =
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            train_test_split(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            X, y, test_size=0.2,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            random_state=42
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Depois treinamos o modelo apenas com os dados de
+                treinamento e utilizamos o conjunto de teste para
+                verificar suas previsões.
+
+            </p>
+
+
+            <!-- =================================================
+                 EXEMPLO COMPLETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Exemplo completo de classificação
+
+            </h3>
+
+
+            <p class="description">
+
+                Veja um exemplo simples reunindo preparação,
+                treinamento e previsão:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        exemplo_completo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.model_selection
+                            <span class="keyword">
+                                import
+                            </span>
+                            train_test_split
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.linear_model
+                            <span class="keyword">
+                                import
+                            </span>
+                            LogisticRegression
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            X = [[1], [2], [3], [4], [5], [6]]
+
+                        </div>
+
+
+                        <div>
+
+                            y = [0, 0, 0, 1, 1, 1]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            X_train, X_test, y_train, y_test =
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            train_test_split(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            X, y, test_size=0.2,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            random_state=42
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            modelo = LogisticRegression()
+
+                        </div>
+
+
+                        <div>
+
+                            modelo.fit(X_train, y_train)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        previsao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            previsoes =
+                            modelo.predict(X_test)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(previsoes)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 AVALIAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📏 Avaliando o modelo
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de fazer previsões, precisamos medir o
+                desempenho do modelo.
+
+                Para classificação, uma métrica simples é a
+                <strong>acurácia</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        avaliacao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.metrics
+                            <span class="keyword">
+                                import
+                            </span>
+                            accuracy_score
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            acuracia =
+                            accuracy_score(
+                            y_test,
+                            previsoes)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(acuracia)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                A métrica utilizada depende do problema.
+
+                Regressão e classificação possuem formas
+                diferentes de avaliar seus resultados.
+
+            </div>
+
+
+            <!-- =================================================
+                 ERROS COMUNS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ Erros comuns
+
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    Treinar e testar o modelo exatamente com os
+                    mesmos dados.
+                </li>
+
+                <li>
+                    Ignorar dados ausentes ou inconsistentes.
+                </li>
+
+                <li>
+                    Escolher um algoritmo sem entender o tipo do
+                    problema.
+                </li>
+
+                <li>
+                    Avaliar o modelo apenas por uma impressão visual.
+                </li>
+
+                <li>
+                    Confundir regressão com classificação.
+                </li>
+
+                <li>
+                    Acreditar que um modelo mais complexo será
+                    sempre melhor.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 EXERCÍCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Exercícios
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora pratique os três conceitos estudados.
+
+            </p>
+
+
+            <strong>Exercício 1 — Regressão</strong>
+
+            <p class="description">
+
+                Crie dados contendo horas estudadas e notas.
+
+                Utilize uma regressão linear para tentar prever
+                a nota de um aluno que estudou uma determinada
+                quantidade de horas.
+
+            </p>
+
+
+            <strong>Exercício 2 — Classificação</strong>
+
+            <p class="description">
+
+                Crie dados representando alunos que foram aprovados
+                ou reprovados.
+
+                Utilize um modelo de classificação para prever o
+                resultado de um novo aluno.
+
+            </p>
+
+
+            <strong>Exercício 3 — Clustering</strong>
+
+            <p class="description">
+
+                Crie dados representando clientes com duas
+                características, como quantidade de compras e
+                valor gasto.
+
+                Utilize K-Means para tentar encontrar grupos de
+                clientes.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Para cada exercício, tente responder:
+
+                <br><br>
+
+                • Qual é o problema?<br>
+                • Quais são as features?<br>
+                • Existe um label?<br>
+                • Qual algoritmo você escolheu?<br>
+                • Como você avaliaria o resultado?
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que é o <strong>Scikit-learn</strong>.<br>
+
+                • Como criar e treinar modelos.<br>
+
+                • Como utilizar <code>fit()</code>.<br>
+
+                • Como realizar previsões com
+                <code>predict()</code>.<br>
+
+                • O que é <strong>regressão</strong>.<br>
+
+                • O que é <strong>classificação</strong>.<br>
+
+                • O que é <strong>clustering</strong>.<br>
+
+                • Como utilizar <strong>LinearRegression</strong>.<br>
+
+                • Como utilizar <strong>LogisticRegression</strong>.<br>
+
+                • Como utilizar <strong>KMeans</strong>.<br>
+
+                • Como separar dados para treino e teste.<br>
+
+                • Como calcular uma métrica simples de
+                classificação.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Você começou a criar modelos!
+
+            </h3>
+
+
+            <p class="description">
+
+                Nesta aula, você deu um passo importante em
+                Machine Learning.
+
+                Agora já consegue diferenciar os três grandes tipos
+                de problemas estudados:
+
+                <strong>prever números</strong>,
+                <strong>classificar categorias</strong> e
+                <strong>encontrar grupos</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Próximo passo:</strong>
+
+                <br><br>
+
+                Na próxima aula, vamos aprofundar a avaliação dos
+                modelos e aprender a interpretar métricas para
+                descobrir se um modelo está realmente funcionando
+                bem.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

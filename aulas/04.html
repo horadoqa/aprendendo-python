@@ -1,11 +1,1092 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+    <title>Hora do QA | Aprendendo Python</title>
 </head>
+
 <body>
-    <h1>Página 4</h1>
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+     CONTEÚDO
+====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+         PAGINAÇÃO
+    ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">4</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+         AULA
+    ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 04
+
+            </span>
+
+
+            <h2>
+
+                Entrada e saída em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como criar programas
+                que <strong>recebem informações do usuário</strong>
+                e exibem resultados na tela.
+
+                Vamos conhecer a função <strong>input()</strong>,
+                aprender diferentes formas de formatar strings,
+                utilizar <strong>f-strings</strong> e criar
+                pequenos programas interativos.
+
+            </p>
+
+
+            <!-- =================================================
+             CONCEITO 1
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                ⌨️ A função input()
+
+            </h3>
+
+            <p class="description">
+
+                A função <strong>input()</strong> permite que o
+                programa solicite uma informação ao usuário.
+
+                Quando o programa encontra um <code>input()</code>,
+                ele aguarda o usuário digitar alguma coisa e
+                pressionar Enter.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                O <code>input()</code> sempre retorna o valor
+                digitado pelo usuário como uma
+                <strong>string</strong>.
+
+                Se precisarmos trabalhar com números, devemos
+                converter o valor utilizando, por exemplo,
+                <code>int()</code> ou <code>float()</code>.
+
+            </div>
+
+
+            <!-- =================================================
+             CÓDIGO INPUT
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                💻 Código
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        input.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            nome =
+                            <span class="function">input</span>(
+                            <span class="string">"Digite seu nome: "</span>)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            <span class="string">"Olá!"</span>)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(nome)
+                        </div>
+
+                        <div>
+                            idade =
+                            <span class="function">input</span>(
+                            <span class="string">"Digite sua idade: "</span>)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(idade)
+                        </div>
+
+                        <div>
+                            <span class="comment">
+                                # idade ainda é uma string
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             RESULTADO
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Digite seu nome: Maria
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá!
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Maria
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Digite sua idade: 25
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        25
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             CONVERSÃO
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Recebendo números
+
+            </h3>
+
+
+            <p class="description">
+
+                Como o <code>input()</code> retorna uma string,
+                precisamos converter o valor quando quisermos
+                realizar operações matemáticas.
+
+                Para números inteiros, utilizamos
+                <strong>int()</strong>.
+
+                Para números decimais, utilizamos
+                <strong>float()</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        numeros.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            idade =
+                            <span class="function">int</span>(
+                            <span class="function">input</span>(
+                            <span class="string">"Digite sua idade: "</span>))
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            idade + 1)
+                        </div>
+
+                        <div>
+                            altura =
+                            <span class="function">float</span>(
+                            <span class="function">input</span>(
+                            <span class="string">"Digite sua altura: "</span>))
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            altura)
+                        </div>
+
+                        <div>
+                            <span class="comment">
+                                # Agora podemos realizar cálculos
+                            </span>
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            idade * 2)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Se o usuário digitar <code>25</code>, o
+                <code>input()</code> recebe o texto
+                <code>"25"</code>.
+
+                Ao utilizar <code>int()</code>, transformamos
+                esse texto no número inteiro <code>25</code>.
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 2
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Formatação de strings
+
+            </h3>
+
+
+            <p class="description">
+
+                Muitas vezes precisamos juntar textos e valores
+                para apresentar uma mensagem ao usuário.
+
+                Python possui diferentes maneiras de fazer isso.
+
+                Uma forma simples é utilizar o operador
+                <strong>+</strong> para concatenar strings.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        strings.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            nome = <span class="string">"Maria"</span>
+                        </div>
+
+                        <div>
+                            profissao = <span class="string">"QA"</span>
+                        </div>
+
+                        <div>
+                            mensagem =
+                            <span class="string">"Meu nome é "</span>
+                            + nome
+                        </div>
+
+                        <div>
+                            mensagem +=
+                            <span class="string">" e sou "</span>
+                            + profissao
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(mensagem)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Meu nome é Maria e sou QA
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 3
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                ✨ f-strings
+
+            </h3>
+
+
+            <p class="description">
+
+                As <strong>f-strings</strong> são uma maneira
+                simples e moderna de inserir variáveis dentro
+                de textos.
+
+                Basta colocar a letra <strong>f</strong> antes
+                da string e utilizar chaves
+                <code>{}</code> para inserir valores.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Em uma f-string, tudo que estiver entre
+                <code>{}</code> será interpretado pelo Python
+                como uma expressão.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        f_strings.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            nome = <span class="string">"Maria"</span>
+                        </div>
+
+                        <div>
+                            idade = 25
+                        </div>
+
+                        <div>
+                            profissao = <span class="string">"QA"</span>
+                        </div>
+
+                        <div>
+                            mensagem = f
+                            <span class="string">"Olá, {nome}!"</span>
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            f<span class="string">"Você tem {idade} anos."</span>)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            f<span class="string">"Você trabalha como {profissao}."</span>)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá, Maria!
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Você tem 25 anos.
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Você trabalha como QA.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 4
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🎮 Pequeno programa interativo
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora vamos juntar os conceitos aprendidos para
+                criar um pequeno programa interativo.
+
+                O programa vai perguntar o nome e a idade do
+                usuário e depois apresentar uma mensagem
+                personalizada.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        programa.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            <span class="function">print</span>(
+                            <span class="string">"=== Cadastro ==="</span>)
+                        </div>
+
+                        <div>
+                            nome =
+                            <span class="function">input</span>(
+                            <span class="string">"Nome: "</span>)
+                        </div>
+
+                        <div>
+                            idade =
+                            <span class="function">int</span>(
+                            <span class="function">input</span>(
+                            <span class="string">"Idade: "</span>))
+                        </div>
+
+                        <div>
+                            profissao =
+                            <span class="function">input</span>(
+                            <span class="string">"Profissão: "</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>()
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            f<span class="string">"Olá, {nome}!"</span>)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            f<span class="string">"Você tem {idade} anos."</span>)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            f<span class="string">"Profissão: {profissao}"</span>)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             RESULTADO PROGRAMA
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        === Cadastro ===
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Nome: João
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Idade: 30
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Profissão: Analista
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá, João!
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Você tem 30 anos.
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Profissão: Analista
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             DESAFIO
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa que pergunte ao usuário:
+
+            </p>
+
+
+            <ul>
+
+                <li>Seu nome;</li>
+
+                <li>Sua idade;</li>
+
+                <li>Sua cidade;</li>
+
+                <li>Seu hobby favorito.</li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Depois, utilize uma <strong>f-string</strong> para
+                apresentar uma mensagem personalizada contendo
+                todas essas informações.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                Você pode utilizar um <code>input()</code> para cada
+                informação e guardar cada resposta em uma variável.
+
+                Depois, utilize uma f-string para montar a mensagem.
+
+            </div>
+
+
+            <!-- =================================================
+             RESUMO
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • <code>input()</code> permite receber informações do usuário.<br>
+
+                • O valor retornado por <code>input()</code> é uma string.<br>
+
+                • Podemos utilizar <code>int()</code> e
+                <code>float()</code> para converter entradas numéricas.<br>
+
+                • Strings podem ser concatenadas utilizando
+                <code>+</code>.<br>
+
+                • F-strings facilitam a inserção de variáveis dentro
+                de textos.<br>
+
+                • Podemos combinar <code>input()</code>, conversões
+                e f-strings para criar programas interativos.<br>
+
+                • Pequenos programas interativos são uma ótima forma
+                de praticar os conceitos básicos de Python.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+         PAGINAÇÃO INFERIOR
+    ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+     FOOTER
+====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+    <script src="../assets/script.js"></script>
+
+
 </body>
+
 </html>

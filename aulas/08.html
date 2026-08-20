@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">8</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 08
+
+            </span>
+
+
+            <h2>
+
+                Strings em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender a trabalhar com
+                <strong>strings</strong>, que são utilizadas para
+                representar textos em Python.
+
+                Vamos conhecer como acessar caracteres através de
+                <strong>índices</strong>, selecionar partes de um
+                texto utilizando <strong>slicing</strong> e
+                manipular strings através de diversos métodos.
+
+                Também vamos aprender a utilizar
+                <strong>split()</strong>,
+                <strong>join()</strong>,
+                <strong>replace()</strong> e
+                <strong>strip()</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔤 O que são Strings?
+
+            </h3>
+
+            <p class="description">
+
+                Uma <strong>string</strong> é uma sequência de
+                caracteres utilizada para representar textos.
+
+                Em Python, podemos criar uma string utilizando
+                aspas simples ou aspas duplas.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        strings.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            nome =
+                            <span class="string">"Maria"</span>
+                        </div>
+
+                        <div>
+                            cidade =
+                            <span class="string">'Petrópolis'</span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(nome)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(cidade)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Strings são sequências de caracteres.
+
+                Isso significa que cada letra, número, espaço ou
+                símbolo ocupa uma posição dentro do texto.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCEITO 2
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔢 Índices
+
+            </h3>
+
+
+            <p class="description">
+
+                Cada caractere de uma string possui uma posição,
+                chamada de <strong>índice</strong>.
+
+                Em Python, a contagem começa em
+                <strong>0</strong>.
+
+                Portanto, o primeiro caractere está no índice
+                <code>0</code>, o segundo no índice
+                <code>1</code> e assim por diante.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Na palavra <code>"Python"</code>:
+
+                <br><br>
+
+                <code>
+                    P → 0<br>
+                    y → 1<br>
+                    t → 2<br>
+                    h → 3<br>
+                    o → 4<br>
+                    n → 5
+                </code>
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        indices.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            palavra =
+                            <span class="string">"Python"</span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(palavra[0])
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(palavra[1])
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(palavra[2])
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(palavra[5])
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        P
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        y
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        t
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        n
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ÍNDICES NEGATIVOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔙 Índices negativos
+
+            </h3>
+
+
+            <p class="description">
+
+                Python também permite acessar uma string começando
+                pelo final.
+
+                Para isso, utilizamos índices negativos.
+
+                O índice <code>-1</code> representa o último
+                caractere, <code>-2</code> representa o penúltimo
+                e assim por diante.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        indices_negativos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            palavra =
+                            <span class="string">"Python"</span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(palavra[-1])
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(palavra[-2])
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        n
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        o
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCEITO 3
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✂️ Slicing
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>slicing</strong> permite selecionar uma
+                parte de uma string.
+
+                A sintaxe básica é:
+
+                <br><br>
+
+                <code>texto[inicio:fim]</code>
+
+                <br><br>
+
+                O índice inicial é incluído, mas o índice final
+                não é incluído.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        slicing.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            palavra =
+                            <span class="string">"Python"</span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(palavra[0:3])
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(palavra[2:6])
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(palavra[:3])
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(palavra[3:])
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Pyt
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        thon
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Pyt
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        hon
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MÉTODOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛠️ Métodos de Strings
+
+            </h3>
+
+
+            <p class="description">
+
+                Python possui diversos métodos prontos para
+                trabalhar com strings.
+
+                Eles permitem transformar, pesquisar, dividir e
+                limpar textos de maneira simples.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Alguns métodos comuns:</strong>
+
+                <br><br>
+
+                <code>upper()</code> → transforma em letras
+                maiúsculas.<br>
+
+                <code>lower()</code> → transforma em letras
+                minúsculas.<br>
+
+                <code>title()</code> → coloca a primeira letra
+                de cada palavra em maiúscula.<br>
+
+                <code>capitalize()</code> → coloca a primeira
+                letra da string em maiúscula.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        metodos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            texto =
+                            <span class="string">"python é incrível"</span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            texto.upper())
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            texto.lower())
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            texto.title())
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            texto.capitalize())
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="comment">
+                                # Métodos retornam uma nova string
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SPLIT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✂️ split()
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>split()</strong> divide uma string
+                em várias partes e retorna uma lista.
+
+                Por padrão, a divisão acontece nos espaços.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        split.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            frase =
+                            <span class="string">
+                                "Python é muito legal"
+                            </span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            palavras = frase.split()
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(palavras)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        ['Python', 'é', 'muito', 'legal']
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Podemos escolher o separador:</strong>
+
+                <br><br>
+
+                <code>
+                    texto.split(",")
+                </code>
+
+                <br><br>
+
+                Nesse caso, a string será dividida sempre que uma
+                vírgula for encontrada.
+
+            </div>
+
+
+            <!-- =================================================
+                 JOIN
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔗 join()
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>join()</strong> faz o caminho
+                contrário do <code>split()</code>.
+
+                Ele junta vários elementos de uma lista em uma
+                única string, utilizando um separador definido
+                pelo programador.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        join.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            palavras = [
+                            <span class="string">"Python"</span>,
+                            <span class="string">"é"</span>,
+                            <span class="string">"legal"</span>
+                            ]
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            frase =
+                            <span class="string">" "</span>.join(palavras)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(frase)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Python é legal
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 split() x join()</strong>
+
+                <br><br>
+
+                <code>split()</code> divide uma string em partes.
+
+                <br><br>
+
+                <code>join()</code> junta várias strings em uma
+                única string.
+
+            </div>
+
+
+            <!-- =================================================
+                 REPLACE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 replace()
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>replace()</strong> permite
+                substituir uma parte de uma string por outra.
+
+                Ele é muito útil para corrigir, modificar ou
+                padronizar textos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        replace.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            frase =
+                            <span class="string">
+                                "Eu gosto de Java"
+                            </span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            frase = frase.replace(
+                            <span class="string">"Java"</span>,
+                            <span class="string">"Python"</span>)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(frase)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Eu gosto de Python
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 STRIP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧹 strip()
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>strip()</strong> remove espaços
+                em branco no início e no final de uma string.
+
+                Ele é especialmente útil quando recebemos dados
+                digitados pelo usuário.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        strip.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            nome =
+                            <span class="string">" Maria "</span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            nome = nome.strip()
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            <span class="string">f"Olá, {nome}!"</span>)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Olá, Maria!
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Outros métodos relacionados:</strong>
+
+                <br><br>
+
+                <code>lstrip()</code> remove espaços do início.<br>
+
+                <code>rstrip()</code> remove espaços do final.<br>
+
+                <code>strip()</code> remove espaços do início e do
+                final.
+
+            </div>
+
+
+            <!-- =================================================
+                 PROGRAMA PRÁTICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎮 Programa prático
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora vamos juntar vários conceitos da aula.
+
+                O programa recebe uma frase do usuário, remove
+                espaços extras, substitui uma palavra e depois
+                separa a frase em palavras.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        tratamento.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            frase =
+                            <span class="function">input</span>(
+                            <span class="string">"Digite uma frase: "</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            frase = frase.strip()
+                        </div>
+
+                        <div>
+                            frase = frase.replace(
+                            <span class="string">"Python"</span>,
+                            <span class="string">"PYTHON"</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            palavras = frase.split()
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(palavras)
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            <span class="string">f"Quantidade de palavras: {len(palavras)}"</span>)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Digite uma frase: &nbsp; Eu gosto de Python
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        ['Eu', 'gosto', 'de', 'PYTHON']
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Quantidade de palavras: 4
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa que receba o nome completo de uma
+                pessoa e faça as seguintes operações:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Remova espaços extras no início e no final
+                    utilizando <code>strip()</code>.
+                </li>
+
+                <li>
+                    Separe o nome em partes utilizando
+                    <code>split()</code>.
+                </li>
+
+                <li>
+                    Mostre o primeiro nome utilizando índice.
+                </li>
+
+                <li>
+                    Mostre o último nome utilizando índice negativo.
+                </li>
+
+                <li>
+                    Mostre o nome completo novamente utilizando
+                    <code>join()</code>.
+                </li>
+
+                <li>
+                    Substitua uma palavra do nome por outra
+                    utilizando <code>replace()</code>.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                Você pode começar com:
+
+                <br><br>
+
+                <code>
+                    nome = input("Digite seu nome completo: ")
+                </code>
+
+                <br><br>
+
+                Depois, use os métodos aprendidos nesta aula para
+                manipular o texto.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Strings são sequências de caracteres.<br>
+
+                • Os índices das strings começam em
+                <code>0</code>.<br>
+
+                • Índices negativos permitem acessar caracteres
+                começando pelo final.<br>
+
+                • <strong>Slicing</strong> permite selecionar uma
+                parte da string.<br>
+
+                • Métodos como <code>upper()</code>,
+                <code>lower()</code> e <code>title()</code>
+                ajudam a transformar textos.<br>
+
+                • <code>split()</code> divide uma string em partes
+                e retorna uma lista.<br>
+
+                • <code>join()</code> une elementos de uma lista
+                em uma string.<br>
+
+                • <code>replace()</code> substitui partes de uma
+                string.<br>
+
+                • <code>strip()</code> remove espaços do início e
+                do final de uma string.<br>
+
+                • Strings são muito utilizadas para tratar dados
+                recebidos pelo usuário.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

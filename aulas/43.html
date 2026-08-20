@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">43</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 43
+
+            </span>
+
+
+            <h2>
+
+                Boas práticas em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Escrever código que funciona é apenas uma parte
+                do desenvolvimento de software.
+
+                Nesta aula, você vai aprender algumas boas práticas
+                que ajudam a criar códigos mais <strong>legíveis,
+                    organizados, reutilizáveis e fáceis de manter</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Vamos conhecer conceitos como <strong>PEP 8</strong>,
+                código legível, <strong>DRY</strong>,
+                <strong>SOLID</strong> e organização de projetos.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Um bom código não deve apenas funcionar.
+
+                Ele também deve ser fácil de entender,
+                modificar, testar e reutilizar.
+
+            </div>
+
+
+            <!-- =================================================
+                 PEP 8
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📐 PEP 8
+
+            </h3>
+
+
+            <p class="description">
+
+                A <strong>PEP 8</strong> é o principal guia de
+                estilo para código Python.
+
+                Ela apresenta recomendações para manter o código
+                consistente e fácil de ler.
+
+            </p>
+
+
+            <p class="description">
+
+                Algumas recomendações comuns incluem:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Utilizar <strong>4 espaços</strong> para
+                    indentação.
+                </li>
+
+                <li>
+                    Utilizar nomes de variáveis claros.
+                </li>
+
+                <li>
+                    Utilizar <code>snake_case</code> para funções
+                    e variáveis.
+                </li>
+
+                <li>
+                    Utilizar <code>PascalCase</code> para classes.
+                </li>
+
+                <li>
+                    Evitar linhas excessivamente longas.
+                </li>
+
+                <li>
+                    Separar adequadamente funções e classes.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 PEP 8 EXEMPLO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐍 Exemplo de PEP 8
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        pep8.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            calcular_media(notas):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            total = <span class="function">sum</span>(notas)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            quantidade = <span class="function">len</span>(notas)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            total / quantidade
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                Ferramentas como <code>black</code>,
+                <code>ruff</code> e linters podem ajudar a manter
+                padrões de estilo automaticamente.
+
+            </div>
+
+
+            <!-- =================================================
+                 CÓDIGO LEGÍVEL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                👀 Código legível
+
+            </h3>
+
+
+            <p class="description">
+
+                O código deve ser escrito para que outras pessoas,
+                e você mesmo no futuro, consigam entendê-lo
+                facilmente.
+
+            </p>
+
+
+            <p class="description">
+
+                Prefira nomes que expliquem o propósito de uma
+                variável ou função.
+
+            </p>
+
+
+            <h3 class="section-title">
+
+                ❌ Evite
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        pouco_legivel.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            x = 25
+
+                        </div>
+
+
+                        <div>
+
+                            y = x &gt;= 18
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ✅ Prefira
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        legivel.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            idade = 25
+
+                        </div>
+
+
+                        <div>
+
+                            maior_de_idade =
+                            idade &gt;= 18
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Regra simples:</strong>
+
+                <br><br>
+
+                Se você precisa explicar o que uma variável
+                significa, talvez o nome dela possa ser melhor.
+
+            </div>
+
+
+            <!-- =================================================
+                 DRY
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ♻️ DRY
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>DRY</strong> significa
+                <strong>Don't Repeat Yourself</strong>,
+                ou seja, "não se repita".
+
+            </p>
+
+
+            <p class="description">
+
+                A ideia é evitar duplicação desnecessária de
+                código.
+
+                Quando uma mesma regra aparece em vários lugares,
+                podemos centralizá-la em uma função ou estrutura
+                reutilizável.
+
+            </p>
+
+
+            <h3 class="section-title">
+
+                ❌ Código repetido
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        repeticao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            nota1 = 8 + 7 + 9
+
+                        </div>
+
+
+                        <div>
+
+                            media1 = nota1 / 3
+
+                        </div>
+
+
+                        <div>
+
+                            nota2 = 6 + 8 + 10
+
+                        </div>
+
+
+                        <div>
+
+                            media2 = nota2 / 3
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ✅ Código reutilizável
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        dry.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            calcular_media(notas):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            <span class="function">sum</span>(notas)
+                            / <span class="function">len</span>(notas)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            media1 =
+                            calcular_media([8, 7, 9])
+
+                        </div>
+
+
+                        <div>
+
+                            media2 =
+                            calcular_media([6, 8, 10])
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SOLID
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧱 SOLID
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>SOLID</strong> é um conjunto de cinco
+                princípios utilizados para criar software mais
+                organizado, flexível e fácil de manter.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    <strong>S — Single Responsibility</strong><br>
+
+                    Uma classe ou função deve ter uma única
+                    responsabilidade principal.
+
+                </li>
+
+
+                <li>
+
+                    <strong>O — Open/Closed</strong><br>
+
+                    O código deve estar aberto para extensão,
+                    mas fechado para modificações desnecessárias.
+
+                </li>
+
+
+                <li>
+
+                    <strong>L — Liskov Substitution</strong><br>
+
+                    Objetos de uma classe filha devem poder ser
+                    utilizados onde a classe pai é esperada.
+
+                </li>
+
+
+                <li>
+
+                    <strong>I — Interface Segregation</strong><br>
+
+                    É melhor ter interfaces menores e específicas
+                    do que uma interface grande e genérica.
+
+                </li>
+
+
+                <li>
+
+                    <strong>D — Dependency Inversion</strong><br>
+
+                    O código deve depender de abstrações em vez
+                    de implementações concretas sempre que fizer
+                    sentido.
+
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para começar:</strong>
+
+                <br><br>
+
+                Você não precisa decorar os cinco princípios
+                imediatamente.
+
+                O mais importante é entender que SOLID busca
+                diminuir acoplamento e facilitar a manutenção
+                do software.
+
+            </div>
+
+
+            <!-- =================================================
+                 SINGLE RESPONSIBILITY
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Single Responsibility
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma função deve ter uma responsabilidade clara.
+
+                Evite criar funções gigantes que fazem muitas
+                tarefas diferentes.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        responsabilidade.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            calcular_media(notas):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            <span class="function">sum</span>(notas)
+                            / <span class="function">len</span>(notas)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            verificar_aprovacao(media):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            media &gt;= 7
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">print</span>(
+                            verificar_aprovacao(
+                            calcular_media([8, 7, 9])
+                            ))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ORGANIZAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📁 Organização de projetos
+
+            </h3>
+
+
+            <p class="description">
+
+                Um projeto organizado facilita a localização dos
+                arquivos e ajuda a separar responsabilidades.
+
+            </p>
+
+
+            <p class="description">
+
+                Um projeto Python pode possuir uma estrutura
+                semelhante a esta:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        projeto/
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            projeto/
+
+                        </div>
+
+
+                        <div>
+
+                            ├── src/
+
+                        </div>
+
+
+                        <div>
+
+                            │ ├── calculos.py
+
+                        </div>
+
+
+                        <div>
+
+                            │ ├── usuarios.py
+
+                        </div>
+
+
+                        <div>
+
+                            │ └── validacoes.py
+
+                        </div>
+
+
+                        <div>
+
+                            ├── tests/
+
+                        </div>
+
+
+                        <div>
+
+                            │ ├── test_calculos.py
+
+                        </div>
+
+
+                        <div>
+
+                            └── README.md
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>📌 Uma boa organização pode separar:</strong>
+
+                <br><br>
+
+                • Código da aplicação.<br>
+
+                • Testes automatizados.<br>
+
+                • Configurações.<br>
+
+                • Documentação.<br>
+
+                • Dependências.<br>
+
+                • Arquivos auxiliares.
+
+            </div>
+
+
+            <!-- =================================================
+                 BOAS PRÁTICAS NO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Boas práticas no QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Em automação de testes, boas práticas são ainda
+                mais importantes porque os projetos podem possuir
+                centenas ou milhares de testes.
+
+            </p>
+
+
+            <p class="description">
+
+                Um teste deve ser fácil de entender e deve deixar
+                claro o que está sendo validado.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        test_login.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            test_login_com_credenciais_validas():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            usuario = <span class="string">"maria"</span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            senha = <span class="string">"123456"</span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado =
+                            realizar_login(usuario, senha)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">assert</span>
+                            resultado <span class="keyword">is</span>
+                            <span class="keyword">True</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 No QA, pense sempre:</strong>
+
+                <br><br>
+
+                O teste é fácil de entender?
+
+                <br><br>
+
+                A função possui uma responsabilidade clara?
+
+                <br><br>
+
+                Existe código duplicado que poderia ser
+                reutilizado?
+
+                <br><br>
+
+                A estrutura do projeto facilita a manutenção?
+
+            </div>
+
+
+            <!-- =================================================
+                 CHECKLIST
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ Checklist de boas práticas
+
+            </h3>
+
+
+            <ul>
+
+                <li>
+
+                    Utilizar nomes de variáveis e funções
+                    significativos.
+
+                </li>
+
+
+                <li>
+
+                    Seguir as recomendações da PEP 8.
+
+                </li>
+
+
+                <li>
+
+                    Evitar duplicação de código.
+
+                </li>
+
+
+                <li>
+
+                    Criar funções pequenas e com responsabilidades
+                    claras.
+
+                </li>
+
+
+                <li>
+
+                    Manter arquivos e pastas organizados.
+
+                </li>
+
+
+                <li>
+
+                    Escrever testes fáceis de entender.
+
+                </li>
+
+
+                <li>
+
+                    Utilizar princípios SOLID quando fizer sentido.
+
+                </li>
+
+
+                <li>
+
+                    Priorizar código simples e legível.
+
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • <strong>PEP 8</strong> apresenta recomendações
+                para escrever código Python consistente e legível.<br>
+
+                • Código legível utiliza nomes claros e estruturas
+                simples.<br>
+
+                • <strong>DRY</strong> significa
+                "Don't Repeat Yourself" e incentiva a evitar
+                duplicação desnecessária.<br>
+
+                • <strong>SOLID</strong> reúne cinco princípios
+                importantes para organização e manutenção
+                de software.<br>
+
+                • Funções devem possuir responsabilidades claras.<br>
+
+                • Projetos devem possuir uma estrutura organizada.<br>
+
+                • Testes automatizados também devem seguir boas
+                práticas de legibilidade e manutenção.<br>
+
+                • Um código de qualidade deve ser fácil de
+                entender, testar e modificar.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

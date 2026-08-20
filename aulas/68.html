@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">68</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+
+        <!-- =================================================
+     AULA 68 — INTRODUÇÃO A REDES NEURAIS
+================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+                AULA 68
+            </span>
+
+
+            <h2>
+                Introdução a redes neurais
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos conhecer um dos conceitos mais
+                importantes da Inteligência Artificial moderna:
+                as <strong>redes neurais artificiais</strong>.
+
+                Vamos entender o que é um neurônio artificial,
+                como as camadas são organizadas e como uma rede
+                neural aprende durante o treinamento.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Entender a estrutura básica de uma rede neural e
+                compreender, de forma prática, como ela transforma
+                entradas em previsões.
+
+            </div>
+
+
+            <!-- =================================================
+         O QUE É UMA REDE NEURAL?
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 O que é uma rede neural?
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma rede neural artificial é um modelo computacional
+                formado por unidades chamadas
+                <strong>neurônios artificiais</strong>.
+
+                Esses neurônios são organizados em camadas e
+                trabalham juntos para encontrar padrões nos dados.
+
+            </p>
+
+
+            <p class="description">
+
+                Uma estrutura simples pode ser representada assim:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Entrada
+                    →
+                    Camada oculta
+                    →
+                    Saída
+
+                </strong>
+
+                <br><br>
+
+                📥 Dados
+
+                <br>
+
+                ↓
+
+                <br>
+
+                🧠 Processamento
+
+                <br>
+
+                ↓
+
+                <br>
+
+                📤 Previsão
+
+            </div>
+
+
+            <p class="description">
+
+                Redes maiores podem possuir várias camadas ocultas
+                e milhares ou até milhões de parâmetros.
+
+            </p>
+
+
+            <!-- =================================================
+         NEURÔNIO
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🔵 1. Neurônio artificial
+
+            </h3>
+
+
+            <p class="description">
+
+                O neurônio é uma das unidades fundamentais de uma
+                rede neural.
+
+                Ele recebe valores de entrada, aplica pesos,
+                adiciona um valor chamado <strong>bias</strong> e
+                passa o resultado por uma função de ativação.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>De forma simplificada:</strong>
+
+                <br><br>
+
+                <code>
+
+            saída = ativação(
+            entrada × peso + bias
+            )
+
+        </code>
+
+            </div>
+
+
+            <p class="description">
+
+                Imagine que temos duas entradas:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        entradas.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            x1 = 2
+                        </div>
+
+                        <div>
+                            x2 = 3
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos ter um peso associado a cada entrada:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        pesos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            w1 = 0.5
+                        </div>
+
+                        <div>
+                            w2 = 0.8
+                        </div>
+
+                        <div>
+                            bias = 0.1
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O neurônio pode calcular uma soma ponderada:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        neuronio.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            soma = x1 * w1 + x2 * w2 + bias
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            print(soma)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        3.5
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Esse cálculo é uma versão simplificada do que acontece
+                dentro de um neurônio artificial.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Os pesos são importantes.</strong>
+
+                <br><br>
+
+                Durante o treinamento, a rede neural ajusta seus pesos
+                para melhorar suas previsões.
+
+            </div>
+
+
+            <!-- =================================================
+         FUNÇÃO DE ATIVAÇÃO
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚡ Função de ativação
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de calcular a soma ponderada, o neurônio pode
+                aplicar uma <strong>função de ativação</strong>.
+
+                Ela ajuda a rede neural a aprender relações
+                não lineares nos dados.
+
+            </p>
+
+
+            <p class="description">
+
+                Uma função bastante conhecida é a
+                <strong>ReLU</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+
+            ReLU(x) = max(0, x)
+
+        </code>
+
+                <br><br>
+
+                Se o valor for negativo, retorna 0.
+
+                <br>
+
+                Se for positivo, mantém o valor.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        relu.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            def relu(x):
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;return max(0, x)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            print(relu(-2))
+                        </div>
+
+                        <div>
+                            print(relu(5))
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        0
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        5
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+         CAMADAS
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🧱 2. Camadas
+
+            </h3>
+
+
+            <p class="description">
+
+                Os neurônios são organizados em
+                <strong>camadas</strong>.
+
+                Uma rede neural básica possui três tipos principais
+                de camadas:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>Camada de entrada</strong>
+                </li>
+
+                <li>
+                    <strong>Camadas ocultas</strong>
+                </li>
+
+                <li>
+                    <strong>Camada de saída</strong>
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>📥 Entrada</strong>
+
+                <br>
+                Recebe os dados.
+
+                <br><br>
+
+                ↓
+
+                <br><br>
+
+                <strong>🧠 Camadas ocultas</strong>
+
+                <br>
+                Encontram padrões nos dados.
+
+                <br><br>
+
+                ↓
+
+                <br><br>
+
+                <strong>📤 Saída</strong>
+
+                <br>
+                Produz o resultado.
+
+            </div>
+
+
+            <!-- =================================================
+         CAMADA DE ENTRADA
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                📥 Camada de entrada
+
+            </h3>
+
+
+            <p class="description">
+
+                A camada de entrada recebe as características
+                utilizadas pelo modelo.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, para prever o preço de uma casa,
+                poderíamos utilizar:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Área.
+                </li>
+
+                <li>
+                    Número de quartos.
+                </li>
+
+                <li>
+                    Idade do imóvel.
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Nesse caso, teríamos três valores de entrada.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+
+            [120, 3, 10]
+
+        </code>
+
+                <br><br>
+
+                Área = 120 m²
+
+                <br>
+
+                Quartos = 3
+
+                <br>
+
+                Idade = 10 anos
+
+            </div>
+
+
+            <!-- =================================================
+         CAMADAS OCULTAS
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Camadas ocultas
+
+            </h3>
+
+
+            <p class="description">
+
+                As camadas ocultas ficam entre a entrada e a saída.
+
+                São elas que realizam grande parte das transformações
+                necessárias para encontrar padrões nos dados.
+
+            </p>
+
+
+            <p class="description">
+
+                Uma rede poderia possuir, por exemplo:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Entrada
+                    → 1ª camada oculta
+                    → 2ª camada oculta
+                    → Saída
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Uma rede com muitas camadas pode ser chamada de
+                <strong>Deep Neural Network</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Deep Learning</strong>
+
+                <br><br>
+
+                Deep Learning é uma área de Machine Learning que
+                utiliza redes neurais com múltiplas camadas para
+                aprender representações complexas dos dados.
+
+            </div>
+
+
+            <!-- =================================================
+         CAMADA DE SAÍDA
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                📤 Camada de saída
+
+            </h3>
+
+
+            <p class="description">
+
+                A camada de saída produz o resultado final da rede.
+
+                O formato dessa camada depende do problema.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, em uma classificação binária podemos
+                ter uma saída indicando duas possibilidades:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    0 → Não
+
+                    <br>
+
+                    1 → Sim
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Já em um problema de classificação com três classes,
+                poderíamos ter três valores de saída.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Classe A
+
+                    <br>
+
+                    Classe B
+
+                    <br>
+
+                    Classe C
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+         TREINAMENTO
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 3. Treinamento
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora chegamos a uma das partes mais importantes:
+                <strong>como uma rede neural aprende?</strong>
+
+            </p>
+
+
+            <p class="description">
+
+                Durante o treinamento, a rede recebe exemplos e
+                tenta produzir previsões.
+
+                Essas previsões são comparadas com os valores corretos.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Dados
+
+                    →
+                    Rede neural
+
+                    →
+                    Previsão
+
+                    →
+                    Comparação com resposta correta
+
+                    →
+                    Ajuste dos pesos
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+         LOSS
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                📉 Função de perda
+
+            </h3>
+
+
+            <p class="description">
+
+                Para saber o quanto a previsão está distante do
+                resultado esperado, utilizamos uma
+                <strong>função de perda</strong>, também chamada
+                de <strong>loss function</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                De maneira simplificada:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Loss pequena
+                    =
+                    previsão próxima do esperado
+
+                    <br><br>
+
+                    Loss grande
+                    =
+                    previsão distante do esperado
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Durante o treinamento, o objetivo normalmente é
+                encontrar parâmetros que reduzam essa perda.
+
+            </p>
+
+
+            <!-- =================================================
+         PESOS
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚙️ Ajustando os pesos
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma rede neural possui muitos parâmetros, principalmente
+                <strong>pesos</strong> e <strong>biases</strong>.
+
+                O treinamento procura ajustar esses valores para que
+                a rede produza previsões melhores.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Antes do treinamento
+
+                </strong>
+
+                <br>
+
+                Pesos → valores iniciais
+
+                <br><br>
+
+                ↓
+
+                <br><br>
+
+                <strong>
+
+                    Durante o treinamento
+
+                </strong>
+
+                <br>
+
+                Pesos são ajustados
+
+                <br><br>
+
+                ↓
+
+                <br><br>
+
+                <strong>
+
+                    Depois do treinamento
+
+                </strong>
+
+                <br>
+
+                Pesos aprendidos
+
+            </div>
+
+
+            <!-- =================================================
+         EPOCH
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Épocas
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma <strong>época</strong> representa, de forma
+                simplificada, uma passagem completa pelo conjunto
+                de treinamento.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos treinar uma rede por várias épocas:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Dataset
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Época 1
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Época 2
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Época 3
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    ...
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                A cada época, os parâmetros podem ser ajustados para
+                tentar reduzir a perda.
+
+            </p>
+
+
+            <!-- =================================================
+         PYTHON
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🐍 Criando uma rede neural com Python
+
+            </h3>
+
+
+            <p class="description">
+
+                Existem diversas bibliotecas para trabalhar com redes
+                neurais.
+
+                Nesta aula, vamos utilizar o
+                <strong>scikit-learn</strong> para conhecer o conceito
+                de forma simples.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        rede_neural.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.neural_network
+                            <span class="keyword">
+                                import
+                            </span>
+                            MLPClassifier
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            X = [
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [0, 0],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [0, 1],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [1, 0],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [1, 1]
+
+                        </div>
+
+
+                        <div>
+
+                            ]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            y = [0, 1, 1, 0]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            modelo = MLPClassifier(
+                            hidden_layer_sizes=(4,),
+                            max_iter=1000)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, utilizamos uma rede neural do tipo
+                <strong>MLP</strong>, que significa
+                <em>Multi-Layer Perceptron</em>.
+
+            </p>
+
+
+            <p class="description">
+
+                O parâmetro:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+
+            hidden_layer_sizes=(4,)
+
+        </code>
+
+                <br><br>
+
+                indica uma camada oculta contendo 4 neurônios.
+
+            </div>
+
+
+            <!-- =================================================
+         TREINANDO
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🏋️ Treinando a rede
+
+            </h3>
+
+
+            <p class="description">
+
+                Assim como fizemos com outros modelos do
+                scikit-learn, utilizamos <code>fit()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        treinamento.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            modelo.fit(X, y)
+
+                        </div>
+
+
+                        <div>
+
+                            print("Modelo treinado!")
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Modelo treinado!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+         PREDIÇÃO
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🔮 Fazendo previsões
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois do treinamento, podemos fornecer novos dados
+                para a rede neural.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        predicao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            novo_dado = [[1, 0]]
+
+                        </div>
+
+
+                        <div>
+
+                            previsao =
+                            modelo.predict(novo_dado)
+
+                        </div>
+
+
+                        <div>
+
+                            print(previsao)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [1]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+         FLUXO
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 O ciclo de uma rede neural
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    1️⃣ Entrada
+
+                </strong>
+
+                <br>
+
+                A rede recebe os dados.
+
+                <br><br>
+
+
+                <strong>
+
+                    2️⃣ Forward pass
+
+                </strong>
+
+                <br>
+
+                Os dados passam pelos neurônios e camadas até
+                produzir uma previsão.
+
+                <br><br>
+
+
+                <strong>
+
+                    3️⃣ Cálculo da perda
+
+                </strong>
+
+                <br>
+
+                A previsão é comparada com o resultado esperado.
+
+                <br><br>
+
+
+                <strong>
+
+                    4️⃣ Ajuste dos parâmetros
+
+                </strong>
+
+                <br>
+
+                O algoritmo ajusta os parâmetros da rede para tentar
+                melhorar o resultado.
+
+                <br><br>
+
+
+                <strong>
+
+                    5️⃣ Repetição
+
+                </strong>
+
+                <br>
+
+                O processo é repetido durante o treinamento.
+
+            </div>
+
+
+            <!-- =================================================
+         BACKPROPAGATION
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🔁 Backpropagation
+
+            </h3>
+
+
+            <p class="description">
+
+                Um dos conceitos fundamentais no treinamento de redes
+                neurais é o <strong>backpropagation</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                De maneira simplificada, ele permite calcular como os
+                parâmetros da rede contribuíram para o erro e utilizar
+                essa informação para ajustar os pesos.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Previsão
+
+                    →
+                    Erro
+
+                    →
+                    Backpropagation
+
+                    →
+                    Ajuste dos pesos
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                O algoritmo de otimização utiliza essas informações
+                para atualizar os parâmetros da rede.
+
+            </p>
+
+
+            <!-- =================================================
+         GRADIENT DESCENT
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                📉 Gradient Descent
+
+            </h3>
+
+
+            <p class="description">
+
+                Um conceito importante relacionado ao treinamento é o
+                <strong>Gradient Descent</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                A ideia simplificada é encontrar valores dos parâmetros
+                que reduzam a função de perda.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Loss
+
+                    ↓
+
+                    <br>
+
+                    encontrar uma direção que reduza o erro
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    atualizar os pesos
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    repetir
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+         EXERCÍCIO
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Exercício
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma pequena rede neural utilizando
+                <code>MLPClassifier</code>.
+
+            </p>
+
+
+            <strong>
+                Desafio — Classificador de estudantes
+            </strong>
+
+
+            <p class="description">
+
+                Crie dados contendo:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Horas estudadas.
+                </li>
+
+                <li>
+                    Número de exercícios.
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                O label deverá indicar:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>0</strong> — não aprovado.
+                </li>
+
+                <li>
+                    <strong>1</strong> — aprovado.
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Depois:
+
+            </p>
+
+
+            <ol>
+
+                <li>
+                    Crie o dataset.
+                </li>
+
+                <li>
+                    Separe treino e teste.
+                </li>
+
+                <li>
+                    Crie uma rede neural.
+                </li>
+
+                <li>
+                    Treine utilizando <code>fit()</code>.
+                </li>
+
+                <li>
+                    Faça previsões com <code>predict()</code>.
+                </li>
+
+                <li>
+                    Calcule a accuracy.
+                </li>
+
+            </ol>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Experimente alterar:
+
+                <br><br>
+
+                <code>
+            hidden_layer_sizes
+        </code>
+
+                <br><br>
+
+                Compare uma rede com:
+
+                <br>
+
+                <code>
+            (3,)
+        </code>
+
+                <br>
+
+                <code>
+            (5,)
+        </code>
+
+                <br>
+
+                <code>
+            (5, 5)
+        </code>
+
+                <br><br>
+
+                Observe como as diferentes arquiteturas podem afetar
+                o treinamento e o desempenho.
+
+            </div>
+
+
+            <!-- =================================================
+         RESUMO
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que é uma rede neural artificial.<br>
+
+                • O conceito de neurônio artificial.<br>
+
+                • O papel dos pesos e do bias.<br>
+
+                • O que são funções de ativação.<br>
+
+                • O que são camadas de entrada, ocultas e saída.<br>
+
+                • O conceito de Deep Learning.<br>
+
+                • O que é uma função de perda.<br>
+
+                • O que são épocas de treinamento.<br>
+
+                • O conceito de backpropagation.<br>
+
+                • O conceito de Gradient Descent.<br>
+
+                • Como criar uma rede neural com
+                <code>MLPClassifier</code>.<br>
+
+                • Como treinar uma rede utilizando
+                <code>fit()</code>.<br>
+
+                • Como realizar previsões utilizando
+                <code>predict()</code>.
+
+            </div>
+
+
+            <!-- =================================================
+         CONCLUSÃO
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Primeiros passos em redes neurais!
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora você já conhece a estrutura básica de uma rede
+                neural: entradas, neurônios, camadas, pesos, funções
+                de ativação e treinamento.
+
+                Também viu como criar uma rede neural simples utilizando
+                Python e scikit-learn.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Próxima etapa:</strong>
+
+                <br><br>
+
+                Na próxima aula, vamos conhecer o
+                <strong>TensorFlow e Keras</strong> e aprender a construir
+                redes neurais de maneira mais flexível.
+
+            </div>
+
+        </article>
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

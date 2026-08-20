@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">46</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 46
+
+            </span>
+
+
+            <h2>
+
+                Criando APIs com Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como criar sua
+                própria <strong>API</strong> utilizando Python.
+
+                Vamos conhecer os conceitos básicos de
+                <strong>Flask</strong> e <strong>FastAPI</strong>,
+                criar <strong>rotas</strong> e
+                <strong>endpoints</strong> e retornar dados
+                em formato <strong>JSON</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Na aula anterior aprendemos a
+                <strong>consumir APIs</strong>.
+
+                <br><br>
+
+                Agora vamos dar o próximo passo:
+
+                <br><br>
+
+                <strong>Vamos criar nossa própria API.</strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É UMA API
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌐 O que é uma API?
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma API permite que diferentes aplicações
+                troquem informações através de regras
+                previamente definidas.
+
+            </p>
+
+
+            <p class="description">
+
+                Quando criamos uma API, podemos disponibilizar
+                informações e funcionalidades para que outros
+                sistemas possam utilizá-las.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🔄 Exemplo:</strong>
+
+                <br><br>
+
+                Aplicação cliente
+
+                <br>
+
+                ↓
+
+                <br>
+
+                Requisição HTTP
+
+                <br>
+
+                ↓
+
+                <br>
+
+                Nossa API Python
+
+                <br>
+
+                ↓
+
+                <br>
+
+                Processamento
+
+                <br>
+
+                ↓
+
+                <br>
+
+                Resposta JSON
+
+            </div>
+
+
+            <!-- =================================================
+                 FLASK
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌶️ Introdução ao Flask
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>Flask</strong> é um framework web
+                leve e bastante utilizado para criar aplicações
+                e APIs em Python.
+
+            </p>
+
+
+            <p class="description">
+
+                Ele permite criar uma aplicação web definindo
+                rotas que respondem a diferentes requisições.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        app.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">from</span>
+                            flask <span class="keyword">import</span>
+                            Flask
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            app = Flask(
+                            <span class="keyword">__name__</span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">@app.route</span>(
+                            <span class="string">"/"</span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">inicio</span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            <span class="string">
+                                "API funcionando!"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                A função <code>Flask()</code> cria nossa aplicação.
+
+                <br><br>
+
+                O decorator <code>@app.route()</code> define uma
+                rota que poderá ser acessada através de uma URL.
+
+            </p>
+
+
+            <!-- =================================================
+                 ROTA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛣️ Rotas
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma <strong>rota</strong> define o caminho que
+                o cliente deve acessar para utilizar determinado
+                recurso da API.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplos de rotas:</strong>
+
+                <br><br>
+
+                <code>/</code>
+
+                <br>
+
+                <code>/usuarios</code>
+
+                <br>
+
+                <code>/produtos</code>
+
+                <br>
+
+                <code>/pedidos</code>
+
+            </div>
+
+
+            <!-- =================================================
+                 ENDPOINT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Endpoints
+
+            </h3>
+
+
+            <p class="description">
+
+                Um <strong>endpoint</strong> é um ponto específico
+                da API que pode ser acessado para realizar uma
+                determinada operação.
+
+            </p>
+
+
+            <p class="description">
+
+                Uma API pode possuir vários endpoints.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        endpoints.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">@app.route</span>(
+                            <span class="string">"/usuarios"</span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">usuarios</span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            <span class="string">
+                                "Lista de usuários"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">@app.route</span>(
+                            <span class="string">"/produtos"</span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">produtos</span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            <span class="string">
+                                "Lista de produtos"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">@app.route</span>(
+                            <span class="string">"/pedidos"</span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">pedidos</span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            <span class="string">
+                                "Lista de pedidos"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 JSON
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Retornando JSON
+
+            </h3>
+
+
+            <p class="description">
+
+                APIs normalmente retornam dados estruturados em
+                <strong>JSON</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                No Flask, podemos retornar um dicionário Python
+                e utilizar <code>jsonify()</code> para gerar
+                uma resposta JSON.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        usuarios.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">from</span>
+                            flask <span class="keyword">import</span>
+                            Flask, jsonify
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            app = Flask(
+                            <span class="keyword">__name__</span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">@app.route</span>(
+                            <span class="string">"/usuarios"</span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">usuarios</span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            <span class="function">jsonify</span>([
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            {
+                            <span class="string">"id"</span>: 1,
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                A resposta poderia ser representada como:
+
+            </p>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    JSON
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+                        {
+                    </div>
+
+                    <div>
+                        &nbsp;&nbsp;
+                        "id": 1,
+                    </div>
+
+                    <div>
+                        &nbsp;&nbsp;
+                        "nome": "Maria"
+                    </div>
+
+                    <div>
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FASTAPI
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚡ Introdução ao FastAPI
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>FastAPI</strong> é um framework moderno
+                para criação de APIs utilizando Python.
+
+            </p>
+
+
+            <p class="description">
+
+                Ele possui suporte a recursos modernos do Python,
+                como <strong>type hints</strong>, e facilita a
+                criação e documentação de APIs.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        main.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">from</span>
+                            fastapi <span class="keyword">import</span>
+                            FastAPI
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            app = FastAPI()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">@app.get</span>(
+                            <span class="string">"/"</span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">inicio</span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span> {
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FASTAPI JSON
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📡 Endpoint com FastAPI
+
+            </h3>
+
+
+            <p class="description">
+
+                Com FastAPI, podemos criar endpoints utilizando
+                decorators como <code>@app.get()</code>,
+                <code>@app.post()</code>,
+                <code>@app.put()</code> e
+                <code>@app.delete()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        usuarios.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">from</span>
+                            fastapi <span class="keyword">import</span>
+                            FastAPI
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            app = FastAPI()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">@app.get</span>(
+                            <span class="string">
+                                "/usuarios"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                listar_usuarios
+                            </span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span> [
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            {
+                            <span class="string">"id"</span>: 1,
+                            <span class="string">"nome"</span>:
+                            <span class="string">"Maria"</span>
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MÉTODOS HTTP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔀 Métodos HTTP
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma API pode possuir diferentes endpoints para
+                diferentes operações.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Principais métodos:</strong>
+
+                <br><br>
+
+                <code>GET</code> → consultar informações.
+
+                <br><br>
+
+                <code>POST</code> → criar informações.
+
+                <br><br>
+
+                <code>PUT</code> → atualizar informações.
+
+                <br><br>
+
+                <code>DELETE</code> → remover informações.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        metodos.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">@app.get</span>(
+                            <span class="string">
+                                "/usuarios"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">listar</span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span> []
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">@app.post</span>(
+                            <span class="string">
+                                "/usuarios"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">criar</span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span> {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "mensagem"
+                            </span>:
+                            <span class="string">
+                                "Usuário criado"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">@app.delete</span>(
+                            <span class="string">
+                                "/usuarios"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">excluir</span>():
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FLASK X FASTAPI
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ Flask ou FastAPI?
+
+            </h3>
+
+
+            <p class="description">
+
+                Os dois frameworks podem ser utilizados para
+                criar APIs em Python.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Flask</strong>
+
+                <br><br>
+
+                • Framework leve e flexível.<br>
+                • Muito utilizado em aplicações web.<br>
+                • Possui um ecossistema bastante conhecido.<br>
+                • Permite escolher diversas ferramentas para
+                complementar o projeto.
+
+                <br><br>
+
+                <strong>FastAPI</strong>
+
+                <br><br>
+
+                • Focado na criação de APIs modernas.<br>
+                • Utiliza type hints do Python.<br>
+                • Possui validação de dados integrada.<br>
+                • Gera documentação interativa automaticamente.
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 APIs e QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Para quem trabalha com QA, entender como uma API
+                é criada ajuda a compreender melhor o comportamento
+                dos endpoints que serão testados.
+
+            </p>
+
+
+            <p class="description">
+
+                Ao testar uma API, podemos verificar:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Método HTTP utilizado.
+                </li>
+
+                <li>
+                    URL e rota.
+                </li>
+
+                <li>
+                    Status code.
+                </li>
+
+                <li>
+                    Headers.
+                </li>
+
+                <li>
+                    Corpo da requisição.
+                </li>
+
+                <li>
+                    Estrutura do JSON.
+                </li>
+
+                <li>
+                    Dados retornados.
+                </li>
+
+                <li>
+                    Comportamento em situações de erro.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Pense como QA:</strong>
+
+                <br><br>
+
+                Uma API não deve ser testada apenas quando
+                tudo funciona.
+
+                <br><br>
+
+                Também devemos verificar o que acontece quando
+                enviamos dados inválidos, recursos inexistentes
+                ou requisições incompletas.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Exercício
+
+            </h3>
+
+
+            <p class="description">
+
+                Imagine que você precisa criar uma API simples
+                para gerenciar produtos.
+
+            </p>
+
+
+            <p class="description">
+
+                Pense nos endpoints que seriam necessários para:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Listar produtos.
+                </li>
+
+                <li>
+                    Buscar um produto específico.
+                </li>
+
+                <li>
+                    Criar um produto.
+                </li>
+
+                <li>
+                    Atualizar um produto.
+                </li>
+
+                <li>
+                    Excluir um produto.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Uma possível estrutura:</strong>
+
+                <br><br>
+
+                <code>GET /produtos</code>
+
+                <br>
+
+                Lista os produtos.
+
+                <br><br>
+
+                <code>GET /produtos/1</code>
+
+                <br>
+
+                Busca o produto de ID 1.
+
+                <br><br>
+
+                <code>POST /produtos</code>
+
+                <br>
+
+                Cria um novo produto.
+
+                <br><br>
+
+                <code>PUT /produtos/1</code>
+
+                <br>
+
+                Atualiza o produto de ID 1.
+
+                <br><br>
+
+                <code>DELETE /produtos/1</code>
+
+                <br>
+
+                Remove o produto de ID 1.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • APIs permitem a comunicação entre sistemas.<br>
+
+                • Flask é um framework leve e flexível para
+                aplicações web e APIs.<br>
+
+                • FastAPI é um framework moderno focado na criação
+                de APIs.<br>
+
+                • Rotas definem os caminhos disponíveis na API.<br>
+
+                • Endpoints representam pontos específicos de
+                acesso da aplicação.<br>
+
+                • APIs podem retornar informações em formato
+                JSON.<br>
+
+                • <code>GET</code> pode ser utilizado para
+                consultas.<br>
+
+                • <code>POST</code> pode ser utilizado para
+                criação de recursos.<br>
+
+                • <code>PUT</code> pode ser utilizado para
+                atualização.<br>
+
+                • <code>DELETE</code> pode ser utilizado para
+                exclusão.<br>
+
+                • APIs são fundamentais para aplicações modernas
+                e para automação de testes.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

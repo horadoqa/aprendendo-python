@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">57</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 57
+
+            </span>
+
+
+            <h2>
+
+                Automação Web
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos aprender os conceitos básicos
+                de <strong>automação web</strong> utilizando
+                Python.
+
+                Diferente do Web Scraping, que normalmente busca
+                extrair informações de uma página, a automação
+                web permite controlar um navegador para executar
+                ações como acessar páginas, clicar em elementos,
+                preencher formulários e navegar entre telas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Aprender como automatizar tarefas em navegadores
+                utilizando ferramentas como
+                <strong>Selenium</strong> e
+                <strong>Playwright</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌐 O que é automação web?
+
+            </h3>
+
+
+            <p class="description">
+
+                Automação web consiste em utilizar um programa para
+                controlar um navegador automaticamente.
+
+                O programa pode realizar ações que normalmente
+                seriam executadas manualmente por uma pessoa.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplos de ações:</strong>
+
+                <br><br>
+
+                • Abrir um site.<br>
+                • Navegar para uma página.<br>
+                • Clicar em botões.<br>
+                • Preencher campos.<br>
+                • Selecionar opções.<br>
+                • Enviar formulários.<br>
+                • Verificar textos.<br>
+                • Capturar informações da página.<br>
+                • Validar comportamentos de uma aplicação.
+
+            </div>
+
+
+            <!-- =================================================
+                 SCRAPING X AUTOMAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Web Scraping x Automação Web
+
+            </h3>
+
+
+            <p class="description">
+
+                Na aula anterior, vimos Web Scraping.
+
+                Embora as duas técnicas possam trabalhar juntas,
+                seus objetivos geralmente são diferentes.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>Web Scraping</strong> — normalmente
+                    busca extrair informações de páginas.
+                </li>
+
+                <li>
+                    <strong>Automação Web</strong> — controla o
+                    navegador e executa ações.
+                </li>
+
+                <li>
+                    <strong>Automação de testes</strong> — utiliza
+                    o navegador para verificar se uma aplicação
+                    funciona conforme o esperado.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Um scraper pode coletar o preço de um produto.
+
+                <br><br>
+
+                Uma automação pode abrir o site, pesquisar o
+                produto, preencher filtros, clicar em botões
+                e verificar se o preço apresentado está correto.
+
+            </div>
+
+
+            <!-- =================================================
+                 SELENIUM
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Selenium
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>Selenium</strong> é uma das ferramentas
+                mais conhecidas para automação de navegadores.
+
+                Ele permite controlar navegadores como Chrome,
+                Firefox e Edge através de código.
+
+            </p>
+
+
+            <p class="description">
+
+                Para instalar a biblioteca Python:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        terminal
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            pip install selenium
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PRIMEIRO EXEMPLO SELENIUM
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💻 Primeiro exemplo com Selenium
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos iniciar um navegador utilizando o
+                <code>webdriver</code> e acessar uma página.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        selenium.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            selenium
+                            <span class="keyword">
+                                import
+                            </span>
+                            webdriver
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            navegador =
+                            webdriver.Chrome()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            navegador.get(
+                            <span class="string">
+                                "https://example.com"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            navegador.title
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Example Domain
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 LOCALIZANDO ELEMENTOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Localizando elementos
+
+            </h3>
+
+
+            <p class="description">
+
+                Para interagir com uma página, precisamos
+                localizar os elementos HTML que queremos utilizar.
+
+                Podemos procurar elementos por diferentes
+                estratégias, como <code>ID</code>,
+                <code>class</code> ou outros seletores.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        elementos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            selenium
+                            <span class="keyword">
+                                import
+                            </span>
+                            webdriver
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            selenium.webdriver.common.by
+                            <span class="keyword">
+                                import
+                            </span>
+                            By
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            navegador =
+                            webdriver.Chrome()
+
+                        </div>
+
+
+                        <div>
+
+                            navegador.get(
+                            <span class="string">
+                                "https://example.com"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            titulo =
+                            navegador.find_element(
+                            By.TAG_NAME,
+                            <span class="string">
+                                "h1"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(titulo.text)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CLIQUE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🖱️ Clicando em elementos
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de localizar um elemento, podemos executar
+                ações sobre ele.
+
+                Uma das ações mais comuns é o clique.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        clique.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            selenium
+                            <span class="keyword">
+                                import
+                            </span>
+                            webdriver
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            selenium.webdriver.common.by
+                            <span class="keyword">
+                                import
+                            </span>
+                            By
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            navegador =
+                            webdriver.Chrome()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            botao =
+                            navegador.find_element(
+                            By.ID,
+                            <span class="string">
+                                "enviar"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            botao.click()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FORMULÁRIOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Preenchendo formulários
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das tarefas mais comuns em automação web é
+                preencher formulários.
+
+                Podemos localizar um campo de entrada e utilizar
+                o método <code>send_keys()</code> para inserir
+                informações.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        formulario.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            selenium
+                            <span class="keyword">
+                                import
+                            </span>
+                            webdriver
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            selenium.webdriver.common.by
+                            <span class="keyword">
+                                import
+                            </span>
+                            By
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            navegador =
+                            webdriver.Chrome()
+
+                        </div>
+
+
+                        <div>
+
+                            navegador.get(
+                            <span class="string">
+                                "https://exemplo.com/login"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            usuario =
+                            navegador.find_element(
+                            By.ID,
+                            <span class="string">
+                                "usuario"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            usuario.send_keys(
+                            <span class="string">
+                                "maria"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # O campo foi preenchido
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SENHA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔐 Preenchendo mais de um campo
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos preencher vários campos de um formulário
+                da mesma maneira.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        login.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            selenium
+                            <span class="keyword">
+                                import
+                            </span>
+                            webdriver
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            selenium.webdriver.common.by
+                            <span class="keyword">
+                                import
+                            </span>
+                            By
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            navegador =
+                            webdriver.Chrome()
+
+                        </div>
+
+
+                        <div>
+
+                            navegador.get(
+                            <span class="string">
+                                "https://exemplo.com/login"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            usuario =
+                            navegador.find_element(
+                            By.ID,
+                            <span class="string">
+                                "usuario"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            senha =
+                            navegador.find_element(
+                            By.ID,
+                            <span class="string">
+                                "senha"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            usuario.send_keys(
+                            <span class="string">
+                                "maria"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            senha.send_keys(
+                            <span class="string">
+                                "senha_de_teste"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Segurança:</strong>
+
+                <br><br>
+
+                Nunca coloque senhas reais diretamente no código,
+                principalmente quando o projeto será compartilhado
+                ou versionado no Git.
+
+                <br><br>
+
+                Em projetos reais, utilize variáveis de ambiente
+                ou mecanismos apropriados para armazenar
+                credenciais.
+
+            </div>
+
+
+            <!-- =================================================
+                 PLAYWRIGHT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎭 Playwright
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>Playwright</strong> é outra ferramenta
+                moderna para automação de navegadores.
+
+                Ele possui suporte para navegadores como
+                Chromium, Firefox e WebKit.
+
+            </p>
+
+
+            <p class="description">
+
+                Para instalar o Playwright:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        terminal
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            pip install playwright
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Depois da instalação, os navegadores utilizados
+                pelo Playwright podem ser instalados com:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        terminal
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            playwright install
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO PLAYWRIGHT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💻 Primeiro exemplo com Playwright
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        playwright.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            playwright.sync_api
+                            <span class="keyword">
+                                import
+                            </span>
+                            sync_playwright
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            sync_playwright()
+                            <span class="keyword">
+                                as
+                            </span>
+                            p:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            navegador =
+                            p.chromium.launch()
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pagina =
+                            navegador.new_page()
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pagina.goto(
+                            <span class="string">
+                                "https://example.com"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            pagina.title()
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            navegador.close()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PLAYWRIGHT FORMULÁRIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Formulários com Playwright
+
+            </h3>
+
+
+            <p class="description">
+
+                O Playwright também facilita o preenchimento de
+                formulários.
+
+                Podemos localizar um campo e utilizar
+                <code>fill()</code> para inserir um valor.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        formulario_playwright.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            playwright.sync_api
+                            <span class="keyword">
+                                import
+                            </span>
+                            sync_playwright
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            sync_playwright()
+                            <span class="keyword">
+                                as
+                            </span>
+                            p:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            navegador =
+                            p.chromium.launch()
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pagina =
+                            navegador.new_page()
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pagina.goto(
+                            <span class="string">
+                                "https://exemplo.com/login"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pagina.locator(
+                            <span class="string">
+                                "#usuario"
+                            </span>
+                            ).fill(
+                            <span class="string">
+                                "maria"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pagina.locator(
+                            <span class="string">
+                                "#enviar"
+                            </span>
+                            ).click()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 COMPARAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ Selenium ou Playwright?
+
+            </h3>
+
+
+            <p class="description">
+
+                As duas ferramentas podem ser utilizadas para
+                automação web e testes automatizados.
+
+                A escolha depende das necessidades do projeto,
+                da equipe e do ecossistema utilizado.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>Selenium</strong> — ferramenta
+                    tradicional e muito utilizada no mercado.
+                </li>
+
+                <li>
+                    <strong>Playwright</strong> — ferramenta
+                    moderna com recursos voltados para
+                    automação e testes web.
+                </li>
+
+                <li>
+                    Ambas permitem controlar navegadores
+                    programaticamente.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para QA:</strong>
+
+                <br><br>
+
+                Selenium e Playwright podem ser utilizados para
+                automatizar cenários de testes end-to-end,
+                verificando se uma aplicação funciona corretamente
+                através da interface do navegador.
+
+            </div>
+
+
+            <!-- =================================================
+                 ESPERAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⏳ Esperas e sincronização
+
+            </h3>
+
+
+            <p class="description">
+
+                Aplicações web modernas carregam informações de
+                forma dinâmica.
+
+                Por isso, uma automação precisa considerar o
+                momento correto para interagir com cada elemento.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Evite:</strong>
+
+                <br><br>
+
+                Utilizar vários comandos
+                <code>sleep()</code> apenas para "dar tempo"
+                para a página carregar.
+
+                <br><br>
+
+                Sempre que possível, utilize mecanismos de espera
+                apropriados da ferramenta para aguardar a condição
+                necessária.
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Automação Web para QA
+
+            </h3>
+
+
+            <p class="description">
+
+                A automação web é especialmente importante para
+                profissionais de QA porque permite transformar
+                cenários de teste manuais em testes automatizados.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Acessar uma aplicação.
+                </li>
+
+                <li>
+                    Realizar login.
+                </li>
+
+                <li>
+                    Preencher formulários.
+                </li>
+
+                <li>
+                    Clicar em botões.
+                </li>
+
+                <li>
+                    Navegar entre páginas.
+                </li>
+
+                <li>
+                    Validar mensagens.
+                </li>
+
+                <li>
+                    Verificar resultados.
+                </li>
+
+                <li>
+                    Reproduzir cenários de regressão.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 PROJETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛠️ Projeto prático — Testando um formulário
+
+            </h3>
+
+
+            <p class="description">
+
+                Imagine uma página de login contendo os campos:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Usuário
+                </li>
+
+                <li>
+                    Senha
+                </li>
+
+                <li>
+                    Botão Entrar
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Um teste automatizado pode seguir este fluxo:
+
+            </p>
+
+
+            <ol>
+
+                <li>
+                    Abrir o navegador.
+                </li>
+
+                <li>
+                    Acessar a página de login.
+                </li>
+
+                <li>
+                    Localizar o campo de usuário.
+                </li>
+
+                <li>
+                    Preencher o usuário.
+                </li>
+
+                <li>
+                    Localizar o campo de senha.
+                </li>
+
+                <li>
+                    Preencher a senha de teste.
+                </li>
+
+                <li>
+                    Clicar no botão de login.
+                </li>
+
+                <li>
+                    Verificar se a página esperada foi exibida.
+                </li>
+
+            </ol>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Mentalidade de QA:</strong>
+
+                <br><br>
+
+                A automação não deve apenas "clicar em coisas".
+
+                Ela deve executar ações e verificar resultados
+                esperados.
+
+                <br><br>
+
+                <strong>Ação → Resultado esperado → Validação</strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio da aula
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma automação utilizando Selenium ou
+                Playwright que:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Abra um navegador.
+                </li>
+
+                <li>
+                    Acesse uma página de teste.
+                </li>
+
+                <li>
+                    Localize um campo de texto.
+                </li>
+
+                <li>
+                    Preencha o campo.
+                </li>
+
+                <li>
+                    Localize um botão.
+                </li>
+
+                <li>
+                    Clique no botão.
+                </li>
+
+                <li>
+                    Verifique alguma informação exibida após
+                    a ação.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Transforme o exercício em um teste automatizado.
+
+                Crie pelo menos três cenários:
+
+                <br><br>
+
+                • Dados válidos.<br>
+                • Dados inválidos.<br>
+                • Campos obrigatórios vazios.
+
+                <br><br>
+
+                Para cada cenário, defina claramente o resultado
+                esperado.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que é automação web.<br>
+
+                • Diferença entre Web Scraping e automação web.<br>
+
+                • Como utilizar Selenium.<br>
+
+                • Como utilizar Playwright.<br>
+
+                • Como abrir e navegar em um navegador.<br>
+
+                • Como localizar elementos da página.<br>
+
+                • Como clicar em elementos.<br>
+
+                • Como preencher campos de formulário.<br>
+
+                • Como trabalhar com automações de login.<br>
+
+                • A importância de esperas e sincronização.<br>
+
+                • Como automação web pode ser utilizada em QA.<br>
+
+                • Como transformar ações em cenários de testes
+                automatizados.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

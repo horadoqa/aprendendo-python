@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">22</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 22
+
+            </span>
+
+
+            <h2>
+
+                Exceções em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como lidar com
+                <strong>erros durante a execução</strong> de um
+                programa utilizando exceções.
+
+                Vamos conhecer <strong>try</strong>,
+                <strong>except</strong>, <strong>else</strong>
+                e <strong>finally</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ O que são exceções?
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma exceção acontece quando o Python encontra
+                uma situação inesperada durante a execução
+                do programa.
+
+                Quando uma exceção não é tratada, o programa
+                normalmente é interrompido e o Python exibe
+                uma mensagem de erro.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, tentar dividir um número por zero
+                gera uma exceção:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        erro.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numero = 10
+
+                        </div>
+
+
+                        <div>
+
+                            divisor = 0
+
+                        </div>
+
+
+                        <div>
+
+                            resultado = numero / divisor
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            !
+                        </span>
+
+                        ZeroDivisionError
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Uma exceção não é necessariamente um problema
+                que precisa ser ignorado.
+
+                <br><br>
+
+                Ela representa uma situação que o programa
+                precisa saber como tratar.
+
+            </div>
+
+
+            <!-- =================================================
+                 TRY
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛡️ <code>try</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O bloco <code>try</code> é utilizado para colocar
+                o código que pode gerar uma exceção.
+
+            </p>
+
+
+            <p class="description">
+
+                Se uma exceção acontecer dentro do
+                <code>try</code>, o Python poderá procurar um
+                bloco <code>except</code> capaz de tratar aquele
+                erro.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        try.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            numero = 10 / 2
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(numero)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # O código acima será executado
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # normalmente se não houver erro
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXCEPT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚨 <code>except</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O bloco <code>except</code> define o que deve
+                acontecer quando uma determinada exceção ocorre.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos especificar qual tipo de exceção queremos
+                tratar.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        except.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            numero = 10 / 0
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                except
+                            </span>
+                            ZeroDivisionError:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Não é possível dividir por zero."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Não é possível dividir por zero.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                Sempre que possível, trate exceções específicas.
+
+                <br><br>
+
+                É melhor tratar
+                <code>ValueError</code>,
+                <code>ZeroDivisionError</code> ou
+                <code>FileNotFoundError</code> de maneira
+                específica do que capturar qualquer erro
+                indiscriminadamente.
+
+            </div>
+
+
+            <!-- =================================================
+                 VALUE ERROR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔢 Exemplo com <code>ValueError</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O <code>ValueError</code> pode acontecer quando
+                uma função recebe um valor do tipo correto, mas
+                que não pode ser utilizado naquela operação.
+
+            </p>
+
+
+            <p class="description">
+
+                Um exemplo comum acontece ao tentar converter
+                um texto que não representa um número para
+                <code>int</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        conversao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            valor =
+                            <span class="string">
+                                "abc"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            numero =
+                            <span class="function">
+                                int
+                            </span>(valor)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                except
+                            </span>
+                            ValueError:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Valor inválido."
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Valor inválido.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ELSE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ <code>else</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O bloco <code>else</code> é executado quando
+                nenhuma exceção acontece dentro do
+                <code>try</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                Ele é útil quando queremos executar uma ação
+                somente se o código protegido pelo
+                <code>try</code> funcionar corretamente.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        else.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            numero =
+                            <span class="function">
+                                int
+                            </span>(
+                            <span class="string">
+                                "25"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                except
+                            </span>
+                            ValueError:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Valor inválido."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                else
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Conversão realizada!"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Conversão realizada!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FINALLY
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔒 <code>finally</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O bloco <code>finally</code> é executado
+                independentemente de ter ocorrido uma exceção
+                ou não.
+
+            </p>
+
+
+            <p class="description">
+
+                Ele é muito utilizado para ações que precisam
+                acontecer no final de uma operação, como liberar
+                recursos ou realizar uma limpeza.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        finally.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            numero = 10 / 2
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                except
+                            </span>
+                            ZeroDivisionError:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Erro na divisão."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                finally
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Operação finalizada."
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Operação finalizada.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                O <code>finally</code> é executado mesmo quando
+                ocorre uma exceção.
+
+                <br><br>
+
+                Ele é especialmente útil quando existe alguma
+                tarefa que precisa ser finalizada independentemente
+                do resultado da operação.
+
+            </div>
+
+
+            <!-- =================================================
+                 ESTRUTURA COMPLETA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 Estrutura completa
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar <code>try</code>,
+                <code>except</code>, <code>else</code> e
+                <code>finally</code> juntos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        estrutura.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            numero =
+                            <span class="function">
+                                int
+                            </span>(
+                            <span class="string">
+                                "10"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado = 100 / numero
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                except
+                            </span>
+                            ValueError:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Valor inválido."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                else
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                finally
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Fim da operação."
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        10.0
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Fim da operação.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TRATANDO INPUT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⌨️ Tratando erros de entrada
+
+            </h3>
+
+
+            <p class="description">
+
+                Exceções são muito úteis quando trabalhamos com
+                dados fornecidos pelo usuário.
+
+                Podemos utilizar <code>try</code> e
+                <code>except</code> para evitar que uma entrada
+                inválida encerre o programa.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        entrada.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            valor =
+                            <span class="function">
+                                input
+                            </span>(
+                            <span class="string">
+                                "Digite sua idade: "
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            idade =
+                            <span class="function">
+                                int
+                            </span>(valor)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                except
+                            </span>
+                            ValueError:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Digite um número válido."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Digite sua idade: vinte
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Digite um número válido.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Exceções na automação de QA
+
+            </h3>
+
+
+            <p class="description">
+
+                O tratamento de exceções é muito importante em
+                automação de testes.
+
+                Durante a execução de um teste, podem acontecer
+                situações inesperadas, como elementos que não
+                foram encontrados, arquivos inexistentes,
+                respostas inválidas ou problemas de comunicação.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Pense como QA:</strong>
+
+                <br><br>
+
+                Imagine que um teste tenta abrir um arquivo com
+                dados para execução.
+
+                <br><br>
+
+                Se o arquivo não existir, podemos tratar a
+                exceção e apresentar uma mensagem mais clara
+                em vez de simplesmente deixar o programa
+                quebrar.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        teste.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            arquivo =
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "dados.csv"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Arquivo encontrado."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                except
+                            </span>
+                            FileNotFoundError:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Arquivo não encontrado."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                finally
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Execução finalizada."
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 BOAS PRÁTICAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ Boas práticas
+
+            </h3>
+
+
+            <p class="description">
+
+                O tratamento de exceções deve ajudar o programa,
+                e não esconder problemas.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    Trate exceções específicas sempre que
+                    possível.
+
+                </li>
+
+
+                <li>
+
+                    Evite utilizar <code>except</code> vazio sem
+                    saber exatamente quais erros podem acontecer.
+
+                </li>
+
+
+                <li>
+
+                    Utilize mensagens claras para facilitar a
+                    identificação do problema.
+
+                </li>
+
+
+                <li>
+
+                    Utilize <code>finally</code> quando uma ação
+                    precisar acontecer independentemente do
+                    resultado.
+
+                </li>
+
+
+                <li>
+
+                    Não use exceções para substituir condições
+                    normais de programação.
+
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa que peça ao usuário dois números
+                e realize uma divisão.
+
+                O programa deverá:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    Utilizar <code>try</code> para realizar a
+                    operação.
+
+                </li>
+
+
+                <li>
+
+                    Tratar <code>ValueError</code> caso o usuário
+                    digite algo que não seja um número.
+
+                </li>
+
+
+                <li>
+
+                    Tratar <code>ZeroDivisionError</code> caso o
+                    segundo número seja zero.
+
+                </li>
+
+
+                <li>
+
+                    Utilizar <code>else</code> quando a divisão
+                    for realizada com sucesso.
+
+                </li>
+
+
+                <li>
+
+                    Utilizar <code>finally</code> para informar
+                    que o programa terminou.
+
+                </li>
+
+            </ul>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        desafio.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            primeiro =
+                            <span class="function">
+                                input
+                            </span>(
+                            <span class="string">
+                                "Digite o primeiro número: "
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            segundo =
+                            <span class="function">
+                                input
+                            </span>(
+                            <span class="string">
+                                "Digite o segundo número: "
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            primeiro =
+                            <span class="function">
+                                float
+                            </span>(primeiro)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            segundo =
+                            <span class="function">
+                                float
+                            </span>(segundo)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado =
+                            primeiro / segundo
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                except
+                            </span>
+                            ValueError:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Digite números válidos."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                except
+                            </span>
+                            ZeroDivisionError:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Não é possível dividir por zero."
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                else
+                            </span>:
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Exceções representam situações inesperadas
+                durante a execução do programa.<br>
+
+                • <code>try</code> contém o código que pode
+                gerar uma exceção.<br>
+
+                • <code>except</code> permite tratar uma exceção
+                específica.<br>
+
+                • <code>else</code> é executado quando nenhuma
+                exceção acontece.<br>
+
+                • <code>finally</code> é executado
+                independentemente de ocorrer uma exceção.<br>
+
+                • <code>ValueError</code> pode acontecer quando
+                um valor inválido é utilizado em uma operação.<br>
+
+                • <code>ZeroDivisionError</code> acontece ao
+                tentar dividir por zero.<br>
+
+                • <code>FileNotFoundError</code> acontece quando
+                um arquivo não é encontrado.<br>
+
+                • O tratamento de exceções é importante para
+                criar programas mais robustos.<br>
+
+                • Em automação de QA, exceções ajudam a tratar
+                situações inesperadas durante a execução dos
+                testes.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

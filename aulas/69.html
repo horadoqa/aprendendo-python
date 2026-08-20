@@ -1,0 +1,3401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">69</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- =================================================
+     AULA 69 — PYTORCH
+================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+                AULA 69
+            </span>
+
+
+            <h2>
+                PyTorch
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos conhecer o
+                <strong>PyTorch</strong>, uma das principais bibliotecas
+                utilizadas para construir e treinar modelos de
+                Machine Learning e Deep Learning.
+
+                Vamos aprender os conceitos fundamentais:
+
+                <strong>tensors</strong>,
+                <strong>modelos</strong>,
+                <strong>loss</strong>,
+                <strong>optimizers</strong> e
+                <strong>training loop</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Construir e treinar uma pequena rede neural utilizando
+                PyTorch, entendendo o que acontece em cada etapa do
+                treinamento.
+
+            </div>
+
+
+            <!-- =================================================
+         O QUE É PYTORCH?
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🔥 O que é PyTorch?
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>PyTorch</strong> é uma biblioteca para computação
+                numérica e Machine Learning, especialmente utilizada
+                na construção e treinamento de redes neurais.
+
+            </p>
+
+
+            <p class="description">
+
+                Com PyTorch podemos trabalhar com:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Tensores.
+                </li>
+
+                <li>
+                    Redes neurais.
+                </li>
+
+                <li>
+                    Funções de perda.
+                </li>
+
+                <li>
+                    Otimizadores.
+                </li>
+
+                <li>
+                    Gradientes.
+                </li>
+
+                <li>
+                    Treinamento de modelos.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Ideia principal:</strong>
+
+                <br><br>
+
+                Em vez de esconder todo o processo de treinamento,
+                PyTorch permite que você tenha bastante controle
+                sobre ele.
+
+            </div>
+
+
+            <!-- =================================================
+         INSTALAÇÃO
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Instalando o PyTorch
+
+            </h3>
+
+
+            <p class="description">
+
+                O PyTorch pode ser instalado utilizando o
+                <code>pip</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        terminal
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            pip install torch
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Depois podemos verificar se a biblioteca está
+                funcionando:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        teste.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            torch
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(torch.__version__)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+         TENSORS
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🔢 1. Tensors
+
+            </h3>
+
+
+            <p class="description">
+
+                O conceito mais importante para começar com PyTorch é
+                o <strong>Tensor</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Um tensor é uma estrutura para armazenar valores
+                numéricos em diferentes dimensões.
+
+                Ele é parecido com arrays do NumPy, mas possui recursos
+                especialmente úteis para Machine Learning.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplos:</strong>
+
+                <br><br>
+
+                Escalar → 1 valor
+
+                <br>
+
+                Vetor → 1 dimensão
+
+                <br>
+
+                Matriz → 2 dimensões
+
+                <br>
+
+                Tensor → pode possuir várias dimensões
+
+            </div>
+
+
+            <!-- =================================================
+         CRIANDO TENSOR
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🧱 Criando um Tensor
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        tensor.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            torch
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            tensor = torch.tensor(
+                            [1, 2, 3, 4])
+
+                        </div>
+
+
+                        <div>
+
+                            print(tensor)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        tensor([1, 2, 3, 4])
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+         MATRIZ
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                📐 Tensor de duas dimensões
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos criar uma matriz utilizando listas dentro de
+                listas.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        matriz.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            dados = [
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [1, 2],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [3, 4]
+
+                        </div>
+
+
+                        <div>
+
+                            ]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            tensor = torch.tensor(dados)
+
+                        </div>
+
+
+                        <div>
+
+                            print(tensor)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        tensor([[1, 2],
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        [3, 4]])
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+         SHAPE
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                📏 Shape
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos descobrir o formato de um tensor utilizando
+                <code>shape</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        shape.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            print(tensor.shape)
+
+                        </div>
+
+
+                        <div>
+
+                            print(tensor.ndim)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        torch.Size([2, 2])
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+         OPERAÇÕES
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                ➕ Operações com Tensors
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos realizar operações matemáticas diretamente
+                nos tensores.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        operacoes.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            a = torch.tensor([1, 2, 3])
+
+                        </div>
+
+
+                        <div>
+
+                            b = torch.tensor([4, 5, 6])
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(a + b)
+
+                        </div>
+
+
+                        <div>
+
+                            print(a * b)
+
+                        </div>
+
+
+                        <div>
+
+                            print(a.mean())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+         AUTOGRAD
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🧮 Gradientes
+
+            </h3>
+
+
+            <p class="description">
+
+                Um dos recursos mais importantes do PyTorch é o sistema
+                de <strong>autograd</strong>.
+
+                Ele permite calcular automaticamente os gradientes
+                necessários durante o treinamento de redes neurais.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos pedir para um tensor acompanhar os cálculos:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        gradiente.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            x = torch.tensor(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            2.0,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            requires_grad=True
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            y = x ** 2
+
+                        </div>
+
+
+                        <div>
+
+                            y.backward()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Depois podemos acessar o gradiente:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        gradiente.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            print(x.grad)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        tensor(4.)
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Por que isso é importante?</strong>
+
+                <br><br>
+
+                Os gradientes são fundamentais para atualizar os
+                parâmetros da rede neural durante o treinamento.
+
+            </div>
+
+
+            <!-- =================================================
+         MODELOS
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 2. Modelos
+
+            </h3>
+
+
+            <p class="description">
+
+                Em PyTorch, podemos criar modelos utilizando
+                <code>torch.nn.Module</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                Vamos criar uma pequena rede neural para classificação.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        modelo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            torch
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            torch.nn
+                            <span class="keyword">
+                                as
+                            </span>
+                            nn
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            RedeNeural(nn.Module):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __init__(self):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            super().__init__()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            self.camada = nn.Linear(2, 1)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            forward(self, x):
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O <code>nn.Linear(2, 1)</code> representa uma camada
+                linear que recebe 2 valores e produz 1 saída.
+
+            </p>
+
+
+            <p class="description">
+
+                Agora precisamos completar o método
+                <code>forward()</code>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        modelo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            forward(self, x):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            self.camada(x)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos criar uma instância do modelo:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        criar_modelo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            modelo = RedeNeural()
+
+                        </div>
+
+
+                        <div>
+
+                            print(modelo)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+         FORWARD
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                ➡️ Forward pass
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>forward()</code> define como os dados
+                passam pelo modelo.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Entrada
+
+                    →
+                    Camada
+
+                    →
+                    Saída
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos fazer uma previsão passando um tensor para
+                o modelo:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        forward.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            entrada = torch.tensor(
+                            [[2.0, 3.0]])
+
+                        </div>
+
+
+                        <div>
+
+                            saida = modelo(entrada)
+
+                        </div>
+
+
+                        <div>
+
+                            print(saida)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+         LOSS
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                📉 3. Loss
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>loss</strong> mede o erro cometido pelo modelo.
+
+                Durante o treinamento, queremos encontrar parâmetros
+                que façam essa perda diminuir.
+
+            </p>
+
+
+            <p class="description">
+
+                O PyTorch possui várias funções de perda.
+
+                Uma delas é a <code>MSELoss</code>, bastante utilizada
+                em problemas de regressão.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        loss.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            criterio = nn.MSELoss()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            previsao = torch.tensor(
+                            [2.0])
+
+                        </div>
+
+
+                        <div>
+
+                            real = torch.tensor(
+                            [3.0])
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos calcular a perda:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        calcular_loss.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            loss = criterio(
+                            previsao,
+                            real)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Ideia:</strong>
+
+                <br><br>
+
+                Quanto menor o loss, mais próxima está a previsão
+                do valor esperado para essa função de perda.
+
+            </div>
+
+
+            <!-- =================================================
+         OPTIMIZER
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚙️ 4. Optimizers
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>optimizer</strong> é responsável por atualizar
+                os parâmetros do modelo utilizando os gradientes
+                calculados durante o treinamento.
+
+            </p>
+
+
+            <p class="description">
+
+                Um dos otimizadores mais conhecidos é o
+                <strong>Adam</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        optimizer.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            optimizer = torch.optim.Adam(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            modelo.parameters(),
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            lr=0.01
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O parâmetro <code>lr</code> significa
+                <strong>learning rate</strong>.
+
+                Ele controla o tamanho dos passos utilizados pelo
+                otimizador ao atualizar os parâmetros.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Learning rate muito alto:</strong>
+
+                <br>
+
+                O treinamento pode ficar instável.
+
+                <br><br>
+
+                <strong>🐢 Learning rate muito baixo:</strong>
+
+                <br>
+
+                O treinamento pode ficar muito lento.
+
+            </div>
+
+
+            <!-- =================================================
+         TRAINING LOOP
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 5. Training loop
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora chegamos ao coração do treinamento em PyTorch.
+
+                O <strong>training loop</strong> repete as etapas
+                necessárias para que o modelo aprenda.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    1. Fazer previsão
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    2. Calcular loss
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    3. Zerar gradientes
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    4. Calcular gradientes
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    5. Atualizar parâmetros
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Repetir
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Em PyTorch, podemos escrever esse processo
+                explicitamente.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        training_loop.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            epoch
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(100):
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            previsao = modelo(X)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            loss = criterio(
+                            previsao,
+                            y)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            optimizer.zero_grad()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            loss.backward()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            optimizer.step()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(loss.item())
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+         EXPLICANDO LOOP
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🔍 Entendendo cada etapa
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos entender as principais instruções do
+                <strong>training loop</strong>.
+
+            </p>
+
+
+            <strong>
+                <code>optimizer.zero_grad()</code>
+            </strong>
+
+
+            <p class="description">
+
+                Os gradientes são acumulados por padrão.
+
+                Por isso, normalmente zeramos os gradientes antes
+                de calcular os novos.
+
+            </p>
+
+
+            <strong>
+                <code>loss.backward()</code>
+            </strong>
+
+
+            <p class="description">
+
+                Essa instrução executa a retropropagação e calcula os
+                gradientes dos parâmetros envolvidos no cálculo da perda.
+
+            </p>
+
+
+            <strong>
+                <code>optimizer.step()</code>
+            </strong>
+
+
+            <p class="description">
+
+                Depois dos gradientes calculados, o otimizador atualiza
+                os parâmetros do modelo.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    zero_grad()
+
+                    →
+                    backward()
+
+                    →
+                    step()
+
+                </strong>
+
+                <br><br>
+
+                Essa sequência aparece frequentemente no treinamento
+                de modelos com PyTorch.
+
+            </div>
+
+
+            <!-- =================================================
+         PROJETO COMPLETO
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Projeto completo
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora vamos construir um pequeno modelo para aprender
+                uma relação simples entre entrada e saída.
+
+                Queremos que o modelo aprenda aproximadamente:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    y = 2x
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Vamos criar os dados:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        projeto.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+                        <div>17</div>
+                        <div>18</div>
+                        <div>19</div>
+                        <div>20</div>
+                        <div>21</div>
+                        <div>22</div>
+                        <div>23</div>
+                        <div>24</div>
+                        <div>25</div>
+                        <div>26</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            torch
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            torch.nn
+                            <span class="keyword">
+                                as
+                            </span>
+                            nn
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            X = torch.tensor(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [[1.0], [2.0], [3.0], [4.0]]
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            y = torch.tensor(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [[2.0], [4.0], [6.0], [8.0]]
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            modelo = nn.Linear(1, 1)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            criterio = nn.MSELoss()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            optimizer = torch.optim.Adam(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            modelo.parameters(),
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            lr=0.01
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            epoch
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(1000):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            previsao = modelo(X)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            loss = criterio(
+                            previsao,
+                            y)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            optimizer.zero_grad()
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            loss.backward()
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            optimizer.step()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+         TESTANDO
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Testando o modelo
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois do treinamento, podemos testar uma nova entrada.
+
+                Por exemplo:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        teste.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            novo_valor = torch.tensor(
+                            [[5.0]])
+
+                        </div>
+
+
+                        <div>
+
+                            resultado =
+                            modelo(novo_valor)
+
+                        </div>
+
+
+                        <div>
+
+                            print(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Como o modelo aprendeu aproximadamente
+                <code>y = 2x</code>, esperamos uma saída próxima de:
+
+            </p>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        tensor([[10.]])
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+         TRAIN / EVAL
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Modo de treinamento e avaliação
+
+            </h3>
+
+
+            <p class="description">
+
+                Modelos PyTorch podem possuir comportamentos diferentes
+                durante treinamento e avaliação.
+
+                Por isso é comum utilizar:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        modos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            modelo.train()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            modelo.eval()
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                <code>train()</code> coloca o modelo em modo de
+                treinamento.
+
+                <br><br>
+
+                <code>eval()</code> coloca o modelo em modo de avaliação.
+
+            </p>
+
+
+            <!-- =================================================
+         NO_GRAD
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🚫 Desativando gradientes durante a avaliação
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando estamos apenas fazendo previsões, normalmente
+                não precisamos calcular gradientes.
+
+                Podemos utilizar <code>torch.no_grad()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        avaliacao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            modelo.eval()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            torch.no_grad():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado =
+                            modelo(novo_valor)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+         CPU / GPU
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚡ CPU e GPU
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das características importantes do PyTorch é a
+                possibilidade de executar operações em diferentes
+                dispositivos, como CPU e GPU.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos verificar se uma GPU CUDA está disponível:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        device.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            device = torch.device(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            "cuda"
+
+                            <span class="keyword">
+                                if
+                            </span>
+
+                            torch.cuda.is_available()
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                else
+                            </span>
+
+                            "cpu"
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Depois podemos mover um tensor para o dispositivo:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        device.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            X = X.to(device)
+
+                        </div>
+
+
+                        <div>
+
+                            modelo = modelo.to(device)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Atenção:</strong>
+
+                <br><br>
+
+                Os tensores utilizados na operação e o modelo precisam
+                estar no mesmo dispositivo.
+
+            </div>
+
+
+            <!-- =================================================
+         DATASET
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                📚 Dataset e DataLoader
+
+            </h3>
+
+
+            <p class="description">
+
+                Em projetos maiores, normalmente não colocamos todo o
+                dataset diretamente dentro do training loop.
+
+                O PyTorch possui estruturas como
+                <code>Dataset</code> e <code>DataLoader</code> para
+                organizar os dados e trabalhar com batches.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        dataloader.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            torch.utils.data
+                            <span class="keyword">
+                                import
+                            </span>
+                            TensorDataset
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            torch.utils.data
+                            <span class="keyword">
+                                import
+                            </span>
+                            DataLoader
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            dataset =
+                            TensorDataset(X, y)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            loader = DataLoader(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            dataset,
+
+                            batch_size=2,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            shuffle=True
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O <code>batch_size</code> determina quantos exemplos
+                serão processados de cada vez.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Dataset
+
+                    →
+                    DataLoader
+
+                    →
+                    Batches
+
+                    →
+                    Modelo
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+         TRAINING LOOP COM BATCHES
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Training loop com DataLoader
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        treinamento.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            epoch
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(10):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            X_batch,
+                            y_batch
+                            <span class="keyword">
+                                in
+                            </span>
+                            loader:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            previsao =
+                            modelo(X_batch)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            loss =
+                            criterio(
+                            previsao,
+                            y_batch)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            optimizer.zero_grad()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            loss.backward()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            optimizer.step()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+         RESUMO DO FLUXO
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🧭 O fluxo completo
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    📊 Dados
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🔢 Tensors
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🧠 Modelo
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🔮 Previsão
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    📉 Loss
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🧮 Gradientes
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    ⚙️ Optimizer
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🔄 Repetir
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+         EXERCÍCIO
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Exercício
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um pequeno modelo utilizando PyTorch para aprender
+                uma relação entre horas estudadas e nota.
+
+            </p>
+
+
+            <strong>
+                Desafio — Prever notas
+            </strong>
+
+
+            <p class="description">
+
+                Crie um dataset semelhante a:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+
+            Horas → Nota
+
+            <br><br>
+
+            1 → 2
+
+            <br>
+
+            2 → 4
+
+            <br>
+
+            3 → 6
+
+            <br>
+
+            4 → 8
+
+            <br>
+
+            5 → 10
+
+        </code>
+
+            </div>
+
+
+            <p class="description">
+
+                Depois:
+
+            </p>
+
+
+            <ol>
+
+                <li>
+                    Transforme os dados em tensors.
+                </li>
+
+                <li>
+                    Crie um modelo com <code>nn.Linear</code>.
+                </li>
+
+                <li>
+                    Escolha uma função de loss.
+                </li>
+
+                <li>
+                    Crie um optimizer.
+                </li>
+
+                <li>
+                    Crie um training loop.
+                </li>
+
+                <li>
+                    Treine o modelo.
+                </li>
+
+                <li>
+                    Faça uma previsão para 6 horas de estudo.
+                </li>
+
+            </ol>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Crie uma rede com uma camada oculta:
+
+                <br><br>
+
+                <code>
+
+            nn.Linear(1, 8)
+
+            <br>
+
+            nn.ReLU()
+
+            <br>
+
+            nn.Linear(8, 1)
+
+        </code>
+
+                <br><br>
+
+                Compare o resultado com o modelo que possui apenas
+                uma camada linear.
+
+            </div>
+
+
+            <!-- =================================================
+         RESUMO
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que é PyTorch.<br>
+
+                • O que são <strong>Tensors</strong>.<br>
+
+                • Como criar e manipular tensors.<br>
+
+                • O que é <strong>autograd</strong>.<br>
+
+                • Como criar modelos com
+                <code>torch.nn.Module</code>.<br>
+
+                • O que é o método <code>forward()</code>.<br>
+
+                • O que é <strong>Loss</strong>.<br>
+
+                • O que são <strong>Optimizers</strong>.<br>
+
+                • O que é <strong>Learning Rate</strong>.<br>
+
+                • Como funciona o <strong>Training Loop</strong>.<br>
+
+                • Como utilizar
+                <code>zero_grad()</code>.<br>
+
+                • Como utilizar
+                <code>backward()</code>.<br>
+
+                • Como utilizar
+                <code>step()</code>.<br>
+
+                • Como utilizar <code>Dataset</code> e
+                <code>DataLoader</code>.<br>
+
+                • Como trabalhar com CPU e GPU.<br>
+
+                • Como realizar previsões com um modelo treinado.
+
+            </div>
+
+
+            <!-- =================================================
+         CONCLUSÃO
+    ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Seu primeiro training loop!
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora você já conhece uma das estruturas fundamentais
+                do Deep Learning com PyTorch.
+
+                Você aprendeu que o treinamento não é simplesmente
+                chamar uma função e esperar o resultado:
+
+                existe um ciclo envolvendo dados, previsão, loss,
+                gradientes e atualização dos parâmetros.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Tensor
+                    →
+                    Modelo
+                    →
+                    Loss
+                    →
+                    Backpropagation
+                    →
+                    Optimizer
+                    →
+                    Repetir
+
+                </strong>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Próxima etapa:</strong>
+
+                <br><br>
+
+                Na próxima aula, vamos avançar para um dos campos
+                mais importantes do Deep Learning:
+                <strong>visão computacional</strong>.
+
+                Vamos trabalhar com imagens e entender como modelos
+                conseguem aprender padrões visuais.
+
+            </div>
+
+        </article>
+
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

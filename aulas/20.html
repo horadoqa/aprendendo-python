@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+
+                        Tema
+
+                    </span>
+
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">20</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 20
+
+            </span>
+
+
+            <h2>
+
+                Módulos em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como organizar
+                seu código utilizando <strong>módulos</strong>.
+
+                Vamos conhecer o comando <strong>import</strong>,
+                aprender a criar nossos próprios módulos e entender
+                como utilizar <strong>from ... import</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 O que são módulos?
+
+            </h3>
+
+
+            <p class="description">
+
+                Um módulo é, basicamente, um arquivo Python
+                que contém código que pode ser reutilizado em
+                outros arquivos.
+
+                Esse código pode conter funções, variáveis,
+                classes e outras estruturas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Pense em um módulo como uma "caixa de ferramentas".
+
+                <br><br>
+
+                Em vez de colocar todas as funções do seu projeto
+                em um único arquivo, podemos separar cada conjunto
+                de funcionalidades em módulos diferentes.
+
+            </div>
+
+
+            <!-- =================================================
+                 IMPORT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📥 <code>import</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O comando <code>import</code> permite utilizar
+                um módulo dentro de outro arquivo Python.
+
+                Python já possui diversos módulos disponíveis
+                na biblioteca padrão.
+
+            </p>
+
+
+            <p class="description">
+
+                Um exemplo bastante conhecido é o módulo
+                <code>math</code>, que possui diversas funções
+                matemáticas.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        import.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            math
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            math.sqrt(25)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        5.0
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Quando utilizamos <code>import math</code>,
+                podemos acessar as funções do módulo utilizando
+                o nome do módulo seguido de um ponto.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo:</strong>
+
+                <br><br>
+
+                <code>
+                    math.sqrt(25)
+                </code>
+
+                <br><br>
+
+                Aqui:
+
+                <br><br>
+
+                <code>math</code> é o módulo.
+
+                <br>
+
+                <code>sqrt()</code> é uma função disponível
+                nesse módulo.
+
+            </div>
+
+
+            <!-- =================================================
+                 OUTROS MÓDULOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛠️ Outros módulos da biblioteca padrão
+
+            </h3>
+
+
+            <p class="description">
+
+                Python possui muitos módulos prontos que podemos
+                utilizar nos nossos programas.
+
+                Alguns exemplos são:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    <strong>
+                        <code>math</code>
+                    </strong>
+                    — operações matemáticas.
+
+                </li>
+
+
+                <li>
+
+                    <strong>
+                        <code>random</code>
+                    </strong>
+                    — geração de valores aleatórios.
+
+                </li>
+
+
+                <li>
+
+                    <strong>
+                        <code>datetime</code>
+                    </strong>
+                    — datas e horários.
+
+                </li>
+
+
+                <li>
+
+                    <strong>
+                        <code>os</code>
+                    </strong>
+                    — interação com recursos do sistema
+                    operacional.
+
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 RANDOM
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎲 Exemplo com <code>random</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O módulo <code>random</code> pode ser utilizado
+                para gerar valores aleatórios.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        random.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            random
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            numero =
+                            random.randint(1, 10)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(numero)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        7
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Observação:</strong>
+
+                <br><br>
+
+                Como o valor é aleatório, o resultado pode ser
+                diferente a cada execução.
+
+                <br><br>
+
+                O exemplo acima pode retornar qualquer número
+                inteiro entre <code>1</code> e <code>10</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 CRIANDO MÓDULO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧱 Criando seus próprios módulos
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos criar nossos próprios módulos.
+
+                Basta criar um arquivo com extensão
+                <code>.py</code> contendo as funções ou variáveis
+                que queremos reutilizar.
+
+            </p>
+
+
+            <p class="description">
+
+                Imagine que nosso projeto possui a seguinte
+                estrutura:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+                    projeto/
+                    <br>
+                    ├── calculadora.py
+                    <br>
+                    └── main.py
+                </code>
+
+            </div>
+
+
+            <p class="description">
+
+                O arquivo <code>calculadora.py</code> será nosso
+                módulo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        calculadora.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                somar
+                            </span>(a, b):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            a + b
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                subtrair
+                            </span>(a, b):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            a - b
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                multiplicar
+                            </span>(a, b):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            a * b
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora podemos importar esse módulo em outro
+                arquivo.
+
+            </p>
+
+
+            <!-- =================================================
+                 IMPORTANDO MÓDULO PRÓPRIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📤 Importando seu módulo
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        main.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            calculadora
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            calculadora.somar(10, 5)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        15
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O Python procura o módulo no caminho disponível
+                para importação.
+
+                Quando encontra o arquivo
+                <code>calculadora.py</code>, podemos acessar
+                suas funções utilizando:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+                    calculadora.somar(10, 5)
+                </code>
+
+                <br><br>
+
+                Dessa forma, mantemos o código da calculadora
+                separado do código principal do programa.
+
+            </div>
+
+
+            <!-- =================================================
+                 FROM IMPORT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 <code>from ... import</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos importar diretamente uma função
+                específica de um módulo utilizando
+                <code>from ... import</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        main.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            calculadora
+                            <span class="keyword">
+                                import
+                            </span>
+                            somar
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            <span class="function">
+                                somar
+                            </span>(10, 5)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        15
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse caso, importamos somente a função
+                <code>somar</code>.
+
+                Por isso, podemos chamá-la diretamente sem
+                escrever <code>calculadora.somar()</code>.
+
+            </p>
+
+
+            <!-- =================================================
+                 IMPORTANDO VÁRIOS ITENS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📚 Importando várias funções
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos importar mais de uma função do mesmo
+                módulo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        main.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            calculadora
+                            <span class="keyword">
+                                import
+                            </span>
+                            somar, subtrair
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="function">
+                                somar
+                            </span>(10, 5))
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="function">
+                                subtrair
+                            </span>(10, 5))
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        15
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        5
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 COMPARAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🆚 <code>import</code> x
+                <code>from ... import</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                As duas formas permitem utilizar recursos de
+                outros módulos, mas possuem uma diferença na
+                maneira como acessamos esses recursos.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    <strong>
+                        <code>import calculadora</code>
+                    </strong>
+
+                    <br>
+
+                    Importa o módulo inteiro.
+
+                    <br><br>
+
+                    Exemplo:
+
+                    <br>
+
+                    <code>
+                        calculadora.somar(10, 5)
+                    </code>
+
+                </li>
+
+
+                <li>
+
+                    <strong>
+                        <code>
+                            from calculadora import somar
+                        </code>
+                    </strong>
+
+                    <br>
+
+                    Importa somente a função desejada.
+
+                    <br><br>
+
+                    Exemplo:
+
+                    <br>
+
+                    <code>
+                        somar(10, 5)
+                    </code>
+
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 ALIAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏷️ Apelidos com <code>as</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos criar um apelido para um módulo utilizando
+                <code>as</code>.
+
+                Isso pode ser útil quando o nome do módulo é
+                muito grande ou quando queremos deixar o código
+                mais prático.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        alias.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            calculadora
+                            <span class="keyword">
+                                as
+                            </span>
+                            calc
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            calc.somar(10, 5)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Módulos na automação de QA
+
+            </h3>
+
+
+            <p class="description">
+
+                A organização em módulos é muito importante em
+                projetos de automação de testes.
+
+                Podemos separar responsabilidades diferentes
+                em arquivos distintos.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo de organização:</strong>
+
+                <br><br>
+
+                <code>
+                    projeto_qa/
+                    <br>
+                    ├── testes_login.py
+                    <br>
+                    ├── testes_cadastro.py
+                    <br>
+                    ├── validacoes.py
+                    <br>
+                    ├── dados.py
+                    <br>
+                    └── main.py
+                </code>
+
+                <br><br>
+
+                Dessa forma, cada arquivo pode ter uma
+                responsabilidade específica.
+
+            </div>
+
+
+            <p class="description">
+
+                Por exemplo, podemos criar um módulo contendo
+                funções de validação:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        validacoes.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                validar_status
+                            </span>(status):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            status == 200
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                validar_resposta
+                            </span>(resposta):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            resposta !=
+                            <span class="keyword">
+                                None
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Depois, podemos reutilizar essas funções em
+                nossos testes:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        teste_api.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            validacoes
+                            <span class="keyword">
+                                import
+                            </span>
+                            validar_status
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            status = 200
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                if
+                            </span>
+                            <span class="function">
+                                validar_status
+                            </span>(status):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Teste aprovado"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Teste aprovado
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Pense como QA:</strong>
+
+                <br><br>
+
+                Imagine um projeto com centenas de testes.
+
+                <br><br>
+
+                Se todas as funções de apoio estiverem em um
+                único arquivo gigante, a manutenção ficará
+                complicada.
+
+                <br><br>
+
+                Separar funcionalidades em módulos ajuda a
+                manter o projeto organizado, reutilizável e
+                mais fácil de manter.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um módulo chamado
+                <code>calculadora.py</code> contendo três funções:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <code>somar(a, b)</code>
+                </li>
+
+                <li>
+                    <code>subtrair(a, b)</code>
+                </li>
+
+                <li>
+                    <code>multiplicar(a, b)</code>
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Depois, crie um arquivo chamado
+                <code>main.py</code> e importe as funções
+                utilizando <code>from ... import</code>.
+
+                Execute as três operações.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        desafio.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="comment">
+                                # main.py
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            calculadora
+                            <span class="keyword">
+                                import
+                            </span>
+                            somar, subtrair,
+                            multiplicar
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="function">
+                                somar
+                            </span>(10, 5))
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="function">
+                                subtrair
+                            </span>(10, 5))
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="function">
+                                multiplicar
+                            </span>(10, 5))
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Um <strong>módulo</strong> é um arquivo Python
+                que pode ser reutilizado em outros arquivos.<br>
+
+                • <code>import</code> permite importar um módulo
+                inteiro.<br>
+
+                • Podemos acessar recursos do módulo utilizando
+                <code>modulo.funcao()</code>.<br>
+
+                • Podemos criar nossos próprios módulos utilizando
+                arquivos <code>.py</code>.<br>
+
+                • <code>from ... import</code> permite importar
+                funções ou outros recursos específicos.<br>
+
+                • Podemos importar vários recursos de um mesmo
+                módulo.<br>
+
+                • <code>as</code> permite criar um apelido para
+                um módulo ou recurso importado.<br>
+
+                • A utilização de módulos ajuda a organizar,
+                reutilizar e manter o código.<br>
+
+                • Em projetos de QA, módulos podem separar
+                validações, dados, testes e funções auxiliares.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

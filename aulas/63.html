@@ -1,0 +1,2061 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">63</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 63
+
+            </span>
+
+
+            <h2>
+
+                Projeto de análise de dados
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos colocar em prática os conceitos
+                de análise e visualização de dados aprendidos nas
+                aulas anteriores.
+
+                Vamos trabalhar com um conjunto de dados,
+                realizar sua limpeza, analisar as informações,
+                criar visualizações e, finalmente, tirar
+                conclusões baseadas nos resultados.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo do projeto:</strong>
+
+                <br><br>
+
+                Aprender a seguir um fluxo completo de análise de
+                dados utilizando Python, desde a leitura de um
+                dataset até a apresentação das conclusões.
+
+            </div>
+
+
+            <!-- =================================================
+                 FLUXO DO PROJETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Etapas do projeto
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma análise de dados normalmente passa por várias
+                etapas.
+
+                Neste projeto, vamos seguir este fluxo:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>1. Dataset</strong> — obter e conhecer
+                    os dados.
+                </li>
+
+                <li>
+                    <strong>2. Limpeza</strong> — corrigir
+                    problemas e preparar os dados.
+                </li>
+
+                <li>
+                    <strong>3. Análise</strong> — encontrar padrões
+                    e informações importantes.
+                </li>
+
+                <li>
+                    <strong>4. Visualização</strong> — transformar
+                    os resultados em gráficos.
+                </li>
+
+                <li>
+                    <strong>5. Conclusões</strong> — interpretar
+                    os resultados encontrados.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Pense como um processo investigativo:</strong>
+
+                <br><br>
+
+                Primeiro coletamos as evidências, depois verificamos
+                sua qualidade, analisamos os dados e finalmente
+                apresentamos o que descobrimos.
+
+            </div>
+
+
+            <!-- =================================================
+                 DATASET
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📂 1. Dataset
+
+            </h3>
+
+
+            <p class="description">
+
+                Um <strong>dataset</strong> é um conjunto de dados
+                que pode ser utilizado para análise.
+
+                Neste projeto, vamos trabalhar com dados
+                relacionados a vendas.
+
+            </p>
+
+
+            <p class="description">
+
+                Imagine um arquivo chamado
+                <code>vendas.csv</code> contendo informações como:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Produto.
+                </li>
+
+                <li>
+                    Categoria.
+                </li>
+
+                <li>
+                    Cidade.
+                </li>
+
+                <li>
+                    Quantidade vendida.
+                </li>
+
+                <li>
+                    Preço.
+                </li>
+
+                <li>
+                    Data da venda.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 CSV
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📄 Conhecendo o arquivo
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        vendas.csv
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            produto,categoria,cidade,quantidade,preco
+
+                        </div>
+
+                        <div>
+
+                            Notebook,Eletronicos,Rio de Janeiro,2,3500
+
+                        </div>
+
+                        <div>
+
+                            Mouse,Eletronicos,Sao Paulo,10,80
+
+                        </div>
+
+                        <div>
+
+                            Teclado,Eletronicos,Rio de Janeiro,5,150
+
+                        </div>
+
+                        <div>
+
+                            Cadeira,Moveis,Sao Paulo,3,900
+
+                        </div>
+
+                        <div>
+
+                            Monitor,Eletronicos,Belo Horizonte,4,1200
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 IMPORTAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐼 Importando o dataset
+
+            </h3>
+
+
+            <p class="description">
+
+                Para analisar o arquivo, podemos utilizar a
+                biblioteca <strong>Pandas</strong>.
+
+                O primeiro passo é importar a biblioteca e utilizar
+                <code>read_csv()</code> para carregar os dados.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        projeto.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            pandas
+                            <span class="keyword">
+                                as
+                            </span>
+                            pd
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            df = pd.read_csv(
+                            <span class="string">
+                                "vendas.csv"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            print(df.head())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                O método <code>head()</code> mostra as primeiras
+                linhas do DataFrame e é útil para verificar
+                rapidamente se os dados foram carregados
+                corretamente.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXPLORAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔍 Conhecendo os dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Antes de começar a análise, precisamos entender
+                a estrutura do dataset.
+
+                Podemos utilizar alguns comandos do Pandas para
+                isso.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        exploracao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            print(df.head())
+
+                        </div>
+
+
+                        <div>
+
+                            print(df.shape)
+
+                        </div>
+
+
+                        <div>
+
+                            print(df.columns)
+
+                        </div>
+
+
+                        <div>
+
+                            print(df.info())
+
+                        </div>
+
+
+                        <div>
+
+                            print(df.describe())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <ul>
+
+                <li>
+                    <code>head()</code> mostra as primeiras linhas.
+                </li>
+
+                <li>
+                    <code>shape</code> mostra quantidade de linhas
+                    e colunas.
+                </li>
+
+                <li>
+                    <code>columns</code> mostra os nomes das colunas.
+                </li>
+
+                <li>
+                    <code>info()</code> apresenta informações sobre
+                    os dados.
+                </li>
+
+                <li>
+                    <code>describe()</code> apresenta estatísticas
+                    dos valores numéricos.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 LIMPEZA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧹 2. Limpeza dos dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Dados reais nem sempre estão perfeitos.
+
+                Podemos encontrar valores ausentes, duplicados,
+                tipos incorretos ou informações inconsistentes.
+
+                Por isso, a limpeza é uma etapa fundamental da
+                análise.
+
+            </p>
+
+
+            <h3 class="section-title">
+
+                🔎 Procurando valores ausentes
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        limpeza.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            print(df.isnull().sum())
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            df = df.dropna()
+
+                        </div>
+
+
+                        <div>
+
+                            print(df.isnull().sum())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O método <code>isnull()</code> ajuda a identificar
+                valores ausentes.
+
+                Já o <code>dropna()</code> pode ser utilizado para
+                remover linhas que possuem valores ausentes.
+
+            </p>
+
+
+            <!-- =================================================
+                 DUPLICADOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ♻️ Procurando duplicados
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        duplicados.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            print(df.duplicated().sum())
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            df = df.drop_duplicates()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                Nem todo valor ausente ou registro duplicado deve
+                simplesmente ser excluído.
+
+                Em um projeto real, precisamos entender o motivo
+                do problema antes de decidir como tratá-lo.
+
+            </div>
+
+
+            <!-- =================================================
+                 TIPOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔢 Verificando tipos
+
+            </h3>
+
+
+            <p class="description">
+
+                Também precisamos verificar se cada coluna possui
+                o tipo de dado correto.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        tipos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            print(df.dtypes)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            df[
+                            <span class="string">
+                                "preco"
+                            </span>] =
+                            pd.to_numeric(
+                            df[
+                            <span class="string">
+                                "preco"
+                            </span>])
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ANÁLISE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📊 3. Análise dos dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de limpar os dados, podemos começar a
+                procurar informações relevantes.
+
+                Por exemplo:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Qual produto vendeu mais?
+                </li>
+
+                <li>
+                    Qual cidade teve maior volume de vendas?
+                </li>
+
+                <li>
+                    Qual categoria gerou mais receita?
+                </li>
+
+                <li>
+                    Qual foi o valor total das vendas?
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 TOTAL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💰 Calculando a receita
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos criar uma nova coluna para calcular a
+                receita de cada venda.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        analise.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            df[
+                            <span class="string">
+                                "receita"
+                            </span>] =
+                            df[
+                            <span class="string">
+                                "quantidade"
+                            </span>] *
+                            df[
+                            <span class="string">
+                                "preco"
+                            </span>]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            total =
+                            df[
+                            <span class="string">
+                                "receita"
+                            </span>].sum()
+
+                        </div>
+
+
+                        <div>
+
+                            print(total)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 AGRUPAMENTO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Agrupando os dados
+
+            </h3>
+
+
+            <p class="description">
+
+                O <code>groupby()</code> permite agrupar registros
+                de acordo com uma determinada categoria.
+
+                Por exemplo, podemos descobrir quanto cada cidade
+                vendeu.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        agrupamento.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            vendas_cidade =
+                            df.groupby(
+                            <span class="string">
+                                "cidade"
+                            </span>)[
+                            <span class="string">
+                                "receita"
+                            </span>].sum()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(vendas_cidade)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PRODUTO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏆 Produto mais vendido
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        produto.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            produtos =
+                            df.groupby(
+                            <span class="string">
+                                "produto"
+                            </span>)[
+                            <span class="string">
+                                "quantidade"
+                            </span>].sum()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(produtos.sort_values(
+                            ascending=
+                            <span class="keyword">
+                                False
+                            </span>))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 VISUALIZAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📈 4. Visualização
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de analisar os dados, podemos utilizar
+                gráficos para apresentar os resultados de forma
+                visual.
+
+            </p>
+
+
+            <p class="description">
+
+                Vamos criar um gráfico mostrando a receita por
+                cidade.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        visualizacao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            matplotlib.pyplot
+                            <span class="keyword">
+                                as
+                            </span>
+                            plt
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            vendas_cidade =
+                            df.groupby(
+                            <span class="string">
+                                "cidade"
+                            </span>)[
+                            <span class="string">
+                                "receita"
+                            </span>].sum()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            vendas_cidade.plot(
+                            kind=
+                            <span class="string">
+                                "bar"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.title(
+                            <span class="string">
+                                "Receita por cidade"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.ylabel(
+                            <span class="string">
+                                "Receita"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.show()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SEABORN
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎨 Visualização com Seaborn
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos utilizar o Seaborn para criar
+                visualizações estatísticas com os dados.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        grafico_seaborn.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            seaborn
+                            <span class="keyword">
+                                as
+                            </span>
+                            sns
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            matplotlib.pyplot
+                            <span class="keyword">
+                                as
+                            </span>
+                            plt
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            sns.barplot(
+                            data=df,
+                            x=
+                            <span class="string">
+                                "cidade"
+                            </span>,
+                            y=
+                            <span class="string">
+                                "receita"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.title(
+                            <span class="string">
+                                "Receita por cidade"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.show()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÕES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 5. Conclusões
+
+            </h3>
+
+
+            <p class="description">
+
+                A etapa final da análise é interpretar os
+                resultados.
+
+                Não basta apenas criar gráficos ou calcular
+                valores: precisamos explicar o que os dados
+                estão mostrando.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>📌 Exemplo de conclusão:</strong>
+
+                <br><br>
+
+                A análise mostrou que a maior parte da receita
+                está concentrada em produtos da categoria de
+                eletrônicos.
+
+                A cidade com maior faturamento apresentou também
+                um volume maior de vendas.
+
+                Esses resultados podem ajudar a empresa a
+                identificar quais produtos e regiões possuem
+                maior desempenho.
+
+            </div>
+
+
+            <p class="description">
+
+                Uma boa conclusão deve responder às perguntas
+                levantadas durante a análise e destacar os
+                resultados mais importantes.
+
+            </p>
+
+
+            <!-- =================================================
+                 PROJETO COMPLETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛠️ Projeto completo
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora podemos reunir todas as etapas em um único
+                programa.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        projeto_analise.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+                        <div>17</div>
+                        <div>18</div>
+                        <div>19</div>
+                        <div>20</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            pandas
+                            <span class="keyword">
+                                as
+                            </span>
+                            pd
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            matplotlib.pyplot
+                            <span class="keyword">
+                                as
+                            </span>
+                            plt
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Carregando os dados
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            df = pd.read_csv(
+                            <span class="string">
+                                "vendas.csv"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Limpando os dados
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            df = df.drop_duplicates()
+
+                        </div>
+
+
+                        <div>
+
+                            df = df.dropna()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Criando a receita
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            df[
+                            <span class="string">
+                                "receita"
+                            </span>] =
+                            df[
+                            <span class="string">
+                                "quantidade"
+                            </span>] *
+                            df[
+                            <span class="string">
+                                "preco"
+                            </span>]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Analisando
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            total =
+                            df[
+                            <span class="string">
+                                "receita"
+                            </span>].sum()
+
+                        </div>
+
+
+                        <div>
+
+                            print(
+                            <span class="string">
+                                "Receita total:"
+                            </span>,
+                            total)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Visualizando
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            df.groupby(
+                            <span class="string">
+                                "cidade"
+                            </span>)[
+                            <span class="string">
+                                "receita"
+                            </span>].sum().plot(
+                            kind=
+                            <span class="string">
+                                "bar"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.show()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Receita total: 12000
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Dados analisados com sucesso.
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Gráfico gerado.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio da aula
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora é sua vez de realizar uma análise completa.
+
+                Escolha um dataset real e responda algumas
+                perguntas utilizando Python.
+
+            </p>
+
+
+            <p class="description">
+
+                Seu projeto deve conter:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Importação do dataset.
+                </li>
+
+                <li>
+                    Exploração inicial dos dados.
+                </li>
+
+                <li>
+                    Identificação de valores ausentes.
+                </li>
+
+                <li>
+                    Tratamento de dados duplicados.
+                </li>
+
+                <li>
+                    Verificação dos tipos.
+                </li>
+
+                <li>
+                    Pelo menos três análises diferentes.
+                </li>
+
+                <li>
+                    Pelo menos três gráficos.
+                </li>
+
+                <li>
+                    Uma conclusão explicando os principais
+                    resultados.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Crie um relatório contendo os gráficos e as
+                principais conclusões da análise.
+
+                Tente responder:
+
+                <br><br>
+
+                • Qual foi o maior destaque encontrado?<br>
+                • Qual comportamento chamou sua atenção?<br>
+                • Existem dados fora do padrão?<br>
+                • Que decisão poderia ser tomada com base nos
+                resultados?
+
+            </div>
+
+
+            <!-- =================================================
+                 BOAS PRÁTICAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ Boas práticas em projetos de análise
+
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    Conheça os dados antes de começar a análise.
+                </li>
+
+                <li>
+                    Não altere os dados sem entender o problema.
+                </li>
+
+                <li>
+                    Documente as transformações realizadas.
+                </li>
+
+                <li>
+                    Utilize nomes de variáveis claros.
+                </li>
+
+                <li>
+                    Escolha gráficos adequados para cada pergunta.
+                </li>
+
+                <li>
+                    Não confunda correlação com causalidade.
+                </li>
+
+                <li>
+                    Sempre valide os resultados encontrados.
+                </li>
+
+                <li>
+                    Apresente conclusões baseadas nos dados.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que é um <strong>dataset</strong>.<br>
+
+                • Como carregar dados utilizando
+                <strong>Pandas</strong>.<br>
+
+                • Como explorar um conjunto de dados.<br>
+
+                • Como identificar valores ausentes.<br>
+
+                • Como remover registros duplicados.<br>
+
+                • Como verificar e corrigir tipos de dados.<br>
+
+                • Como criar novas informações a partir dos
+                dados.<br>
+
+                • Como utilizar <code>groupby()</code> para
+                realizar análises.<br>
+
+                • Como criar visualizações com
+                <strong>Matplotlib</strong> e
+                <strong>Seaborn</strong>.<br>
+
+                • Como interpretar gráficos e resultados.<br>
+
+                • Como transformar uma análise em conclusões.<br>
+
+                • Como estruturar um projeto completo de análise
+                de dados.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Projeto concluído!
+
+            </h3>
+
+
+            <p class="description">
+
+                Parabéns!
+
+                Nesta aula você reuniu vários conceitos aprendidos
+                ao longo do módulo e criou um fluxo completo de
+                análise de dados.
+
+                Agora você já consegue sair de um dataset bruto,
+                preparar os dados, encontrar informações,
+                criar visualizações e apresentar conclusões.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Próximo passo:</strong>
+
+                <br><br>
+
+                Continue praticando com datasets diferentes.
+
+                Quanto mais tipos de dados você analisar, maior
+                será sua capacidade de identificar padrões,
+                problemas e informações relevantes.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

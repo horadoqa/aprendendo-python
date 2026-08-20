@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">51</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 51
+
+            </span>
+
+
+            <h2>
+
+                PostgreSQL
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai conhecer o
+                <strong>PostgreSQL</strong>, um poderoso sistema
+                de gerenciamento de banco de dados relacional,
+                e aprender como conectar uma aplicação Python
+                a um banco PostgreSQL.
+
+                Também veremos conceitos importantes como
+                conexão, cursor, comandos SQL e consultas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                PostgreSQL é um banco de dados
+                <strong>relacional</strong>.
+
+                <br><br>
+
+                Diferente do SQLite, normalmente utilizamos o
+                PostgreSQL como um serviço de banco de dados,
+                que pode ser executado localmente ou em um
+                servidor.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É POSTGRESQL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐘 O que é PostgreSQL?
+
+            </h3>
+
+
+            <p class="description">
+
+                O PostgreSQL é um sistema de gerenciamento de
+                banco de dados relacional de código aberto.
+
+                Ele utiliza SQL para trabalhar com dados
+                organizados em tabelas e oferece recursos
+                avançados para aplicações modernas.
+
+            </p>
+
+
+            <p class="description">
+
+                Em uma aplicação, o PostgreSQL pode ser utilizado
+                para armazenar informações como usuários,
+                produtos, pedidos, pagamentos e resultados de
+                testes.
+
+            </p>
+
+
+            <!-- =================================================
+                 BANCO RELACIONAL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗂️ Banco de dados relacional
+
+            </h3>
+
+
+            <p class="description">
+
+                Em um banco relacional, os dados são organizados
+                principalmente em <strong>tabelas</strong>.
+
+                Cada tabela possui colunas que representam os
+                atributos dos dados e linhas que representam os
+                registros.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo:</strong>
+
+                <br><br>
+
+                Uma tabela <code>usuarios</code> pode possuir:
+
+                <br><br>
+
+                <code>id</code> → identificador do usuário
+
+                <br>
+
+                <code>nome</code> → nome do usuário
+
+                <br>
+
+                <code>email</code> → e-mail do usuário
+
+            </div>
+
+
+            <!-- =================================================
+                 TABELAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 Criando uma tabela
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar SQL para criar tabelas no
+                PostgreSQL.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        usuarios.sql
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                CREATE TABLE
+                            </span>
+                            usuarios (
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            id
+                            <span class="keyword">
+                                SERIAL PRIMARY KEY
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            nome
+                            <span class="keyword">
+                                VARCHAR(100) NOT NULL
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            email
+                            <span class="keyword">
+                                VARCHAR(150) UNIQUE NOT NULL
+
+                        </div>
+
+
+                        <div>
+
+                            );
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Tabela de usuários
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🔑 PRIMARY KEY</strong>
+
+                <br><br>
+
+                A chave primária identifica de forma única cada
+                registro da tabela.
+
+                <br><br>
+
+                No exemplo, o campo <code>id</code> será utilizado
+                como identificador do usuário.
+
+            </div>
+
+
+            <!-- =================================================
+                 PYTHON DRIVER
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐍 Python + PostgreSQL
+
+            </h3>
+
+
+            <p class="description">
+
+                Para conectar Python ao PostgreSQL, precisamos
+                utilizar um driver que permita que o programa
+                converse com o banco de dados.
+
+                Um dos drivers mais utilizados é o
+                <strong>psycopg</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                Diferente do SQLite, o PostgreSQL não faz parte
+                da biblioteca padrão do Python.
+
+                <br><br>
+
+                Por isso, precisamos instalar um driver para
+                realizar a comunicação entre Python e PostgreSQL.
+
+            </div>
+
+
+            <!-- =================================================
+                 INSTALAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Instalando o driver
+
+            </h3>
+
+
+            <p class="description">
+
+                O pacote pode ser instalado utilizando o
+                <code>pip</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            pip install "psycopg[binary]"
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONEXÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔌 Criando uma conexão
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de instalar o driver, podemos criar uma
+                conexão com o PostgreSQL utilizando
+                <code>psycopg.connect()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        conexao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            psycopg
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            conexao = psycopg.connect(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "dbname=loja user=postgres password=1234 host=localhost port=5432"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Conectado!"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            conexao.close()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                Em aplicações reais, evite deixar senhas
+                diretamente no código-fonte.
+
+                <br><br>
+
+                Mais adiante, veremos formas melhores de
+                trabalhar com configurações e credenciais.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONNECTION PARAMETERS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚙️ Dados da conexão
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma conexão com PostgreSQL normalmente precisa de
+                informações como:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>dbname</strong> — nome do banco.
+                </li>
+
+                <li>
+                    <strong>user</strong> — usuário do banco.
+                </li>
+
+                <li>
+                    <strong>password</strong> — senha.
+                </li>
+
+                <li>
+                    <strong>host</strong> — endereço do servidor.
+                </li>
+
+                <li>
+                    <strong>port</strong> — porta utilizada pelo
+                    PostgreSQL.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Porta padrão:</strong>
+
+                <br><br>
+
+                A porta padrão normalmente utilizada pelo
+                PostgreSQL é a <code>5432</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 CURSOR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🖱️ Cursor
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de estabelecer a conexão, podemos criar
+                um cursor para executar comandos SQL.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        cursor.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            psycopg
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            conexao = psycopg.connect(
+                            <span class="string">
+                                "dbname=loja user=postgres password=1234"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            cursor = conexao.cursor()
+
+                        </div>
+
+
+                        <div>
+
+                            cursor.close()
+
+                        </div>
+
+
+                        <div>
+
+                            conexao.close()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 INSERT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ➕ Inserindo dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar o cursor para executar comandos
+                SQL, como um <code>INSERT</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        insert.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            nome =
+                            <span class="string">
+                                "Maria"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            email =
+                            <span class="string">
+                                "maria@email.com"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cursor.execute(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "INSERT INTO usuarios (nome, email) VALUES (%s, %s)"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            (nome, email)
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            conexao.commit()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🛡️ Segurança:</strong>
+
+                <br><br>
+
+                Utilize parâmetros para enviar valores ao banco.
+
+                <br><br>
+
+                Evite montar SQL utilizando concatenação ou
+                interpolação de strings com dados fornecidos pelo
+                usuário.
+
+                <br><br>
+
+                Isso ajuda a reduzir riscos de
+                <strong>SQL Injection</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 SELECT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Consultando dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Para consultar registros, utilizamos
+                <code>SELECT</code> e podemos recuperar os
+                resultados com <code>fetchall()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        select.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            cursor.execute(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "SELECT id, nome, email FROM usuarios"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            usuarios = cursor.fetchall()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            usuario
+                            <span class="keyword">
+                                in
+                            </span>
+                            usuarios:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(usuario)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        (1, 'Maria', 'maria@email.com')
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 UPDATE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✏️ Atualizando dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos atualizar registros utilizando
+                <code>UPDATE</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        update.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            novo_email =
+                            <span class="string">
+                                "novo@email.com"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cursor.execute(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "UPDATE usuarios SET email = %s WHERE id = %s"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            (novo_email, 1)
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            conexao.commit()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DELETE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗑️ Removendo dados
+
+            </h3>
+
+
+            <p class="description">
+
+                O comando <code>DELETE</code> permite remover
+                registros de uma tabela.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        delete.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            id_usuario = 1
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cursor.execute(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "DELETE FROM usuarios WHERE id = %s"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            (id_usuario,)
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            conexao.commit()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Cuidado!</strong>
+
+                <br><br>
+
+                Tenha atenção especial com comandos
+                <code>UPDATE</code> e <code>DELETE</code>.
+
+                <br><br>
+
+                Uma consulta sem <code>WHERE</code> pode alterar
+                ou remover vários registros de uma vez.
+
+            </div>
+
+
+            <!-- =================================================
+                 TRANSAÇÕES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Transações
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma transação representa um conjunto de operações
+                que pode ser confirmado ou desfeito.
+
+                No PostgreSQL, utilizamos
+                <code>commit()</code> para confirmar as
+                alterações.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        transacao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            cursor.execute(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "INSERT INTO usuarios (nome, email) VALUES (%s, %s)"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            (
+                            <span class="string">
+                                "João"
+                            </span>,
+                            <span class="string">
+                                "joao@email.com"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            conexao.commit()
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Dados salvos!"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>↩️ Rollback</strong>
+
+                <br><br>
+
+                Se uma operação precisar ser desfeita antes do
+                <code>commit()</code>, podemos utilizar
+                <code>rollback()</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONTEXT MANAGER
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧹 Gerenciando recursos
+
+            </h3>
+
+
+            <p class="description">
+
+                Em aplicações reais, é importante fechar
+                corretamente cursores e conexões.
+
+                Uma abordagem comum é utilizar gerenciadores de
+                contexto para facilitar esse controle.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        contexto.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            psycopg
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            psycopg.connect(
+                            <span class="string">
+                                "dbname=loja user=postgres"
+                            </span>) <span class="keyword">
+                                as
+                            </span> conexao:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                with
+                            </span>
+                            conexao.cursor()
+                            <span class="keyword">
+                                as
+                            </span> cursor:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            cursor.execute(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "SELECT * FROM usuarios"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 POSTGRESQL X SQLITE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ PostgreSQL x SQLite
+
+            </h3>
+
+
+            <p class="description">
+
+                Os dois bancos são relacionais, mas possuem
+                características diferentes.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    <strong>SQLite</strong> — excelente para
+                    aplicações locais, estudos, protótipos e
+                    testes simples.
+
+                </li>
+
+
+                <li>
+
+                    <strong>PostgreSQL</strong> — indicado para
+                    aplicações que precisam de um banco
+                    servidor mais completo e recursos
+                    avançados.
+
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Pense assim:</strong>
+
+                <br><br>
+
+                SQLite → banco local baseado em arquivo.
+
+                <br><br>
+
+                PostgreSQL → banco servidor para aplicações
+                mais robustas.
+
+            </div>
+
+
+            <!-- =================================================
+                 POSTGRESQL PARA QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 PostgreSQL para QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Para QA, saber trabalhar com PostgreSQL é muito
+                útil para validar aplicações que dependem de
+                dados persistentes.
+
+            </p>
+
+
+            <p class="description">
+
+                Com Python podemos automatizar consultas,
+                preparar dados de teste e validar resultados
+                diretamente no banco.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo de fluxo:</strong>
+
+                <br><br>
+
+                1. Criar os dados necessários para o teste.
+
+                <br><br>
+
+                2. Executar a funcionalidade da aplicação.
+
+                <br><br>
+
+                3. Consultar o PostgreSQL.
+
+                <br><br>
+
+                4. Comparar o resultado obtido com o resultado
+                esperado.
+
+                <br><br>
+
+                5. Limpar os dados utilizados no teste.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Exercício
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma aplicação Python conectada a um banco
+                PostgreSQL chamado <code>loja</code>.
+
+                Crie uma tabela chamada
+                <code>produtos</code> com os campos:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <code>id</code>
+                </li>
+
+                <li>
+                    <code>nome</code>
+                </li>
+
+                <li>
+                    <code>preco</code>
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Depois, implemente operações para:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Inserir produtos.
+                </li>
+
+                <li>
+                    Listar produtos.
+                </li>
+
+                <li>
+                    Atualizar o preço de um produto.
+                </li>
+
+                <li>
+                    Remover um produto.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Desafio extra:</strong>
+
+                <br><br>
+
+                Crie uma função chamada
+                <code>buscar_produto(id)</code> que receba o
+                identificador de um produto e retorne seus dados
+                utilizando uma consulta parametrizada.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • PostgreSQL é um banco de dados relacional.<br>
+
+                • Os dados são organizados principalmente em
+                tabelas.<br>
+
+                • Python pode se conectar ao PostgreSQL através
+                de um driver como <code>psycopg</code>.<br>
+
+                • <code>psycopg.connect()</code> estabelece a
+                conexão com o banco.<br>
+
+                • O cursor executa comandos SQL.<br>
+
+                • <code>INSERT</code> adiciona registros.<br>
+
+                • <code>SELECT</code> consulta registros.<br>
+
+                • <code>UPDATE</code> altera registros.<br>
+
+                • <code>DELETE</code> remove registros.<br>
+
+                • <code>commit()</code> confirma alterações.<br>
+
+                • <code>rollback()</code> desfaz alterações da
+                transação.<br>
+
+                • Consultas parametrizadas ajudam a evitar
+                SQL Injection.<br>
+
+                • PostgreSQL pode ser utilizado em testes
+                automatizados e aplicações reais.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

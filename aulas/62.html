@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">62</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 62
+
+            </span>
+
+
+            <h2>
+
+                Visualização de dados
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos aprender como transformar dados
+                em gráficos utilizando Python.
+
+                A visualização de dados facilita a identificação de
+                padrões, tendências, comparações e comportamentos
+                que podem ser difíceis de perceber apenas olhando
+                para uma tabela.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Aprender os conceitos básicos de visualização de
+                dados utilizando <strong>Matplotlib</strong> e
+                <strong>Seaborn</strong>, criando diferentes tipos
+                de gráficos.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É VISUALIZAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📊 O que é visualização de dados?
+
+            </h3>
+
+
+            <p class="description">
+
+                Visualização de dados é a representação de
+                informações utilizando elementos gráficos, como
+                barras, linhas, pontos e setores.
+
+            </p>
+
+
+            <p class="description">
+
+                Em vez de analisar apenas números em uma tabela,
+                podemos utilizar um gráfico para enxergar
+                rapidamente:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Comparações entre categorias.
+                </li>
+
+                <li>
+                    Tendências ao longo do tempo.
+                </li>
+
+                <li>
+                    Distribuição dos dados.
+                </li>
+
+                <li>
+                    Relações entre diferentes informações.
+                </li>
+
+                <li>
+                    Valores que podem estar fora do padrão.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Pense como QA:</strong>
+
+                <br><br>
+
+                Um gráfico pode ajudar a identificar rapidamente
+                comportamentos anormais em resultados de testes,
+                como aumento no tempo de execução ou crescimento
+                da quantidade de falhas.
+
+            </div>
+
+
+            <!-- =================================================
+                 MATPLOTLIB
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📈 Matplotlib
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>Matplotlib</strong> é uma das principais
+                bibliotecas Python para criação de gráficos.
+
+                Ela permite criar gráficos de linhas, barras,
+                dispersão, histogramas e diversos outros tipos
+                de visualização.
+
+            </p>
+
+
+            <p class="description">
+
+                Para utilizar a biblioteca, podemos importar o
+                módulo <code>pyplot</code>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        matplotlib.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            matplotlib.pyplot
+                            <span class="keyword">
+                                as
+                            </span>
+                            plt
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            meses = [
+                            <span class="string">
+                                "Jan"
+                            </span>,
+                            <span class="string">
+                                "Fev"
+                            </span>,
+                            <span class="string">
+                                "Mar"
+                            </span>,
+                            <span class="string">
+                                "Abr"
+                            </span>]
+
+                        </div>
+
+
+                        <div>
+
+                            vendas = [10, 15, 12, 20]
+
+                        </div>
+
+
+                        <div>
+
+                            plt.plot(meses, vendas)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O comando <code>plot()</code> cria um gráfico de
+                linhas.
+
+                Para exibir o gráfico, utilizamos
+                <code>show()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        grafico_linha.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            matplotlib.pyplot
+                            <span class="keyword">
+                                as
+                            </span>
+                            plt
+
+                        </div>
+
+
+                        <div>
+
+                            meses = [
+                            <span class="string">
+                                "Jan"
+                            </span>,
+                            <span class="string">
+                                "Fev"
+                            </span>,
+                            <span class="string">
+                                "Mar"
+                            </span>,
+                            <span class="string">
+                                "Abr"
+                            </span>]
+
+                        </div>
+
+
+                        <div>
+
+                            vendas = [10, 15, 12, 20]
+
+                        </div>
+
+
+                        <div>
+
+                            plt.plot(meses, vendas)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.title(
+                            <span class="string">
+                                "Vendas por mês"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.xlabel(
+                            <span class="string">
+                                "Mês"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.show()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 GRÁFICO DE LINHAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📉 Gráfico de linhas
+
+            </h3>
+
+
+            <p class="description">
+
+                Gráficos de linhas são úteis para observar
+                tendências e mudanças ao longo de uma sequência.
+
+                Por exemplo, podemos acompanhar a quantidade de
+                testes executados durante uma semana.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        testes_semana.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            matplotlib.pyplot
+                            <span class="keyword">
+                                as
+                            </span>
+                            plt
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            dias = [
+                            <span class="string">
+                                "Seg"
+                            </span>,
+                            <span class="string">
+                                "Ter"
+                            </span>,
+                            <span class="string">
+                                "Qua"
+                            </span>,
+                            <span class="string">
+                                "Qui"
+                            </span>,
+                            <span class="string">
+                                "Sex"
+                            </span>]
+
+                        </div>
+
+
+                        <div>
+
+                            testes = [20, 25, 22, 30, 35]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            plt.plot(dias, testes)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.title(
+                            <span class="string">
+                                "Testes executados"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.show()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 GRÁFICO DE BARRAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📊 Gráfico de barras
+
+            </h3>
+
+
+            <p class="description">
+
+                Gráficos de barras são muito utilizados para
+                comparar valores entre diferentes categorias.
+
+                Em QA, podemos utilizá-los para comparar, por
+                exemplo, a quantidade de testes que passaram e
+                falharam.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        barras.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            matplotlib.pyplot
+                            <span class="keyword">
+                                as
+                            </span>
+                            plt
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            status = [
+                            <span class="string">
+                                "Passou"
+                            </span>,
+                            <span class="string">
+                                "Falhou"
+                            </span>]
+
+                        </div>
+
+
+                        <div>
+
+                            quantidade = [85, 15]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            plt.bar(status, quantidade)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.show()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Quando utilizar?</strong>
+
+                <br><br>
+
+                Use gráficos de barras quando quiser comparar
+                categorias diferentes.
+
+                <br><br>
+
+                Use gráficos de linhas quando quiser observar
+                uma evolução ou tendência.
+
+            </div>
+
+
+            <!-- =================================================
+                 SEABORN
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎨 Seaborn
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>Seaborn</strong> é uma biblioteca de
+                visualização construída sobre o Matplotlib.
+
+                Ela oferece gráficos com uma aparência mais
+                sofisticada e facilita algumas visualizações
+                estatísticas.
+
+            </p>
+
+
+            <p class="description">
+
+                Para utilizar o Seaborn:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        seaborn.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            seaborn
+                            <span class="keyword">
+                                as
+                            </span>
+                            sns
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            matplotlib.pyplot
+                            <span class="keyword">
+                                as
+                            </span>
+                            plt
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            dados = [
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [<span class="string">
+                                "Passou"
+                            </span>, 85],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [<span class="string">
+                                "Falhou"
+                            </span>, 15]
+
+                        </div>
+
+
+                        <div>
+
+                            ]
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Uma forma bastante comum de utilizar Seaborn é
+                trabalhando junto com um DataFrame do Pandas.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        seaborn_dataframe.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            pandas
+                            <span class="keyword">
+                                as
+                            </span>
+                            pd
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            seaborn
+                            <span class="keyword">
+                                as
+                            </span>
+                            sns
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            matplotlib.pyplot
+                            <span class="keyword">
+                                as
+                            </span>
+                            plt
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            df = pd.DataFrame({
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "status"
+                            </span>:
+                            [<span class="string">
+                                "Passou"
+                            </span>,
+                            <span class="string">
+                                "Falhou"
+                            </span>,
+                            <span class="string">
+                                "Passou"
+                            </span>],
+
+                        </div>
+
+
+                        <div>
+
+                            })
+
+                        </div>
+
+
+                        <div>
+
+                            sns.countplot(data=df,
+                            x=<span class="string">
+                                "status"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TÍTULO E LEGENDA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏷️ Personalizando gráficos
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos adicionar título, nomes aos eixos e outras
+                informações para deixar o gráfico mais fácil de
+                interpretar.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        personalizado.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            plt.bar(status, quantidade)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.title(
+                            <span class="string">
+                                "Resultado dos testes"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.xlabel(
+                            <span class="string">
+                                "Status"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.ylabel(
+                            <span class="string">
+                                "Quantidade"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            plt.grid(axis=
+                            <span class="string">
+                                "y"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            plt.show()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TIPOS DE GRÁFICOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📚 Principais tipos de gráficos
+
+            </h3>
+
+
+            <ul>
+
+                <li>
+
+                    <strong>Gráfico de linha</strong> —
+                    utilizado para tendências e evolução.
+
+                </li>
+
+
+                <li>
+
+                    <strong>Gráfico de barras</strong> —
+                    utilizado para comparar categorias.
+
+                </li>
+
+
+                <li>
+
+                    <strong>Gráfico de dispersão</strong> —
+                    utilizado para observar relações entre
+                    variáveis.
+
+                </li>
+
+
+                <li>
+
+                    <strong>Histograma</strong> —
+                    utilizado para visualizar a distribuição
+                    dos dados.
+
+                </li>
+
+
+                <li>
+
+                    <strong>Gráfico de setores</strong> —
+                    utilizado para visualizar partes de um todo.
+
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 EXEMPLO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Visualização aplicada ao QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Imagine que uma suíte de testes automatizados
+                produziu os seguintes resultados:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        relatorio.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            matplotlib.pyplot
+                            <span class="keyword">
+                                as
+                            </span>
+                            plt
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            status = [
+                            <span class="string">
+                                "Passou"
+                            </span>,
+                            <span class="string">
+                                "Falhou"
+                            </span>,
+                            <span class="string">
+                                "Bloqueado"
+                            </span>]
+
+                        </div>
+
+
+                        <div>
+
+                            quantidade = [75, 15, 10]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            plt.bar(status, quantidade)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.title(
+                            <span class="string">
+                                "Resultado da suíte"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.ylabel(
+                            <span class="string">
+                                "Quantidade de testes"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            plt.show()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Benefício para QA:</strong>
+
+                <br><br>
+
+                Em vez de analisar dezenas ou centenas de linhas
+                de resultados, um gráfico pode mostrar rapidamente
+                a proporção de testes aprovados, falhos e
+                bloqueados.
+
+                <br><br>
+
+                Isso torna relatórios e análises mais rápidos de
+                entender.
+
+            </div>
+
+
+            <!-- =================================================
+                 BOAS PRÁTICAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ Boas práticas
+
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    Escolha o tipo de gráfico adequado para a
+                    informação.
+                </li>
+
+                <li>
+                    Utilize títulos claros.
+                </li>
+
+                <li>
+                    Identifique os eixos quando necessário.
+                </li>
+
+                <li>
+                    Evite excesso de informações.
+                </li>
+
+                <li>
+                    Utilize cores de forma consistente.
+                </li>
+
+                <li>
+                    Sempre considere quem vai interpretar
+                    o gráfico.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Regra simples:</strong>
+
+                <br><br>
+
+                O gráfico deve facilitar a compreensão dos dados,
+                e não tornar a informação mais complicada.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio da aula
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um pequeno relatório visual dos resultados
+                de uma suíte de testes.
+
+                Utilize Python para criar pelo menos três
+                visualizações diferentes.
+
+            </p>
+
+
+            <p class="description">
+
+                Seu conjunto de dados deve conter informações como:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Nome do teste.
+                </li>
+
+                <li>
+                    Status do teste.
+                </li>
+
+                <li>
+                    Tempo de execução.
+                </li>
+
+                <li>
+                    Dia da execução.
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Crie:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Um gráfico de barras mostrando os status.
+                </li>
+
+                <li>
+                    Um gráfico de linhas mostrando a evolução
+                    dos testes.
+                </li>
+
+                <li>
+                    Um gráfico utilizando Seaborn.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Utilize um DataFrame do Pandas para armazenar os
+                dados e gere automaticamente um pequeno relatório
+                visual dos resultados dos testes.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que é visualização de dados.<br>
+
+                • Como utilizar
+                <strong>Matplotlib</strong>.<br>
+
+                • Como criar gráficos de linhas.<br>
+
+                • Como criar gráficos de barras.<br>
+
+                • Como adicionar títulos e nomes aos eixos.<br>
+
+                • O que é <strong>Seaborn</strong>.<br>
+
+                • Como utilizar Seaborn junto com Pandas.<br>
+
+                • Como escolher o gráfico adequado para cada
+                situação.<br>
+
+                • Como utilizar gráficos para analisar resultados
+                de testes.<br>
+
+                • Como transformar dados em informações visuais.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Aula concluída!
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora você já consegue transformar dados em
+                visualizações utilizando Python.
+
+                Na próxima etapa, vamos avançar para conceitos
+                que permitem analisar os dados de forma ainda
+                mais eficiente.
+
+            </p>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

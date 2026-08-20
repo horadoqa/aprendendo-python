@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">31</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 31
+
+            </span>
+
+
+            <h2>
+
+                Construtores e estado do objeto
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como utilizar o
+                <strong>construtor <code>__init__()</code></strong>
+                para inicializar objetos e como os
+                <strong>atributos</strong> representam o estado
+                de cada objeto.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏗️ O que é um construtor?
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando criamos um objeto a partir de uma classe,
+                muitas vezes precisamos definir alguns valores
+                iniciais.
+
+                É nesse momento que o método
+                <code>__init__()</code> entra em ação.
+
+            </p>
+
+
+            <p class="description">
+
+                O <code>__init__()</code> é executado
+                automaticamente sempre que um novo objeto da
+                classe é criado.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                O <code>__init__()</code> é utilizado para
+                <strong>preparar e inicializar o objeto</strong>
+                no momento em que ele é criado.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO BÁSICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💻 Criando um construtor
+
+            </h3>
+
+
+            <p class="description">
+
+                O construtor recebe <code>self</code> e pode
+                receber outros parâmetros necessários para
+                inicializar o objeto.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        aluno.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Aluno:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, nome):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.nome = nome
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            aluno = Aluno(
+                            <span class="string">
+                                "Maria"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            aluno.nome)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Maria
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 COMO FUNCIONA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 O que acontece?
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando executamos:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        exemplo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            aluno = Aluno(
+                            <span class="string">
+                                "Maria"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O Python cria um novo objeto da classe
+                <code>Aluno</code> e executa automaticamente
+                o método <code>__init__()</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                O valor <code>"Maria"</code> é recebido pelo
+                parâmetro <code>nome</code> e armazenado no
+                atributo <code>self.nome</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 Fluxo:</strong>
+
+                <br><br>
+
+                Criar objeto
+                → executar <code>__init__()</code>
+                → receber valores
+                → inicializar atributos
+                → objeto pronto para ser utilizado.
+
+            </div>
+
+
+            <!-- =================================================
+                 VÁRIOS ATRIBUTOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Inicializando vários atributos
+
+            </h3>
+
+
+            <p class="description">
+
+                Um construtor pode receber vários parâmetros
+                para definir diferentes características do objeto.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        produto.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Produto:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, nome, preco, estoque):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.nome = nome
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.preco = preco
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.estoque = estoque
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            produto = Produto(
+                            <span class="string">
+                                "Notebook"
+                            </span>,
+                            3500,
+                            10)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            produto.nome,
+                            produto.preco,
+                            produto.estoque)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Notebook 3500 10
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ESTADO DO OBJETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Estado do objeto
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>estado de um objeto</strong> é formado
+                pelos valores armazenados em seus atributos
+                naquele momento.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, um produto pode começar com
+                <code>estoque = 10</code>.
+
+                Depois de uma venda, esse valor pode mudar
+                para <code>9</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                O objeto continua sendo o mesmo, mas seu
+                <strong>estado mudou</strong> porque os valores
+                de seus atributos foram alterados.
+
+            </div>
+
+
+            <!-- =================================================
+                 ALTERANDO ESTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✏️ Alterando o estado
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        estoque.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Produto:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, nome, estoque):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.nome = nome
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.estoque = estoque
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            produto = Produto(
+                            <span class="string">
+                                "Mouse"
+                            </span>, 10)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            produto.estoque)
+
+                        </div>
+
+
+                        <div>
+
+                            produto.estoque = 9
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            produto.estoque)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        10
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        9
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ESTADOS INDEPENDENTES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                👥 Cada objeto possui seu próprio estado
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando criamos vários objetos da mesma classe,
+                cada um possui seus próprios valores de atributos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        clientes.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Cliente:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, nome):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.nome = nome
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cliente1 = Cliente(
+                            <span class="string">
+                                "Maria"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            cliente2 = Cliente(
+                            <span class="string">
+                                "João"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            cliente1.nome)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            cliente2.nome)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Maria
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        João
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Mesmo sendo criados a partir da mesma classe,
+                <code>cliente1</code> e <code>cliente2</code>
+                possuem estados independentes.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 Pense assim:</strong>
+
+                <br><br>
+
+                A classe define a estrutura.
+
+                <br><br>
+
+                Cada objeto recebe seus próprios valores.
+
+                <br><br>
+
+                Por isso, alterar o atributo de um objeto não
+                altera automaticamente o atributo de outro objeto.
+
+            </div>
+
+
+            <!-- =================================================
+                 VALORES PADRÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚙️ Valores padrão no construtor
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos definir valores padrão para
+                determinados atributos.
+
+                Assim, o objeto pode ser criado mesmo quando
+                aquele valor não for informado.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        usuario.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Usuario:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, nome, ativo =
+                            <span class="keyword">
+                                True
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.nome = nome
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.ativo = ativo
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            usuario = Usuario(
+                            <span class="string">
+                                "Maria"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            usuario.ativo)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        True
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 APLICAÇÃO EM QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Construtores no QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Em automação de testes, construtores são muito
+                úteis para preparar objetos com as informações
+                necessárias para cada teste.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, podemos criar uma classe que
+                represente um usuário de teste.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        usuario_teste.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            UsuarioTeste:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, usuario, senha):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.usuario = usuario
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.senha = senha
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            teste = UsuarioTeste(
+                            <span class="string">
+                                "maria"
+                            </span>,
+                            <span class="string">
+                                "123456"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            teste.usuario)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            teste.senha)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma classe chamada
+                <code>Funcionario</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • Crie um construtor <code>__init__()</code>.<br>
+
+                • Receba os parâmetros
+                <code>nome</code>,
+                <code>cargo</code> e
+                <code>salario</code>.<br>
+
+                • Armazene os valores nos atributos do objeto.<br>
+
+                • Crie dois objetos diferentes.<br>
+
+                • Mostre os dados dos dois funcionários.<br>
+
+                • Altere o salário de um deles e observe como
+                o estado do objeto mudou.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • <code>__init__()</code> é executado quando um
+                objeto é criado.<br>
+
+                • O construtor é utilizado para inicializar
+                atributos.<br>
+
+                • <code>self</code> representa o próprio objeto.<br>
+
+                • Um construtor pode receber vários parâmetros.<br>
+
+                • Podemos utilizar valores padrão nos
+                parâmetros.<br>
+
+                • O estado do objeto é formado pelos valores
+                atuais de seus atributos.<br>
+
+                • Cada objeto possui seu próprio estado.<br>
+
+                • Alterar um objeto não altera automaticamente
+                os outros objetos.<br>
+
+                • Construtores são muito úteis para preparar
+                objetos utilizados em automação de testes.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

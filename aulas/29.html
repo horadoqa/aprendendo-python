@@ -1,0 +1,2118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">29</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 29
+
+            </span>
+
+
+            <h2>
+
+                Caminhos e diretórios em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender a trabalhar com
+                <strong>arquivos, pastas e caminhos</strong>
+                utilizando o módulo <strong>pathlib</strong>.
+
+                Vamos aprender a criar, mover, renomear e excluir
+                arquivos e diretórios de forma simples e segura.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📁 O que são caminhos e diretórios?
+
+            </h3>
+
+
+            <p class="description">
+
+                Um <strong>caminho</strong> indica onde um arquivo
+                ou diretório está localizado no computador.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo de caminho:</strong>
+
+                <br><br>
+
+                <code>
+                    projetos/testes/relatorio.txt
+                </code>
+
+                <br><br>
+
+                Nesse exemplo, <code>projetos</code> é uma pasta,
+                <code>testes</code> é outra pasta e
+                <code>relatorio.txt</code> é o arquivo.
+
+            </div>
+
+
+            <p class="description">
+
+                Um <strong>diretório</strong> é simplesmente
+                outro nome utilizado para representar uma pasta.
+
+            </p>
+
+
+            <!-- =================================================
+                 PATHLIB
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐍 Conhecendo o <code>pathlib</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>pathlib</strong> é um módulo da biblioteca
+                padrão do Python que facilita o trabalho com
+                caminhos de arquivos e diretórios.
+
+            </p>
+
+
+            <p class="description">
+
+                Para utilizá-lo, podemos importar a classe
+                <strong>Path</strong>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        pathlib.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CRIANDO PATH
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛣️ Criando um caminho
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos criar um objeto <code>Path</code> passando
+                o caminho que queremos representar.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        caminho.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div>
+
+                            arquivo = Path(
+                            <span class="string">
+                                "relatorio.txt"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(arquivo)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        relatorio.txt
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXISTE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Verificando se existe
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>exists()</code> permite verificar
+                se um arquivo ou diretório existe.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        verificar.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            arquivo = Path(
+                            <span class="string">
+                                "relatorio.txt"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            arquivo.<span class="function">
+                                exists
+                            </span>())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        True
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ARQUIVO OU DIRETORIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📂 Arquivo ou diretório?
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos verificar se um caminho representa um
+                arquivo ou um diretório utilizando
+                <code>is_file()</code> e <code>is_dir()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        tipo_caminho.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            caminho = Path(
+                            <span class="string">
+                                "relatorio.txt"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            caminho.<span class="function">
+                                is_file
+                            </span>())
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            caminho.<span class="function">
+                                is_dir
+                            </span>())
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CRIAR DIRETORIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📁 Criando diretórios
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>mkdir()</code> permite criar
+                uma nova pasta.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        criar_pasta.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            pasta = Path(
+                            <span class="string">
+                                "relatorios"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            pasta.<span class="function">
+                                mkdir
+                            </span>()
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Pasta criada!"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Atenção:</strong>
+
+                <br><br>
+
+                Se a pasta já existir, o <code>mkdir()</code>
+                pode gerar um erro.
+
+                <br><br>
+
+                Para evitar isso, podemos utilizar
+                <code>exist_ok=True</code>.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        criar_pasta_segura.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div>
+
+                            pasta = Path(
+                            <span class="string">
+                                "relatorios"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            pasta.<span class="function">
+                                mkdir
+                            </span>(
+                            exist_ok=<span class="keyword">
+                                True
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CRIAR ARQUIVO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📄 Criando arquivos
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>touch()</code> pode ser utilizado
+                para criar um arquivo vazio.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        criar_arquivo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div>
+
+                            arquivo = Path(
+                            <span class="string">
+                                "teste.txt"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            arquivo.<span class="function">
+                                touch
+                            </span>()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ESCREVER ARQUIVO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✏️ Escrevendo em arquivos
+
+            </h3>
+
+
+            <p class="description">
+
+                O objeto <code>Path</code> também possui métodos
+                que facilitam a leitura e escrita de arquivos.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos utilizar <code>write_text()</code> para
+                escrever um texto diretamente em um arquivo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        escrever.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div>
+
+                            arquivo = Path(
+                            <span class="string">
+                                "teste.txt"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            arquivo.<span class="function">
+                                write_text
+                            </span>(
+                            <span class="string">
+                                "Olá, Python!"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MOVER
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Movendo arquivos
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>rename()</code> pode ser utilizado
+                tanto para renomear quanto para mover arquivos.
+
+            </p>
+
+
+            <p class="description">
+
+                Para mover um arquivo, informamos o novo caminho
+                como destino.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        mover.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            arquivo = Path(
+                            <span class="string">
+                                "teste.txt"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            arquivo.<span class="function">
+                                rename
+                            </span>(
+                            <span class="string">
+                                "documentos/teste.txt"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                Para mover um arquivo para uma pasta diferente,
+                a pasta de destino precisa existir.
+
+            </div>
+
+
+            <!-- =================================================
+                 RENOMEAR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✏️ Renomeando arquivos
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos utilizar <code>rename()</code>
+                para alterar o nome de um arquivo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        renomear.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            arquivo = Path(
+                            <span class="string">
+                                "teste.txt"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            arquivo.<span class="function">
+                                rename
+                            </span>(
+                            <span class="string">
+                                "relatorio.txt"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXCLUIR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗑️ Excluindo arquivos
+
+            </h3>
+
+
+            <p class="description">
+
+                Para excluir um arquivo, podemos utilizar o método
+                <code>unlink()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        excluir.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            arquivo = Path(
+                            <span class="string">
+                                "teste.txt"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            arquivo.<span class="function">
+                                unlink
+                            </span>()
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Arquivo excluído!"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Cuidado:</strong>
+
+                <br><br>
+
+                <code>unlink()</code> remove o arquivo do
+                sistema de arquivos.
+
+                <br><br>
+
+                Antes de excluir, é uma boa prática verificar
+                se o arquivo realmente existe utilizando
+                <code>exists()</code>.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        excluir_seguro.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            arquivo = Path(
+                            <span class="string">
+                                "teste.txt"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                if
+                            </span>
+                            arquivo.<span class="function">
+                                exists
+                            </span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            arquivo.<span class="function">
+                                unlink
+                            </span>()
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Arquivo excluído!"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DIRETÓRIOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📂 Trabalhando com diretórios
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos listar o conteúdo de uma pasta
+                utilizando <code>iterdir()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        listar.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            pasta = Path(
+                            <span class="string">
+                                "documentos"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            item
+                            <span class="keyword">
+                                in
+                            </span>
+                            pasta.<span class="function">
+                                iterdir
+                            </span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(item)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PARENT / NAME / SUFFIX
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔍 Informações sobre o caminho
+
+            </h3>
+
+
+            <p class="description">
+
+                O objeto <code>Path</code> possui várias
+                propriedades úteis para analisar um caminho.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        propriedades.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            arquivo = Path(
+                            <span class="string">
+                                "documentos/relatorio.pdf"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            arquivo.name)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            arquivo.suffix)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            arquivo.parent)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        relatorio.pdf
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        .pdf
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        documentos
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 <code>pathlib</code> no QA
+
+            </h3>
+
+
+            <p class="description">
+
+                O trabalho com arquivos e diretórios aparece
+                frequentemente em automações e testes.
+
+                Com <code>pathlib</code>, podemos criar estruturas
+                de teste, localizar arquivos, organizar evidências
+                e limpar arquivos temporários.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Exemplos no QA:</strong>
+
+                <br><br>
+
+                • Criar pastas para evidências dos testes.<br>
+
+                • Localizar arquivos de evidência.<br>
+
+                • Renomear screenshots.<br>
+
+                • Mover relatórios para diretórios específicos.<br>
+
+                • Criar arquivos de massa de teste.<br>
+
+                • Excluir arquivos temporários após a execução.<br>
+
+                • Verificar se um relatório foi gerado.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO PRÁTICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔧 Exemplo prático
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos criar uma pasta para armazenar os
+                resultados de um teste e depois criar um arquivo
+                de evidência dentro dela.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        evidencia.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            pasta = Path(
+                            <span class="string">
+                                "evidencias"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            pasta.<span class="function">
+                                mkdir
+                            </span>(
+                            exist_ok=<span class="keyword">
+                                True
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            arquivo = pasta /
+                            <span class="string">
+                                "resultado.txt"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            arquivo.<span class="function">
+                                write_text
+                            </span>(
+                            <span class="string">
+                                "Teste aprovado"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Evidência criada!"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                O operador <code>/</code> pode ser utilizado
+                com objetos <code>Path</code> para construir
+                caminhos de forma simples:
+
+                <br><br>
+
+                <code>
+                    pasta / "resultado.txt"
+                </code>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um pequeno programa para organizar arquivos
+                de teste.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • Crie uma pasta chamada
+                <code>relatorios</code>.<br>
+
+                • Crie um arquivo chamado
+                <code>teste.txt</code>.<br>
+
+                • Escreva uma mensagem no arquivo.<br>
+
+                • Mova ou renomeie o arquivo para dentro da pasta
+                <code>relatorios</code>.<br>
+
+                • Verifique se o arquivo existe.<br>
+
+                • Mostre o caminho final no terminal.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • <code>pathlib</code> facilita o trabalho com
+                arquivos e diretórios.<br>
+
+                • <code>Path()</code> cria objetos para representar
+                caminhos.<br>
+
+                • <code>exists()</code> verifica se um caminho
+                existe.<br>
+
+                • <code>is_file()</code> verifica se é um arquivo.<br>
+
+                • <code>is_dir()</code> verifica se é um diretório.<br>
+
+                • <code>mkdir()</code> cria diretórios.<br>
+
+                • <code>touch()</code> cria arquivos vazios.<br>
+
+                • <code>write_text()</code> escreve texto em
+                arquivos.<br>
+
+                • <code>rename()</code> pode renomear ou mover
+                arquivos.<br>
+
+                • <code>unlink()</code> exclui arquivos.<br>
+
+                • <code>iterdir()</code> permite percorrer o
+                conteúdo de um diretório.<br>
+
+                • <code>name</code>, <code>suffix</code> e
+                <code>parent</code> ajudam a analisar caminhos.<br>
+
+                • <code>pathlib</code> é muito útil em automações
+                e testes de software.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

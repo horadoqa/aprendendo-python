@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+
+                        Tema
+
+                    </span>
+
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">17</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 17
+
+            </span>
+
+
+            <h2>
+
+                Funções como objetos em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Em Python, funções também são objetos.
+
+                Isso significa que podemos armazenar uma função
+                em uma variável, passar uma função como argumento
+                para outra função e criar pequenas funções
+                utilizando <strong>lambda</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Funções dentro de variáveis
+
+            </h3>
+
+
+            <p class="description">
+
+                Em Python, podemos criar uma função normalmente
+                e depois armazená-la em uma variável.
+
+                A variável passa a fazer referência à função e
+                pode ser utilizada para executá-la.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Funções podem ser tratadas como valores.
+
+                <br><br>
+
+                Assim como podemos armazenar um número ou uma
+                string em uma variável, também podemos armazenar
+                uma função.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        variavel_funcao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                saudacao
+                            </span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="string">
+                                "Olá, QA!"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            mensagem =
+                            saudacao
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            mensagem())
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá, QA!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Observe que utilizamos:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <code>mensagem = saudacao</code> para armazenar
+                    a função.
+                </li>
+
+                <li>
+                    <code>mensagem()</code> para executar a função.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                <code>saudacao</code> e
+                <code>saudacao()</code> não são a mesma coisa.
+
+                <br><br>
+
+                <code>saudacao</code> representa a própria função.
+
+                <br><br>
+
+                <code>saudacao()</code> executa a função e obtém
+                seu resultado.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCEITO 2
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Funções como argumentos
+
+            </h3>
+
+
+            <p class="description">
+
+                Como funções são objetos, podemos passá-las como
+                argumentos para outras funções.
+
+                Isso permite criar funções mais flexíveis e
+                reutilizáveis.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        argumento.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                executar
+                            </span>(
+                            funcao):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado =
+                            <span class="function">
+                                funcao
+                            </span>()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                teste_login
+                            </span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="string">
+                                "Login executado"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                executar
+                            </span>(
+                            teste_login)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Login executado
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                A função <code>executar()</code> recebe outra
+                função como argumento.
+
+                Nesse exemplo, passamos <code>teste_login</code>
+                para ela.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Pense como QA:</strong>
+
+                <br><br>
+
+                Imagine uma função responsável por executar um
+                teste.
+
+                <br><br>
+
+                Em vez de criar uma função diferente para cada
+                teste, podemos criar uma função genérica que
+                recebe o teste que deverá ser executado.
+
+            </div>
+
+
+            <!-- =================================================
+                 FUNÇÃO COM PARÂMETROS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 Funções com parâmetros
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos passar funções que recebem
+                parâmetros.
+
+                Nesse caso, a função que recebe a outra função
+                pode fornecer os valores necessários.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        parametros.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                executar
+                            </span>(
+                            funcao,
+                            valor):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado =
+                            <span class="function">
+                                funcao
+                            </span>(valor)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                dobrar
+                            </span>(numero):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            numero * 2
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                executar
+                            </span>(
+                            dobrar, 5)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        10
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 LAMBDA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚡ <code>lambda</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                <code>lambda</code> permite criar pequenas funções
+                de forma rápida e compacta.
+
+                Uma função lambda normalmente possui uma expressão
+                simples e retorna automaticamente o resultado dessa
+                expressão.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Estrutura:</strong>
+
+                <br><br>
+
+                <code>
+                    lambda parâmetros: expressão
+                </code>
+
+                <br><br>
+
+                A expressão depois dos dois pontos é o resultado
+                retornado pela função.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        lambda.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            dobrar =
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            numero:
+                            numero * 2
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            <span class="function">
+                                dobrar
+                            </span>(5)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        10
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O mesmo exemplo poderia ser escrito utilizando
+                uma função tradicional:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        funcao_tradicional.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                dobrar
+                            </span>(numero):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            numero * 2
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            <span class="function">
+                                dobrar
+                            </span>(5)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Quando usar lambda?</strong>
+
+                <br><br>
+
+                Lambdas são úteis quando precisamos de uma função
+                pequena e simples que será utilizada em um
+                determinado contexto.
+
+                <br><br>
+
+                Para regras mais complexas, uma função criada com
+                <code>def</code> geralmente deixa o código mais
+                claro.
+
+            </div>
+
+
+            <!-- =================================================
+                 LAMBDA COMO ARGUMENTO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔗 Lambda como argumento
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das situações mais comuns para utilizar
+                <code>lambda</code> é passar uma pequena função
+                diretamente como argumento para outra função.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        lambda_argumento.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                aplicar
+                            </span>(
+                            funcao,
+                            valor):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="function">
+                                funcao
+                            </span>(valor)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            <span class="function">
+                                aplicar
+                            </span>(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            numero:
+                            numero + 10,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            5
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        15
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 APLICAÇÃO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Funções aplicadas a QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Esse conceito pode ser útil em automação de testes
+                quando queremos criar funções genéricas para
+                executar diferentes validações.
+
+                Podemos, por exemplo, criar uma função que recebe
+                uma regra de validação como argumento.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        validacao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                validar
+                            </span>(
+                            valor,
+                            regra):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="function">
+                                regra
+                            </span>(valor)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            <span class="function">
+                                validar
+                            </span>(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            10,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            valor:
+                            valor &gt; 0
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        True
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Pense como QA:</strong>
+
+                <br><br>
+
+                A função <code>validar()</code> não precisa saber
+                qual regra será utilizada.
+
+                <br><br>
+
+                Ela recebe a regra como argumento e executa essa
+                regra sobre o valor informado.
+
+                <br><br>
+
+                Isso permite reutilizar a mesma estrutura para
+                diferentes validações.
+
+            </div>
+
+
+            <!-- =================================================
+                 COMPARAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🆚 <code>def</code> x <code>lambda</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Os dois recursos podem criar funções, mas são
+                utilizados em situações diferentes.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    <strong>
+                        <code>def</code>
+                    </strong>
+                    — ideal para funções maiores, reutilizáveis
+                    e com várias instruções.
+
+                </li>
+
+
+                <li>
+
+                    <strong>
+                        <code>lambda</code>
+                    </strong>
+                    — ideal para funções pequenas e simples.
+
+                </li>
+
+
+                <li>
+
+                    <strong>
+                        <code>def</code>
+                    </strong>
+                    — permite utilizar várias instruções e
+                    documentação.
+
+                </li>
+
+
+                <li>
+
+                    <strong>
+                        <code>lambda</code>
+                    </strong>
+                    — possui uma única expressão.
+
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma função chamada
+                <code>aplicar_regra</code> que receba dois
+                argumentos:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Um valor chamado <code>numero</code>.
+                </li>
+
+                <li>
+                    Uma função chamada <code>regra</code>.
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                A função deve executar a regra recebida e retornar
+                o resultado.
+
+                Depois, utilize uma <code>lambda</code> para
+                verificar se um número é maior que 10.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        desafio.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                aplicar_regra
+                            </span>(
+                            numero,
+                            regra):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="function">
+                                regra
+                            </span>(numero)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            <span class="function">
+                                aplicar_regra
+                            </span>(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            15,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            numero:
+                            numero &gt; 10
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Em Python, funções também são
+                <strong>objetos</strong>.<br>
+
+                • Podemos armazenar funções dentro de
+                <strong>variáveis</strong>.<br>
+
+                • Podemos passar funções como
+                <strong>argumentos</strong> para outras funções.<br>
+
+                • <code>nome_funcao</code> representa a função,
+                enquanto <code>nome_funcao()</code> executa a
+                função.<br>
+
+                • <code>lambda</code> permite criar funções
+                pequenas e simples.<br>
+
+                • Uma lambda possui normalmente a estrutura
+                <code>lambda parâmetros: expressão</code>.<br>
+
+                • Funções como objetos permitem criar código mais
+                flexível e reutilizável.<br>
+
+                • Em automação de QA, esse conceito pode ser usado
+                para criar regras e validações reutilizáveis.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

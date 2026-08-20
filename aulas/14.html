@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+
+                        Tema
+
+                    </span>
+
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">14</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 14
+
+            </span>
+
+
+            <h2>
+
+                Criando funções em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender a criar suas próprias
+                funções utilizando <strong>def</strong>.
+
+                Também vamos entender como utilizar
+                <strong>parâmetros</strong>,
+                <strong>argumentos</strong> e
+                <strong>return</strong> para criar códigos mais
+                organizados, reutilizáveis e fáceis de manter.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 O que são funções?
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma função é um bloco de código criado para realizar
+                uma tarefa específica.
+
+                Em vez de repetir o mesmo código várias vezes,
+                podemos colocá-lo dentro de uma função e
+                executá-lo sempre que necessário.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Pense em uma função como uma pequena "máquina".
+
+                <br><br>
+
+                Você fornece informações para ela, ela executa
+                uma tarefa e pode devolver um resultado.
+
+            </div>
+
+
+            <!-- =================================================
+                 DEF
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛠️ Criando uma função com <code>def</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Para criar uma função em Python, utilizamos a
+                palavra-chave <strong>def</strong>, seguida do
+                nome da função e dos parênteses.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        funcao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">saudacao</span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">
+                                "Olá, seja bem-vindo!"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                saudacao
+                            </span>()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá, seja bem-vindo!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                A palavra <code>def</code> indica que estamos
+                criando uma função.
+
+                O nome <code>saudacao</code> identifica a função.
+
+                Os parênteses <code>()</code> podem receber
+                parâmetros.
+
+                O código indentado abaixo da função representa
+                o que ela irá executar.
+
+            </p>
+
+
+            <!-- =================================================
+                 PARÂMETROS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📥 Parâmetros
+
+            </h3>
+
+
+            <p class="description">
+
+                Parâmetros são informações que uma função espera
+                receber.
+
+                Eles ficam dentro dos parênteses na definição
+                da função.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        parametros.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">saudacao</span>(
+                            nome):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">
+                                "Olá,"
+                            </span>,
+                            nome)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                saudacao
+                            </span>(
+                            <span class="string">
+                                "Maria"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá, Maria
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Parâmetro:</strong>
+
+                <br><br>
+
+                O parâmetro é a variável definida na criação
+                da função.
+
+                <br><br>
+
+                Neste exemplo:
+
+                <br><br>
+
+                <code>nome</code> é o parâmetro da função.
+
+            </div>
+
+
+            <!-- =================================================
+                 ARGUMENTOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📤 Argumentos
+
+            </h3>
+
+
+            <p class="description">
+
+                Argumento é o valor que enviamos para o parâmetro
+                quando chamamos a função.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        argumentos.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">saudacao</span>(
+                            nome):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">
+                                "Olá,"
+                            </span>,
+                            nome)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                saudacao
+                            </span>(
+                            <span class="string">
+                                "Ana"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                saudacao
+                            </span>(
+                            <span class="string">
+                                "Carlos"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                saudacao
+                            </span>(
+                            <span class="string">
+                                "João"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá, Ana
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá, Carlos
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá, João
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para diferenciar:</strong>
+
+                <br><br>
+
+                <strong>Parâmetro</strong> → aparece na definição
+                da função.
+
+                <br><br>
+
+                <strong>Argumento</strong> → é o valor enviado
+                quando chamamos a função.
+
+                <br><br>
+
+                <code>def saudacao(nome):</code>
+
+                <br>
+
+                <code>nome</code> → parâmetro.
+
+                <br><br>
+
+                <code>saudacao("Ana")</code>
+
+                <br>
+
+                <code>"Ana"</code> → argumento.
+
+            </div>
+
+
+            <!-- =================================================
+                 VÁRIOS PARÂMETROS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ➕ Vários parâmetros
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma função pode receber mais de um parâmetro.
+
+                Basta separá-los utilizando vírgulas.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        calculo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">somar</span>(
+                            numero1, numero2):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            numero1 + numero2)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                somar
+                            </span>(10, 20)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        30
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RETURN
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ↩️ Retornando valores com <code>return</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O <code>return</code> permite que uma função
+                devolva um resultado para o código que a chamou.
+
+                Isso é diferente de simplesmente utilizar
+                <code>print()</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                <code>print()</code> apenas exibe uma informação.
+
+                <br><br>
+
+                <code>return</code> devolve um valor que pode ser
+                armazenado em uma variável ou utilizado em outra
+                operação.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        return.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">somar</span>(
+                            numero1, numero2):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            numero1 + numero2
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            <span class="function">
+                                somar
+                            </span>(10, 20)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        30
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PRINT X RETURN
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🆚 <code>print()</code> x <code>return</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Veja a diferença entre apenas mostrar um resultado
+                e realmente devolver esse resultado.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        diferenca.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">mostrar</span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(10)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">devolver</span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span> 10
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            <span class="function">
+                                devolver
+                            </span>()
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>Resumo:</strong>
+
+                <br><br>
+
+                <code>print()</code> → mostra o valor na tela.
+
+                <br><br>
+
+                <code>return</code> → devolve o valor para ser
+                utilizado pelo programa.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Funções aplicadas a QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Funções são muito importantes em automação de
+                testes porque permitem transformar ações
+                repetitivas em blocos reutilizáveis.
+
+                Por exemplo, podemos criar uma função para
+                verificar se um teste foi aprovado.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        validacao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                verificar_status
+                            </span>(status):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">if</span>
+                            status ==
+                            <span class="string">
+                                "Aprovado"
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            <span class="keyword">True</span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            <span class="keyword">False</span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            <span class="function">
+                                verificar_status
+                            </span>(
+                            <span class="string">
+                                "Aprovado"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        True
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Por que funções são importantes para QA?</strong>
+
+                <br><br>
+
+                Em automação de testes, várias ações podem ser
+                repetidas.
+
+                <br><br>
+
+                Podemos criar funções para ações como:
+
+                <br><br>
+
+                • Fazer login.<br>
+                • Validar um status.<br>
+                • Calcular resultados.<br>
+                • Criar dados de teste.<br>
+                • Validar respostas de uma API.
+
+                <br><br>
+
+                Dessa forma, o código fica mais organizado,
+                reutilizável e fácil de manter.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma função chamada
+                <code>calcular_media</code> que receba três notas
+                como parâmetros.
+
+                A função deve calcular a média e utilizar
+                <code>return</code> para devolver o resultado.
+
+                Depois, armazene o resultado em uma variável e
+                exiba a média utilizando <code>print()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        desafio.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                calcular_media
+                            </span>(nota1, nota2, nota3):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            media = (nota1 + nota2 + nota3) / 3
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            media
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            <span class="function">
+                                calcular_media
+                            </span>(8, 9, 10)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • <code>def</code> é utilizado para criar funções.<br>
+
+                • Funções permitem reutilizar blocos de código.<br>
+
+                • <strong>Parâmetros</strong> são definidos na
+                criação da função.<br>
+
+                • <strong>Argumentos</strong> são os valores
+                enviados para a função.<br>
+
+                • Uma função pode receber vários parâmetros.<br>
+
+                • <code>return</code> devolve um resultado para
+                o código que chamou a função.<br>
+
+                • <code>print()</code> exibe um valor, enquanto
+                <code>return</code> devolve um valor.<br>
+
+                • Funções ajudam a deixar códigos de automação
+                mais organizados e reutilizáveis.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

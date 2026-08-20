@@ -1,0 +1,3968 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">71</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA 71 — ITERADORES E ITERÁVEIS
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+                AULA 71
+            </span>
+
+
+            <h2>
+                Iteradores e iteráveis
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos entender um conceito muito importante
+                da linguagem Python:
+
+                <strong>iteradores e iteráveis</strong>.
+
+                Esses conceitos estão presentes em estruturas que usamos
+                diariamente, como listas, tuplas, strings, dicionários
+                e conjuntos.
+
+            </p>
+
+
+            <p class="description">
+
+                Também vamos entender como o
+                <strong>for</strong> funciona internamente e aprender
+                a criar nossos próprios iteradores utilizando os métodos
+                especiais <code>__iter__()</code> e <code>__next__()</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Entender como Python percorre coleções e aprender a
+                controlar manualmente esse processo utilizando
+                <code>iter()</code> e <code>next()</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É UM ITERÁVEL?
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 O que é um iterável?
+
+            </h3>
+
+
+            <p class="description">
+
+                Um <strong>iterável</strong> é um objeto que pode ser
+                percorrido elemento por elemento.
+
+            </p>
+
+
+            <p class="description">
+
+                Alguns exemplos muito comuns de objetos iteráveis em
+                Python são:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Listas.
+                </li>
+
+                <li>
+                    Tuplas.
+                </li>
+
+                <li>
+                    Strings.
+                </li>
+
+                <li>
+                    Dicionários.
+                </li>
+
+                <li>
+                    Conjuntos.
+                </li>
+
+                <li>
+                    Arquivos.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Ideia principal:</strong>
+
+                <br><br>
+
+                Se podemos utilizar um objeto em um
+                <code>for</code> para percorrer seus elementos,
+                normalmente estamos trabalhando com um objeto
+                iterável.
+
+            </div>
+
+
+            <!-- =================================================
+                 LISTA ITERÁVEL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 Uma lista é iterável
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos percorrer uma lista utilizando um
+                <code>for</code>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        lista.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [10, 20, 30, 40]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            numeros:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(numero)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        10
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        20
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        30
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        40
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 iter()
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧰 A função <code>iter()</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos transformar um objeto iterável em um
+                <strong>iterador</strong> utilizando a função
+                <code>iter()</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        iter.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [10, 20, 30]
+
+                        </div>
+
+
+                        <div>
+
+                            iterador = iter(numeros)
+
+                        </div>
+
+
+                        <div>
+
+                            print(iterador)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora temos um objeto responsável por fornecer os
+                elementos da lista um por vez.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Iterável
+
+                    →
+
+                    <code>iter()</code>
+
+                    →
+
+                    Iterador
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 next()
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶️ A função <code>next()</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de criar um iterador, podemos utilizar
+                <code>next()</code> para obter o próximo elemento.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        next.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [10, 20, 30]
+
+                        </div>
+
+
+                        <div>
+
+                            iterador = iter(numeros)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(next(iterador))
+
+                        </div>
+
+
+                        <div>
+
+                            print(next(iterador))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        10
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        20
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Cada chamada para <code>next()</code> avança o iterador
+                para o próximo elemento.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Observe:</strong>
+
+                <br><br>
+
+                O iterador mantém internamente a posição em que
+                está.
+
+                <br><br>
+
+                Por isso, a próxima chamada de <code>next()</code>
+                continua de onde a anterior parou.
+
+            </div>
+
+
+            <!-- =================================================
+                 STOPITERATION
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛑 <code>StopIteration</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando não existem mais elementos para retornar,
+                o iterador gera uma exceção chamada
+                <strong>StopIteration</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        stop.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [10, 20]
+
+                        </div>
+
+
+                        <div>
+
+                            iterador = iter(numeros)
+
+                        </div>
+
+
+                        <div>
+
+                            print(next(iterador))
+
+                        </div>
+
+
+                        <div>
+
+                            print(next(iterador))
+
+                        </div>
+
+
+                        <div>
+
+                            print(next(iterador))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        10
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        20
+
+                    </div>
+
+
+                    <div>
+
+                        StopIteration
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Importante:</strong>
+
+                <br><br>
+
+                <code>StopIteration</code> não significa que o programa
+                necessariamente está com um erro.
+
+                <br><br>
+
+                Ela é a forma utilizada pelos iteradores para informar
+                que não existem mais elementos.
+
+            </div>
+
+
+            <!-- =================================================
+                 FOR POR BAIXO DOS PANOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔍 Como o <code>for</code> funciona por baixo dos panos?
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando escrevemos:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        for.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [10, 20, 30]
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            numeros:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(numero)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Python utiliza internamente um processo equivalente a:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        interno.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [10, 20, 30]
+
+                        </div>
+
+
+                        <div>
+
+                            iterador = iter(numeros)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                while
+                            </span>
+                            True:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            numero = next(iterador)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(numero)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                except
+                            </span>
+                            StopIteration:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                break
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 A ideia é:</strong>
+
+                <br><br>
+
+                <code>for</code>
+
+                → cria/obtém um iterador
+
+                <br>
+
+                → chama <code>next()</code>
+
+                <br>
+
+                → executa o bloco
+
+                <br>
+
+                → chama <code>next()</code> novamente
+
+                <br>
+
+                → quando ocorre <code>StopIteration</code>,
+                encerra o loop.
+
+            </div>
+
+
+            <!-- =================================================
+                 ITERÁVEL X ITERADOR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ Iterável x Iterador
+
+            </h3>
+
+
+            <p class="description">
+
+                Embora os nomes sejam parecidos, iterável e iterador
+                não são exatamente a mesma coisa.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Iterável</strong>
+
+                <br><br>
+
+                É um objeto que pode fornecer um iterador.
+
+                <br><br>
+
+                Exemplos:
+
+                <br>
+
+                lista, tupla, string, dicionário e conjunto.
+
+                <br><br><br>
+
+                <strong>Iterador</strong>
+
+                <br><br>
+
+                É o objeto que fornece os elementos um por vez
+                utilizando <code>next()</code>.
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos verificar isso na prática:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        diferenca.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [1, 2, 3]
+
+                        </div>
+
+
+                        <div>
+
+                            iterador = iter(numeros)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(next(iterador))
+
+                        </div>
+
+
+                        <div>
+
+                            print(next(iterador))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Lista
+
+                    →
+
+                    Iterável
+
+                    <br><br>
+
+                    <code>iter(lista)</code>
+
+                    →
+
+                    Iterador
+
+                    <br><br>
+
+                    <code>next(iterador)</code>
+
+                    →
+
+                    Próximo elemento
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 STRINGS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔤 Strings também são iteráveis
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma string também pode ser percorrida caractere por
+                caractere.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        string.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            palavra = "Python"
+
+                        </div>
+
+
+                        <div>
+
+                            iterador = iter(palavra)
+
+                        </div>
+
+
+                        <div>
+
+                            print(next(iterador))
+
+                        </div>
+
+
+                        <div>
+
+                            print(next(iterador))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        P
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        y
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DICIONÁRIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📚 Dicionários e iteradores
+
+            </h3>
+
+
+            <p class="description">
+
+                Dicionários também são iteráveis.
+
+                Quando percorremos um dicionário diretamente, seus
+                elementos são as chaves.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        dicionario.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            pessoa = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            "nome": "Ana",
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            "idade": 25
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos criar um iterador sobre suas chaves:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        chaves.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            iterador = iter(pessoa)
+
+                        </div>
+
+
+                        <div>
+
+                            print(next(iterador))
+
+                        </div>
+
+
+                        <div>
+
+                            print(next(iterador))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ITERADORES PERSONALIZADOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛠️ Criando iteradores personalizados
+
+            </h3>
+
+
+            <p class="description">
+
+                Python permite que criemos nossos próprios objetos
+                iteradores.
+
+            </p>
+
+
+            <p class="description">
+
+                Para isso, normalmente implementamos dois métodos
+                especiais:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <code>__iter__()</code>
+                </li>
+
+                <li>
+                    <code>__next__()</code>
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    <code>__iter__()</code>
+
+                </strong>
+
+                <br><br>
+
+                Retorna o objeto iterador.
+
+                <br><br><br>
+
+                <strong>
+
+                    <code>__next__()</code>
+
+                </strong>
+
+                <br><br>
+
+                Retorna o próximo elemento.
+
+            </div>
+
+
+            <!-- =================================================
+                 PRIMEIRO ITERADOR PERSONALIZADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔢 Primeiro iterador personalizado
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos criar um iterador que retorna os números de
+                1 até 5.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        contador.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Contador:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __init__(self):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            self.numero = 1
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __iter__(self):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            self
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __next__(self):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            self.numero &gt; 5:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                raise
+                            </span>
+                            StopIteration
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            valor = self.numero
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            self.numero += 1
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            valor
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora podemos criar o objeto e utilizá-lo como
+                iterador:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        usar_contador.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            contador = Contador()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(next(contador))
+
+                        </div>
+
+
+                        <div>
+
+                            print(next(contador))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        1
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FOR COM ITERADOR PERSONALIZADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Utilizando o iterador com <code>for</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Como nossa classe implementa
+                <code>__iter__()</code> e <code>__next__()</code>,
+                podemos utilizá-la diretamente em um
+                <code>for</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        for_contador.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            contador = Contador()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            contador:
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos imprimir os valores dentro do loop:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        resultado.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            contador = Contador()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            contador:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(numero)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        1
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        3
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        4
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        5
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 __ITER__
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 Entendendo <code>__iter__()</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>__iter__()</code> é utilizado para
+                obter um iterador a partir do objeto.
+
+            </p>
+
+
+            <p class="description">
+
+                Em um iterador que é o próprio objeto, normalmente
+                podemos escrever:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        iter_method.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            __iter__(self):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            self
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 O que isso significa?</strong>
+
+                <br><br>
+
+                Quando Python precisa obter o iterador daquele objeto,
+                o método <code>__iter__()</code> informa qual objeto
+                deverá fornecer os próximos valores.
+
+            </div>
+
+
+            <!-- =================================================
+                 __NEXT__
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶️ Entendendo <code>__next__()</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>__next__()</code> define o que deve
+                acontecer quando Python solicitar o próximo elemento.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        next_method.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            __next__(self):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            self.numero &gt; 5:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                raise
+                            </span>
+                            StopIteration
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            valor = self.numero
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            self.numero += 1
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            valor
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    <code>__next__()</code>
+
+                    deve fazer uma destas coisas:
+
+                </strong>
+
+                <br><br>
+
+                1. Retornar o próximo valor.
+
+                <br>
+
+                2. Levantar <code>StopIteration</code> quando não
+                houver mais valores.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONTADOR COM LIMITE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Criando um contador configurável
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos tornar nosso iterador mais flexível permitindo
+                definir o valor máximo no momento da criação.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        contador.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Contador:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __init__(self, limite):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            self.numero = 1
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            self.limite = limite
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __iter__(self):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            self
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __next__(self):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            self.numero &gt; self.limite:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                raise
+                            </span>
+                            StopIteration
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            valor = self.numero
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            self.numero += 1
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora podemos criar um contador com qualquer limite:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        usar.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            contador = Contador(3)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            contador:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(numero)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        1
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        3
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO PRÁTICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Exemplo prático — Contagem regressiva
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar iteradores para criar estruturas
+                diferentes das coleções tradicionais.
+
+                Vamos criar uma contagem regressiva.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        regressivo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Regressivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __init__(self, inicio):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            self.numero = inicio
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __iter__(self):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            self
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __next__(self):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            self.numero &lt; 1:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                raise
+                            </span>
+                            StopIteration
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            valor = self.numero
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            self.numero -= 1
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            valor
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos utilizar o iterador assim:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        executar.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            contador = Regressivo(5)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            contador:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(numero)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        5
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        4
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        3
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        1
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ITERADOR MANUAL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Percorrendo manualmente
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos utilizar diretamente
+                <code>iter()</code> e <code>next()</code> sem usar
+                um <code>for</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        manual.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            nomes = ["Ana", "João", "Maria"]
+
+                        </div>
+
+
+                        <div>
+
+                            iterador = iter(nomes)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            primeiro = next(iterador)
+
+                        </div>
+
+
+                        <div>
+
+                            segundo = next(iterador)
+
+                        </div>
+
+
+                        <div>
+
+                            terceiro = next(iterador)
+
+                        </div>
+
+
+                        <div>
+
+                            print(primeiro, segundo, terceiro)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TRY EXCEPT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛡️ Tratando <code>StopIteration</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando usamos <code>next()</code> manualmente, podemos
+                tratar o fim do iterador utilizando
+                <code>try</code> e <code>except</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        tratamento.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [10, 20]
+
+                        </div>
+
+
+                        <div>
+
+                            iterador = iter(numeros)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                while
+                            </span>
+                            True:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(next(iterador))
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                except
+                            </span>
+                            StopIteration:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print("Fim dos elementos")
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        10
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        20
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Fim dos elementos
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MEMÓRIA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💾 Por que iteradores são importantes?
+
+            </h3>
+
+
+            <p class="description">
+
+                Iteradores são especialmente úteis quando precisamos
+                trabalhar com grandes quantidades de dados.
+
+            </p>
+
+
+            <p class="description">
+
+                Em vez de carregar necessariamente todos os elementos
+                de uma estrutura na memória ao mesmo tempo, podemos
+                produzir e consumir valores um por vez.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>📦 Exemplo conceitual:</strong>
+
+                <br><br>
+
+                Lista:
+
+                <br>
+
+                Carrega vários valores.
+
+                <br><br>
+
+                Iterador:
+
+                <br>
+
+                Fornece um valor por vez.
+
+                <br><br>
+
+                Isso pode ser muito útil ao trabalhar com arquivos
+                grandes, dados, processamento e outras tarefas.
+
+            </div>
+
+
+            <!-- =================================================
+                 ITERADORES E ARQUIVOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📄 Iteradores e arquivos
+
+            </h3>
+
+
+            <p class="description">
+
+                Arquivos em Python também podem ser percorridos linha
+                por linha.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        arquivo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            open(
+                            "dados.txt",
+                            encoding="utf-8")
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            linha
+                            <span class="keyword">
+                                in
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(linha)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Curiosidade:</strong>
+
+                <br><br>
+
+                O arquivo pode fornecer as linhas conforme elas são
+                percorridas, sem que seja necessário transformar todo
+                o conteúdo em uma lista primeiro.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO DOS MÉTODOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo dos conceitos
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>Iterável</strong>
+
+                <br>
+
+                Objeto que pode ser percorrido.
+
+                <br><br>
+
+                <strong>Iterador</strong>
+
+                <br>
+
+                Objeto que fornece elementos um por vez.
+
+                <br><br>
+
+                <strong><code>iter()</code></strong>
+
+                <br>
+
+                Obtém um iterador.
+
+                <br><br>
+
+                <strong><code>next()</code></strong>
+
+                <br>
+
+                Obtém o próximo elemento.
+
+                <br><br>
+
+                <strong><code>__iter__()</code></strong>
+
+                <br>
+
+                Define como obter o iterador.
+
+                <br><br>
+
+                <strong><code>__next__()</code></strong>
+
+                <br>
+
+                Define como obter o próximo valor.
+
+                <br><br>
+
+                <strong><code>StopIteration</code></strong>
+
+                <br>
+
+                Indica que não existem mais elementos.
+
+            </div>
+
+
+            <!-- =================================================
+                 FLUXO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧭 O fluxo completo
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    📦 Iterável
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    <code>iter()</code>
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🔄 Iterador
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    <code>next()</code>
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    📌 Próximo elemento
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    <code>next()</code>
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    📌 Próximo elemento
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🛑 <code>StopIteration</code>
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Exercícios práticos
+
+            </h3>
+
+
+            <strong>
+                Exercício 1 — Iterador de lista
+            </strong>
+
+
+            <p class="description">
+
+                Crie uma lista contendo cinco números.
+
+                Depois:
+
+            </p>
+
+
+            <ol>
+
+                <li>
+                    Crie um iterador utilizando <code>iter()</code>.
+                </li>
+
+                <li>
+                    Utilize <code>next()</code> para obter os valores.
+                </li>
+
+                <li>
+                    Observe o que acontece quando os elementos acabam.
+                </li>
+
+            </ol>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                Tente chamar <code>next()</code> uma vez a mais do que
+                a quantidade de elementos.
+
+            </div>
+
+
+            <br>
+
+
+            <strong>
+                Exercício 2 — Iterador de strings
+            </strong>
+
+
+            <p class="description">
+
+                Crie um programa que receba uma palavra e percorra seus
+                caracteres utilizando <code>iter()</code> e
+                <code>next()</code>.
+
+            </p>
+
+
+            <br>
+
+
+            <strong>
+                Exercício 3 — Contador personalizado
+            </strong>
+
+
+            <p class="description">
+
+                Crie uma classe chamada <code>Contador</code> que:
+
+            </p>
+
+
+            <ol>
+
+                <li>
+                    Receba um limite no construtor.
+                </li>
+
+                <li>
+                    Comece a contagem em 1.
+                </li>
+
+                <li>
+                    Implemente <code>__iter__()</code>.
+                </li>
+
+                <li>
+                    Implemente <code>__next__()</code>.
+                </li>
+
+                <li>
+                    Gere <code>StopIteration</code> quando chegar ao
+                    limite.
+                </li>
+
+            </ol>
+
+
+            <br>
+
+
+            <strong>
+                Exercício 4 — Contagem regressiva
+            </strong>
+
+
+            <p class="description">
+
+                Crie um iterador que receba um número inicial e faça
+                uma contagem regressiva até 0.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo:</strong>
+
+                <br><br>
+
+                Entrada:
+
+                <br>
+
+                <code>5</code>
+
+                <br><br>
+
+                Resultado:
+
+                <br>
+
+                5
+
+                <br>
+
+                4
+
+                <br>
+
+                3
+
+                <br>
+
+                2
+
+                <br>
+
+                1
+
+                <br>
+
+                0
+
+            </div>
+
+
+            <br>
+
+
+            <strong>
+                Exercício 5 — Desafio
+            </strong>
+
+
+            <p class="description">
+
+                Crie um iterador chamado <code>Par</code> que gere
+                somente números pares até determinado limite.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo:</strong>
+
+                <br><br>
+
+                Limite:
+
+                <code>10</code>
+
+                <br><br>
+
+                Resultado:
+
+                <br>
+
+                0
+
+                <br>
+
+                2
+
+                <br>
+
+                4
+
+                <br>
+
+                6
+
+                <br>
+
+                8
+
+                <br>
+
+                10
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO EXTRA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏆 Desafio extra — Iterador de Fibonacci
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um iterador que gere a sequência de Fibonacci.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo:</strong>
+
+                <br><br>
+
+                0
+
+                <br>
+
+                1
+
+                <br>
+
+                1
+
+                <br>
+
+                2
+
+                <br>
+
+                3
+
+                <br>
+
+                5
+
+                <br>
+
+                8
+
+                <br>
+
+                13
+
+                <br>
+
+                ...
+
+            </div>
+
+
+            <p class="description">
+
+                O iterador deve receber a quantidade de números que
+                deseja produzir e utilizar <code>StopIteration</code>
+                quando atingir essa quantidade.
+
+            </p>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que são <strong>iteráveis</strong>.<br>
+
+                • O que são <strong>iteradores</strong>.<br>
+
+                • Como utilizar <code>iter()</code>.<br>
+
+                • Como utilizar <code>next()</code>.<br>
+
+                • Como funciona o <code>for</code> internamente.<br>
+
+                • O que é <code>StopIteration</code>.<br>
+
+                • Como criar iteradores personalizados.<br>
+
+                • Como utilizar <code>__iter__()</code>.<br>
+
+                • Como utilizar <code>__next__()</code>.<br>
+
+                • Como controlar o estado de um iterador.<br>
+
+                • Como criar contadores personalizados.<br>
+
+                • Como utilizar iteradores em situações práticas.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Agora você entende o funcionamento do <code>for</code>!
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora você já sabe que o <code>for</code> não é apenas
+                uma estrutura que percorre automaticamente uma lista.
+
+                Por baixo dos panos, Python utiliza o protocolo de
+                iteração para obter os valores um por vez.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Iterável
+                    →
+                    iter()
+                    →
+                    Iterador
+                    →
+                    next()
+                    →
+                    Valor
+                    →
+                    next()
+                    →
+                    ...
+                    →
+                    StopIteration
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Esse conhecimento será importante para entender outros
+                recursos avançados do Python, como generators,
+                <code>yield</code> e estruturas de processamento de
+                dados.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Próxima etapa:</strong>
+
+                <br><br>
+
+                Na próxima aula, vamos continuar avançando em Python
+                e conhecer novos recursos da linguagem para tornar
+                nossos programas mais poderosos e eficientes.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

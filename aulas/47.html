@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">47</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 47
+
+            </span>
+
+
+            <h2>
+
+                APIs com FastAPI
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprofundar seus conhecimentos
+                sobre criação de APIs utilizando
+                <strong>FastAPI</strong>.
+
+                Vamos aprender como implementar um
+                <strong>CRUD</strong>, validar dados recebidos
+                pela API e utilizar a documentação automática
+                fornecida pelo framework.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Na aula anterior aprendemos a criar rotas,
+                endpoints e respostas JSON.
+
+                <br><br>
+
+                Agora vamos construir uma API mais completa,
+                capaz de <strong>criar, consultar, atualizar
+                    e excluir dados</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É CRUD
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 O que é CRUD?
+
+            </h3>
+
+
+            <p class="description">
+
+                CRUD é uma sigla utilizada para representar as
+                quatro operações básicas realizadas sobre dados
+                de uma aplicação.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>C — Create</strong>
+
+                <br>
+
+                Criar um novo registro.
+
+                <br><br>
+
+                <strong>R — Read</strong>
+
+                <br>
+
+                Consultar registros existentes.
+
+                <br><br>
+
+                <strong>U — Update</strong>
+
+                <br>
+
+                Atualizar um registro.
+
+                <br><br>
+
+                <strong>D — Delete</strong>
+
+                <br>
+
+                Excluir um registro.
+
+            </div>
+
+
+            <p class="description">
+
+                Em uma API REST, essas operações normalmente são
+                relacionadas aos métodos HTTP:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>POST</code> → Create
+
+                <br><br>
+
+                <code>GET</code> → Read
+
+                <br><br>
+
+                <code>PUT</code> → Update
+
+                <br><br>
+
+                <code>DELETE</code> → Delete
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 Criando uma API de produtos
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos criar uma API simples para cadastrar
+                produtos.
+
+            </p>
+
+
+            <p class="description">
+
+                Inicialmente, podemos utilizar uma lista em
+                memória para armazenar os produtos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        main.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">from</span>
+                            fastapi <span class="keyword">import</span>
+                            FastAPI
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            app = FastAPI()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            produtos = []
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Banco de dados temporário
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CREATE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ➕ Create — Criando dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Para criar um novo produto, podemos utilizar
+                o método <code>POST</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        create.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">@app.post</span>(
+                            <span class="string">
+                                "/produtos"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                criar_produto
+                            </span>(produto):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            produtos.append(produto)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span> {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "mensagem"
+                            </span>:
+                            <span class="string">
+                                "Produto criado"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 READ
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔍 Read — Consultando dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Para consultar os produtos cadastrados,
+                utilizamos o método <code>GET</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        read.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">@app.get</span>(
+                            <span class="string">
+                                "/produtos"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                listar_produtos
+                            </span>():
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            produtos
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Retorna todos os produtos
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 READ BY ID
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Consultando um produto específico
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos criar uma rota para consultar
+                um produto através do seu identificador.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        produto.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">@app.get</span>(
+                            <span class="string">
+                                "/produtos/{produto_id}"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                buscar_produto
+                            </span>(produto_id: int):
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">for</span>
+                            produto <span class="keyword">in</span>
+                            produtos:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">if</span>
+                            produto[<span class="string">"id"</span>]
+                            == produto_id:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            produto
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span> {
+
+                            <span class="string">
+                                "erro"
+                            </span>:
+                            <span class="string">
+                                "Produto não encontrado"
+                            </span>
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 UPDATE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✏️ Update — Atualizando dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Para atualizar informações de um produto,
+                podemos utilizar o método <code>PUT</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        update.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">@app.put</span>(
+                            <span class="string">
+                                "/produtos/{produto_id}"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                atualizar_produto
+                            </span>(
+                            produto_id: int,
+                            produto_atualizado):
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">for</span>
+                            produto <span class="keyword">in</span>
+                            produtos:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">if</span>
+                            produto[<span class="string">"id"</span>]
+                            == produto_id:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            produto.update(
+                            produto_atualizado)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            produto
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span> {
+
+                            <span class="string">
+                                "erro"
+                            </span>:
+                            <span class="string">
+                                "Produto não encontrado"
+                            </span>
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DELETE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗑️ Delete — Excluindo dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Para excluir um produto, podemos utilizar
+                o método <code>DELETE</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        delete.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">@app.delete</span>(
+                            <span class="string">
+                                "/produtos/{produto_id}"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                excluir_produto
+                            </span>(produto_id: int):
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">for</span>
+                            produto <span class="keyword">in</span>
+                            produtos:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">if</span>
+                            produto[<span class="string">"id"</span>]
+                            == produto_id:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            produtos.remove(produto)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span> {
+
+                            <span class="string">
+                                "mensagem"
+                            </span>:
+                            <span class="string">
+                                "Produto removido"
+                            </span>
+
+                            }
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span> {
+
+                            <span class="string">
+                                "erro"
+                            </span>:
+                            <span class="string">
+                                "Produto não encontrado"
+                            </span>
+
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 VALIDAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ Validação de dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma API precisa verificar se os dados recebidos
+                estão corretos antes de utilizá-los.
+
+            </p>
+
+
+            <p class="description">
+
+                O FastAPI utiliza <strong>Pydantic</strong> para
+                facilitar a validação dos dados.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos criar um modelo definindo quais campos
+                esperamos receber e quais tipos eles devem possuir.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        models.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">from</span>
+                            pydantic <span class="keyword">import</span>
+                            BaseModel
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">class</span>
+                            Produto(BaseModel):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            nome: <span class="function">str</span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            preco: <span class="function">float</span>
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora podemos utilizar o modelo no endpoint
+                para receber um produto validado.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        validation.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">@app.post</span>(
+                            <span class="string">
+                                "/produtos"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                criar_produto
+                            </span>(produto: Produto):
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span> {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "nome"
+                            </span>: produto.nome,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "preco"
+                            </span>: produto.preco
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ERRO DE VALIDAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ O que acontece quando os dados são inválidos?
+
+            </h3>
+
+
+            <p class="description">
+
+                Se o cliente enviar um valor incompatível com
+                o modelo esperado, o FastAPI realiza a validação
+                e retorna uma resposta indicando o erro.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo:</strong>
+
+                <br><br>
+
+                A API espera:
+
+                <br><br>
+
+                <code>
+                    "preco": 49.90
+                </code>
+
+                <br><br>
+
+                Mas recebe:
+
+                <br><br>
+
+                <code>
+                    "preco": "abc"
+                </code>
+
+                <br><br>
+
+                O dado não corresponde ao tipo esperado e a
+                validação falha.
+
+            </div>
+
+
+            <!-- =================================================
+                 DOCUMENTAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📚 Documentação automática
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das grandes vantagens do FastAPI é a geração
+                automática de documentação da API.
+
+            </p>
+
+
+            <p class="description">
+
+                A partir das rotas e modelos definidos no código,
+                o FastAPI consegue gerar uma documentação
+                interativa.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>📖 Swagger UI</strong>
+
+                <br><br>
+
+                A documentação interativa normalmente pode ser
+                acessada através de:
+
+                <br><br>
+
+                <code>/docs</code>
+
+                <br><br>
+
+                Nela podemos visualizar os endpoints e até mesmo
+                executar requisições diretamente pelo navegador.
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>📘 ReDoc</strong>
+
+                <br><br>
+
+                O FastAPI também disponibiliza uma interface de
+                documentação através de:
+
+                <br><br>
+
+                <code>/redoc</code>
+
+                <br><br>
+
+                Essa interface apresenta a documentação da API
+                de outra forma, facilitando a consulta dos
+                endpoints.
+
+            </div>
+
+
+            <!-- =================================================
+                 DOCUMENTAÇÃO NA PRÁTICA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🖥️ Documentação na prática
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de iniciar uma aplicação FastAPI, podemos
+                acessar a documentação pelo navegador.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="function">
+                                uvicorn
+                            </span>
+                            main:app
+                            --reload
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Acesse /docs no navegador
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CRUD COMPLETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧱 Estrutura de um CRUD
+
+            </h3>
+
+
+            <p class="description">
+
+                Um CRUD completo de produtos pode possuir
+                endpoints semelhantes aos seguintes:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>GET /produtos</code>
+
+                <br>
+
+                Lista todos os produtos.
+
+                <br><br>
+
+                <code>GET /produtos/{id}</code>
+
+                <br>
+
+                Busca um produto específico.
+
+                <br><br>
+
+                <code>POST /produtos</code>
+
+                <br>
+
+                Cria um novo produto.
+
+                <br><br>
+
+                <code>PUT /produtos/{id}</code>
+
+                <br>
+
+                Atualiza um produto.
+
+                <br><br>
+
+                <code>DELETE /produtos/{id}</code>
+
+                <br>
+
+                Exclui um produto.
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 FastAPI para QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Para quem trabalha com QA, o FastAPI facilita
+                bastante a visualização e execução de testes
+                de uma API.
+
+            </p>
+
+
+            <p class="description">
+
+                A documentação automática permite identificar
+                rapidamente:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Quais endpoints existem.
+                </li>
+
+                <li>
+                    Quais métodos HTTP são utilizados.
+                </li>
+
+                <li>
+                    Quais parâmetros são necessários.
+                </li>
+
+                <li>
+                    Quais dados devem ser enviados.
+                </li>
+
+                <li>
+                    Quais tipos de dados são esperados.
+                </li>
+
+                <li>
+                    Quais respostas podem ser retornadas.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Pense como QA:</strong>
+
+                <br><br>
+
+                Ao testar um endpoint de criação, não teste apenas
+                um cadastro válido.
+
+                <br><br>
+
+                Teste também:
+
+                <br><br>
+
+                • Campos obrigatórios ausentes.<br>
+                • Tipos incorretos.<br>
+                • Valores inválidos.<br>
+                • Dados duplicados.<br>
+                • IDs inexistentes.<br>
+                • Payloads incompletos.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Exercício
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie mentalmente uma API de usuários utilizando
+                FastAPI.
+
+            </p>
+
+
+            <p class="description">
+
+                Pense nos endpoints necessários para:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Listar usuários.
+                </li>
+
+                <li>
+                    Buscar um usuário pelo ID.
+                </li>
+
+                <li>
+                    Criar um usuário.
+                </li>
+
+                <li>
+                    Atualizar um usuário.
+                </li>
+
+                <li>
+                    Excluir um usuário.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Desafio extra:</strong>
+
+                <br><br>
+
+                Crie um modelo <code>Usuario</code> contendo:
+
+                <br><br>
+
+                <code>nome: str</code>
+
+                <br>
+
+                <code>email: str</code>
+
+                <br>
+
+                <code>idade: int</code>
+
+                <br><br>
+
+                Depois pense em quais testes de validação
+                poderiam ser realizados para cada campo.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • FastAPI é um framework moderno para criação
+                de APIs em Python.<br>
+
+                • CRUD representa as operações de criar,
+                consultar, atualizar e excluir dados.<br>
+
+                • <code>POST</code> pode ser utilizado para
+                criar recursos.<br>
+
+                • <code>GET</code> pode ser utilizado para
+                consultar recursos.<br>
+
+                • <code>PUT</code> pode ser utilizado para
+                atualizar recursos.<br>
+
+                • <code>DELETE</code> pode ser utilizado para
+                excluir recursos.<br>
+
+                • Pydantic é utilizado pelo FastAPI para
+                validação de dados.<br>
+
+                • Type hints ajudam a definir os tipos esperados
+                pela API.<br>
+
+                • O FastAPI gera documentação automaticamente.<br>
+
+                • <code>/docs</code> disponibiliza uma interface
+                interativa baseada em Swagger UI.<br>
+
+                • <code>/redoc</code> disponibiliza outra forma
+                de visualizar a documentação.<br>
+
+                • A documentação automática é muito útil para
+                desenvolvimento e testes de APIs.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

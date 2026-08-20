@@ -1,0 +1,2545 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">53</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 53
+
+            </span>
+
+
+            <h2>
+
+                Projeto: API + PostgreSQL + Autenticação
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos colocar em prática vários dos
+                conceitos estudados até agora criando uma pequena
+                aplicação completa.
+
+                O projeto terá uma <strong>API REST</strong>,
+                banco de dados <strong>PostgreSQL</strong>,
+                operações de <strong>CRUD</strong> e um sistema
+                básico de <strong>autenticação</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo do projeto:</strong>
+
+                <br><br>
+
+                Criar uma API para gerenciamento de produtos,
+                permitindo que usuários façam login e realizem
+                operações de cadastro, consulta, atualização e
+                exclusão de produtos.
+
+            </div>
+
+
+            <!-- =================================================
+                 VISÃO GERAL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏗️ Visão geral do projeto
+
+            </h3>
+
+
+            <p class="description">
+
+                Nossa aplicação será composta por três partes
+                principais:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    <strong>API</strong> — responsável por receber
+                    as requisições HTTP e retornar respostas.
+
+                </li>
+
+                <li>
+
+                    <strong>PostgreSQL</strong> — responsável por
+                    armazenar os dados.
+
+                </li>
+
+                <li>
+
+                    <strong>Autenticação</strong> — responsável
+                    por identificar usuários e proteger
+                    determinadas rotas.
+
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Arquitetura simplificada:</strong>
+
+                <br><br>
+
+                Cliente
+
+                <br>
+
+                ↓
+
+                <br>
+
+                API
+
+                <br>
+
+                ↓
+
+                <br>
+
+                Regras da aplicação
+
+                <br>
+
+                ↓
+
+                <br>
+
+                SQLAlchemy
+
+                <br>
+
+                ↓
+
+                <br>
+
+                PostgreSQL
+
+            </div>
+
+
+            <!-- =================================================
+                 TECNOLOGIAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧰 Tecnologias utilizadas
+
+            </h3>
+
+
+            <p class="description">
+
+                Para o projeto, vamos utilizar algumas ferramentas
+                que já estudamos nas aulas anteriores.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>Python</strong> — linguagem da aplicação.
+                </li>
+
+                <li>
+                    <strong>FastAPI</strong> — criação da API.
+                </li>
+
+                <li>
+                    <strong>PostgreSQL</strong> — banco de dados.
+                </li>
+
+                <li>
+                    <strong>SQLAlchemy</strong> — ORM.
+                </li>
+
+                <li>
+                    <strong>Pydantic</strong> — validação dos dados.
+                </li>
+
+                <li>
+                    <strong>JWT</strong> — autenticação baseada em
+                    tokens.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 INSTALAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Instalação
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos instalar as principais dependências do
+                projeto utilizando o <code>pip</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        Terminal
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            pip install fastapi
+
+                        </div>
+
+                        <div>
+
+                            pip install uvicorn
+
+                        </div>
+
+                        <div>
+
+                            pip install sqlalchemy
+
+                        </div>
+
+                        <div>
+
+                            pip install psycopg[binary]
+
+                        </div>
+
+                        <div>
+
+                            pip install pyjwt
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                Em um projeto real, é recomendado utilizar um
+                ambiente virtual e registrar as dependências em
+                um arquivo <code>requirements.txt</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 ESTRUTURA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📁 Estrutura do projeto
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma possível organização para nossa aplicação é:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        projeto/
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            projeto/
+                        </div>
+
+                        <div>
+                            ├── main.py
+                        </div>
+
+                        <div>
+                            ├── database.py
+                        </div>
+
+                        <div>
+                            ├── models.py
+                        </div>
+
+                        <div>
+                            ├── schemas.py
+                        </div>
+
+                        <div>
+                            ├── auth.py
+                        </div>
+
+                        <div>
+                            ├── routes/
+                        </div>
+
+                        <div>
+                            │ ├── usuarios.py
+                        </div>
+
+                        <div>
+                            │ ├── produtos.py
+                        </div>
+
+                        <div>
+                            │ └── auth.py
+                        </div>
+
+                        <div>
+                            └── requirements.txt
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DATABASE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗄️ Conectando ao PostgreSQL
+
+            </h3>
+
+
+            <p class="description">
+
+                O primeiro passo é configurar a conexão entre
+                nossa aplicação e o PostgreSQL.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        database.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sqlalchemy
+                            <span class="keyword">
+                                import
+                            </span>
+                            create_engine
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            DATABASE_URL =
+                            <span class="string">
+                                "postgresql+psycopg://postgres:senha@localhost:5432/loja"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            engine =
+                            create_engine(DATABASE_URL)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Segurança:</strong>
+
+                <br><br>
+
+                Não coloque senhas reais diretamente no código
+                em aplicações de produção.
+
+                <br><br>
+
+                O ideal é utilizar variáveis de ambiente ou um
+                sistema seguro de gerenciamento de configurações.
+
+            </div>
+
+
+            <!-- =================================================
+                 MODELS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Criando os Models
+
+            </h3>
+
+
+            <p class="description">
+
+                Nosso projeto terá inicialmente dois Models:
+                <strong>Usuario</strong> e
+                <strong>Produto</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        models.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+                        <div>17</div>
+                        <div>18</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sqlalchemy.orm
+                            <span class="keyword">
+                                import
+                            </span>
+                            DeclarativeBase, Mapped,
+                            mapped_column
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sqlalchemy
+                            <span class="keyword">
+                                import
+                            </span>
+                            String, Float
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Base(DeclarativeBase):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                pass
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Usuario(Base):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            __tablename__ =
+                            <span class="string">
+                                "usuarios"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            id: Mapped[int] =
+                            mapped_column(
+                            primary_key=True)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            email: Mapped[str] =
+                            mapped_column(
+                            String(150), unique=True)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            senha: Mapped[str] =
+                            mapped_column(
+                            String(255))
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Produto(Base):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            __tablename__ =
+                            <span class="string">
+                                "produtos"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            id: Mapped[int] =
+                            mapped_column(
+                            primary_key=True)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            nome: Mapped[str] =
+                            mapped_column(
+                            String(100))
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            preco: Mapped[float] =
+                            mapped_column(Float)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SCHEMAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 Schemas
+
+            </h3>
+
+
+            <p class="description">
+
+                Os schemas representam os dados que nossa API
+                recebe e retorna.
+
+                Eles também ajudam a validar as informações
+                enviadas pelo cliente.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        schemas.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pydantic
+                            <span class="keyword">
+                                import
+                            </span>
+                            BaseModel
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            ProdutoCreate(BaseModel):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            nome: str
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            preco: float
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Login(BaseModel):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            email: str
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            senha: str
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 API
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Criando a API
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora podemos criar nossa aplicação FastAPI.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        main.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            fastapi
+                            <span class="keyword">
+                                import
+                            </span>
+                            FastAPI
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            app = FastAPI()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            @app.get(
+                            <span class="string">
+                                "/"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            inicio():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            {
+                            <span class="string">
+                                "mensagem"
+                            </span>:
+                            <span class="string">
+                                "API funcionando!"
+                            </span>
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CRUD
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 CRUD completo
+
+            </h3>
+
+
+            <p class="description">
+
+                CRUD é uma sigla para as quatro operações
+                fundamentais realizadas sobre dados:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>Create</strong> — criar.
+                </li>
+
+                <li>
+                    <strong>Read</strong> — consultar.
+                </li>
+
+                <li>
+                    <strong>Update</strong> — atualizar.
+                </li>
+
+                <li>
+                    <strong>Delete</strong> — excluir.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🧩 Nosso CRUD:</strong>
+
+                <br><br>
+
+                POST /produtos → criar produto
+
+                <br>
+
+                GET /produtos → listar produtos
+
+                <br>
+
+                GET /produtos/{id} → consultar produto
+
+                <br>
+
+                PUT /produtos/{id} → atualizar produto
+
+                <br>
+
+                DELETE /produtos/{id} → excluir produto
+
+            </div>
+
+
+            <!-- =================================================
+                 CREATE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ➕ Create — Criando produtos
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        produtos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            @app.post(
+                            <span class="string">
+                                "/produtos"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            criar_produto(
+                            produto: ProdutoCreate):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "nome"
+                            </span>:
+                            produto.nome,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "preco"
+                            </span>:
+                            produto.preco
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 READ
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Read — Consultando produtos
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        produtos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            @app.get(
+                            <span class="string">
+                                "/produtos"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            listar_produtos():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            [
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            {
+                            <span class="string">
+                                "id"
+                            </span>: 1,
+                            <span class="string">
+                                "nome"
+                            </span>:
+                            <span class="string">
+                                "Notebook"
+                            </span>
+                            }
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            ]
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 UPDATE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✏️ Update — Atualizando produtos
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        produtos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            @app.put(
+                            <span class="string">
+                                "/produtos/{produto_id}"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            atualizar_produto(
+                            produto_id: int,
+                            produto: ProdutoCreate):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "id"
+                            </span>:
+                            produto_id,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "nome"
+                            </span>:
+                            produto.nome
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DELETE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗑️ Delete — Excluindo produtos
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        produtos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            @app.delete(
+                            <span class="string">
+                                "/produtos/{produto_id}"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            excluir_produto(
+                            produto_id: int):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "mensagem"
+                            </span>:
+                            <span class="string">
+                                "Produto excluído"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 AUTENTICAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔐 Autenticação
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora vamos proteger nossa API.
+
+                Algumas rotas podem ser públicas, enquanto
+                outras devem exigir que o usuário esteja
+                autenticado.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo:</strong>
+
+                <br><br>
+
+                POST /login → público
+
+                <br>
+
+                GET /produtos → protegido
+
+                <br>
+
+                POST /produtos → protegido
+
+                <br>
+
+                PUT /produtos/{id} → protegido
+
+                <br>
+
+                DELETE /produtos/{id} → protegido
+
+            </div>
+
+
+            <!-- =================================================
+                 LOGIN
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                👤 Login
+
+            </h3>
+
+
+            <p class="description">
+
+                O usuário envia suas credenciais para a API.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        login.json
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            {
+                        </div>
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "email"
+                            </span>:
+                            <span class="string">
+                                "maria@email.com"
+                            </span>,
+
+                        </div>
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "senha"
+                            </span>:
+                            <span class="string">
+                                "minha_senha"
+                            </span>
+
+                        </div>
+
+                        <div>
+                            }
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 JWT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎫 Token JWT
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de validar as credenciais, a API pode
+                gerar um token JWT.
+
+                O cliente utiliza esse token nas próximas
+                requisições protegidas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Fluxo:</strong>
+
+                <br><br>
+
+                1. Usuário envia e-mail e senha.
+
+                <br><br>
+
+                2. API verifica as credenciais.
+
+                <br><br>
+
+                3. API gera um token.
+
+                <br><br>
+
+                4. Cliente armazena o token.
+
+                <br><br>
+
+                5. Cliente envia o token nas próximas
+                requisições.
+
+            </div>
+
+
+            <!-- =================================================
+                 TOKEN HEADER
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📡 Enviando o token
+
+            </h3>
+
+
+            <p class="description">
+
+                Normalmente o token é enviado no header
+                <code>Authorization</code> utilizando o esquema
+                <strong>Bearer</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        request.http
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            GET /produtos
+
+                        </div>
+
+
+                        <div>
+
+                            Authorization:
+                            Bearer
+                            &lt;token&gt;
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🔐 Atenção:</strong>
+
+                <br><br>
+
+                JWT não deve ser tratado como uma senha.
+
+                <br><br>
+
+                Tokens precisam possuir validade adequada e a
+                aplicação deve utilizar HTTPS em ambientes reais
+                para proteger as credenciais e os tokens durante
+                o transporte.
+
+            </div>
+
+
+            <!-- =================================================
+                 SENHAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔒 Senhas
+
+            </h3>
+
+
+            <p class="description">
+
+                Senhas de usuários nunca devem ser armazenadas
+                diretamente no banco de dados em texto puro.
+
+                Devemos utilizar uma função de hash apropriada
+                para armazená-las de forma segura.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>❌ Nunca faça:</strong>
+
+                <br><br>
+
+                senha =
+                <span class="string">
+                    "123456"
+                </span>
+
+                <br><br>
+
+                e salve esse valor diretamente no banco.
+
+                <br><br>
+
+                <strong>✅ O correto:</strong>
+
+                <br><br>
+
+                Armazenar um hash seguro da senha e comparar
+                a senha fornecida utilizando uma biblioteca
+                apropriada.
+
+            </div>
+
+
+            <!-- =================================================
+                 STATUS CODES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📡 Status codes
+
+            </h3>
+
+
+            <p class="description">
+
+                Nossa API deve utilizar códigos HTTP apropriados
+                para informar o resultado das operações.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>200</strong> — requisição realizada
+                    com sucesso.
+                </li>
+
+                <li>
+                    <strong>201</strong> — recurso criado.
+                </li>
+
+                <li>
+                    <strong>204</strong> — operação realizada sem
+                    conteúdo na resposta.
+                </li>
+
+                <li>
+                    <strong>400</strong> — requisição inválida.
+                </li>
+
+                <li>
+                    <strong>401</strong> — usuário não autenticado.
+                </li>
+
+                <li>
+                    <strong>403</strong> — acesso não permitido.
+                </li>
+
+                <li>
+                    <strong>404</strong> — recurso não encontrado.
+                </li>
+
+                <li>
+                    <strong>500</strong> — erro interno do servidor.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 EXECUTANDO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Executando a API
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos iniciar a aplicação utilizando o
+                Uvicorn.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        Terminal
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            uvicorn main:app --reload
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DOCUMENTAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📚 Documentação automática
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das vantagens do FastAPI é a geração
+                automática de documentação da API.
+
+                Isso facilita bastante o desenvolvimento e os
+                testes dos endpoints.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para QA:</strong>
+
+                <br><br>
+
+                A documentação automática pode ser utilizada
+                para explorar endpoints, enviar requisições e
+                validar respostas durante os testes.
+
+            </div>
+
+
+            <!-- =================================================
+                 TESTANDO A API
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Testando o CRUD
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos testar o fluxo completo da aplicação
+                realizando operações em sequência.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Fluxo de teste:</strong>
+
+                <br><br>
+
+                1. Criar um usuário.
+
+                <br><br>
+
+                2. Fazer login.
+
+                <br><br>
+
+                3. Obter o token.
+
+                <br><br>
+
+                4. Criar um produto.
+
+                <br><br>
+
+                5. Consultar o produto.
+
+                <br><br>
+
+                6. Atualizar o produto.
+
+                <br><br>
+
+                7. Consultar novamente.
+
+                <br><br>
+
+                8. Excluir o produto.
+
+                <br><br>
+
+                9. Confirmar que o produto não existe mais.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Exemplo de resposta
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    API Response
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            HTTP 201
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        {
+
+                    </div>
+
+
+                    <div>
+
+                        &nbsp;&nbsp;
+                        "id": 1,
+
+                    </div>
+
+
+                    <div>
+
+                        &nbsp;&nbsp;
+                        "nome": "Notebook",
+
+                    </div>
+
+
+                    <div>
+
+                        &nbsp;&nbsp;
+                        "preco": 3500.00
+
+                    </div>
+
+
+                    <div>
+
+                        }
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 O projeto como QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Este projeto reúne vários conceitos importantes
+                para quem trabalha com QA e automação.
+
+                Podemos testar não apenas os endpoints, mas
+                também a integração entre API e banco de dados.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Validar códigos de status HTTP.
+                </li>
+
+                <li>
+                    Validar o corpo das respostas.
+                </li>
+
+                <li>
+                    Testar campos obrigatórios.
+                </li>
+
+                <li>
+                    Testar dados inválidos.
+                </li>
+
+                <li>
+                    Testar autenticação.
+                </li>
+
+                <li>
+                    Testar acesso sem token.
+                </li>
+
+                <li>
+                    Validar persistência no PostgreSQL.
+                </li>
+
+                <li>
+                    Testar criação, atualização e exclusão.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 CENÁRIOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Cenários de teste
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo 1 — Login válido</strong>
+
+                <br><br>
+
+                Dado um usuário cadastrado
+
+                <br>
+
+                Quando enviar e-mail e senha corretos
+
+                <br>
+
+                Então a API deve retornar um token.
+
+                <br><br>
+
+
+                <strong>Exemplo 2 — Login inválido</strong>
+
+                <br><br>
+
+                Dado um usuário cadastrado
+
+                <br>
+
+                Quando enviar uma senha incorreta
+
+                <br>
+
+                Então a API deve retornar
+                <code>401 Unauthorized</code>.
+
+                <br><br>
+
+
+                <strong>Exemplo 3 — Rota protegida</strong>
+
+                <br><br>
+
+                Quando acessar uma rota protegida sem token
+
+                <br>
+
+                Então a API deve rejeitar a requisição.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio do projeto
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora é sua vez de construir uma API completa.
+
+            </p>
+
+
+            <p class="description">
+
+                Crie uma API de gerenciamento de produtos com
+                PostgreSQL e implemente:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Cadastro de usuários.
+                </li>
+
+                <li>
+                    Login.
+                </li>
+
+                <li>
+                    Geração de token JWT.
+                </li>
+
+                <li>
+                    CRUD de produtos.
+                </li>
+
+                <li>
+                    Proteção das rotas de produtos.
+                </li>
+
+                <li>
+                    Validação dos dados.
+                </li>
+
+                <li>
+                    Persistência utilizando PostgreSQL.
+                </li>
+
+                <li>
+                    Tratamento de erros.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Adicione uma tabela de categorias e crie um
+                relacionamento entre <code>Categoria</code> e
+                <code>Produto</code>.
+
+                <br><br>
+
+                Depois crie um endpoint que permita consultar
+                todos os produtos de uma determinada categoria.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Como estruturar um projeto de API em Python.<br>
+
+                • Como utilizar FastAPI para criar endpoints.<br>
+
+                • Como conectar uma API ao PostgreSQL.<br>
+
+                • Como utilizar SQLAlchemy como ORM.<br>
+
+                • Como criar Models e schemas.<br>
+
+                • O conceito de CRUD.<br>
+
+                • Como criar, consultar, atualizar e excluir
+                recursos.<br>
+
+                • Como funciona o processo de autenticação.<br>
+
+                • O conceito de tokens JWT.<br>
+
+                • Como proteger endpoints.<br>
+
+                • A importância de armazenar senhas utilizando
+                hash seguro.<br>
+
+                • Como utilizar status codes HTTP.<br>
+
+                • Como testar uma API protegida.<br>
+
+                • Como validar a integração entre API e banco de
+                dados.<br>
+
+                • Como aplicar esses conhecimentos em testes
+                automatizados.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

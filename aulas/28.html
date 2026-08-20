@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">28</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 28
+
+            </span>
+
+
+            <h2>
+
+                Datas e horários em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como trabalhar com
+                <strong>datas e horários</strong> em Python.
+
+                Vamos conhecer o módulo <strong>datetime</strong>,
+                aprender a formatar datas e horários e calcular
+                diferenças entre datas.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📅 O módulo <code>datetime</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Python possui o módulo <strong>datetime</strong>,
+                que fornece recursos para trabalhar com datas,
+                horários e intervalos de tempo.
+
+            </p>
+
+
+            <p class="description">
+
+                Para utilizar o módulo, podemos importá-lo da
+                seguinte maneira:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        datetime.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            datetime
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DATA ATUAL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🕐 Data e hora atuais
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar <code>datetime.datetime.now()</code>
+                para obter a data e o horário atuais do computador.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        agora.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            datetime
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            agora =
+                            datetime.datetime.<span class="function">
+                                now
+                            </span>()
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(agora)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2026-08-20 14:30:45.123456
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O resultado depende da data e do horário em que
+                o programa é executado.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                <code>datetime.datetime.now()</code> retorna um
+                objeto contendo a data e o horário atuais.
+
+            </div>
+
+
+            <!-- =================================================
+                 DATA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📆 Trabalhando apenas com a data
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando precisamos apenas da data atual, podemos
+                utilizar <code>date.today()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        data.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            datetime
+                            <span class="keyword">
+                                import
+                            </span>
+                            date
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            hoje = date.<span class="function">
+                                today
+                            </span>()
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(hoje)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2026-08-20
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CRIANDO DATAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗓️ Criando uma data
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos criar uma data específica
+                informando o ano, o mês e o dia.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        criar_data.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            datetime
+                            <span class="keyword">
+                                import
+                            </span>
+                            date
+
+                        </div>
+
+
+                        <div>
+
+                            aniversario = date(
+                            2000, 5, 15)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(aniversario)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Estrutura:</strong>
+
+                <br><br>
+
+                <code>date(ano, mês, dia)</code>
+
+                <br><br>
+
+                Exemplo:
+                <code>date(2000, 5, 15)</code>
+
+                representa 15 de maio de 2000.
+
+            </div>
+
+
+            <!-- =================================================
+                 FORMATACAO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎨 Formatação de datas
+
+            </h3>
+
+
+            <p class="description">
+
+                Por padrão, Python apresenta datas no formato
+                <code>YYYY-MM-DD</code>.
+
+                Podemos utilizar <strong>strftime()</strong>
+                para escolher como queremos exibir a data.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        formatar.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            datetime
+                            <span class="keyword">
+                                import
+                            </span>
+                            datetime
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            agora =
+                            datetime.<span class="function">
+                                now
+                            </span>()
+
+                        </div>
+
+
+                        <div>
+
+                            data =
+                            agora.<span class="function">
+                                strftime
+                            </span>(
+                            <span class="string">
+                                "%d/%m/%Y"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(data)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        20/08/2026
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FORMATOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔤 Principais códigos de formatação
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>strftime()</code> utiliza códigos
+                especiais para representar diferentes partes da
+                data e do horário.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <code>%d</code> — dia com dois dígitos.
+                </li>
+
+                <li>
+                    <code>%m</code> — mês com dois dígitos.
+                </li>
+
+                <li>
+                    <code>%Y</code> — ano com quatro dígitos.
+                </li>
+
+                <li>
+                    <code>%H</code> — hora no formato de 24 horas.
+                </li>
+
+                <li>
+                    <code>%M</code> — minutos.
+                </li>
+
+                <li>
+                    <code>%S</code> — segundos.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                <code>
+                    "%d/%m/%Y %H:%M:%S"
+                </code>
+
+                <br><br>
+
+                Pode produzir:
+
+                <br><br>
+
+                <code>
+                    20/08/2026 14:30:45
+                </code>
+
+            </div>
+
+
+            <!-- =================================================
+                 STRPTIME
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Convertendo texto em data
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>strptime()</strong> permite
+                transformar um texto em um objeto de data e hora.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        converter_data.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            datetime
+                            <span class="keyword">
+                                import
+                            </span>
+                            datetime
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            texto =
+                            <span class="string">
+                                "20/08/2026"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            data = datetime.<span class="function">
+                                strptime
+                            </span>(
+                            texto,
+                            <span class="string">
+                                "%d/%m/%Y"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(data)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 Para lembrar:</strong>
+
+                <br><br>
+
+                <code>strftime()</code> → transforma uma
+                <strong>data em texto</strong>.
+
+                <br><br>
+
+                <code>strptime()</code> → transforma um
+                <strong>texto em data</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 DIFERENÇA ENTRE DATAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⏱️ Diferença entre datas
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das funcionalidades mais úteis do
+                <strong>datetime</strong> é calcular a diferença
+                entre duas datas.
+
+            </p>
+
+
+            <p class="description">
+
+                Quando subtraímos uma data de outra, Python
+                retorna um objeto chamado
+                <strong>timedelta</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        diferenca.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            datetime
+                            <span class="keyword">
+                                import
+                            </span>
+                            date
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            inicio = date(
+                            2026, 8, 1)
+
+                        </div>
+
+
+                        <div>
+
+                            fim = date(
+                            2026, 8, 20)
+
+                        </div>
+
+
+                        <div>
+
+                            diferenca = fim - inicio
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            diferenca.days)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        19
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, existem 19 dias entre
+                <code>01/08/2026</code> e
+                <code>20/08/2026</code>.
+
+            </p>
+
+
+            <!-- =================================================
+                 TIMEDELTA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⏳ Trabalhando com <code>timedelta</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O objeto <strong>timedelta</strong> representa
+                uma duração ou intervalo de tempo.
+
+                Podemos utilizá-lo para adicionar ou remover
+                períodos de uma data.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        timedelta.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            datetime
+                            <span class="keyword">
+                                import
+                            </span>
+                            date, timedelta
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            hoje = date(
+                            2026, 8, 20)
+
+                        </div>
+
+
+                        <div>
+
+                            futuro = hoje +
+                            timedelta(days=7)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(futuro)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2026-08-27
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 HORÁRIOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🕐 Trabalhando com horários
+
+            </h3>
+
+
+            <p class="description">
+
+                Além de datas, também podemos trabalhar
+                especificamente com horários utilizando
+                <strong>time</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        horario.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            datetime
+                            <span class="keyword">
+                                import
+                            </span>
+                            time
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            horario = time(
+                            14, 30, 45)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(horario)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        14:30:45
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO PRÁTICO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Datas e horários no QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Datas e horários aparecem com frequência em
+                testes de software.
+
+                Podemos utilizar o módulo
+                <strong>datetime</strong> para validar prazos,
+                datas de criação, vencimentos e duração de testes.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Exemplos no QA:</strong>
+
+                <br><br>
+
+                • Verificar se uma data de vencimento está correta.<br>
+
+                • Calcular a duração de uma execução de teste.<br>
+
+                • Validar timestamps retornados por uma API.<br>
+
+                • Verificar se um cadastro foi criado na data
+                esperada.<br>
+
+                • Comparar datas de início e fim de processos.<br>
+
+                • Criar dados de teste com datas relativas.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔍 Validando um prazo
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos comparar uma data atual com uma data de
+                vencimento para descobrir se um prazo já passou.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        validar_prazo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            datetime
+                            <span class="keyword">
+                                import
+                            </span>
+                            date
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            hoje = date.<span class="function">
+                                today
+                            </span>()
+
+                        </div>
+
+
+                        <div>
+
+                            vencimento = date(
+                            2026, 12, 31)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                if
+                            </span>
+                            hoje &lt;= vencimento:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Prazo válido"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa que calcule quantos dias faltam
+                para uma data importante.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • Utilize o módulo <code>datetime</code>.<br>
+
+                • Crie uma data futura.<br>
+
+                • Obtenha a data atual com
+                <code>date.today()</code>.<br>
+
+                • Calcule a diferença entre as duas datas.<br>
+
+                • Utilize <code>.days</code> para obter a
+                quantidade de dias.<br>
+
+                • Mostre o resultado no terminal.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O módulo <code>datetime</code> permite trabalhar
+                com datas e horários.<br>
+
+                • <code>datetime.now()</code> retorna a data e
+                horário atuais.<br>
+
+                • <code>date.today()</code> retorna a data atual.<br>
+
+                • Podemos criar datas específicas utilizando
+                <code>date()</code>.<br>
+
+                • <code>strftime()</code> transforma datas em
+                textos formatados.<br>
+
+                • <code>strptime()</code> transforma textos em
+                objetos de data e hora.<br>
+
+                • A subtração entre datas produz um
+                <code>timedelta</code>.<br>
+
+                • <code>timedelta</code> representa intervalos
+                de tempo.<br>
+
+                • Podemos adicionar ou remover períodos de uma
+                data.<br>
+
+                • Datas e horários são muito utilizados em testes
+                de software e automações.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

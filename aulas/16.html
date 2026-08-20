@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+
+                        Tema
+
+                    </span>
+
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">16</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 16
+
+            </span>
+
+
+            <h2>
+
+                Escopo de variáveis em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai entender o conceito de
+                <strong>escopo</strong> e descobrir onde uma
+                variável pode ser utilizada dentro de um programa.
+
+                Vamos estudar <strong>variáveis locais</strong>,
+                <strong>variáveis globais</strong>, a palavra-chave
+                <strong>global</strong> e algumas boas práticas
+                para trabalhar com variáveis.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 O que é escopo?
+
+            </h3>
+
+
+            <p class="description">
+
+                Escopo é a região do programa onde uma variável
+                pode ser acessada.
+
+                Em Python, uma variável criada dentro de uma
+                função normalmente pertence ao escopo daquela
+                função.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Pense no escopo como uma área de acesso.
+
+                <br><br>
+
+                Uma variável criada dentro de uma função pode
+                existir somente dentro daquela função.
+
+                <br><br>
+
+                Já uma variável criada fora de uma função pode
+                ser acessada em diferentes partes do programa,
+                dependendo do contexto.
+
+            </div>
+
+
+            <!-- =================================================
+                 VARIÁVEIS LOCAIS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Variáveis locais
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma variável local é criada dentro de uma função
+                e pode ser utilizada normalmente apenas dentro
+                daquela função.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        local.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                calcular
+                            </span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado = 10 + 20
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                calcular
+                            </span>()
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        30
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                A variável <code>resultado</code> foi criada dentro
+                da função <code>calcular()</code>.
+
+                Por isso, ela é uma variável local.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                Tentar acessar uma variável local fora da função
+                pode causar um erro.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        erro_escopo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                calcular
+                            </span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado = 30
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                calcular
+                            </span>()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        NameError
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 VARIÁVEIS GLOBAIS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌎 Variáveis globais
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma variável global é criada fora das funções.
+
+                Ela pode ser acessada dentro de uma função,
+                desde que não exista uma variável local com o
+                mesmo nome.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        global.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            sistema =
+                            <span class="string">
+                                "Sistema de Login"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                mostrar_sistema
+                            </span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(sistema)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                mostrar_sistema
+                            </span>()
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Sistema de Login
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Como <code>sistema</code> foi criada fora da
+                função, ela é uma variável global.
+
+                A função consegue ler o valor dessa variável.
+
+            </p>
+
+
+            <!-- =================================================
+                 LOCAL X GLOBAL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🆚 Local x Global
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma variável local e uma variável global podem
+                possuir o mesmo nome.
+
+                Nesse caso, dentro da função, a variável local
+                terá prioridade.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        local_global.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            ambiente =
+                            <span class="string">
+                                "Produção"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                executar_teste
+                            </span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            ambiente =
+                            <span class="string">
+                                "Homologação"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(ambiente)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                executar_teste
+                            </span>()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Homologação
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo existem duas variáveis chamadas
+                <code>ambiente</code>.
+
+                A variável criada dentro da função é local e
+                possui prioridade naquele contexto.
+
+            </p>
+
+
+            <!-- =================================================
+                 GLOBAL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌐 A palavra-chave <code>global</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Por padrão, uma função consegue ler uma variável
+                global, mas para alterar diretamente essa variável
+                dentro da função precisamos utilizar a palavra-chave
+                <strong>global</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        palavra_global.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            contador = 0
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                incrementar
+                            </span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                global
+                            </span>
+                            contador
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            contador += 1
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                incrementar
+                            </span>()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse caso, <code>global contador</code> informa ao
+                Python que queremos trabalhar com a variável global
+                <code>contador</code>, e não criar uma nova variável
+                local.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        resultado.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            contador = 0
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                incrementar
+                            </span>():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                global
+                            </span>
+                            contador
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            contador += 1
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                incrementar
+                            </span>()
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                incrementar
+                            </span>()
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(contador)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Cuidado com o uso de
+                    <code>global</code>:</strong>
+
+                <br><br>
+
+                Embora <code>global</code> seja uma ferramenta
+                válida da linguagem, seu uso excessivo pode
+                deixar o código mais difícil de entender e
+                manter.
+
+            </div>
+
+
+            <!-- =================================================
+                 BOAS PRÁTICAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ Boas práticas
+
+            </h3>
+
+
+            <p class="description">
+
+                Ao trabalhar com escopo, algumas práticas ajudam
+                a deixar o código mais organizado e previsível.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Prefira variáveis locais sempre que possível.
+                </li>
+
+                <li>
+                    Evite criar muitas variáveis globais.
+                </li>
+
+                <li>
+                    Evite utilizar <code>global</code> sem
+                    necessidade.
+                </li>
+
+                <li>
+                    Prefira passar informações para funções por
+                    meio de parâmetros.
+                </li>
+
+                <li>
+                    Utilize nomes de variáveis claros e
+                    significativos.
+                </li>
+
+                <li>
+                    Faça cada função possuir uma responsabilidade
+                    bem definida.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 FORMA RECOMENDADA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⭐ Uma abordagem melhor
+
+            </h3>
+
+
+            <p class="description">
+
+                Em vez de modificar diretamente uma variável
+                global, normalmente é melhor passar o valor
+                para uma função e retornar o resultado.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        boa_pratica.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                incrementar
+                            </span>(contador):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            contador + 1
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            contador = 0
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            contador =
+                            <span class="function">
+                                incrementar
+                            </span>(contador)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(contador)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        1
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, a função não precisa conhecer ou
+                modificar diretamente uma variável global.
+
+                Ela recebe um valor, realiza uma operação e
+                devolve o novo valor.
+
+                Essa abordagem costuma tornar o código mais
+                fácil de testar, reutilizar e manter.
+
+            </p>
+
+
+            <!-- =================================================
+                 APLICAÇÃO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Escopo aplicado a QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Em automação de testes, entender escopo é
+                especialmente importante.
+
+                Variáveis locais ajudam a manter dados específicos
+                de cada teste isolados, enquanto variáveis globais
+                podem criar dependências difíceis de identificar.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        teste.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                validar_login
+                            </span>(usuario, senha):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado =
+                            usuario ==
+                            <span class="string">
+                                "qa"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado =
+                            resultado
+                            <span class="keyword">
+                                and
+                            </span>
+                            senha ==
+                            <span class="string">
+                                "123"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            resultado
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            aprovado =
+                            <span class="function">
+                                validar_login
+                            </span>(
+                            <span class="string">
+                                "qa"
+                            </span>,
+                            <span class="string">
+                                "123"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(aprovado)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        True
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Pense como QA:</strong>
+
+                <br><br>
+
+                Quanto mais independente for uma função, mais fácil
+                será testá-la.
+
+                <br><br>
+
+                Uma função que recebe seus dados por parâmetros e
+                retorna um resultado previsível tende a ser mais
+                simples de validar e reutilizar.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma função chamada
+                <code>calcular_resultado</code> que receba uma
+                nota por parâmetro.
+
+                A função deve:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Receber a nota como parâmetro.
+                </li>
+
+                <li>
+                    Criar uma variável local chamada
+                    <code>resultado</code>.
+                </li>
+
+                <li>
+                    Armazenar em <code>resultado</code> o texto
+                    <code>"Aprovado"</code> quando a nota for
+                    maior ou igual a 7.
+                </li>
+
+                <li>
+                    Armazenar <code>"Reprovado"</code> caso
+                    contrário.
+                </li>
+
+                <li>
+                    Utilizar <code>return</code> para devolver
+                    o resultado.
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Depois, chame a função e armazene o resultado em
+                uma variável fora da função.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        desafio.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                calcular_resultado
+                            </span>(nota):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado =
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            nota &gt;= 7:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado =
+                            <span class="string">
+                                "Aprovado"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                else
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado =
+                            <span class="string">
+                                "Reprovado"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            resultado
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            <span class="function">
+                                calcular_resultado
+                            </span>(8)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • <strong>Escopo</strong> define onde uma variável
+                pode ser acessada.<br>
+
+                • Variáveis criadas dentro de funções são
+                normalmente <strong>locais</strong>.<br>
+
+                • Variáveis criadas fora das funções podem ser
+                <strong>globais</strong>.<br>
+
+                • Uma função pode ler uma variável global.<br>
+
+                • <code>global</code> permite alterar uma variável
+                global dentro de uma função.<br>
+
+                • O uso excessivo de variáveis globais pode
+                dificultar a manutenção do código.<br>
+
+                • É recomendado preferir parâmetros e
+                <code>return</code> para compartilhar dados
+                entre funções.<br>
+
+                • Funções independentes são mais fáceis de
+                testar e reutilizar em automação de QA.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">58</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 58
+
+            </span>
+
+
+            <h2>
+
+                Projeto de automação
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos colocar em prática os conceitos
+                aprendidos nas aulas anteriores para construir uma
+                <strong>automação web completa</strong> utilizando
+                Python.
+
+                O objetivo é entender como planejar, desenvolver,
+                executar e validar uma automação do início ao fim.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Criar uma automação capaz de abrir um navegador,
+                acessar uma aplicação, executar ações, validar
+                resultados e gerar informações sobre a execução.
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛠️ O projeto
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos imaginar que precisamos automatizar o teste
+                de um formulário de cadastro.
+
+                A automação deverá:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Abrir o navegador.
+                </li>
+
+                <li>
+                    Acessar a aplicação.
+                </li>
+
+                <li>
+                    Localizar os campos do formulário.
+                </li>
+
+                <li>
+                    Preencher os dados.
+                </li>
+
+                <li>
+                    Enviar o formulário.
+                </li>
+
+                <li>
+                    Validar a resposta da aplicação.
+                </li>
+
+                <li>
+                    Registrar o resultado.
+                </li>
+
+                <li>
+                    Encerrar o navegador.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 PLANEJAMENTO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 1. Planejando a automação
+
+            </h3>
+
+
+            <p class="description">
+
+                Antes de escrever código, precisamos definir
+                exatamente o que queremos automatizar.
+
+                Um bom projeto de automação começa com um cenário
+                de teste bem definido.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>📌 Cenário:</strong>
+
+                <br><br>
+
+                Cadastrar um novo usuário utilizando dados válidos.
+
+                <br><br>
+
+                <strong>Dados:</strong>
+
+                <br><br>
+
+                Nome: Maria<br>
+                E-mail: maria@example.com<br>
+                Senha: Teste123
+
+                <br><br>
+
+                <strong>Resultado esperado:</strong>
+
+                <br><br>
+
+                Após o envio do formulário, a aplicação deve
+                apresentar uma mensagem informando que o cadastro
+                foi realizado com sucesso.
+
+            </div>
+
+
+            <!-- =================================================
+                 ESTRUTURA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📁 2. Organização do projeto
+
+            </h3>
+
+
+            <p class="description">
+
+                Mesmo sendo um projeto pequeno, é importante
+                organizar os arquivos de maneira clara.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        projeto
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            projeto_automacao/
+                        </div>
+
+                        <div>
+                            ├── testes/
+                        </div>
+
+                        <div>
+                            │ └── cadastro.py
+                        </div>
+
+                        <div>
+                            │
+                        </div>
+
+                        <div>
+                            ├── dados/
+                        </div>
+
+                        <div>
+                            │ └── usuario.py
+                        </div>
+
+                        <div>
+                            │
+                        </div>
+
+                        <div>
+                            └── README.md
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 INSTALAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 3. Instalando a ferramenta
+
+            </h3>
+
+
+            <p class="description">
+
+                Neste projeto vamos utilizar o
+                <strong>Playwright</strong>.
+
+                Primeiro, instalamos a biblioteca:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        terminal
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            pip install playwright
+                        </div>
+
+                        <div>
+                            playwright install
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DADOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                👤 4. Criando os dados de teste
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos separar os dados utilizados pelo teste
+                para facilitar sua manutenção.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        usuario.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            usuario = {
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "nome"
+                            </span>:
+                            <span class="string">
+                                "Maria"
+                            </span>,
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "email"
+                            </span>:
+                            <span class="string">
+                                "maria@example.com"
+                            </span>,
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "senha"
+                            </span>:
+                            <span class="string">
+                                "Teste123"
+                            </span>
+                        </div>
+
+                        <div>
+                            }
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 AUTOMAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🤖 5. Criando a automação
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora vamos criar o script responsável por abrir
+                o navegador e executar o fluxo de cadastro.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        cadastro.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+                        <div>17</div>
+                        <div>18</div>
+                        <div>19</div>
+                        <div>20</div>
+                        <div>21</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            playwright.sync_api
+                            <span class="keyword">
+                                import
+                            </span>
+                            sync_playwright
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            dados.usuario
+                            <span class="keyword">
+                                import
+                            </span>
+                            usuario
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            sync_playwright()
+                            <span class="keyword">
+                                as
+                            </span>
+                            p:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            navegador =
+                            p.chromium.launch(
+                            headless=<span class="keyword">
+                                False</span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pagina =
+                            navegador.new_page()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pagina.goto(
+                            <span class="string">
+                                "https://exemplo.com/cadastro"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pagina.locator(
+                            <span class="string">
+                                "#nome"
+                            </span>
+                            ).fill(usuario[
+                            <span class="string">
+                                "nome"
+                            </span>])
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pagina.locator(
+                            <span class="string">
+                                "#email"
+                            </span>
+                            ).fill(usuario[
+                            <span class="string">
+                                "email"
+                            </span>])
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pagina.locator(
+                            <span class="string">
+                                "#senha"
+                            </span>
+                            ).fill(usuario[
+                            <span class="string">
+                                "senha"
+                            </span>])
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pagina.locator(
+                            <span class="string">
+                                "#cadastrar"
+                            </span>
+                            ).click()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            mensagem =
+                            pagina.locator(
+                            <span class="string">
+                                "#mensagem"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            mensagem.text_content()
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            navegador.close()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 VALIDAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ 6. Validando o resultado
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma automação de QA não deve apenas executar
+                ações.
+
+                Precisamos verificar se o resultado obtido é
+                realmente o resultado esperado.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos utilizar uma asserção para validar a
+                mensagem apresentada pela aplicação.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        validacao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            mensagem =
+                            pagina.locator(
+                            <span class="string">
+                                "#mensagem"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            texto =
+                            mensagem.text_content()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                assert
+                            </span>
+                            <span class="string">
+                                "Cadastro realizado com sucesso"
+                            </span>
+                            <span class="keyword">
+                                in
+                            </span>
+                            texto
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Teste aprovado!"
+                            </span>
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 O que o assert faz?</strong>
+
+                <br><br>
+
+                O <code>assert</code> verifica se uma condição
+                é verdadeira.
+
+                <br><br>
+
+                Se a condição for verdadeira, o teste continua.
+
+                <br><br>
+
+                Se for falsa, o Python gera uma exceção,
+                indicando que algo não saiu como esperado.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado esperado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Cadastro realizado com sucesso
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Teste aprovado!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TRATAMENTO DE FALHAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ 7. Tratando falhas
+
+            </h3>
+
+
+            <p class="description">
+
+                Durante uma automação, vários problemas podem
+                acontecer.
+
+                Um elemento pode não existir, uma página pode
+                demorar para carregar ou o resultado esperado
+                pode não aparecer.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos utilizar <code>try</code> e
+                <code>except</code> para registrar uma falha
+                sem perder informações importantes.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        tratamento.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pagina.goto(
+                            <span class="string">
+                                "https://exemplo.com"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                assert
+                            </span>
+                            pagina.title() ==
+                            <span class="string">
+                                "Cadastro"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Teste aprovado!"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                except
+                            </span>
+                            Exception
+                            <span class="keyword">
+                                as
+                            </span>
+                            erro:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Teste falhou:"
+                            </span>,
+                            erro)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # O erro pode ser registrado
+                                para análise posterior.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EVIDÊNCIAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📸 8. Evidências de teste
+
+            </h3>
+
+
+            <p class="description">
+
+                Em projetos reais de QA, é muito útil guardar
+                evidências quando um teste falha.
+
+                Uma das possibilidades é capturar uma imagem
+                da página.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        evidencia.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                assert
+                            </span>
+                            resultado == esperado
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                except
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pagina.screenshot(
+                            path=
+                            <span class="string">
+                                "falha.png"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Evidência salva."
+                            </span>
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 Boa prática:</strong>
+
+                <br><br>
+
+                Evidências ajudam a entender o que aconteceu no
+                momento da falha e facilitam a investigação do
+                problema.
+
+            </div>
+
+
+            <!-- =================================================
+                 FLUXO COMPLETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 9. Fluxo completo da automação
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora podemos visualizar todo o processo de uma
+                automação de QA:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Planejar
+
+                </strong>
+
+                →
+
+                <strong>
+
+                    Preparar dados
+
+                </strong>
+
+                →
+
+                <strong>
+
+                    Abrir navegador
+
+                </strong>
+
+                →
+
+                <strong>
+
+                    Acessar aplicação
+
+                </strong>
+
+                →
+
+                <strong>
+
+                    Executar ações
+
+                </strong>
+
+                →
+
+                <strong>
+
+                    Validar resultado
+
+                </strong>
+
+                →
+
+                <strong>
+
+                    Registrar resultado
+
+                </strong>
+
+                →
+
+                <strong>
+
+                    Encerrar
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 BOAS PRÁTICAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⭐ 10. Boas práticas de automação
+
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    Mantenha os testes simples e objetivos.
+                </li>
+
+                <li>
+                    Utilize nomes claros para variáveis e funções.
+                </li>
+
+                <li>
+                    Separe dados de teste do código.
+                </li>
+
+                <li>
+                    Evite repetir código.
+                </li>
+
+                <li>
+                    Utilize seletores estáveis.
+                </li>
+
+                <li>
+                    Evite utilizar <code>sleep()</code> sem
+                    necessidade.
+                </li>
+
+                <li>
+                    Valide sempre o resultado esperado.
+                </li>
+
+                <li>
+                    Registre informações importantes da execução.
+                </li>
+
+                <li>
+                    Gere evidências quando fizer sentido.
+                </li>
+
+                <li>
+                    Nunca coloque credenciais reais diretamente
+                    no código.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio da aula
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora é sua vez de criar uma automação completa.
+
+                Escolha uma aplicação de teste e desenvolva um
+                fluxo automatizado seguindo as etapas aprendidas.
+
+            </p>
+
+
+            <p class="description">
+
+                Sua automação deverá:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Abrir o navegador.
+                </li>
+
+                <li>
+                    Acessar a aplicação.
+                </li>
+
+                <li>
+                    Executar pelo menos três ações.
+                </li>
+
+                <li>
+                    Trabalhar com campos ou elementos da página.
+                </li>
+
+                <li>
+                    Validar pelo menos um resultado.
+                </li>
+
+                <li>
+                    Informar se o teste foi aprovado ou reprovado.
+                </li>
+
+                <li>
+                    Gerar uma evidência caso o teste falhe.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Crie uma pequena suíte de testes com três cenários:
+
+                <br><br>
+
+                <strong>1.</strong> Cadastro com dados válidos.<br>
+
+                <strong>2.</strong> Cadastro com e-mail inválido.<br>
+
+                <strong>3.</strong> Cadastro sem preencher um
+                campo obrigatório.
+
+                <br><br>
+
+                Para cada cenário, defina:
+
+                <br><br>
+
+                • Dados de entrada.<br>
+                • Ações realizadas.<br>
+                • Resultado esperado.<br>
+                • Resultado obtido.<br>
+                • Status do teste.<br>
+                • Evidência em caso de falha.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Como planejar uma automação.<br>
+
+                • Como organizar um projeto de automação.<br>
+
+                • Como preparar dados de teste.<br>
+
+                • Como iniciar um navegador com Playwright.<br>
+
+                • Como acessar uma aplicação.<br>
+
+                • Como localizar elementos.<br>
+
+                • Como preencher formulários.<br>
+
+                • Como executar ações automaticamente.<br>
+
+                • Como validar resultados com
+                <code>assert</code>.<br>
+
+                • Como tratar falhas.<br>
+
+                • Como gerar evidências de testes.<br>
+
+                • Como estruturar um fluxo completo de automação.<br>
+
+                • Boas práticas para projetos de automação.<br>
+
+                • Como pensar como um profissional de QA ao
+                automatizar testes.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Projeto concluído!
+
+            </h3>
+
+
+            <p class="description">
+
+                Parabéns!
+
+                Nesta aula você reuniu diversos conhecimentos
+                aprendidos ao longo do módulo para construir uma
+                automação completa.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Próximo passo:</strong>
+
+                <br><br>
+
+                A partir daqui, o objetivo é evoluir de scripts
+                isolados para projetos de automação organizados,
+                reutilizáveis e integrados a uma suíte de testes.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

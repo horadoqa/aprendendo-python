@@ -1,0 +1,2875 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">74</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA 74
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+                AULA 74
+            </span>
+
+
+            <h2>
+                Context Managers
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos aprender o que são
+                <strong>Context Managers</strong> em Python e como eles
+                ajudam a controlar recursos de maneira segura e organizada.
+
+                Vamos entender o funcionamento da instrução
+                <code>with</code>, conhecer os métodos
+                <code>__enter__()</code> e <code>__exit__()</code>
+                e criar nossos próprios context managers.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Aprender a utilizar context managers para garantir que
+                determinados recursos sejam corretamente preparados,
+                utilizados e liberados, mesmo quando ocorre um erro
+                durante a execução.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É CONTEXT MANAGER?
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔥 O que é um Context Manager?
+
+            </h3>
+
+
+            <p class="description">
+
+                Um <strong>Context Manager</strong> é um objeto que
+                controla o início e o fim de uma determinada operação.
+
+            </p>
+
+
+            <p class="description">
+
+                Ele é especialmente útil quando precisamos trabalhar
+                com recursos que devem ser liberados depois de utilizados.
+
+            </p>
+
+
+            <p class="description">
+
+                Alguns exemplos são:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Arquivos.
+                </li>
+
+                <li>
+                    Conexões com banco de dados.
+                </li>
+
+                <li>
+                    Locks e recursos compartilhados.
+                </li>
+
+                <li>
+                    Conexões de rede.
+                </li>
+
+                <li>
+                    Recursos temporários.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Ideia principal:</strong>
+
+                <br><br>
+
+                Um context manager define o que deve acontecer
+                <strong>ao entrar</strong> e <strong>ao sair</strong>
+                de um determinado contexto.
+
+            </div>
+
+
+            <!-- =================================================
+                 WITH
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚪 A instrução <code>with</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                A forma mais comum de utilizar um context manager
+                é através da instrução <code>with</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                Um exemplo muito conhecido é a leitura de arquivos:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        arquivo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            open(
+                            <span class="string">
+                                "dados.txt"
+                            </span>
+                            ) <span class="keyword">
+                                as
+                            </span> arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            conteudo = arquivo.read()
+
+                        </div>
+
+
+                        <div>
+
+                            print(conteudo)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Quando o bloco do <code>with</code> termina,
+                o arquivo é fechado automaticamente.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    with
+
+                    →
+                    preparar recurso
+
+                    →
+                    executar código
+
+                    →
+                    liberar recurso
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 POR QUE USAR WITH?
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛡️ Por que utilizar <code>with</code>?
+
+            </h3>
+
+
+            <p class="description">
+
+                Sem um context manager, precisaríamos controlar
+                manualmente a abertura e o fechamento de um recurso.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        manual.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            arquivo = open(
+                            <span class="string">
+                                "dados.txt"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            conteudo = arquivo.read()
+
+                        </div>
+
+
+                        <div>
+
+                            print(conteudo)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            arquivo.close()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O problema é que, se ocorrer uma exceção antes de
+                <code>close()</code>, o recurso pode não ser liberado
+                corretamente.
+
+            </p>
+
+
+            <p class="description">
+
+                O <code>with</code> ajuda a resolver esse problema
+                automaticamente.
+
+            </p>
+
+
+            <!-- =================================================
+                 TRY FINALLY
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 <code>try</code> e <code>finally</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Antes de conhecer context managers, é importante
+                entender que o mesmo comportamento poderia ser
+                implementado utilizando <code>try</code> e
+                <code>finally</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        recurso.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            recurso = adquirir_recurso()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            utilizar(recurso)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                finally
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            liberar(recurso)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O context manager encapsula esse padrão, tornando
+                o código mais simples e expressivo.
+
+            </p>
+
+
+            <!-- =================================================
+                 ENTER E EXIT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚪 <code>__enter__()</code> e <code>__exit__()</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Para criar um context manager utilizando uma classe,
+                normalmente implementamos dois métodos especiais:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <code>__enter__()</code> — executado ao entrar
+                    no contexto.
+                </li>
+
+                <li>
+                    <code>__exit__()</code> — executado ao sair
+                    do contexto.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    __enter__()
+
+                    →
+                    entrada
+
+                    <br><br>
+
+                    código do with
+
+                    →
+                    utilização
+
+                    <br><br>
+
+                    __exit__()
+
+                    →
+                    saída
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 CRIANDO CONTEXT MANAGER
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧱 Criando nosso primeiro Context Manager
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos criar uma classe que exibe mensagens quando
+                entramos e saímos de um contexto.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        contexto.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            MeuContexto:
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __enter__(self):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Entrando no contexto"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            self
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __exit__(
+                            self,
+                            exc_type,
+                            exc_value,
+                            traceback):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Saindo do contexto"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora podemos utilizar a classe com
+                <code>with</code>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        usar_contexto.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            MeuContexto():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Executando código"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Entrando no contexto
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Executando código
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Saindo do contexto
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RETORNO DO ENTER
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Retorno de <code>__enter__()</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O valor retornado por <code>__enter__()</code>
+                pode ser armazenado utilizando <code>as</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        recurso.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Conexao:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __enter__(self):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Conectando..."
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            self
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __exit__(
+                            self,
+                            exc_type,
+                            exc_value,
+                            traceback):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Desconectando..."
+                            </span>
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos então receber esse valor:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        usar.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            Conexao()
+                            <span class="keyword">
+                                as
+                            </span>
+                            conexao:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Utilizando conexão"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXCEÇÕES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ Context Managers e exceções
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>__exit__()</code> recebe informações
+                sobre uma possível exceção que ocorreu dentro do
+                bloco <code>with</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                Os três parâmetros principais são:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <code>exc_type</code> — tipo da exceção.
+                </li>
+
+                <li>
+                    <code>exc_value</code> — objeto da exceção.
+                </li>
+
+                <li>
+                    <code>traceback</code> — informações do traceback.
+                </li>
+
+            </ul>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        excecao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Contexto:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __enter__(self):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Início"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            self
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __exit__(
+                            self,
+                            exc_type,
+                            exc_value,
+                            traceback):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Fim"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(exc_type)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SUPRIMINDO EXCEÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚫 Controlando exceções
+
+            </h3>
+
+
+            <p class="description">
+
+                O retorno de <code>__exit__()</code> também pode
+                determinar se uma exceção será suprimida.
+
+            </p>
+
+
+            <p class="description">
+
+                Se <code>__exit__()</code> retornar
+                <code>True</code>, a exceção pode ser considerada
+                tratada e não continuará sendo propagada.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        suprimir.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            IgnorarErro:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __enter__(self):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            self
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __exit__(
+                            self,
+                            exc_type,
+                            exc_value,
+                            traceback):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            True
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                Suprimir exceções indiscriminadamente pode esconder
+                erros importantes.
+
+                Esse recurso deve ser utilizado somente quando fizer
+                sentido para o comportamento do programa.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONTEXTLIB
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧰 <code>contextlib</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Python também possui o módulo
+                <code>contextlib</code>, que fornece ferramentas
+                para criar e trabalhar com context managers.
+
+            </p>
+
+
+            <p class="description">
+
+                Uma das ferramentas mais úteis é o decorator
+                <code>@contextmanager</code>.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONTEXTMANAGER DECORATOR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✨ <code>@contextmanager</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Com <code>@contextmanager</code>, podemos criar um
+                context manager utilizando uma função e
+                <code>yield</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        contexto.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            contextlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            contextmanager
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            @contextmanager
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            meu_contexto():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Início"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Fim"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos utilizar a função da mesma maneira que
+                qualquer context manager:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        main.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            meu_contexto():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Executando"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Relação importante:</strong>
+
+                <br><br>
+
+                <code>yield</code> divide a função em dois momentos:
+
+                <br><br>
+
+                Antes do <code>yield</code>
+                →
+                entrada no contexto.
+
+                <br><br>
+
+                Depois do <code>yield</code>
+                →
+                saída do contexto.
+
+            </div>
+
+
+            <!-- =================================================
+                 ARQUIVOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📁 Context Managers e arquivos
+
+            </h3>
+
+
+            <p class="description">
+
+                O uso de <code>with open()</code> é provavelmente
+                o exemplo mais conhecido de context manager em Python.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        arquivo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            open(
+                            <span class="string">
+                                "dados.txt"
+                            </span>,
+                            <span class="string">
+                                "w"
+                            </span>
+                            ) <span class="keyword">
+                                as
+                            </span> arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            arquivo.write(
+                            <span class="string">
+                                "Olá, Python!"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(
+                            <span class="string">
+                                "Arquivo finalizado"
+                            </span>
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Quando a execução sai do bloco <code>with</code>,
+                o arquivo é fechado automaticamente.
+
+            </p>
+
+
+            <!-- =================================================
+                 MÚLTIPLOS CONTEXTOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔗 Múltiplos context managers
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos utilizar mais de um context manager
+                na mesma instrução <code>with</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        multiplos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            open(
+                            <span class="string">
+                                "entrada.txt"
+                            </span>
+                            ) <span class="keyword">
+                                as
+                            </span> entrada,
+                            \
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            open(
+                            <span class="string">
+                                "saida.txt"
+                            </span>,
+                            <span class="string">
+                                "w"
+                            </span>
+                            ) <span class="keyword">
+                                as
+                            </span> saida:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            conteudo = entrada.read()
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            saida.write(conteudo)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CASOS DE USO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌎 Exemplos de utilização
+
+            </h3>
+
+
+            <p class="description">
+
+                Context managers aparecem em diversas situações
+                no desenvolvimento de software.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Abrir e fechar arquivos.
+                </li>
+
+                <li>
+                    Abrir e fechar conexões.
+                </li>
+
+                <li>
+                    Controlar transações.
+                </li>
+
+                <li>
+                    Adquirir e liberar locks.
+                </li>
+
+                <li>
+                    Medir tempo de execução.
+                </li>
+
+                <li>
+                    Gerenciar recursos temporários.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Preparar recurso
+
+                    →
+                    utilizar recurso
+
+                    →
+                    liberar recurso
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO DE TIMER
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⏱️ Exemplo — Medindo tempo
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos criar um context manager para medir quanto
+                tempo determinado trecho de código leva para executar.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        timer.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            time
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Timer:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __enter__(self):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            self.inicio = time.time()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __exit__(
+                            self,
+                            exc_type,
+                            exc_value,
+                            traceback):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            fim = time.time()
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(fim - self.inicio)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora podemos medir um trecho de código:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        teste_timer.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            Timer():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            i
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(1000000):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            pass
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONTEXT MANAGER COM YIELD
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🪄 Context Manager com <code>yield</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos combinar os conhecimentos das aulas anteriores
+                sobre generators e <code>yield</code> com
+                context managers.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        contexto_yield.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            contextlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            contextmanager
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            @contextmanager
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            recurso():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Abrindo recurso"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Fechando recurso"
+                            </span>
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 BOAS PRÁTICAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ Boas práticas
+
+            </h3>
+
+
+            <p class="description">
+
+                Context managers devem ser utilizados quando existe
+                algum recurso ou estado que precisa ser corretamente
+                preparado e depois restaurado ou liberado.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Prefira <code>with</code> para recursos que precisam
+                    ser liberados.
+                </li>
+
+                <li>
+                    Evite esconder exceções sem necessidade.
+                </li>
+
+                <li>
+                    Mantenha o context manager simples.
+                </li>
+
+                <li>
+                    Utilize nomes que deixem claro o propósito.
+                </li>
+
+                <li>
+                    Use <code>contextlib</code> quando uma classe inteira
+                    for desnecessária.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Regra prática:</strong>
+
+                <br><br>
+
+                Se seu código segue repetidamente o padrão:
+
+                <br><br>
+
+                <strong>
+
+                    preparar
+
+                    →
+                    usar
+
+                    →
+                    limpar
+
+                </strong>
+
+                <br><br>
+
+                provavelmente um context manager pode tornar
+                esse código mais seguro e organizado.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Exercício 1 — Criando um contexto
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma classe chamada <code>Mensagem</code> que
+                implemente:
+
+            </p>
+
+
+            <ol>
+
+                <li>
+                    <code>__enter__()</code>
+                </li>
+
+                <li>
+                    <code>__exit__()</code>
+                </li>
+
+            </ol>
+
+
+            <p class="description">
+
+                Ao entrar no contexto, mostre:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+                    Iniciando operação...
+                </code>
+
+            </div>
+
+
+            <p class="description">
+
+                Ao sair:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+                    Operação finalizada!
+                </code>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 2
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Exercício 2 — Context manager com valor
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um context manager chamado
+                <code>Calculadora</code>.
+
+                O método <code>__enter__()</code> deve retornar
+                um objeto que possa ser utilizado dentro do
+                <code>with</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                O objetivo é permitir algo semelhante a:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        desafio.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            Calculadora()
+                            <span class="keyword">
+                                as
+                            </span>
+                            calc:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(calc.somar(10, 20))
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 3
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏆 Exercício 3 — <code>@contextmanager</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Utilize <code>contextlib.contextmanager</code> para
+                criar uma função chamada <code>conexao</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                Ela deve exibir:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+
+                    Conectando...
+
+                    <br><br>
+
+                    Conexão encerrada.
+
+                </code>
+
+            </div>
+
+
+            <p class="description">
+
+                Utilize <code>yield</code> para separar a entrada
+                da saída do contexto.
+
+            </p>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔥 Desafio extra
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um context manager chamado
+                <code>Transacao</code> que simule uma transação
+                de banco de dados.
+
+            </p>
+
+
+            <p class="description">
+
+                O comportamento esperado é:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Início
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Executar operações
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Se tudo der certo → COMMIT
+
+                    <br><br>
+
+                    Se ocorrer erro → ROLLBACK
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Finalizar
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Tente utilizar <code>__enter__()</code>,
+                <code>__exit__()</code> e o tratamento das exceções.
+
+            </p>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que são Context Managers.<br>
+
+                • Como utilizar <code>with</code>.<br>
+
+                • Por que context managers ajudam a controlar recursos.<br>
+
+                • Como <code>try</code> e <code>finally</code> se
+                relacionam com esse conceito.<br>
+
+                • Como implementar <code>__enter__()</code>.<br>
+
+                • Como implementar <code>__exit__()</code>.<br>
+
+                • Como receber o recurso através de
+                <code>as</code>.<br>
+
+                • Como context managers lidam com exceções.<br>
+
+                • Como utilizar <code>contextlib</code>.<br>
+
+                • Como utilizar <code>@contextmanager</code>.<br>
+
+                • Como combinar context managers com
+                <code>yield</code>.<br>
+
+                • Como utilizar context managers com arquivos.<br>
+
+                • Como criar context managers personalizados.<br>
+
+                • Boas práticas ao trabalhar com recursos.
+
+            </div>
+
+
+            <!-- =================================================
+                 FLUXO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧭 O fluxo de um Context Manager
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    with
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    __enter__()
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Código do contexto
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    __exit__()
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Recurso liberado
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Você aprendeu Context Managers!
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora você entende como o Python consegue controlar
+                automaticamente recursos que precisam ser preparados
+                e posteriormente liberados.
+
+            </p>
+
+
+            <p class="description">
+
+                O <code>with</code> não é apenas uma forma conveniente
+                de abrir arquivos. Ele representa um mecanismo poderoso
+                para garantir que determinadas ações de entrada e saída
+                aconteçam de maneira previsível.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Preparar
+
+                    →
+                    Executar
+
+                    →
+                    Liberar
+
+                </strong>
+
+                <br><br>
+
+                Esse é o conceito fundamental por trás dos
+                <strong>Context Managers</strong>.
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Próxima etapa:</strong>
+
+                <br><br>
+
+                Na próxima aula, vamos continuar avançando em Python
+                e conhecer outro recurso importante para escrever
+                código mais organizado e reutilizável.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

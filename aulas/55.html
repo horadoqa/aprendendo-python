@@ -1,0 +1,2159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">55</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 55
+
+            </span>
+
+
+            <h2>
+
+                Automação de planilhas
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos aprender como utilizar Python
+                para trabalhar automaticamente com planilhas
+                do Excel.
+
+                Vamos utilizar a biblioteca
+                <strong>openpyxl</strong> para ler e escrever
+                dados, alterar células, criar planilhas e gerar
+                relatórios automaticamente.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Aprender a automatizar tarefas repetitivas em
+                planilhas, como leitura de dados, preenchimento
+                de células, criação de relatórios e atualização
+                de informações.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCEITO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📊 Por que automatizar planilhas?
+
+            </h3>
+
+
+            <p class="description">
+
+                Planilhas são muito utilizadas para armazenar,
+                organizar e analisar informações.
+
+                Porém, realizar as mesmas tarefas manualmente
+                todos os dias pode consumir muito tempo.
+
+            </p>
+
+
+            <p class="description">
+
+                Com Python, podemos automatizar essas tarefas
+                e processar grandes quantidades de dados de
+                forma rápida e consistente.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplos de automação:</strong>
+
+                <br><br>
+
+                • Ler dados de uma planilha.<br>
+                • Criar novas planilhas.<br>
+                • Preencher células automaticamente.<br>
+                • Alterar valores.<br>
+                • Criar relatórios.<br>
+                • Calcular resultados.<br>
+                • Aplicar filtros e formatação.<br>
+                • Processar várias linhas automaticamente.
+
+            </div>
+
+
+            <!-- =================================================
+                 OPENPYXL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐍 Conhecendo o openpyxl
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>openpyxl</strong> é uma biblioteca
+                Python utilizada para trabalhar com arquivos
+                Excel no formato <code>.xlsx</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                Para utilizá-la, primeiro precisamos instalar
+                o pacote:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        terminal
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            pip install openpyxl
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                A instalação normalmente é feita uma única vez
+                no ambiente virtual do projeto.
+
+            </div>
+
+
+            <!-- =================================================
+                 IMPORTANDO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Importando a biblioteca
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois da instalação, podemos importar o
+                <code>openpyxl</code> no nosso programa.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        excel.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            openpyxl
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Biblioteca carregada!"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CRIANDO PLANILHA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Criando uma planilha
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos criar uma nova planilha utilizando
+                <code>Workbook()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        criar_planilha.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            openpyxl
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            planilha =
+                            openpyxl.Workbook()
+
+                        </div>
+
+
+                        <div>
+
+                            aba = planilha.active
+
+                        </div>
+
+
+                        <div>
+
+                            aba[
+                            <span class="string">
+                                "A1"
+                            </span>
+                            ] =
+                            <span class="string">
+                                "Nome"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            planilha.save(
+                            <span class="string">
+                                "alunos.xlsx"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Excel
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        alunos.xlsx criado com sucesso
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Célula A1: Nome
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ESCREVENDO DADOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✍️ Escrevendo dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos escrever valores diretamente em células
+                utilizando a referência da célula.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        dados.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            openpyxl
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            planilha =
+                            openpyxl.Workbook()
+
+                        </div>
+
+
+                        <div>
+
+                            aba = planilha.active
+
+                        </div>
+
+
+                        <div>
+
+                            aba[
+                            <span class="string">
+                                "A1"
+                            </span>
+                            ] =
+                            <span class="string">
+                                "Nome"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            aba[
+                            <span class="string">
+                                "B1"
+                            </span>
+                            ] =
+                            <span class="string">
+                                "Idade"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            aba[
+                            <span class="string">
+                                "A2"
+                            </span>
+                            ] =
+                            <span class="string">
+                                "Maria"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            aba[
+                            <span class="string">
+                                "B2"
+                            </span>
+                            ] = 25
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 VÁRIAS LINHAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 Trabalhando com várias linhas
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando precisamos inserir muitos registros,
+                podemos utilizar estruturas de repetição para
+                percorrer os dados.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        alunos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            openpyxl
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            planilha =
+                            openpyxl.Workbook()
+
+                        </div>
+
+
+                        <div>
+
+                            aba = planilha.active
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            alunos = [
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [
+                            <span class="string">
+                                "Ana"
+                            </span>, 22
+                            ],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [
+                            <span class="string">
+                                "Carlos"
+                            </span>, 30
+                            ],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [
+                            <span class="string">
+                                "João"
+                            </span>, 27
+                            ]
+
+                        </div>
+
+
+                        <div>
+
+                            ]
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            aluno
+                            <span class="keyword">
+                                in
+                            </span>
+                            alunos:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            aba.append(aluno)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 LENDO EXCEL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📖 Lendo uma planilha Excel
+
+            </h3>
+
+
+            <p class="description">
+
+                Para abrir uma planilha existente, podemos utilizar
+                <code>load_workbook()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        ler_excel.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            openpyxl
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            planilha =
+                            openpyxl.load_workbook(
+                            <span class="string">
+                                "alunos.xlsx"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            aba = planilha.active
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            nome = aba[
+                            <span class="string">
+                                "A2"
+                            </span>
+                            ].value
+
+                        </div>
+
+
+                        <div>
+
+                            idade = aba[
+                            <span class="string">
+                                "B2"
+                            </span>
+                            ].value
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(nome, idade)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO LEITURA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Maria 25
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PERCORRENDO PLANILHA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Percorrendo uma planilha
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar <code>iter_rows()</code> para
+                percorrer várias linhas e acessar seus valores.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        percorrer.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            openpyxl
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            planilha =
+                            openpyxl.load_workbook(
+                            <span class="string">
+                                "alunos.xlsx"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            aba = planilha.active
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            linha
+                            <span class="keyword">
+                                in
+                            </span>
+                            aba.iter_rows(
+                            values_only=True):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(linha)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ALTERANDO DADOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✏️ Alterando dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma planilha existente também pode ser alterada
+                e salva novamente.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        atualizar.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            openpyxl
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            planilha =
+                            openpyxl.load_workbook(
+                            <span class="string">
+                                "alunos.xlsx"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            aba = planilha.active
+
+                        </div>
+
+
+                        <div>
+
+                            aba[
+                            <span class="string">
+                                "B2"
+                            </span>
+                            ] = 26
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            planilha.save(
+                            <span class="string">
+                                "alunos.xlsx"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RELATÓRIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📈 Criando relatórios
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das aplicações mais úteis da automação de
+                planilhas é gerar relatórios automaticamente.
+
+                Podemos calcular informações e gravar os
+                resultados em uma nova planilha.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        relatorio.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            openpyxl
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            planilha =
+                            openpyxl.Workbook()
+
+                        </div>
+
+
+                        <div>
+
+                            aba = planilha.active
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            aba[
+                            <span class="string">
+                                "A1"
+                            </span>
+                            ] =
+                            <span class="string">
+                                "Relatório de vendas"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            aba[
+                            <span class="string">
+                                "A2"
+                            </span>
+                            ] =
+                            <span class="string">
+                                "Total de vendas"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            aba[
+                            <span class="string">
+                                "B2"
+                            </span>
+                            ] = 150
+
+                        </div>
+
+
+                        <div>
+
+                            aba[
+                            <span class="string">
+                                "A3"
+                            </span>
+                            ] =
+                            <span class="string">
+                                "Valor total"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            aba[
+                            <span class="string">
+                                "B3"
+                            </span>
+                            ] = 12500
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            aba[
+                            <span class="string">
+                                "A4"
+                            </span>
+                            ] =
+                            <span class="string">
+                                "Média por venda"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            aba[
+                            <span class="string">
+                                "B4"
+                            </span>
+                            ] =
+                            <span class="string">
+                                "=B3/B2"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            planilha.save(
+                            <span class="string">
+                                "relatorio.xlsx"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FORMATAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎨 Formatação básica
+
+            </h3>
+
+
+            <p class="description">
+
+                O <code>openpyxl</code> também permite alterar
+                características visuais das células, como
+                negrito, tamanho da fonte e preenchimento.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        formatacao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            openpyxl
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            openpyxl.styles
+                            <span class="keyword">
+                                import
+                            </span>
+                            Font
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            planilha =
+                            openpyxl.Workbook()
+
+                        </div>
+
+
+                        <div>
+
+                            aba = planilha.active
+
+                        </div>
+
+
+                        <div>
+
+                            aba[
+                            <span class="string">
+                                "A1"
+                            </span>
+                            ] =
+                            <span class="string">
+                                "Relatório"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            aba[
+                            <span class="string">
+                                "A1"
+                            </span>
+                            ].font =
+                            Font(bold=True)
+
+                        </div>
+
+
+                        <div>
+
+                            planilha.save(
+                            <span class="string">
+                                "relatorio.xlsx"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Automação de planilhas para QA
+
+            </h3>
+
+
+            <p class="description">
+
+                A automação de Excel pode ser muito útil em
+                atividades de QA.
+
+                Podemos utilizar Python para gerar dados,
+                processar resultados de testes e criar
+                relatórios automaticamente.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Gerar massas de teste.
+                </li>
+
+                <li>
+                    Ler dados utilizados nos testes.
+                </li>
+
+                <li>
+                    Comparar resultados esperados e obtidos.
+                </li>
+
+                <li>
+                    Criar relatórios de execução.
+                </li>
+
+                <li>
+                    Consolidar resultados de diferentes testes.
+                </li>
+
+                <li>
+                    Atualizar planilhas automaticamente.
+                </li>
+
+                <li>
+                    Gerar evidências de testes.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Imagine uma planilha contendo os resultados de
+                100 testes automatizados.
+
+                Um script Python pode ler os resultados,
+                calcular a quantidade de testes aprovados e
+                reprovados e gerar um relatório final em Excel.
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛠️ Projeto prático — Relatório de testes
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos criar um pequeno relatório contendo
+                resultados de testes automatizados.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        relatorio_testes.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+                        <div>17</div>
+                        <div>18</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            openpyxl
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultados = [
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [
+                            <span class="string">
+                                "Login"
+                            </span>,
+                            <span class="string">
+                                "Passou"
+                            </span>
+                            ],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [
+                            <span class="string">
+                                "Cadastro"
+                            </span>,
+                            <span class="string">
+                                "Passou"
+                            </span>
+                            ],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [
+                            <span class="string">
+                                "Checkout"
+                            </span>,
+                            <span class="string">
+                                "Falhou"
+                            </span>
+                            ]
+
+                        </div>
+
+
+                        <div>
+
+                            ]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            planilha =
+                            openpyxl.Workbook()
+
+                        </div>
+
+
+                        <div>
+
+                            aba = planilha.active
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            aba.append([
+                            <span class="string">
+                                "Teste"
+                            </span>,
+                            <span class="string">
+                                "Resultado"
+                            </span>
+                            ])
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            resultado
+                            <span class="keyword">
+                                in
+                            </span>
+                            resultados:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            aba.append(resultado)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            planilha.save(
+                            <span class="string">
+                                "relatorio_testes.xlsx"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO PROJETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado do relatório
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Excel
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Teste | Resultado
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Login | Passou
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Cadastro | Passou
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Checkout | Falhou
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 BOAS PRÁTICAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ Boas práticas
+
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    Faça uma cópia da planilha antes de
+                    automatizar alterações importantes.
+                </li>
+
+                <li>
+                    Utilize nomes claros para arquivos e abas.
+                </li>
+
+                <li>
+                    Valide os dados antes de gravá-los.
+                </li>
+
+                <li>
+                    Evite sobrescrever arquivos sem necessidade.
+                </li>
+
+                <li>
+                    Separe a lógica de processamento da lógica
+                    de geração do relatório.
+                </li>
+
+                <li>
+                    Utilize funções para organizar scripts
+                    maiores.
+                </li>
+
+                <li>
+                    Registre erros durante o processamento.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio da aula
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa que leia uma planilha contendo
+                resultados de testes automatizados e gere uma
+                nova planilha com um resumo da execução.
+
+                O relatório deverá apresentar:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Nome do teste.
+                </li>
+
+                <li>
+                    Resultado do teste.
+                </li>
+
+                <li>
+                    Quantidade de testes executados.
+                </li>
+
+                <li>
+                    Quantidade de testes aprovados.
+                </li>
+
+                <li>
+                    Quantidade de testes reprovados.
+                </li>
+
+                <li>
+                    Percentual de aprovação.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Formate o relatório automaticamente.
+
+                <br><br>
+
+                Utilize:
+
+                <br>
+
+                • Cabeçalhos em negrito.<br>
+                • Cores diferentes para
+                <strong>Passou</strong> e
+                <strong>Falhou</strong>.<br>
+                • Uma coluna para o percentual de aprovação.<br>
+                • Uma célula destacando o resultado final.<br>
+                • Nome do arquivo contendo a data da execução.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que é o <code>openpyxl</code>.<br>
+
+                • Como instalar e importar a biblioteca.<br>
+
+                • Como criar arquivos Excel.<br>
+
+                • Como criar e acessar planilhas.<br>
+
+                • Como ler valores de células.<br>
+
+                • Como escrever dados em células.<br>
+
+                • Como adicionar várias linhas com
+                <code>append()</code>.<br>
+
+                • Como percorrer os dados de uma planilha.<br>
+
+                • Como alterar e salvar arquivos Excel.<br>
+
+                • Como aplicar formatação básica.<br>
+
+                • Como gerar relatórios automaticamente.<br>
+
+                • Como utilizar Excel e Python em atividades
+                de QA.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">38</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 38
+
+            </span>
+
+
+            <h2>
+
+                Ambientes virtuais
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como criar e utilizar
+                <strong>ambientes virtuais</strong> em projetos Python.
+
+                Vamos conhecer o <strong>venv</strong>, entender o
+                que são <strong>dependências</strong> e aprender a
+                utilizar o <strong>pip</strong> para instalar e
+                gerenciar pacotes.
+
+            </p>
+
+
+            <p class="description">
+
+                Ambientes virtuais são muito importantes em projetos
+                profissionais porque permitem que cada projeto tenha
+                suas próprias dependências, evitando conflitos entre
+                diferentes aplicações.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Pense no ambiente virtual como uma "caixa isolada"
+                para o seu projeto Python.
+
+                <br><br>
+
+                Cada projeto pode ter seus próprios pacotes e
+                versões sem interferir nos outros projetos.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 O que são ambientes virtuais?
+
+            </h3>
+
+
+            <p class="description">
+
+                Um ambiente virtual é um ambiente isolado onde
+                podemos instalar os pacotes necessários para um
+                determinado projeto.
+
+            </p>
+
+
+            <p class="description">
+
+                Imagine que você possui dois projetos:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Projeto A utiliza uma versão específica de uma
+                    biblioteca.
+                </li>
+
+                <li>
+                    Projeto B utiliza outra versão da mesma biblioteca.
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Sem isolamento, essas versões podem entrar em conflito.
+
+                Com ambientes virtuais, cada projeto pode possuir
+                suas próprias dependências.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>✅ Vantagens:</strong>
+
+                <br><br>
+
+                • Isolamento entre projetos.<br>
+
+                • Controle das versões das bibliotecas.<br>
+
+                • Menor risco de conflitos.<br>
+
+                • Projetos mais fáceis de reproduzir.<br>
+
+                • Ambientes mais organizados.<br>
+
+                • Maior facilidade para trabalhar em equipe.
+
+            </div>
+
+
+            <!-- =================================================
+                 VENV
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐍 Criando um ambiente com venv
+
+            </h3>
+
+
+            <p class="description">
+
+                O Python possui uma ferramenta própria para criação
+                de ambientes virtuais chamada <code>venv</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                Primeiro, abra o terminal na pasta do seu projeto
+                e execute:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            python -m venv .venv
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse comando:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <code>python</code> executa o interpretador Python.
+                </li>
+
+                <li>
+                    <code>-m venv</code> solicita a execução do módulo
+                    <code>venv</code>.
+                </li>
+
+                <li>
+                    <code>.venv</code> é o nome da pasta onde o ambiente
+                    virtual será criado.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                O nome <code>.venv</code> é bastante utilizado por
+                convenção, mas você pode escolher outro nome.
+
+            </div>
+
+
+            <!-- =================================================
+                 ESTRUTURA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📁 Estrutura do projeto
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de criar o ambiente virtual, podemos ter uma
+                estrutura semelhante a esta:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        projeto
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            projeto/
+
+                        </div>
+
+
+                        <div>
+
+                            ├── .venv/
+
+                        </div>
+
+
+                        <div>
+
+                            ├── tests/
+
+                        </div>
+
+
+                        <div>
+
+                            ├── src/
+
+                        </div>
+
+
+                        <div>
+
+                            ├── requirements.txt
+
+                        </div>
+
+
+                        <div>
+
+                            └── main.py
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                A pasta <code>.venv</code> contém o ambiente virtual
+                do projeto.
+
+                Normalmente ela não deve ser enviada para o
+                repositório Git, pois pode ser recriada a partir
+                das dependências do projeto.
+
+            </p>
+
+
+            <!-- =================================================
+                 ATIVAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Ativando o ambiente virtual
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de criar o ambiente, precisamos ativá-lo para
+                que os comandos Python e os pacotes instalados sejam
+                executados dentro desse ambiente.
+
+            </p>
+
+
+            <p class="description">
+
+                No Windows utilizando o PowerShell:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        PowerShell
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            .\.venv\Scripts\Activate.ps1
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                No Windows utilizando o Prompt de Comando:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        CMD
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            .venv\Scripts\activate
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                No Linux ou macOS:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            source .venv/bin/activate
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Como saber se foi ativado?</strong>
+
+                <br><br>
+
+                Normalmente o nome do ambiente aparece no início
+                da linha do terminal:
+
+                <br><br>
+
+                <code>(.venv) C:\projeto&gt;</code>
+
+            </div>
+
+
+            <!-- =================================================
+                 PIP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📥 O que é o pip?
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>pip</strong> é o gerenciador de pacotes
+                utilizado para instalar e gerenciar bibliotecas
+                Python.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, podemos utilizar o pip para instalar
+                uma biblioteca:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            python -m pip install requests
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, estamos instalando a biblioteca
+                <code>requests</code> no ambiente virtual ativo.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Boa prática:</strong>
+
+                <br><br>
+
+                Prefira utilizar
+
+                <code>python -m pip</code>
+
+                em vez de simplesmente
+
+                <code>pip</code>,
+
+                pois isso ajuda a garantir que o pip utilizado
+                pertence ao mesmo interpretador Python que você
+                está utilizando.
+
+            </div>
+
+
+            <!-- =================================================
+                 COMANDOS PIP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛠️ Principais comandos do pip
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        pip-comandos.txt
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            python -m pip install requests
+
+                        </div>
+
+
+                        <div>
+
+                            python -m pip uninstall requests
+
+                        </div>
+
+
+                        <div>
+
+                            python -m pip list
+
+                        </div>
+
+
+                        <div>
+
+                            python -m pip show requests
+
+                        </div>
+
+
+                        <div>
+
+                            python -m pip freeze
+
+                        </div>
+
+
+                        <div>
+
+                            python -m pip install --upgrade requests
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            python -m pip --version
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <ul>
+
+                <li>
+                    <code>install</code> — instala um pacote.
+                </li>
+
+                <li>
+                    <code>uninstall</code> — remove um pacote.
+                </li>
+
+                <li>
+                    <code>list</code> — mostra os pacotes instalados.
+                </li>
+
+                <li>
+                    <code>show</code> — mostra informações sobre
+                    um pacote.
+                </li>
+
+                <li>
+                    <code>freeze</code> — mostra os pacotes instalados
+                    com suas versões.
+                </li>
+
+                <li>
+                    <code>--upgrade</code> — atualiza um pacote.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 DEPENDÊNCIAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 O que são dependências?
+
+            </h3>
+
+
+            <p class="description">
+
+                Dependências são bibliotecas e pacotes externos
+                necessários para que o projeto funcione corretamente.
+
+            </p>
+
+
+            <p class="description">
+
+                Imagine um projeto de automação que utiliza:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <code>pytest</code>
+                </li>
+
+                <li>
+                    <code>requests</code>
+                </li>
+
+                <li>
+                    <code>selenium</code>
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Essas bibliotecas podem ser consideradas
+                dependências do projeto.
+
+            </p>
+
+
+            <!-- =================================================
+                 REQUIREMENTS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📄 requirements.txt
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma prática muito comum em projetos Python é
+                registrar as dependências em um arquivo chamado
+                <code>requirements.txt</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        requirements.txt
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            pytest==8.4.1
+
+                        </div>
+
+
+                        <div>
+
+                            requests==2.32.4
+
+                        </div>
+
+
+                        <div>
+
+                            selenium==4.34.2
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O arquivo registra quais pacotes o projeto precisa
+                e, quando especificadas, as versões desejadas.
+
+                Dessa forma, outra pessoa pode recriar o ambiente
+                do projeto com mais facilidade.
+
+            </p>
+
+
+            <!-- =================================================
+                 FREEZE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💾 Gerando requirements.txt
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar o comando
+                <code>pip freeze</code> para gerar uma lista
+                das dependências instaladas.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            python -m pip freeze &gt; requirements.txt
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O operador <code>&gt;</code> redireciona a saída
+                do comando para o arquivo
+                <code>requirements.txt</code>.
+
+            </p>
+
+
+            <!-- =================================================
+                 INSTALAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📥 Instalando as dependências
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando recebemos um projeto que possui um arquivo
+                <code>requirements.txt</code>, podemos instalar
+                todas as dependências de uma vez.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            python -m pip install -r requirements.txt
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Fluxo comum:</strong>
+
+                <br><br>
+
+                1. Criar o ambiente virtual.<br>
+
+                2. Ativar o ambiente.<br>
+
+                3. Instalar as dependências.<br>
+
+                4. Executar o projeto ou os testes.
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Ambientes virtuais no QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Em automação de testes, ambientes virtuais são
+                especialmente importantes.
+
+                Um projeto pode depender de várias bibliotecas,
+                como frameworks de testes, ferramentas de
+                automação de navegador, clientes HTTP e bibliotecas
+                auxiliares.
+
+            </p>
+
+
+            <p class="description">
+
+                Um projeto de automação pode ter, por exemplo:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        requirements.txt
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            pytest
+
+                        </div>
+
+
+                        <div>
+
+                            requests
+
+                        </div>
+
+
+                        <div>
+
+                            selenium
+
+                        </div>
+
+
+                        <div>
+
+                            pytest-html
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Com o arquivo de dependências, outro profissional
+                consegue configurar o ambiente necessário para
+                executar os mesmos testes.
+
+            </p>
+
+
+            <!-- =================================================
+                 GITIGNORE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚫 Não versionar o ambiente virtual
+
+            </h3>
+
+
+            <p class="description">
+
+                A pasta <code>.venv</code> normalmente não deve
+                ser adicionada ao Git.
+
+                Em seu lugar, versionamos os arquivos necessários
+                para recriar o ambiente, como o
+                <code>requirements.txt</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        .gitignore
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            .venv/
+
+                        </div>
+
+
+                        <div>
+
+                            __pycache__/
+
+                        </div>
+
+
+                        <div>
+
+                            *.pyc
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Boa prática:</strong>
+
+                <br><br>
+
+                O repositório deve conter o código e as informações
+                necessárias para recriar o ambiente, e não a pasta
+                completa do ambiente virtual.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESATIVAR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⏹️ Desativando o ambiente
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando terminarmos de trabalhar no projeto,
+                podemos desativar o ambiente virtual utilizando:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            deactivate
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FLUXO COMPLETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Fluxo completo
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos revisar um fluxo comum para iniciar um novo
+                projeto Python:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            mkdir meu_projeto
+
+                        </div>
+
+
+                        <div>
+
+                            cd meu_projeto
+
+                        </div>
+
+
+                        <div>
+
+                            python -m venv .venv
+
+                        </div>
+
+
+                        <div>
+
+                            .\.venv\Scripts\Activate.ps1
+
+                        </div>
+
+
+                        <div>
+
+                            python -m pip install pytest
+
+                        </div>
+
+
+                        <div>
+
+                            python -m pip freeze &gt; requirements.txt
+
+                        </div>
+
+
+                        <div>
+
+                            pytest
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um pequeno projeto Python chamado
+                <code>projeto_qa</code> e prepare um ambiente
+                virtual para ele.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • Crie uma pasta para o projeto.<br>
+
+                • Crie um ambiente virtual chamado
+                <code>.venv</code>.<br>
+
+                • Ative o ambiente virtual.<br>
+
+                • Instale o <code>pytest</code>.<br>
+
+                • Instale pelo menos mais uma biblioteca Python.<br>
+
+                • Gere o arquivo
+                <code>requirements.txt</code>.<br>
+
+                • Crie um arquivo Python simples.<br>
+
+                • Execute o arquivo dentro do ambiente virtual.<br>
+
+                • Adicione <code>.venv/</code> ao
+                <code>.gitignore</code>.<br>
+
+                • Desative o ambiente ao finalizar.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Ambientes virtuais isolam as dependências de
+                diferentes projetos.<br>
+
+                • <code>venv</code> é uma ferramenta disponível
+                no Python para criar ambientes virtuais.<br>
+
+                • O ambiente pode ser ativado e desativado
+                conforme a necessidade.<br>
+
+                • <code>pip</code> é utilizado para instalar e
+                gerenciar pacotes Python.<br>
+
+                • <code>pip list</code> mostra os pacotes instalados.<br>
+
+                • <code>pip freeze</code> permite registrar as
+                dependências e versões instaladas.<br>
+
+                • <code>requirements.txt</code> facilita a
+                reprodução do ambiente do projeto.<br>
+
+                • A pasta <code>.venv</code> normalmente deve ser
+                adicionada ao <code>.gitignore</code>.<br>
+
+                • Ambientes virtuais são fundamentais para manter
+                projetos Python organizados e reproduzíveis.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

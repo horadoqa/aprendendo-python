@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">32</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 32
+
+            </span>
+
+
+            <h2>
+
+                Encapsulamento
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender o conceito de
+                <strong>encapsulamento</strong> na Programação
+                Orientada a Objetos.
+
+                Vamos entender a diferença entre atributos
+                <strong>públicos</strong> e
+                <strong>privados</strong> e conhecer as
+                <strong>properties</strong> do Python.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔒 O que é encapsulamento?
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>Encapsulamento</strong> é uma técnica da
+                Programação Orientada a Objetos que ajuda a
+                controlar como os dados de um objeto podem ser
+                acessados e modificados.
+
+            </p>
+
+
+            <p class="description">
+
+                A ideia é proteger o estado interno do objeto e
+                controlar as alterações realizadas nesses dados.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Encapsular significa controlar o acesso aos dados
+                internos de um objeto.
+
+                <br><br>
+
+                Em vez de permitir que qualquer parte do programa
+                altere um valor livremente, podemos criar regras
+                para controlar essa alteração.
+
+            </div>
+
+
+            <!-- =================================================
+                 ATRIBUTOS PÚBLICOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌐 Atributos públicos
+
+            </h3>
+
+
+            <p class="description">
+
+                Por padrão, os atributos criados em Python podem
+                ser acessados diretamente através do objeto.
+
+            </p>
+
+
+            <p class="description">
+
+                Esses atributos são considerados
+                <strong>públicos</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        usuario.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Usuario:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, nome):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.nome = nome
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            usuario = Usuario(
+                            <span class="string">
+                                "Maria"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            usuario.nome)
+
+                        </div>
+
+
+                        <div>
+
+                            usuario.nome =
+                            <span class="string">
+                                "João"
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, o atributo <code>nome</code> pode
+                ser acessado e alterado diretamente.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                Embora essa liberdade possa ser útil em alguns
+                casos, ela também permite que valores importantes
+                sejam alterados sem nenhuma validação.
+
+            </div>
+
+
+            <!-- =================================================
+                 ATRIBUTOS PRIVADOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔐 Atributos privados
+
+            </h3>
+
+
+            <p class="description">
+
+                Em Python, podemos indicar que um atributo deve
+                ser tratado como interno utilizando
+                <strong>dois underscores</strong>
+                (<code>__</code>) no início do nome.
+
+            </p>
+
+
+            <p class="description">
+
+                Esse recurso é chamado de
+                <strong>name mangling</strong>.
+
+                Ele dificulta o acesso direto ao atributo e ajuda
+                a proteger os dados internos da classe.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        conta.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Conta:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, saldo):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.__saldo = saldo
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            conta = Conta(1000)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            conta._Conta__saldo)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # O acesso direto não é recomendado
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                O uso de <code>__</code> em Python não cria um
+                atributo verdadeiramente privado como em algumas
+                outras linguagens.
+
+                <br><br>
+
+                Ele utiliza <strong>name mangling</strong> para
+                dificultar o acesso direto ao atributo e indicar
+                que aquele dado deve ser tratado como interno.
+
+            </div>
+
+
+            <!-- =================================================
+                 GETTERS E SETTERS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Controlando o acesso aos atributos
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma maneira de controlar o acesso aos dados é
+                utilizar métodos para ler e modificar os atributos.
+
+            </p>
+
+
+            <p class="description">
+
+                Esses métodos são tradicionalmente chamados de
+                <strong>getters</strong> e
+                <strong>setters</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        produto.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Produto:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, preco):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.__preco = preco
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                get_preco
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="keyword">
+                                self
+                            </span>.__preco
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                set_preco
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, preco):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            preco &gt;= 0:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.__preco = preco
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                else
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Preço inválido"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            produto = Produto(100)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROPERTIES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✨ Properties
+
+            </h3>
+
+
+            <p class="description">
+
+                O Python oferece uma forma mais elegante de
+                controlar atributos utilizando
+                <strong>properties</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Com <code>@property</code>, podemos acessar um
+                método como se ele fosse um atributo.
+
+                Isso permite manter uma interface simples para
+                quem utiliza a classe, enquanto continuamos
+                controlando o acesso aos dados internamente.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        produto.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Produto:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, preco):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.__preco = preco
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                @property
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                preco
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="keyword">
+                                self
+                            </span>.__preco
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                @preco.setter
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                preco
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, valor):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            valor &gt;= 0:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.__preco = valor
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            produto = Produto(100)
+
+                        </div>
+
+
+                        <div>
+
+                            produto.preco = 150
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        150
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROPERTY GETTER
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                👀 Lendo uma property
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando utilizamos <code>@property</code>,
+                podemos acessar o método como se estivéssemos
+                acessando um atributo comum.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        exemplo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            produto = Produto(100)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            produto.preco)
+
+                        </div>
+
+
+                        <div>
+
+                            produto.preco = 200
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Perceba que não precisamos chamar
+                <code>produto.preco()</code>.
+
+                A property permite utilizar simplesmente
+                <code>produto.preco</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 A ideia:</strong>
+
+                <br><br>
+
+                Para quem utiliza o objeto:
+
+                <br><br>
+
+                <code>produto.preco</code>
+
+                <br><br>
+
+                parece um atributo comum.
+
+                <br><br>
+
+                Internamente, porém, podemos executar regras
+                para controlar como esse valor é lido ou alterado.
+
+            </div>
+
+
+            <!-- =================================================
+                 VALIDAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛡️ Validando valores
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das grandes vantagens das properties é poder
+                adicionar regras de validação antes de alterar
+                um atributo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        conta.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Conta:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, saldo):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.__saldo = saldo
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                @property
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                saldo
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="keyword">
+                                self
+                            </span>.__saldo
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                @saldo.setter
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                saldo
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, valor):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            valor &lt; 0:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                raise
+                            </span>
+                            <span class="function">
+                                ValueError
+                            </span>(
+                            <span class="string">
+                                "Saldo não pode ser negativo"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.__saldo = valor
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            conta = Conta(1000)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora o programa consegue impedir que um valor
+                inválido seja atribuído ao saldo.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Regra de negócio:</strong>
+
+                <br><br>
+
+                O atributo <code>saldo</code> não deve aceitar
+                valores negativos.
+
+                <br><br>
+
+                A property permite colocar essa regra dentro da
+                própria classe.
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Encapsulamento no QA
+
+            </h3>
+
+
+            <p class="description">
+
+                O encapsulamento é especialmente útil em
+                automação de testes quando precisamos proteger
+                dados ou garantir que determinadas regras sejam
+                respeitadas.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, uma classe de usuário pode controlar
+                como o email é alterado, evitando que um valor
+                inválido seja armazenado.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        usuario_teste.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            UsuarioTeste:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, email):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.__email = email
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                @property
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                email
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="keyword">
+                                self
+                            </span>.__email
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                @email.setter
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                email
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, valor):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            <span class="string">
+                                "@"
+                            </span>
+                            <span class="keyword">
+                                not in
+                            </span>
+                            valor:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                raise
+                            </span>
+                            <span class="function">
+                                ValueError
+                            </span>(
+                            <span class="string">
+                                "Email inválido"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.__email = valor
+
+                        </div>
+
+
+                        <div>
+
+                            usuario = UsuarioTeste(
+                            <span class="string">
+                                "maria@email.com"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma classe chamada
+                <code>Produto</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • Crie um atributo privado chamado
+                <code>__preco</code>.<br>
+
+                • Crie uma <code>@property</code> chamada
+                <code>preco</code>.<br>
+
+                • Crie um setter para alterar o preço.<br>
+
+                • O preço não pode ser menor que zero.<br>
+
+                • Caso seja informado um valor inválido,
+                lance um <code>ValueError</code>.<br>
+
+                • Crie um objeto e teste diferentes valores.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Encapsulamento ajuda a controlar o acesso aos
+                dados de um objeto.<br>
+
+                • Atributos públicos podem ser acessados
+                diretamente.<br>
+
+                • O prefixo <code>__</code> ativa o
+                <strong>name mangling</strong>.<br>
+
+                • Atributos com <code>__</code> devem ser tratados
+                como detalhes internos da classe.<br>
+
+                • Getters permitem controlar a leitura de um
+                atributo.<br>
+
+                • Setters permitem controlar sua alteração.<br>
+
+                • <code>@property</code> permite acessar um método
+                como se fosse um atributo.<br>
+
+                • Properties são úteis para aplicar validações
+                e regras de negócio.<br>
+
+                • Encapsulamento ajuda a tornar o código mais
+                organizado, seguro e previsível.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

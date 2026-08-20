@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">7</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 07
+
+            </span>
+
+
+            <h2>
+
+                Exercícios de lógica em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos colocar em prática os conceitos
+                aprendidos nas aulas anteriores.
+
+                Você vai criar pequenos programas utilizando
+                <strong>variáveis</strong>,
+                <strong>input()</strong>,
+                <strong>condições</strong>,
+                <strong>operações matemáticas</strong> e
+                <strong>estruturas de repetição</strong>.
+
+                O objetivo é desenvolver seu raciocínio lógico e
+                começar a resolver problemas utilizando Python.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧮 1. Calculadora
+
+            </h3>
+
+            <p class="description">
+
+                Vamos começar criando uma calculadora simples.
+
+                O programa receberá dois números e uma operação,
+                realizando o cálculo escolhido pelo usuário.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 O que vamos praticar:</strong>
+
+                <br><br>
+
+                <code>input()</code>,
+                conversão com <code>float()</code>,
+                condições com <code>if</code>,
+                <code>elif</code> e <code>else</code>,
+                além dos operadores matemáticos.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        calculadora.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            numero1 =
+                            <span class="function">float</span>(
+                            <span class="function">input</span>(
+                            <span class="string">"Digite o primeiro número: "</span>))
+                        </div>
+
+                        <div>
+                            numero2 =
+                            <span class="function">float</span>(
+                            <span class="function">input</span>(
+                            <span class="string">"Digite o segundo número: "</span>))
+                        </div>
+
+                        <div>
+                            operacao =
+                            <span class="function">input</span>(
+                            <span class="string">"Digite +, -, * ou /: "</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">if</span>
+                            operacao == <span class="string">"+"</span>:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado = numero1 + numero2
+                        </div>
+
+                        <div>
+                            <span class="keyword">elif</span>
+                            operacao == <span class="string">"-"</span>:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado = numero1 - numero2
+                        </div>
+
+                        <div>
+                            <span class="keyword">elif</span>
+                            operacao == <span class="string">"*"</span>:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado = numero1 * numero2
+                        </div>
+
+                        <div>
+                            <span class="keyword">elif</span>
+                            operacao == <span class="string">"/"</span>:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado = numero1 / numero2
+                        </div>
+
+                        <div>
+                            <span class="keyword">else</span>:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado = <span class="string">"Operação inválida"</span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            <span class="string">f"Resultado: {resultado}"</span>)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Digite o primeiro número: 10
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Digite o segundo número: 5
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Digite +, -, * ou /: *
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Resultado: 50.0
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 2
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎂 2. Verificador de idade
+
+            </h3>
+
+            <p class="description">
+
+                Agora vamos criar um programa que recebe a idade
+                de uma pessoa e informa se ela é criança,
+                adolescente, adulta ou idosa.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        idade.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            idade =
+                            <span class="function">int</span>(
+                            <span class="function">input</span>(
+                            <span class="string">"Digite sua idade: "</span>))
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">if</span> idade &lt; 12:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Criança"</span>)
+                        </div>
+
+                        <div>
+                            <span class="keyword">elif</span> idade &lt; 18:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Adolescente"</span>)
+                        </div>
+
+                        <div>
+                            <span class="keyword">elif</span> idade &lt; 60:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Adulto"</span>)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Complete o exercício:</strong>
+
+                <br><br>
+
+                Adicione a condição para pessoas com
+                <strong>60 anos ou mais</strong>, exibindo
+                <code>"Idoso"</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 3
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✖️ 3. Tabuada
+
+            </h3>
+
+            <p class="description">
+
+                A tabuada é um excelente exercício para praticar
+                estruturas de repetição.
+
+                Vamos utilizar <strong>for</strong> e
+                <strong>range()</strong> para gerar os resultados
+                automaticamente.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        tabuada.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            numero =
+                            <span class="function">int</span>(
+                            <span class="function">input</span>(
+                            <span class="string">"Digite um número: "</span>))
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">for</span>
+                            i <span class="keyword">in</span>
+                            <span class="function">range</span>(1, 11):
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado = numero * i
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">f"{numero} x {i} = {resultado}"</span>)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Digite um número: 5
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        5 x 1 = 5
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        5 x 2 = 10
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        5 x 3 = 15
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        ...
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        5 x 10 = 50
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 4
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📊 4. Média de notas
+
+            </h3>
+
+            <p class="description">
+
+                Vamos criar um programa que recebe três notas,
+                calcula a média e informa se o aluno foi
+                <strong>aprovado</strong>, ficou de
+                <strong>recuperação</strong> ou foi
+                <strong>reprovado</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        media.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            nota1 =
+                            <span class="function">float</span>(
+                            <span class="function">input</span>(
+                            <span class="string">"Nota 1: "</span>))
+                        </div>
+
+                        <div>
+                            nota2 =
+                            <span class="function">float</span>(
+                            <span class="function">input</span>(
+                            <span class="string">"Nota 2: "</span>))
+                        </div>
+
+                        <div>
+                            nota3 =
+                            <span class="function">float</span>(
+                            <span class="function">input</span>(
+                            <span class="string">"Nota 3: "</span>))
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            media = (nota1 + nota2 + nota3) / 3
+                        </div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            <span class="string">f"Média: {media:.1f}"</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">if</span> media &gt;= 7:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Aprovado!"</span>)
+                        </div>
+
+                        <div>
+                            <span class="keyword">elif</span> media &gt;= 5:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Recuperação."</span>)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Desafio:</strong>
+
+                <br><br>
+
+                Adicione um <code>else</code> para informar
+                <code>"Reprovado."</code> quando a média for menor
+                que 5.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 5
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 5. Conversores
+
+            </h3>
+
+            <p class="description">
+
+                Programas conversores são ótimos exercícios para
+                praticar cálculos, entrada de dados e formatação
+                de resultados.
+
+                Vamos converter uma temperatura de Celsius para
+                Fahrenheit.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        temperatura.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            celsius =
+                            <span class="function">float</span>(
+                            <span class="function">input</span>(
+                            <span class="string">"Temperatura em °C: "</span>))
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            fahrenheit = (celsius * 9 / 5) + 32
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            <span class="string">f"{celsius}°C = {fahrenheit:.1f}°F"</span>)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Outros desafios de conversão:</strong>
+
+                <br><br>
+
+                • Quilômetros → Milhas<br>
+                • Metros → Centímetros<br>
+                • Horas → Minutos<br>
+                • Reais → Dólares<br>
+                • Celsius → Fahrenheit
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO 6
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 6. Jogo de adivinhação
+
+            </h3>
+
+            <p class="description">
+
+                Para finalizar a aula, vamos criar um pequeno jogo.
+
+                O computador terá um número secreto e o jogador
+                deverá tentar adivinhar qual é.
+
+                Esse exercício combina <strong>while</strong>,
+                <strong>if</strong>, <strong>elif</strong>,
+                <strong>else</strong> e <strong>input()</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        adivinhacao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            numero_secreto = 7
+                        </div>
+
+                        <div>
+                            tentativa = 0
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">while</span>
+                            tentativa != numero_secreto:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            tentativa =
+                            <span class="function">int</span>(
+                            <span class="function">input</span>(
+                            <span class="string">"Adivinhe o número: "</span>))
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">if</span>
+                            tentativa &lt; numero_secreto:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Tente um número maior."</span>)
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">elif</span>
+                            tentativa &gt; numero_secreto:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Tente um número menor."</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="function">print</span>(
+                            <span class="string">"Parabéns! Você acertou!"</span>)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+                <div class="result-body">
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Adivinhe o número: 4
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Tente um número maior.
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Adivinhe o número: 9
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Tente um número menor.
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Adivinhe o número: 7
+                    </div>
+
+                    <div>
+                        <span class="terminal-prompt">></span>
+                        Parabéns! Você acertou!
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO FINAL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏆 Desafio final
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora é sua vez de combinar os conhecimentos da
+                aula em um único programa.
+
+                Crie um <strong>menu de opções</strong> onde o
+                usuário possa escolher entre diferentes
+                funcionalidades.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo de menu:</strong>
+
+                <br><br>
+
+                <code>
+                    1 - Calculadora<br>
+                    2 - Verificador de idade<br>
+                    3 - Tabuada<br>
+                    4 - Média de notas<br>
+                    5 - Conversor<br>
+                    6 - Jogo de adivinhação<br>
+                    0 - Sair
+                </code>
+
+                <br><br>
+
+                Utilize <code>while</code> para manter o menu
+                funcionando e <code>break</code> para encerrá-lo
+                quando o usuário escolher a opção <code>0</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você praticou:</strong>
+
+                <br><br>
+
+                • Criação de uma calculadora simples.<br>
+
+                • Uso de <code>input()</code> para receber
+                informações do usuário.<br>
+
+                • Conversão de valores com <code>int()</code> e
+                <code>float()</code>.<br>
+
+                • Verificação de idade utilizando
+                <code>if</code>, <code>elif</code> e
+                <code>else</code>.<br>
+
+                • Criação de uma tabuada utilizando
+                <code>for</code> e <code>range()</code>.<br>
+
+                • Cálculo e avaliação de médias.<br>
+
+                • Criação de conversores utilizando operações
+                matemáticas.<br>
+
+                • Criação de um jogo utilizando
+                <code>while</code> e condições.<br>
+
+                • Combinação de vários conceitos para resolver
+                problemas de lógica.<br>
+
+                • Desenvolvimento do raciocínio lógico através
+                de pequenos programas.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

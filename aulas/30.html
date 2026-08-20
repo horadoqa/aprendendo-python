@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">30</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 30
+
+            </span>
+
+
+            <h2>
+
+                Introdução à Programação Orientada a Objetos
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai conhecer os principais conceitos
+                da <strong>Programação Orientada a Objetos (POO)</strong>
+                em Python.
+
+                Vamos aprender o que são
+                <strong>classes</strong>,
+                <strong>objetos</strong>,
+                <strong>atributos</strong> e
+                <strong>métodos</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 O que é POO?
+
+            </h3>
+
+
+            <p class="description">
+
+                A Programação Orientada a Objetos é um paradigma
+                de programação que organiza o código utilizando
+                <strong>objetos</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Esses objetos podem representar coisas do mundo
+                real ou conceitos do sistema.
+
+                Por exemplo, em um sistema de testes podemos ter
+                objetos como <strong>Cliente</strong>,
+                <strong>Produto</strong>,
+                <strong>Teste</strong> ou
+                <strong>Relatório</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                POO permite organizar o código agrupando
+                <strong>dados</strong> e
+                <strong>comportamentos</strong>
+                dentro de objetos.
+
+            </div>
+
+
+            <!-- =================================================
+                 CLASSES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏗️ Classes
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma <strong>classe</strong> funciona como um
+                modelo ou uma estrutura para criar objetos.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos imaginar uma classe como uma
+                <strong>planta de uma casa</strong>.
+
+                A planta define como a casa será construída,
+                mas não representa uma casa específica.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                A classe <code>Cliente</code> pode definir quais
+                informações e comportamentos um cliente terá.
+
+            </div>
+
+
+            <!-- =================================================
+                 PRIMEIRA CLASSE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💻 Criando uma classe
+
+            </h3>
+
+
+            <p class="description">
+
+                Em Python, utilizamos a palavra-chave
+                <code>class</code> para criar uma classe.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        cliente.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Cliente:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                pass
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cliente = Cliente()
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(cliente)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 OBJETOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                👤 Objetos
+
+            </h3>
+
+
+            <p class="description">
+
+                Um <strong>objeto</strong> é uma instância de uma
+                classe.
+
+            </p>
+
+
+            <p class="description">
+
+                Se a classe é o modelo, o objeto é uma utilização
+                concreta desse modelo.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🏠 Exemplo:</strong>
+
+                <br><br>
+
+                <strong>Classe:</strong> Casa<br>
+                <strong>Objetos:</strong> minha casa, sua casa,
+                casa da empresa.
+
+                <br><br>
+
+                Todos os objetos seguem a estrutura definida
+                pela classe.
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos criar vários objetos a partir da mesma
+                classe.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        objetos.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Cliente:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                pass
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cliente1 = Cliente()
+
+                        </div>
+
+
+                        <div>
+
+                            cliente2 = Cliente()
+
+                        </div>
+
+
+                        <div>
+
+                            cliente3 = Cliente()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ATRIBUTOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Atributos
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>Atributos</strong> são características ou
+                informações que pertencem a um objeto.
+
+            </p>
+
+
+            <p class="description">
+
+                Um cliente, por exemplo, pode possuir atributos
+                como nome, idade e email.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Um objeto <code>Cliente</code> pode ter:
+
+                <br><br>
+
+                <code>nome</code> → "Maria"<br>
+                <code>idade</code> → 25<br>
+                <code>email</code> → "maria@email.com"
+
+            </div>
+
+
+            <!-- =================================================
+                 SELF
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔑 O <code>self</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Dentro de uma classe, utilizamos
+                <code>self</code> para acessar o próprio objeto.
+
+            </p>
+
+
+            <p class="description">
+
+                O método especial <code>__init__()</code> é
+                executado automaticamente quando criamos um novo
+                objeto.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        cliente.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Cliente:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, nome, idade):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.nome = nome
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.idade = idade
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cliente = Cliente(
+                            <span class="string">
+                                "Maria"
+                            </span>, 25)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            cliente.nome)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            cliente.idade)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Maria
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        25
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MÉTODOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚙️ Métodos
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>Métodos</strong> são funções que pertencem
+                a uma classe.
+
+            </p>
+
+
+            <p class="description">
+
+                Eles representam comportamentos que um objeto
+                pode executar.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Um cliente pode ter comportamentos como:
+
+                <br><br>
+
+                <code>apresentar()</code><br>
+                <code>comprar()</code><br>
+                <code>cancelar_pedido()</code>
+
+            </div>
+
+
+            <!-- =================================================
+                 MÉTODO
+            ================================================== -->
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        metodo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Cliente:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, nome):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.nome = nome
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                apresentar
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                f"Olá, meu nome é
+                            </span>
+                            <span class="keyword">
+                                {self.nome}
+                            </span>
+                            <span class="string">
+                                !"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cliente = Cliente(
+                            <span class="string">
+                                "Maria"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        metodo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            cliente.<span class="function">
+                                apresentar
+                            </span>()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO MÉTODO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Executando o método
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá, meu nome é Maria!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 POO aplicada ao QA
+
+            </h3>
+
+
+            <p class="description">
+
+                A Programação Orientada a Objetos é muito utilizada
+                em automação de testes.
+
+                Podemos criar classes para representar páginas,
+                usuários, produtos e diferentes componentes
+                da aplicação.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Exemplo:</strong>
+
+                <br><br>
+
+                Podemos criar uma classe
+                <code>LoginPage</code> para representar uma tela
+                de login.
+
+                <br><br>
+
+                Seus atributos podem representar informações da
+                página e seus métodos podem representar ações,
+                como fazer login.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        login_page.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            LoginPage:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.url =
+                            <span class="string">
+                                "https://exemplo.com/login"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                fazer_login
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, usuario, senha):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                f"Login realizado para
+                            </span>
+                            <span class="keyword">
+                                {usuario}
+                            </span>
+                            <span class="string">
+                                "
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            pagina = LoginPage()
+
+                        </div>
+
+
+                        <div>
+
+                            pagina.<span class="function">
+                                fazer_login
+                            </span>(
+                            <span class="string">
+                                "maria"
+                            </span>,
+                            <span class="string">
+                                "123456"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Login realizado para maria
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RELAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔗 Classe, objeto, atributo e método
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 Pense assim:</strong>
+
+                <br><br>
+
+                <strong>Classe</strong> → modelo que define a
+                estrutura.<br><br>
+
+                <strong>Objeto</strong> → instância criada a partir
+                da classe.<br><br>
+
+                <strong>Atributo</strong> → característica ou dado
+                do objeto.<br><br>
+
+                <strong>Método</strong> → comportamento ou ação
+                que o objeto pode executar.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma classe chamada
+                <code>Produto</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • Crie os atributos
+                <code>nome</code> e
+                <code>preco</code>.<br>
+
+                • Crie um método chamado
+                <code>mostrar_dados()</code>.<br>
+
+                • O método deve mostrar o nome e o preço
+                do produto.<br>
+
+                • Crie pelo menos dois objetos da classe.<br>
+
+                • Execute o método para cada objeto.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • POO significa Programação Orientada a Objetos.<br>
+
+                • <code>class</code> é utilizada para criar
+                classes.<br>
+
+                • Classes funcionam como modelos para criar
+                objetos.<br>
+
+                • Objetos são instâncias de uma classe.<br>
+
+                • Atributos representam características ou dados
+                dos objetos.<br>
+
+                • Métodos representam comportamentos ou ações.<br>
+
+                • <code>__init__()</code> é utilizado para
+                inicializar objetos.<br>
+
+                • <code>self</code> representa o próprio objeto.<br>
+
+                • Uma mesma classe pode gerar vários objetos.<br>
+
+                • POO é muito utilizada na criação de sistemas
+                e automações de testes.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

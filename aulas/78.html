@@ -1,0 +1,2574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">78</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA 78
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+                AULA 78
+            </span>
+
+
+            <h2>
+                Programação assíncrona
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos conhecer a
+                <strong>programação assíncrona</strong> em Python.
+
+                Vamos aprender como utilizar
+                <strong>async</strong>,
+                <strong>await</strong> e
+                <strong>asyncio</strong>
+                para executar tarefas que envolvem espera,
+                como chamadas de rede, arquivos e outras operações
+                de entrada e saída.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Entender como funciona a programação assíncrona
+                e criar programas capazes de realizar várias
+                tarefas de forma eficiente enquanto aguardam
+                operações que demoram para terminar.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É PROGRAMAÇÃO ASSÍNCRONA?
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚡ O que é programação assíncrona?
+
+            </h3>
+
+
+            <p class="description">
+
+                Em um programa tradicional, uma tarefa normalmente
+                é executada e precisamos esperar que ela termine
+                antes de continuar para a próxima.
+
+            </p>
+
+
+            <p class="description">
+
+                Em determinadas situações, porém, uma tarefa passa
+                grande parte do tempo apenas esperando.
+
+                Por exemplo:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Esperar uma resposta de uma API.
+                </li>
+
+                <li>
+                    Esperar uma conexão de rede.
+                </li>
+
+                <li>
+                    Esperar um arquivo.
+                </li>
+
+                <li>
+                    Esperar um banco de dados.
+                </li>
+
+                <li>
+                    Esperar um temporizador.
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Durante esse período de espera, podemos permitir
+                que outras tarefas sejam executadas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Ideia principal:</strong>
+
+                <br><br>
+
+                Programação assíncrona permite que o programa
+                aproveite períodos de espera para executar
+                outras tarefas.
+
+            </div>
+
+
+            <!-- =================================================
+                 SÍNCRONO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐢 Código síncrono
+
+            </h3>
+
+
+            <p class="description">
+
+                Imagine duas tarefas que precisam esperar alguns
+                segundos.
+
+                Em um código síncrono, uma tarefa termina antes
+                da outra começar.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        sincronamente.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            time
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            tarefa(nome):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                f"{nome} começou"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            time.sleep(2)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                f"{nome} terminou"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Se chamarmos duas tarefas sequencialmente,
+                precisamos esperar a primeira terminar para
+                começar a segunda.
+
+            </p>
+
+
+            <!-- =================================================
+                 ASYNC
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 1. async
+
+            </h3>
+
+
+            <p class="description">
+
+                A palavra-chave <code>async</code> é utilizada
+                para definir uma função assíncrona.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        async.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                async def
+                            </span>
+                            tarefa():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Executando tarefa"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="string">
+                                "Concluído"
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Uma função definida com <code>async def</code>
+                é uma <strong>coroutine function</strong>.
+
+                Ao chamá-la, ela produz uma
+                <strong>coroutine</strong>, que precisa ser
+                executada pelo mecanismo assíncrono.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                Apenas chamar uma função assíncrona não significa
+                que ela será executada imediatamente.
+
+            </div>
+
+
+            <!-- =================================================
+                 AWAIT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⏳ 2. await
+
+            </h3>
+
+
+            <p class="description">
+
+                A palavra-chave <code>await</code> indica que
+                queremos aguardar o resultado de uma operação
+                assíncrona.
+
+            </p>
+
+
+            <p class="description">
+
+                Ela só pode ser utilizada dentro de uma função
+                assíncrona.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        await.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            asyncio
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                async def
+                            </span>
+                            tarefa():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                await
+                            </span>
+                            asyncio.sleep(2)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Tarefa concluída"
+                            </span>
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Ideia:</strong>
+
+                <br><br>
+
+                <code>await</code> permite que a coroutine espere
+                uma operação assíncrona sem bloquear a execução
+                das outras tarefas que estão sendo gerenciadas
+                pelo event loop.
+
+            </div>
+
+
+            <!-- =================================================
+                 ASYNCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 3. asyncio
+
+            </h3>
+
+
+            <p class="description">
+
+                O módulo <code>asyncio</code> fornece ferramentas
+                para trabalhar com programação assíncrona em Python.
+
+            </p>
+
+
+            <p class="description">
+
+                Entre os recursos disponíveis estão:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Coroutines.
+                </li>
+
+                <li>
+                    Tasks.
+                </li>
+
+                <li>
+                    Event loop.
+                </li>
+
+                <li>
+                    Timers.
+                </li>
+
+                <li>
+                    Execução concorrente de operações assíncronas.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 ASYNCIO.RUN
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶️ asyncio.run()
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma maneira simples de iniciar um programa
+                assíncrono é utilizando <code>asyncio.run()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        programa.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            asyncio
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                async def
+                            </span>
+                            main():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Olá, mundo!"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            asyncio.run(main())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá, mundo!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SLEEP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                😴 asyncio.sleep()
+
+            </h3>
+
+
+            <p class="description">
+
+                O <code>asyncio.sleep()</code> permite simular
+                uma operação assíncrona que precisa aguardar
+                determinado período.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        sleep.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            asyncio
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                async def
+                            </span>
+                            tarefa():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Início"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                await
+                            </span>
+                            asyncio.sleep(2)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Fim"
+                            </span>
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCORRÊNCIA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚡ Executando tarefas de forma concorrente
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das principais vantagens da programação
+                assíncrona aparece quando temos várias tarefas
+                independentes que precisam esperar.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos criar várias coroutines e permitir que
+                o <strong>event loop</strong> gerencie a execução
+                delas.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        tarefas.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            asyncio
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                async def
+                            </span>
+                            tarefa(nome, segundos):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                f"{nome} começou"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                await
+                            </span>
+                            asyncio.sleep(segundos)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                f"{nome} terminou"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                async def
+                            </span>
+                            main():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                await
+                            </span>
+                            asyncio.gather(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            tarefa(
+                            <span class="string">
+                                "Tarefa A"
+                            </span>
+                            , 2),
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O <code>asyncio.gather()</code> permite aguardar
+                várias operações assíncronas.
+
+            </p>
+
+
+            <p class="description">
+
+                Um exemplo completo:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        gather.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            asyncio
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                async def
+                            </span>
+                            tarefa(nome, segundos):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                f"{nome} começou"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                await
+                            </span>
+                            asyncio.sleep(segundos)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                f"{nome} terminou"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                async def
+                            </span>
+                            main():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                await
+                            </span>
+                            asyncio.gather(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            tarefa(
+                            <span class="string">
+                                "A"
+                            </span>
+                            , 2),
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            tarefa(
+                            <span class="string">
+                                "B"
+                            </span>
+                            , 1)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                As tarefas podem avançar enquanto outras estão
+                aguardando.
+
+                <br><br>
+
+                Isso é especialmente útil para operações de
+                <strong>I/O</strong>, como rede, APIs e bancos
+                de dados.
+
+            </div>
+
+
+            <!-- =================================================
+                 TASK
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 Criando Tasks
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos transformar uma coroutine em uma
+                <strong>Task</strong> utilizando
+                <code>asyncio.create_task()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        task.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            asyncio
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                async def
+                            </span>
+                            tarefa():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                await
+                            </span>
+                            asyncio.sleep(2)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Terminou"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                async def
+                            </span>
+                            main():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            task = asyncio.create_task(tarefa())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Depois podemos aguardar a conclusão da task:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        aguardar.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            task = asyncio.create_task(tarefa())
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                await
+                            </span>
+                            task
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EVENT LOOP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Event loop
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>event loop</strong> é o mecanismo responsável
+                por gerenciar a execução das tarefas assíncronas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Coroutine
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Event Loop
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Executa uma tarefa
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Tarefa aguarda I/O
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Executa outra tarefa
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Dessa maneira, o programa consegue utilizar melhor
+                o tempo em que determinadas operações estão
+                aguardando respostas.
+
+            </p>
+
+
+            <!-- =================================================
+                 RETORNO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Retornando valores
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma função assíncrona também pode retornar valores
+                normalmente.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        retorno.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            asyncio
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                async def
+                            </span>
+                            calcular():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                await
+                            </span>
+                            asyncio.sleep(1)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            42
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O resultado pode ser obtido utilizando
+                <code>await</code>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        resultado.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            resultado =
+                            <span class="keyword">
+                                await
+                            </span>
+                            calcular()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        42
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXCEÇÕES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ Tratando exceções
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos utilizar
+                <code>try</code> e <code>except</code>
+                dentro de funções assíncronas.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        erro.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                async def
+                            </span>
+                            tarefa():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                try
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado =
+                            <span class="keyword">
+                                await
+                            </span>
+                            operacao()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                except
+                            </span>
+                            Exception
+                            <span class="keyword">
+                                as
+                            </span>
+                            erro:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(erro)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 HTTP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌐 Programação assíncrona e APIs
+
+            </h3>
+
+
+            <p class="description">
+
+                Um dos usos mais comuns da programação assíncrona
+                é trabalhar com operações de rede.
+
+            </p>
+
+
+            <p class="description">
+
+                Imagine um programa que precisa consultar várias
+                APIs.
+
+                Fazer essas requisições de maneira sequencial pode
+                desperdiçar tempo enquanto o programa espera as
+                respostas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo:</strong>
+
+                <br><br>
+
+                API A → esperando resposta
+
+                <br>
+
+                API B → pode começar
+
+                <br>
+
+                API C → pode começar
+
+                <br><br>
+
+                O programa pode aproveitar o tempo de espera.
+
+            </div>
+
+
+            <p class="description">
+
+                Bibliotecas assíncronas de HTTP podem ser utilizadas
+                para esse tipo de aplicação.
+
+            </p>
+
+
+            <!-- =================================================
+                 QUANDO USAR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Quando utilizar programação assíncrona?
+
+            </h3>
+
+
+            <p class="description">
+
+                A programação assíncrona é especialmente interessante
+                quando o programa realiza muitas operações de
+                entrada e saída.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Requisições HTTP.
+                </li>
+
+                <li>
+                    APIs.
+                </li>
+
+                <li>
+                    WebSockets.
+                </li>
+
+                <li>
+                    Banco de dados assíncrono.
+                </li>
+
+                <li>
+                    Sistemas que precisam lidar com muitas conexões.
+                </li>
+
+                <li>
+                    Operações de I/O.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Regra prática:</strong>
+
+                <br><br>
+
+                Asyncio é especialmente útil quando o programa
+                passa bastante tempo <strong>esperando</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 QUANDO NÃO USAR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚫 Quando async não é a melhor escolha?
+
+            </h3>
+
+
+            <p class="description">
+
+                Programação assíncrona não torna automaticamente
+                qualquer código mais rápido.
+
+            </p>
+
+
+            <p class="description">
+
+                Para tarefas fortemente dependentes de processamento
+                da CPU, outras estratégias podem ser mais adequadas,
+                como multiprocessing ou bibliotecas especializadas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                Asyncio é excelente para concorrência baseada em
+                operações de I/O, mas não substitui todas as formas
+                de paralelismo.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO COMPLETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Projeto completo
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos criar um pequeno programa que simula três
+                tarefas independentes.
+
+                Cada uma delas possui um tempo de espera diferente.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        projeto.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            asyncio
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                async def
+                            </span>
+                            tarefa(nome, tempo):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                f"{nome} iniciou"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                await
+                            </span>
+                            asyncio.sleep(tempo)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                f"{nome} terminou"
+                            </span>
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                async def
+                            </span>
+                            main():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                await
+                            </span>
+                            asyncio.gather(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            tarefa(
+                            <span class="string">
+                                "Download"
+                            </span>
+                            , 3),
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            tarefa(
+                            <span class="string">
+                                "API"
+                            </span>
+                            , 2),
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            tarefa(
+                            <span class="string">
+                                "Banco"
+                            </span>
+                            , 1)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            asyncio.run(main())
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Download iniciou
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        API iniciou
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Banco iniciou
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Banco terminou
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        API terminou
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Download terminou
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FORMA MENTAL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Como pensar em async
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    async def
+
+                    → define uma coroutine
+
+                    <br><br>
+
+                    await
+
+                    → aguarda uma operação assíncrona
+
+                    <br><br>
+
+                    asyncio
+
+                    → gerencia a execução assíncrona
+
+                    <br><br>
+
+                    create_task()
+
+                    → agenda uma tarefa
+
+                    <br><br>
+
+                    gather()
+
+                    → aguarda várias tarefas
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Exercício
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa assíncrono que simule o processamento
+                de três pedidos.
+
+            </p>
+
+
+            <strong>
+                Desafio — Processamento de pedidos
+            </strong>
+
+
+            <p class="description">
+
+                Crie uma função assíncrona chamada
+                <code>processar_pedido()</code>.
+
+                Ela deve receber o nome de um pedido e aguardar
+                alguns segundos utilizando <code>asyncio.sleep()</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                Depois:
+
+            </p>
+
+
+            <ol>
+
+                <li>
+                    Imprima quando o pedido começar.
+                </li>
+
+                <li>
+                    Aguarde utilizando <code>await</code>.
+                </li>
+
+                <li>
+                    Imprima quando o pedido terminar.
+                </li>
+
+                <li>
+                    Crie pelo menos três pedidos.
+                </li>
+
+                <li>
+                    Execute os pedidos utilizando
+                    <code>asyncio.gather()</code>.
+                </li>
+
+            </ol>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Utilize <code>asyncio.create_task()</code>
+                para criar as tarefas individualmente.
+
+                <br><br>
+
+                Depois aguarde todas elas e mostre uma mensagem
+                informando que todos os pedidos foram processados.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que é programação assíncrona.<br>
+
+                • Diferença entre execução síncrona e assíncrona.<br>
+
+                • O que são coroutines.<br>
+
+                • Como utilizar <code>async def</code>.<br>
+
+                • Como utilizar <code>await</code>.<br>
+
+                • O que é o módulo <code>asyncio</code>.<br>
+
+                • Como utilizar <code>asyncio.run()</code>.<br>
+
+                • Como utilizar <code>asyncio.sleep()</code>.<br>
+
+                • Como criar Tasks.<br>
+
+                • Como utilizar <code>asyncio.create_task()</code>.<br>
+
+                • Como utilizar <code>asyncio.gather()</code>.<br>
+
+                • O conceito de event loop.<br>
+
+                • Como retornar valores de coroutines.<br>
+
+                • Como tratar exceções em código assíncrono.<br>
+
+                • Quando utilizar programação assíncrona.<br>
+
+                • A relação entre async e operações de I/O.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Seu primeiro programa assíncrono!
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora você já conhece os principais conceitos
+                necessários para começar a trabalhar com
+                programação assíncrona em Python.
+
+                Você aprendeu que uma aplicação não precisa ficar
+                parada esperando uma operação de I/O terminar.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    async def
+
+                    →
+
+                    await
+
+                    →
+
+                    asyncio
+
+                    →
+
+                    Tasks
+
+                    →
+
+                    Concorrência
+
+                </strong>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Próxima etapa:</strong>
+
+                <br><br>
+
+                Na próxima aula, vamos avançar para outro conceito
+                importante da linguagem Python e conhecer novas
+                técnicas para escrever programas mais robustos,
+                organizados e eficientes.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">54</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 54
+
+            </span>
+
+
+            <h2>
+
+                Automação de arquivos
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos aprender como utilizar Python
+                para automatizar tarefas relacionadas a arquivos
+                e pastas.
+
+                Vamos trabalhar com renomeação de arquivos,
+                organização automática de diretórios e
+                processamento de documentos.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Automatizar tarefas repetitivas envolvendo
+                arquivos e diretórios, reduzindo o trabalho
+                manual e tornando processos mais rápidos,
+                organizados e confiáveis.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCEITO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📁 Por que automatizar arquivos?
+
+            </h3>
+
+
+            <p class="description">
+
+                Imagine uma pasta contendo centenas de arquivos
+                com nomes desorganizados.
+
+                Fazer alterações manualmente pode consumir muito
+                tempo e aumentar a possibilidade de erros.
+
+            </p>
+
+
+            <p class="description">
+
+                Com Python, podemos criar scripts capazes de
+                realizar essas tarefas automaticamente.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplos:</strong>
+
+                <br><br>
+
+                • Renomear centenas de arquivos.<br>
+                • Separar arquivos por extensão.<br>
+                • Criar pastas automaticamente.<br>
+                • Mover arquivos para diretórios específicos.<br>
+                • Processar documentos em lote.<br>
+                • Localizar arquivos específicos.<br>
+                • Gerar relatórios automaticamente.
+
+            </div>
+
+
+            <!-- =================================================
+                 PATHLIB
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐍 Trabalhando com pathlib
+
+            </h3>
+
+
+            <p class="description">
+
+                O módulo <strong>pathlib</strong> fornece uma
+                maneira moderna e prática de trabalhar com
+                arquivos e diretórios em Python.
+
+            </p>
+
+
+            <p class="description">
+
+                Com ele podemos criar caminhos, verificar se
+                arquivos existem, listar diretórios, mover,
+                renomear e excluir arquivos.
+
+            </p>
+
+
+            <!-- =================================================
+                 CRIANDO CAMINHO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📍 Criando um caminho
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        caminhos.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            pasta = Path(
+                            <span class="string">
+                                "documentos"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(pasta)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(pasta.exists())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RENOMEAR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✏️ Renomeando arquivos
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>rename()</code> permite alterar
+                o nome de um arquivo ou diretório.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        renomear.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            arquivo = Path(
+                            <span class="string">
+                                "relatorio.txt"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            novo_nome = Path(
+                            <span class="string">
+                                "relatorio_final.txt"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            arquivo.rename(novo_nome)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                Antes de renomear um arquivo, é importante
+                verificar se ele realmente existe e se o novo
+                nome não irá sobrescrever outro arquivo.
+
+            </div>
+
+
+            <!-- =================================================
+                 VERIFICANDO ARQUIVOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Verificando arquivos
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar métodos como
+                <code>exists()</code> e <code>is_file()</code>
+                para verificar um caminho antes de realizar
+                uma operação.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        verificar.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            arquivo = Path(
+                            <span class="string">
+                                "relatorio.pdf"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                if
+                            </span>
+                            arquivo.exists():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Arquivo encontrado!"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 LISTANDO ARQUIVOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 Listando arquivos
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>iterdir()</code> permite percorrer
+                os arquivos e diretórios existentes dentro de uma
+                pasta.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        listar.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            pasta = Path(
+                            <span class="string">
+                                "documentos"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            arquivo
+                            <span class="keyword">
+                                in
+                            </span>
+                            pasta.iterdir():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(arquivo)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ORGANIZAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗂️ Organizando pastas automaticamente
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma tarefa muito comum em automação é organizar
+                arquivos de acordo com sua extensão.
+
+                Por exemplo, podemos criar pastas para imagens,
+                documentos e planilhas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo de organização:</strong>
+
+                <br><br>
+
+                📁 arquivos/
+
+                <br>
+
+                ├── 📁 imagens/
+
+                <br>
+
+                ├── 📁 documentos/
+
+                <br>
+
+                ├── 📁 planilhas/
+
+                <br>
+
+                └── 📁 outros/
+
+            </div>
+
+
+            <!-- =================================================
+                 CRIANDO PASTAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📂 Criando pastas
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>mkdir()</code> permite criar
+                diretórios.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        pastas.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            pasta = Path(
+                            <span class="string">
+                                "documentos"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            pasta.mkdir(
+                            exist_ok=True)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MOVER
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Movendo arquivos
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>replace()</code> pode ser utilizado
+                para mover um arquivo para outro caminho.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        mover.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            arquivo = Path(
+                            <span class="string">
+                                "relatorio.pdf"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            destino = Path(
+                            <span class="string">
+                                "documentos/relatorio.pdf"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            arquivo.replace(destino)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                Ao automatizar movimentações, sempre valide os
+                caminhos de origem e destino para evitar perda
+                ou substituição acidental de arquivos.
+
+            </div>
+
+
+            <!-- =================================================
+                 ORGANIZAÇÃO POR EXTENSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🤖 Organizando por extensão
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora podemos combinar os conhecimentos anteriores
+                para criar um pequeno organizador automático.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        organizador.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            pasta = Path(
+                            <span class="string">
+                                "arquivos"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            imagens = pasta /
+                            <span class="string">
+                                "imagens"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            documentos = pasta /
+                            <span class="string">
+                                "documentos"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            imagens.mkdir(
+                            exist_ok=True)
+
+                        </div>
+
+
+                        <div>
+
+                            documentos.mkdir(
+                            exist_ok=True)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            arquivo
+                            <span class="keyword">
+                                in
+                            </span>
+                            pasta.iterdir():
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            arquivo.is_file():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            arquivo.suffix
+                            <span class="keyword">
+                                in
+                            </span>
+                            [
+                            <span class="string">
+                                ".jpg"
+                            </span>,
+                            <span class="string">
+                                ".png"
+                            </span>
+                            ]:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            arquivo.replace(
+                            imagens / arquivo.name)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                elif
+                            </span>
+                            arquivo.suffix
+                            == <span class="string">
+                                ".pdf"
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            arquivo.replace(
+                            documentos / arquivo.name)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROCESSAMENTO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📄 Processando documentos
+
+            </h3>
+
+
+            <p class="description">
+
+                Automação de arquivos também pode ser utilizada
+                para processar documentos em lote.
+
+                Um exemplo simples é percorrer vários arquivos
+                de texto e analisar seu conteúdo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        processar.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            pasta = Path(
+                            <span class="string">
+                                "documentos"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            arquivo
+                            <span class="keyword">
+                                in
+                            </span>
+                            pasta.glob(
+                            <span class="string">
+                                "*.txt"
+                            </span>):
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            conteudo =
+                            arquivo.read_text(
+                            encoding=
+                            <span class="string">
+                                "utf-8"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(
+                            arquivo.name,
+                            <span class="string">
+                                "-"
+                            </span>,
+                            <span class="function">
+                                len
+                            </span>(conteudo))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 GLOB
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔍 Encontrando arquivos específicos
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>glob()</code> permite localizar
+                arquivos que correspondam a um determinado padrão.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        buscar.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            pasta = Path(
+                            <span class="string">
+                                "arquivos"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            arquivo
+                            <span class="keyword">
+                                in
+                            </span>
+                            pasta.glob(
+                            <span class="string">
+                                "*.pdf"
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(arquivo.name)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RENOMEAÇÃO EM LOTE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Renomeando arquivos em lote
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos percorrer vários arquivos e
+                aplicar uma regra de nomenclatura.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        renomear_lote.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            pasta = Path(
+                            <span class="string">
+                                "imagens"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero, arquivo
+                            <span class="keyword">
+                                in
+                            </span>
+                            <span class="function">
+                                enumerate
+                            </span>(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pasta.glob(
+                            <span class="string">
+                                "*.jpg"
+                            </span>),
+                            start=1):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            novo_nome = pasta /
+                            <span class="string">
+                                f"imagem_{numero}.jpg"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            arquivo.rename(novo_nome)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Atenção ao processamento em lote:</strong>
+
+                <br><br>
+
+                Antes de executar scripts que alteram muitos
+                arquivos, faça testes com uma cópia dos dados.
+
+                <br><br>
+
+                Uma regra incorreta pode renomear, mover ou
+                modificar arquivos de maneira inesperada.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO PRÁTICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛠️ Projeto prático — Organizador de downloads
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos imaginar uma pasta de downloads contendo
+                diferentes tipos de arquivos.
+
+                Podemos criar um script que identifica a extensão
+                de cada arquivo e o move para a pasta adequada.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        organizador_downloads.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+                        <div>17</div>
+                        <div>18</div>
+                        <div>19</div>
+                        <div>20</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            pathlib
+                            <span class="keyword">
+                                import
+                            </span>
+                            Path
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            origem = Path(
+                            <span class="string">
+                                "downloads"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            categorias = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                ".pdf"
+                            </span>:
+                            <span class="string">
+                                "documentos"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                ".txt"
+                            </span>:
+                            <span class="string">
+                                "documentos"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                ".jpg"
+                            </span>:
+                            <span class="string">
+                                "imagens"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                ".png"
+                            </span>:
+                            <span class="string">
+                                "imagens"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            arquivo
+                            <span class="keyword">
+                                in
+                            </span>
+                            origem.iterdir():
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            <span class="keyword">
+                                not
+                            </span>
+                            arquivo.is_file():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                continue
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            pasta_nome =
+                            categorias.get(
+                            arquivo.suffix)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            pasta_nome:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            destino = origem /
+                            pasta_nome
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            destino.mkdir(
+                            exist_ok=True)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            arquivo.replace(
+                            destino / arquivo.name)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Organização concluída!
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        4 arquivos processados
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2 documentos encontrados
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2 imagens encontradas
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Automação de arquivos para QA
+
+            </h3>
+
+
+            <p class="description">
+
+                A automação de arquivos pode ser muito útil
+                em atividades de QA e automação de testes.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Organizar evidências de testes.
+                </li>
+
+                <li>
+                    Renomear screenshots automaticamente.
+                </li>
+
+                <li>
+                    Separar relatórios por projeto.
+                </li>
+
+                <li>
+                    Processar arquivos de resultados.
+                </li>
+
+                <li>
+                    Criar diretórios para cada execução.
+                </li>
+
+                <li>
+                    Mover logs para pastas específicas.
+                </li>
+
+                <li>
+                    Preparar arquivos para execução de testes.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo para automação de testes:</strong>
+
+                <br><br>
+
+                Após executar uma suíte de testes, um script
+                Python pode criar automaticamente uma pasta
+                com a data da execução e armazenar nela os
+                screenshots, logs e relatórios gerados.
+
+            </div>
+
+
+            <!-- =================================================
+                 BOAS PRÁTICAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ Boas práticas
+
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    Sempre valide se o arquivo existe antes de
+                    manipulá-lo.
+                </li>
+
+                <li>
+                    Evite sobrescrever arquivos sem confirmação.
+                </li>
+
+                <li>
+                    Utilize caminhos independentes do sistema
+                    operacional.
+                </li>
+
+                <li>
+                    Faça testes utilizando cópias dos arquivos.
+                </li>
+
+                <li>
+                    Registre as operações realizadas pelo script.
+                </li>
+
+                <li>
+                    Trate possíveis erros durante a automação.
+                </li>
+
+                <li>
+                    Mantenha scripts de automação simples e
+                    organizados.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio da aula
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa que organize automaticamente
+                uma pasta de downloads.
+
+                O programa deverá:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Identificar os arquivos existentes.
+                </li>
+
+                <li>
+                    Criar pastas para diferentes categorias.
+                </li>
+
+                <li>
+                    Mover os arquivos para as pastas corretas.
+                </li>
+
+                <li>
+                    Renomear os arquivos utilizando uma
+                    nomenclatura padronizada.
+                </li>
+
+                <li>
+                    Informar no terminal quantos arquivos foram
+                    processados.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Crie uma pasta chamada
+                <code>relatorios</code> e faça o programa gerar
+                um arquivo <code>log.txt</code> contendo:
+
+                <br><br>
+
+                • Data e hora da execução.<br>
+                • Quantidade de arquivos processados.<br>
+                • Arquivos movidos.<br>
+                • Arquivos renomeados.<br>
+                • Arquivos que não puderam ser processados.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Como trabalhar com arquivos utilizando
+                <code>pathlib</code>.<br>
+
+                • Como verificar se arquivos e diretórios
+                existem.<br>
+
+                • Como listar arquivos de uma pasta.<br>
+
+                • Como criar diretórios com
+                <code>mkdir()</code>.<br>
+
+                • Como renomear arquivos.<br>
+
+                • Como mover arquivos entre diretórios.<br>
+
+                • Como localizar arquivos utilizando
+                <code>glob()</code>.<br>
+
+                • Como processar vários arquivos em lote.<br>
+
+                • Como organizar arquivos automaticamente por
+                extensão.<br>
+
+                • Como criar scripts de automação para tarefas
+                repetitivas.<br>
+
+                • Como aplicar automação de arquivos em
+                atividades de QA.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

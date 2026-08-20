@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">36</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 36
+
+            </span>
+
+
+            <h2>
+
+                Dataclasses
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender a utilizar
+                <strong>dataclasses</strong>, um recurso do Python
+                que facilita a criação de classes utilizadas
+                principalmente para armazenar dados.
+
+                Vamos conhecer o decorator <code>@dataclass</code>
+                e entender quando ele pode tornar nosso código
+                mais simples e organizado.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 O que são Dataclasses?
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma <strong>dataclass</strong> é uma classe criada
+                para representar dados de forma simples.
+
+                Quando criamos uma classe tradicional, muitas vezes
+                precisamos escrever manualmente métodos como
+                <code>__init__</code>, <code>__repr__</code> e
+                <code>__eq__</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                O módulo <code>dataclasses</code> permite que o
+                Python gere automaticamente vários desses métodos
+                para nós.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Dataclasses são especialmente úteis quando a
+                principal responsabilidade de uma classe é
+                <strong>armazenar dados</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 DATACLASS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏷️ @dataclass
+
+            </h3>
+
+
+            <p class="description">
+
+                Para transformar uma classe em uma dataclass,
+                utilizamos o decorator <code>@dataclass</code>,
+                disponível no módulo <code>dataclasses</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        usuario.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            dataclasses
+                            <span class="keyword">
+                                import
+                            </span>
+                            dataclass
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            @dataclass
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Usuario:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            nome: <span class="keyword">
+                                str
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            idade: <span class="keyword">
+                                int
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            usuario = Usuario(
+                            <span class="string">
+                                "Maria"
+                            </span>,
+                            25)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Observe que não precisamos escrever o método
+                <code>__init__</code> manualmente.
+
+                O decorator <code>@dataclass</code> faz isso
+                automaticamente com base nos atributos declarados.
+
+            </p>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        exemplo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(usuario)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(usuario.nome)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Usuario(nome='Maria', idade=25)
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Maria
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                A dataclass também fornece automaticamente uma
+                representação útil do objeto.
+
+                Isso acontece porque o Python gera métodos
+                especiais, como <code>__repr__</code>, para a classe.
+
+            </p>
+
+
+            <!-- =================================================
+                 COMPARAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ Classe tradicional x Dataclass
+
+            </h3>
+
+
+            <p class="description">
+
+                Sem uma dataclass, uma classe simples para armazenar
+                dados pode exigir bastante código repetitivo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        classe_tradicional.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Produto:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, nome, preco):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.nome = nome
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.preco = preco
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            produto = Produto(
+                            <span class="string">
+                                "Mouse"
+                            </span>,
+                            100)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(produto.nome)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Com uma dataclass, podemos representar a mesma
+                estrutura de forma mais enxuta.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        produto.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            dataclasses
+                            <span class="keyword">
+                                import
+                            </span>
+                            dataclass
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            @dataclass
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Produto:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            nome: <span class="keyword">
+                                str
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            preco: <span class="keyword">
+                                float
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Vantagem:</strong>
+
+                <br><br>
+
+                Menos código repetitivo, classes mais claras e
+                uma estrutura simples para representar dados.
+
+            </div>
+
+
+            <!-- =================================================
+                 TIPOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏷️ Type hints
+
+            </h3>
+
+
+            <p class="description">
+
+                As dataclasses normalmente utilizam
+                <strong>type hints</strong> para indicar o tipo
+                esperado de cada atributo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        teste.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            dataclasses
+                            <span class="keyword">
+                                import
+                            </span>
+                            dataclass
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            @dataclass
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Teste:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            nome: <span class="keyword">
+                                str
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            aprovado: <span class="keyword">
+                                bool
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            tentativas: <span class="keyword">
+                                int
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, cada atributo possui uma indicação
+                do tipo esperado.
+
+                Isso melhora a legibilidade e ajuda ferramentas de
+                desenvolvimento a identificar possíveis problemas.
+
+            </p>
+
+
+            <!-- =================================================
+                 VALORES PADRÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Valores padrão
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos definir valores padrão para os
+                atributos da dataclass.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        teste.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            dataclasses
+                            <span class="keyword">
+                                import
+                            </span>
+                            dataclass
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            @dataclass
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Teste:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            nome: <span class="keyword">
+                                str
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            aprovado: <span class="keyword">
+                                bool
+                            </span> = <span class="keyword">
+                                False
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse caso, se o valor de
+                <code>aprovado</code> não for informado,
+                o Python utilizará <code>False</code>.
+
+            </p>
+
+
+            <!-- =================================================
+                 COMPARAÇÃO DE OBJETOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ Comparando objetos
+
+            </h3>
+
+
+            <p class="description">
+
+                Por padrão, as dataclasses também fornecem
+                comportamento de comparação entre objetos por meio
+                do método <code>__eq__</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        comparacao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            dataclasses
+                            <span class="keyword">
+                                import
+                            </span>
+                            dataclass
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            @dataclass
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Usuario:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            nome: <span class="keyword">
+                                str
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            email: <span class="keyword">
+                                str
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            usuario1 = Usuario(
+                            <span class="string">
+                                "Ana"
+                            </span>,
+                            <span class="string">
+                                "ana@email.com"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            usuario2 = Usuario(
+                            <span class="string">
+                                "Ana"
+                            </span>,
+                            <span class="string">
+                                "ana@email.com"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        resultado.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(usuario1 == usuario2)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        True
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Como os atributos dos dois objetos possuem os
+                mesmos valores, a comparação retorna
+                <code>True</code>.
+
+            </p>
+
+
+            <!-- =================================================
+                 QUANDO UTILIZAR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🤔 Quando utilizar Dataclasses?
+
+            </h3>
+
+
+            <p class="description">
+
+                Dataclasses são uma ótima escolha quando precisamos
+                criar classes cuja principal função é representar
+                e transportar dados.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>✅ Bons casos de uso:</strong>
+
+                <br><br>
+
+                • Objetos que representam dados de usuários.<br>
+
+                • Configurações de sistemas.<br>
+
+                • Resultados de testes automatizados.<br>
+
+                • Dados recebidos de APIs.<br>
+
+                • Registros de produtos, pedidos ou clientes.<br>
+
+                • Estruturas utilizadas para transportar informações
+                entre diferentes partes do sistema.
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Quando talvez não seja necessário:</strong>
+
+                <br><br>
+
+                Se a classe possui muitos comportamentos complexos,
+                regras de negócio ou uma lógica muito específica,
+                uma classe tradicional pode ser mais adequada.
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Dataclasses no QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Dataclasses podem ser muito úteis em automação de
+                testes para representar dados de teste de maneira
+                organizada.
+
+                Por exemplo, podemos criar uma estrutura para
+                armazenar os dados necessários para testar um
+                cadastro de usuário.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        dados_teste.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            dataclasses
+                            <span class="keyword">
+                                import
+                            </span>
+                            dataclass
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            @dataclass
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            DadosUsuario:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            nome: <span class="keyword">
+                                str
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            email: <span class="keyword">
+                                str
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            senha: <span class="keyword">
+                                str
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            dados = DadosUsuario(
+                            <span class="string">
+                                "Maria"
+                            </span>,
+                            <span class="string">
+                                "maria@email.com"
+                            </span>,
+                            <span class="string">
+                                "123456"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Dessa forma, os dados utilizados pelos testes
+                ficam agrupados em um objeto claro e organizado.
+
+                Isso pode facilitar a manutenção de testes
+                automatizados e a reutilização dos dados.
+
+            </p>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma dataclass chamada
+                <code>Teste</code> para representar um caso de
+                teste automatizado.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • Utilize o decorator <code>@dataclass</code>.<br>
+
+                • Crie os atributos
+                <code>nome</code>,
+                <code>categoria</code> e
+                <code>aprovado</code>.<br>
+
+                • Utilize type hints nos atributos.<br>
+
+                • Defina <code>False</code> como valor padrão para
+                <code>aprovado</code>.<br>
+
+                • Crie pelo menos dois objetos
+                <code>Teste</code>.<br>
+
+                • Exiba os objetos utilizando
+                <code>print()</code>.<br>
+
+                • Compare os objetos utilizando
+                <code>==</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • <code>@dataclass</code> é um decorator do módulo
+                <code>dataclasses</code>.<br>
+
+                • Dataclasses simplificam a criação de classes
+                utilizadas principalmente para armazenar dados.<br>
+
+                • O Python gera automaticamente métodos como
+                <code>__init__</code>, <code>__repr__</code> e
+                <code>__eq__</code>.<br>
+
+                • Type hints ajudam a deixar os atributos mais
+                claros.<br>
+
+                • Podemos definir valores padrão para atributos.<br>
+
+                • Dataclasses são úteis para representar dados de
+                testes, usuários, produtos, configurações e
+                respostas de APIs.<br>
+
+                • Classes com comportamentos e regras complexas
+                podem continuar sendo melhor representadas por
+                classes tradicionais.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">35</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 35
+
+            </span>
+
+
+            <h2>
+
+                Métodos especiais
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender sobre os
+                <strong>métodos especiais</strong> do Python,
+                também conhecidos como <strong>dunder methods</strong>.
+
+                Eles são métodos que possuem dois underscores
+                no início e no final do nome, como
+                <code>__str__</code> e <code>__len__</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                Esses métodos permitem definir como nossos objetos
+                devem se comportar quando utilizamos operações
+                comuns do Python.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚙️ O que são métodos especiais?
+
+            </h3>
+
+
+            <p class="description">
+
+                Métodos especiais são métodos que possuem nomes
+                específicos reconhecidos pelo Python.
+
+                Eles são chamados automaticamente em determinadas
+                situações.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Os métodos especiais normalmente possuem o formato:
+
+                <br><br>
+
+                <code>__nome__</code>
+
+                <br><br>
+
+                Por isso também são chamados de
+                <strong>dunder methods</strong>
+                (double underscore).
+
+            </div>
+
+
+            <!-- =================================================
+                 STR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 __str__
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>__str__</code> define uma
+                representação amigável do objeto.
+
+                Ele é utilizado, por exemplo, quando passamos
+                um objeto para <code>print()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        pessoa.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Pessoa:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, nome, idade):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.nome = nome
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.idade = idade
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __str__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="string">
+                                f"{self.nome} - {self.idade} anos"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            pessoa = Pessoa(
+                            <span class="string">
+                                "Maria"
+                            </span>,
+                            25)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora, quando utilizarmos <code>print(pessoa)</code>,
+                o Python utilizará automaticamente o método
+                <code>__str__</code>.
+
+            </p>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Maria - 25 anos
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 REPR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 __repr__
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>__repr__</code> define uma
+                representação mais técnica do objeto.
+
+                Ele é muito útil durante o desenvolvimento e
+                debugging, pois deve ajudar a identificar o estado
+                do objeto.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        produto.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Produto:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, nome, preco):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.nome = nome
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.preco = preco
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __repr__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="string">
+                                f"Produto(nome={self.nome!r}, preco={self.preco})"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            produto = Produto(
+                            <span class="string">
+                                "Mouse"
+                            </span>,
+                            100)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O <code>__repr__</code> normalmente apresenta
+                informações úteis para quem está desenvolvendo
+                ou investigando o código.
+
+            </p>
+
+
+            <!-- =================================================
+                 LEN
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📏 __len__
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>__len__</code> permite definir
+                o que deve ser retornado quando utilizamos
+                <code>len()</code> com um objeto.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        turma.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Turma:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, alunos):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.alunos = alunos
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __len__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="function">
+                                len
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>.alunos)
+
+                        </div>
+
+
+                        <div>
+
+                            turma = Turma([
+                            <span class="string">
+                                "Ana"
+                            </span>,
+                            <span class="string">
+                                "João"
+                            </span>,
+                            <span class="string">
+                                "Maria"
+                            </span>])
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        3
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EQ
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ __eq__
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>__eq__</code> define como dois
+                objetos devem ser comparados utilizando o operador
+                <code>==</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        usuario.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Usuario:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, email):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.email = email
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __eq__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, outro):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="keyword">
+                                self
+                            </span>.email == outro.email
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            usuario1 = Usuario(
+                            <span class="string">
+                                "qa@email.com"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            usuario2 = Usuario(
+                            <span class="string">
+                                "qa@email.com"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(usuario1 == usuario2)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        True
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Sem uma implementação personalizada de
+                <code>__eq__</code>, objetos de uma classe
+                normalmente são comparados pela identidade.
+
+                Ao implementar esse método, podemos definir quais
+                características determinam se dois objetos devem
+                ser considerados iguais.
+
+            </p>
+
+
+            <!-- =================================================
+                 OUTROS DUNDER METHODS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛠️ Outros dunder methods
+
+            </h3>
+
+
+            <p class="description">
+
+                O Python possui muitos outros métodos especiais.
+                Eles permitem personalizar o comportamento dos
+                objetos em diferentes situações.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>__init__</strong> — inicializa o objeto.
+                </li>
+
+                <li>
+                    <strong>__str__</strong> — define a representação
+                    amigável do objeto.
+                </li>
+
+                <li>
+                    <strong>__repr__</strong> — define uma
+                    representação mais técnica do objeto.
+                </li>
+
+                <li>
+                    <strong>__len__</strong> — define o comportamento
+                    utilizado por <code>len()</code>.
+                </li>
+
+                <li>
+                    <strong>__eq__</strong> — define a comparação
+                    com <code>==</code>.
+                </li>
+
+                <li>
+                    <strong>__lt__</strong> — permite personalizar
+                    a comparação com <code>&lt;</code>.
+                </li>
+
+                <li>
+                    <strong>__gt__</strong> — permite personalizar
+                    a comparação com <code>&gt;</code>.
+                </li>
+
+                <li>
+                    <strong>__add__</strong> — define o comportamento
+                    do operador <code>+</code>.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 EXEMPLO ADD
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ➕ __add__
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos personalizar operadores matemáticos.
+
+                O método <code>__add__</code>, por exemplo,
+                é utilizado quando usamos o operador
+                <code>+</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        pontos.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Ponto:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, valor):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.valor = valor
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __add__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, outro):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            Ponto(
+                            <span class="keyword">
+                                self
+                            </span>.valor + outro.valor)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado = Ponto(10) + Ponto(5)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, o operador <code>+</code> foi
+                personalizado para somar os valores armazenados
+                nos objetos.
+
+            </p>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Métodos especiais no QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Os métodos especiais podem ser bastante úteis
+                em projetos de automação e testes.
+
+                Eles ajudam a criar objetos mais fáceis de
+                utilizar, comparar e investigar durante a execução
+                dos testes.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Um objeto que representa um usuário pode utilizar
+                <code>__str__</code> para exibir informações
+                amigáveis no log.
+
+                <br><br>
+
+                Já o <code>__eq__</code> pode permitir comparar
+                dois usuários de acordo com um identificador,
+                como e-mail ou ID.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma classe chamada
+                <code>Produto</code> com os atributos
+                <code>nome</code> e <code>preco</code>.
+
+                Depois, implemente alguns métodos especiais.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • Crie o método <code>__str__</code> para exibir
+                o nome e o preço do produto.<br>
+
+                • Crie o método <code>__repr__</code> para exibir
+                uma representação técnica do produto.<br>
+
+                • Crie o método <code>__eq__</code> para comparar
+                dois produtos pelo nome e preço.<br>
+
+                • Crie uma lista de produtos e implemente
+                <code>__len__</code> em uma classe
+                <code>Catalogo</code>.<br>
+
+                • Teste os métodos utilizando
+                <code>print()</code>, <code>len()</code> e
+                <code>==</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Métodos especiais são também chamados de
+                <strong>dunder methods</strong>.<br>
+
+                • <code>__str__</code> define uma representação
+                amigável do objeto.<br>
+
+                • <code>__repr__</code> fornece uma representação
+                mais técnica do objeto.<br>
+
+                • <code>__len__</code> define o comportamento
+                utilizado por <code>len()</code>.<br>
+
+                • <code>__eq__</code> define como objetos são
+                comparados com <code>==</code>.<br>
+
+                • Existem muitos outros métodos especiais, como
+                <code>__lt__</code>, <code>__gt__</code> e
+                <code>__add__</code>.<br>
+
+                • Métodos especiais permitem personalizar o
+                comportamento dos objetos.<br>
+
+                • Eles podem deixar classes mais naturais,
+                reutilizáveis e fáceis de testar.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

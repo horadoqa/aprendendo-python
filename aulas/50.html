@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">50</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 50
+
+            </span>
+
+
+            <h2>
+
+                SQLite
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como utilizar o
+                <strong>SQLite</strong> para criar e trabalhar
+                com um banco de dados local utilizando Python.
+
+                Vamos aprender como criar uma conexão, criar
+                tabelas, inserir dados, consultar registros e
+                fechar corretamente a conexão com o banco.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                SQLite é um banco de dados relacional
+                <strong>leve, local e baseado em arquivo</strong>.
+
+                <br><br>
+
+                Diferente de bancos que dependem de um servidor
+                separado, o SQLite pode armazenar todo o banco
+                em um único arquivo.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É SQLITE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗄️ O que é SQLite?
+
+            </h3>
+
+
+            <p class="description">
+
+                O SQLite é um banco de dados relacional que pode
+                ser incorporado diretamente em aplicações.
+
+                Ele utiliza arquivos para armazenar os dados,
+                tornando sua utilização simples para projetos
+                pequenos, testes, estudos e aplicações locais.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo:</strong>
+
+                <br><br>
+
+                Um banco chamado:
+
+                <br>
+
+                <code>app.db</code>
+
+                <br><br>
+
+                pode armazenar tabelas, registros e toda a
+                estrutura necessária para a aplicação.
+
+            </div>
+
+
+            <!-- =================================================
+                 VANTAGENS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⭐ Por que utilizar SQLite?
+
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    Não exige um servidor de banco separado.
+                </li>
+
+                <li>
+                    Os dados podem ficar armazenados em um único
+                    arquivo.
+                </li>
+
+                <li>
+                    É simples de configurar.
+                </li>
+
+                <li>
+                    É excelente para estudos e protótipos.
+                </li>
+
+                <li>
+                    Python possui suporte ao SQLite através do
+                    módulo <code>sqlite3</code>.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                SQLite não significa que o banco não seja
+                relacional.
+
+                <br><br>
+
+                Ele suporta tabelas, relacionamentos, consultas
+                SQL e diversas funcionalidades de bancos
+                relacionais.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONEXÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔌 Conectando ao SQLite
+
+            </h3>
+
+
+            <p class="description">
+
+                O Python possui o módulo
+                <strong>sqlite3</strong>, que permite trabalhar
+                com bancos SQLite sem precisar instalar uma
+                biblioteca externa.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        conexao.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            sqlite3
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            conexao =
+                            sqlite3.connect(
+                            <span class="string">
+                                "app.db"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            conexao.close()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O método <code>connect()</code> abre uma conexão
+                com o banco.
+
+                Se o arquivo ainda não existir, o SQLite poderá
+                criá-lo.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🔄 Fluxo básico:</strong>
+
+                <br><br>
+
+                Python
+
+                →
+
+                <code>sqlite3.connect()</code>
+
+                →
+
+                Banco SQLite
+
+                <br><br>
+
+                Depois das operações:
+
+                <br><br>
+
+                <code>conexao.close()</code>
+
+            </div>
+
+
+            <!-- =================================================
+                 CURSOR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🖱️ Cursor
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de estabelecer uma conexão, podemos criar
+                um <strong>cursor</strong>.
+
+                Ele será utilizado para executar comandos SQL.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        cursor.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            sqlite3
+
+                        </div>
+
+
+                        <div>
+
+                            conexao =
+                            sqlite3.connect(
+                            <span class="string">
+                                "app.db"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            cursor = conexao.cursor()
+
+                        </div>
+
+
+                        <div>
+
+                            conexao.close()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CRIANDO TABELA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 Criando uma tabela
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar o método
+                <code>execute()</code> para executar uma
+                instrução SQL.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        tabela.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            sqlite3
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            conexao =
+                            sqlite3.connect(
+                            <span class="string">
+                                "app.db"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            cursor = conexao.cursor()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cursor.execute(
+                            <span class="string">
+                                """
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                CREATE TABLE IF NOT EXISTS
+                            </span>
+                            usuarios (
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            id
+                            <span class="keyword">
+                                INTEGER PRIMARY KEY
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            nome
+                            <span class="keyword">
+                                TEXT
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 IF NOT EXISTS</strong>
+
+                <br><br>
+
+                Essa parte da instrução evita que o programa tente
+                criar novamente uma tabela que já existe.
+
+            </div>
+
+
+            <!-- =================================================
+                 COMMIT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💾 Salvando alterações
+
+            </h3>
+
+
+            <p class="description">
+
+                Operações que alteram os dados precisam ser
+                confirmadas na transação.
+
+                Para isso, podemos utilizar
+                <code>commit()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        commit.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            sqlite3
+
+                        </div>
+
+
+                        <div>
+
+                            conexao =
+                            sqlite3.connect(
+                            <span class="string">
+                                "app.db"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            cursor = conexao.cursor()
+
+                        </div>
+
+
+                        <div>
+
+                            cursor.execute(
+                            <span class="string">
+                                "CREATE TABLE IF NOT EXISTS produtos (id INTEGER PRIMARY KEY, nome TEXT)"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            conexao.commit()
+
+                        </div>
+
+
+                        <div>
+
+                            conexao.close()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 INSERT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ➕ Inserindo dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar SQL para inserir registros na
+                tabela.
+
+                Para valores fornecidos pelo programa, devemos
+                utilizar parâmetros em vez de montar a consulta
+                concatenando strings.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        insert.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            nome =
+                            <span class="string">
+                                "Notebook"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cursor.execute(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "INSERT INTO produtos (nome) VALUES (?)"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            (nome,)
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            conexao.commit()
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🛡️ Segurança:</strong>
+
+                <br><br>
+
+                O uso de parâmetros como <code>?</code> ajuda a
+                evitar problemas de <strong>SQL Injection</strong>.
+
+                <br><br>
+
+                Evite montar comandos SQL concatenando diretamente
+                valores recebidos do usuário.
+
+            </div>
+
+
+            <!-- =================================================
+                 SELECT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Consultando dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Para consultar registros, podemos executar um
+                <code>SELECT</code> e utilizar
+                <code>fetchall()</code> para obter os resultados.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        select.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            cursor.execute(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "SELECT id, nome FROM produtos"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            produtos = cursor.fetchall()
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(produtos)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>fetchall()</strong>
+
+                <br><br>
+
+                Retorna todos os registros encontrados pela
+                consulta.
+
+                <br><br>
+
+                Também podemos utilizar
+                <code>fetchone()</code> quando queremos obter
+                apenas um registro por vez.
+
+            </div>
+
+
+            <!-- =================================================
+                 UPDATE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✏️ Atualizando dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Assim como vimos na aula de SQL, podemos utilizar
+                <code>UPDATE</code> através do Python.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        update.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            novo_nome =
+                            <span class="string">
+                                "Notebook Gamer"
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cursor.execute(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "UPDATE produtos SET nome = ? WHERE id = ?"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            (novo_nome, 1)
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            conexao.commit()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DELETE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗑️ Excluindo dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos remover registros utilizando
+                <code>DELETE</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        delete.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            id_produto = 1
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cursor.execute(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "DELETE FROM produtos WHERE id = ?"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            (id_produto,)
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            conexao.commit()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Cuidado!</strong>
+
+                <br><br>
+
+                Assim como no SQL puro, tenha muito cuidado com
+                comandos <code>UPDATE</code> e
+                <code>DELETE</code>.
+
+                <br><br>
+
+                Sempre verifique se a condição
+                <code>WHERE</code> está correta antes de executar
+                a operação.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONTEXT MANAGER
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Usando <code>with</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                O Python também permite trabalhar com a conexão
+                utilizando o <code>with</code>.
+
+                Essa abordagem ajuda a organizar o gerenciamento
+                da conexão e das transações.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        with_sqlite.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            sqlite3
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            sqlite3.connect(
+                            <span class="string">
+                                "app.db"
+                            </span>) <span class="keyword">
+                                as
+                            </span> conexao:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            cursor = conexao.cursor()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            cursor.execute(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "SELECT * FROM produtos"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO COMPLETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 Exemplo completo
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora vamos juntar os principais conceitos em um
+                pequeno programa Python utilizando SQLite.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        banco.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+                        <div>17</div>
+                        <div>18</div>
+                        <div>19</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            sqlite3
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            conexao =
+                            sqlite3.connect(
+                            <span class="string">
+                                "produtos.db"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            cursor = conexao.cursor()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cursor.execute(
+                            <span class="string">
+                                """
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                CREATE TABLE IF NOT EXISTS
+                            </span>
+                            produtos (
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            id
+                            <span class="keyword">
+                                INTEGER PRIMARY KEY AUTOINCREMENT
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            nome
+                            <span class="keyword">
+                                TEXT NOT NULL
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            preco
+                            <span class="keyword">
+                                REAL
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="string">
+                                """
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cursor.execute(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "INSERT INTO produtos (nome, preco) VALUES (?, ?)"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            (
+                            <span class="string">
+                                "Mouse"
+                            </span>,
+                            99.90
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            conexao.commit()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cursor.execute(
+                            <span class="string">
+                                "SELECT * FROM produtos"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            produtos = cursor.fetchall()
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(produtos)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [(1, 'Mouse', 99.9)]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SQLITE PARA QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 SQLite para QA
+
+            </h3>
+
+
+            <p class="description">
+
+                SQLite também pode ser muito útil para QA,
+                principalmente em testes automatizados e
+                aplicações que utilizam bancos locais.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos utilizar Python para preparar dados,
+                executar ações e depois consultar o banco para
+                verificar se o resultado esperado foi produzido.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo de teste:</strong>
+
+                <br><br>
+
+                1. Criar um banco SQLite para o teste.
+
+                <br><br>
+
+                2. Inserir dados de preparação.
+
+                <br><br>
+
+                3. Executar uma funcionalidade da aplicação.
+
+                <br><br>
+
+                4. Consultar o banco.
+
+                <br><br>
+
+                5. Validar o resultado esperado.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Exercício
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa Python que utilize SQLite para
+                armazenar produtos.
+
+                A tabela deverá possuir:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <code>id</code>
+                </li>
+
+                <li>
+                    <code>nome</code>
+                </li>
+
+                <li>
+                    <code>preco</code>
+                </li>
+
+                <li>
+                    <code>estoque</code>
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Depois, implemente operações para:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Criar a tabela.
+                </li>
+
+                <li>
+                    Inserir produtos.
+                </li>
+
+                <li>
+                    Consultar produtos.
+                </li>
+
+                <li>
+                    Atualizar o preço.
+                </li>
+
+                <li>
+                    Remover um produto.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Desafio extra:</strong>
+
+                <br><br>
+
+                Crie uma função chamada
+                <code>listar_produtos()</code> que consulte o banco
+                e mostre todos os produtos cadastrados.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • SQLite é um banco de dados relacional local.<br>
+
+                • Um banco SQLite pode ser armazenado em um
+                arquivo.<br>
+
+                • Python possui o módulo
+                <code>sqlite3</code> para trabalhar com SQLite.<br>
+
+                • <code>sqlite3.connect()</code> cria uma conexão
+                com o banco.<br>
+
+                • <code>cursor()</code> cria um cursor para executar
+                comandos SQL.<br>
+
+                • <code>execute()</code> executa comandos SQL.<br>
+
+                • <code>commit()</code> confirma alterações no
+                banco.<br>
+
+                • <code>fetchall()</code> recupera vários registros.<br>
+
+                • <code>fetchone()</code> recupera um registro.<br>
+
+                • Parâmetros como <code>?</code> ajudam a evitar
+                SQL Injection.<br>
+
+                • <code>with</code> pode ser utilizado para
+                gerenciar a conexão de forma mais organizada.<br>
+
+                • Python + SQLite permite criar aplicações que
+                armazenam e consultam dados localmente.<br>
+
+                • SQLite também pode ser muito útil em testes,
+                protótipos e projetos de estudo.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

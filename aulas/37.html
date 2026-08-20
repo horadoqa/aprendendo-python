@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">37</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 37
+
+            </span>
+
+
+            <h2>
+
+                Projeto de POO
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos colocar em prática os principais
+                conceitos de <strong>Programação Orientada a Objetos
+                    (POO)</strong> que aprendemos até aqui.
+
+                Vamos construir pequenos sistemas utilizando
+                classes, objetos, atributos, métodos, construtores,
+                encapsulamento, herança, polimorfismo e
+                dataclasses.
+
+            </p>
+
+
+            <p class="description">
+
+                O objetivo é entender como podemos transformar
+                conceitos do mundo real em estruturas organizadas
+                dentro de um programa Python.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Em POO, podemos representar entidades do sistema
+                como objetos.
+
+                <br><br>
+
+                Por exemplo:
+
+                <br><br>
+
+                <code>Livro</code>,
+                <code>Usuario</code>,
+                <code>Conta</code>,
+                <code>Cliente</code> e
+                <code>Produto</code>
+                podem ser representados por classes.
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJETO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📚 Projeto 1 — Sistema de biblioteca
+
+            </h3>
+
+
+            <p class="description">
+
+                Nosso primeiro projeto será um pequeno sistema
+                de biblioteca.
+
+                O sistema terá livros e usuários e permitirá
+                realizar operações como empréstimo e devolução.
+
+            </p>
+
+
+            <h3 class="section-title">
+
+                🧱 Modelando o sistema
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos começar identificando as principais
+                entidades do sistema:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>Livro</strong> — representa um livro
+                    disponível na biblioteca.
+                </li>
+
+                <li>
+                    <strong>Usuario</strong> — representa uma pessoa
+                    que pode pegar livros emprestados.
+                </li>
+
+                <li>
+                    <strong>Biblioteca</strong> — controla os livros
+                    e os empréstimos.
+                </li>
+
+            </ul>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        biblioteca.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+                        <div>17</div>
+                        <div>18</div>
+                        <div>19</div>
+                        <div>20</div>
+                        <div>21</div>
+                        <div>22</div>
+                        <div>23</div>
+                        <div>24</div>
+                        <div>25</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            dataclasses
+                            <span class="keyword">
+                                import
+                            </span>
+                            dataclass
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            @dataclass
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Livro:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            titulo: <span class="keyword">
+                                str
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            autor: <span class="keyword">
+                                str
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            disponivel:
+                            <span class="keyword">
+                                bool
+                            </span> = <span class="keyword">
+                                True
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Usuario:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, nome):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.nome = nome
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.livros = []
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            emprestar(
+                            <span class="keyword">
+                                self
+                            </span>, livro):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            livro.disponivel:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            livro.disponivel =
+                            <span class="keyword">
+                                False
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.livros.append(livro)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="keyword">
+                                True
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="keyword">
+                                False
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            livro = Livro(
+                            <span class="string">
+                                "Python para QA"
+                            </span>,
+                            <span class="string">
+                                "Maria"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            usuario = Usuario(
+                            <span class="string">
+                                "João"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            usuario.emprestar(livro))
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            livro.disponivel)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        True
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        False
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Quando o usuário pega o livro emprestado,
+                o atributo <code>disponivel</code> passa a ser
+                <code>False</code>.
+
+                Assim conseguimos representar o estado do livro
+                dentro do sistema.
+
+            </p>
+
+
+            <!-- =================================================
+                 PROJETO 2
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏦 Projeto 2 — Sistema bancário
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora vamos criar um pequeno sistema bancário.
+
+                Uma conta bancária possui um saldo e pode realizar
+                operações como depósito e saque.
+
+            </p>
+
+
+            <p class="description">
+
+                Vamos utilizar o conceito de
+                <strong>encapsulamento</strong> para proteger
+                o saldo da conta.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        banco.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+                        <div>17</div>
+                        <div>18</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Conta:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>, titular):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.titular = titular
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.__saldo = 0
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            depositar(
+                            <span class="keyword">
+                                self
+                            </span>, valor):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            valor > 0:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.__saldo += valor
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            sacar(
+                            <span class="keyword">
+                                self
+                            </span>, valor):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            0 &lt; valor &lt;=
+                            <span class="keyword">
+                                self
+                            </span>.__saldo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.__saldo -= valor
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="keyword">
+                                True
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            consultar_saldo(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="keyword">
+                                self
+                            </span>.__saldo
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            conta = Conta(
+                            <span class="string">
+                                "Maria"
+                            </span>)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O saldo fica protegido dentro da classe e o acesso
+                é realizado por meio de métodos.
+
+                Isso evita que outras partes do programa alterem o
+                saldo diretamente sem passar pelas regras definidas.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        operacoes.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            conta.depositar(1000)
+
+                        </div>
+
+
+                        <div>
+
+                            conta.sacar(250)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            conta.consultar_saldo())
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        750
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJETO 3
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                👤 Projeto 3 — Sistema de cadastro
+
+            </h3>
+
+
+            <p class="description">
+
+                Nosso terceiro exemplo será um sistema simples
+                de cadastro de usuários.
+
+                O sistema permitirá adicionar, buscar e remover
+                usuários.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        cadastro.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            dataclasses
+                            <span class="keyword">
+                                import
+                            </span>
+                            dataclass
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            @dataclass
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Usuario:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            nome: <span class="keyword">
+                                str
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            email: <span class="keyword">
+                                str
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            Cadastro:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            <span class="function">
+                                __init__
+                            </span>(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.usuarios = []
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            adicionar(
+                            <span class="keyword">
+                                self
+                            </span>, usuario):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                self
+                            </span>.usuarios.append(usuario)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            listar(
+                            <span class="keyword">
+                                self
+                            </span>):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="keyword">
+                                self
+                            </span>.usuarios
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        uso.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            cadastro = Cadastro()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            cadastro.adicionar(
+
+                            Usuario(
+                            <span class="string">
+                                "Ana"
+                            </span>,
+                            <span class="string">
+                                "ana@email.com"
+                            </span>))
+
+                        </div>
+
+
+                        <div>
+
+                            cadastro.adicionar(
+
+                            Usuario(
+                            <span class="string">
+                                "João"
+                            </span>,
+                            <span class="string">
+                                "joao@email.com"
+                            </span>))
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            cadastro.listar())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [
+                        Usuario(nome='Ana',
+                        email='ana@email.com'),
+                        Usuario(nome='João',
+                        email='joao@email.com')
+                        ]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ORGANIZAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 Como pensar em um projeto de POO
+
+            </h3>
+
+
+            <p class="description">
+
+                Antes de começar a escrever código, podemos
+                identificar as entidades e responsabilidades
+                existentes no problema.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>1️⃣ Identifique as entidades</strong>
+
+                <br><br>
+
+                Pergunte:
+
+                <br>
+
+                "Quais objetos existem nesse sistema?"
+
+                <br><br>
+
+                Exemplo:
+
+                <code>Cliente</code>,
+                <code>Produto</code>,
+                <code>Pedido</code>.
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>2️⃣ Defina os atributos</strong>
+
+                <br><br>
+
+                Pergunte:
+
+                <br>
+
+                "Quais informações cada objeto precisa armazenar?"
+
+                <br><br>
+
+                Um cliente pode ter:
+
+                <code>nome</code>,
+                <code>email</code> e
+                <code>telefone</code>.
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>3️⃣ Defina os comportamentos</strong>
+
+                <br><br>
+
+                Pergunte:
+
+                <br>
+
+                "O que esse objeto precisa fazer?"
+
+                <br><br>
+
+                Uma conta pode:
+
+                <code>depositar()</code>,
+                <code>sacar()</code> e
+                <code>consultar_saldo()</code>.
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>4️⃣ Crie as regras</strong>
+
+                <br><br>
+
+                Pense nas condições que precisam ser respeitadas.
+
+                <br><br>
+
+                Por exemplo:
+
+                <br>
+
+                Uma conta não pode realizar um saque maior
+                que o saldo disponível.
+
+            </div>
+
+
+            <!-- =================================================
+                 POO + QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 POO aplicada ao QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Projetos orientados a objetos aparecem com
+                frequência em automação de testes.
+
+                Podemos criar classes para representar páginas,
+                usuários, produtos, APIs, dados de teste e
+                diferentes componentes da aplicação.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Em uma automação de login, poderíamos ter uma
+                classe <code>LoginPage</code> com métodos como:
+
+                <br><br>
+
+                <code>preencher_usuario()</code><br>
+                <code>preencher_senha()</code><br>
+                <code>clicar_login()</code><br>
+                <code>verificar_mensagem()</code>
+
+                <br><br>
+
+                Dessa forma, o código do teste fica mais organizado
+                e reutilizável.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora é sua vez de criar um pequeno sistema
+                utilizando POO.
+
+                Escolha um dos projetos abaixo:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    📚 Sistema de biblioteca
+                </li>
+
+                <li>
+                    🏦 Sistema bancário
+                </li>
+
+                <li>
+                    👤 Sistema de cadastro
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • Crie pelo menos duas classes.<br>
+
+                • Utilize <code>__init__</code>.<br>
+
+                • Crie atributos para representar o estado
+                dos objetos.<br>
+
+                • Crie métodos para representar comportamentos.<br>
+
+                • Utilize pelo menos uma dataclass.<br>
+
+                • Utilize validações com <code>if</code>.<br>
+
+                • Utilize listas ou dicionários para armazenar
+                informações.<br>
+
+                • Crie pelo menos três objetos.<br>
+
+                • Exiba os resultados no terminal.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Como transformar um problema em um projeto
+                orientado a objetos.<br>
+
+                • Como identificar entidades de um sistema.<br>
+
+                • Como definir atributos e comportamentos.<br>
+
+                • Como utilizar classes e objetos em projetos
+                maiores.<br>
+
+                • Como utilizar dataclasses para representar
+                dados.<br>
+
+                • Como aplicar encapsulamento para proteger
+                informações.<br>
+
+                • Como organizar responsabilidades entre classes.<br>
+
+                • Como POO pode ajudar na construção de
+                automações de testes.<br>
+
+                • Como transformar conceitos de POO em sistemas
+                práticos.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

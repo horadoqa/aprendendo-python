@@ -1,0 +1,2345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">75</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA 75 — CLOSURES
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+                AULA 75
+            </span>
+
+
+            <h2>
+                Closures
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos conhecer um conceito importante
+                da programação funcional em Python:
+                <strong>Closures</strong>.
+
+                Vamos entender como uma função pode lembrar valores
+                do ambiente onde foi criada, mesmo depois que a função
+                externa terminou sua execução.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Entender o que são closures, como funcionam,
+                como utilizar funções internas e como preservar
+                valores entre diferentes chamadas de uma função.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É CLOSURE?
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔒 O que é uma Closure?
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma <strong>closure</strong> acontece quando uma função
+                interna consegue acessar e lembrar variáveis definidas
+                no escopo da função externa.
+
+            </p>
+
+
+            <p class="description">
+
+                Em outras palavras, a função interna "carrega consigo"
+                informações do ambiente onde foi criada.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Ideia principal:</strong>
+
+                <br><br>
+
+                Uma closure é uma função que mantém acesso a valores
+                do escopo externo mesmo depois que a função externa
+                terminou.
+
+            </div>
+
+
+            <!-- =================================================
+                 PRIMEIRO EXEMPLO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧱 Primeiro exemplo
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos começar criando uma função que retorna outra função.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        closure.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            criar_saudacao(nome):
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            saudar():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="string">
+                                f"Olá, {nome}!"
+
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            saudar
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora podemos criar uma função personalizada:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        uso.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            saudacao = criar_saudacao(
+                            <span class="string">
+                                "Maria"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(saudacao())
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Olá, Maria!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Observe que a função <code>saudar()</code> continua
+                conseguindo acessar a variável <code>nome</code>,
+                mesmo depois que <code>criar_saudacao()</code> terminou.
+
+            </p>
+
+
+            <!-- =================================================
+                 ESCOPO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌎 Escopo e Closure
+
+            </h3>
+
+
+            <p class="description">
+
+                Para entender closures, precisamos lembrar do conceito
+                de <strong>escopo</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Uma função interna pode acessar variáveis disponíveis
+                no escopo da função externa.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Escopo externo
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Variável
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Função interna
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Quando a função interna é retornada, ela mantém uma
+                referência ao valor que utilizava.
+
+            </p>
+
+
+            <!-- =================================================
+                 FUNÇÃO INTERNA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔧 Funções internas
+
+            </h3>
+
+
+            <p class="description">
+
+                Closures normalmente são criadas utilizando
+                <strong>funções dentro de outras funções</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        interna.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            multiplicador(numero):
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            multiplicar(valor):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            valor * numero
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            multiplicar
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos criar multiplicadores diferentes:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        multiplicadores.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            dobro = multiplicador(2)
+
+                        </div>
+
+
+                        <div>
+
+                            triplo = multiplicador(3)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(dobro(5))
+
+                        </div>
+
+
+                        <div>
+
+                            print(triplo(5))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        10
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        15
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MEMÓRIA DA FUNÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 A função "lembra" do valor
+
+            </h3>
+
+
+            <p class="description">
+
+                No exemplo anterior, a função <code>dobro</code>
+                lembra que o valor de <code>numero</code> era
+                <code>2</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                Já a função <code>triplo</code> lembra que
+                <code>numero</code> era <code>3</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    dobro → lembra 2
+
+                    <br><br>
+
+                    triplo → lembra 3
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                É justamente esse comportamento que caracteriza
+                uma closure.
+
+            </p>
+
+
+            <!-- =================================================
+                 __CLOSURE__
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔍 O atributo <code>__closure__</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Python permite observar as células capturadas por uma
+                closure através do atributo <code>__closure__</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        closure_info.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            criar_multiplicador(numero):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            multiplicar(valor):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            valor * numero
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            multiplicar
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            dobro = criar_multiplicador(2)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos verificar se a função possui uma closure:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        verificar.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            print(dobro.__closure__)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 NONLOCAL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Modificando valores com <code>nonlocal</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma closure também pode modificar uma variável do
+                escopo externo utilizando a palavra-chave
+                <code>nonlocal</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        contador.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            criar_contador():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            contador = 0
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            incrementar():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                nonlocal
+                            </span>
+                            contador
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            contador += 1
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            contador
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Para finalizar a função externa, precisamos retornar
+                a função interna:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        contador.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            incrementar
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora podemos criar um contador:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        usar_contador.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            contador = criar_contador()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(contador())
+
+                        </div>
+
+
+                        <div>
+
+                            print(contador())
+
+                        </div>
+
+
+                        <div>
+
+                            print(contador())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        1
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        3
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CLOSURES E ESTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Closures para manter estado
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das aplicações interessantes das closures é
+                armazenar um estado sem precisar utilizar uma variável
+                global.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Um contador pode guardar seu próprio valor entre
+                diferentes chamadas.
+
+                <br><br>
+
+                Cada closure pode possuir seu próprio estado.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        estados.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            criar_contador():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            numero = 0
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            contador():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                nonlocal
+                            </span>
+                            numero
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            numero += 1
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            numero
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            contador
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos criar dois contadores independentes:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        dois_contadores.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            contador_a = criar_contador()
+
+                        </div>
+
+
+                        <div>
+
+                            contador_b = criar_contador()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(contador_a())
+
+                        </div>
+
+
+                        <div>
+
+                            print(contador_b())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        1
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        1
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Os dois contadores possuem estados independentes.
+
+            </p>
+
+
+            <!-- =================================================
+                 CLOSURES E LAMBDA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚡ Closures e <code>lambda</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos criar closures utilizando expressões
+                <code>lambda</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        lambda_closure.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            criar_multiplicador(n):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            <span class="keyword">
+                                lambda
+                            </span>
+                            x: x * n
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            dobro = criar_multiplicador(2)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                A função retornada ainda possui acesso ao valor de
+                <code>n</code>.
+
+            </p>
+
+
+            <!-- =================================================
+                 DECORATORS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎁 Closures e Decorators
+
+            </h3>
+
+
+            <p class="description">
+
+                Closures são muito utilizadas na implementação de
+                <strong>decorators</strong> em Python.
+
+            </p>
+
+
+            <p class="description">
+
+                Um decorator normalmente recebe uma função, cria uma
+                nova função ao redor dela e retorna essa nova função.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        decorator.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            registrar(funcao):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            wrapper():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(
+                            <span class="string">
+                                "Executando..."
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            funcao()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            wrapper
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                A função <code>wrapper()</code> mantém acesso à variável
+                <code>funcao</code> da função externa.
+
+                Isso é uma closure.
+
+            </p>
+
+
+            <!-- =================================================
+                 CLOSURES VS CLASSES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ Closures ou classes?
+
+            </h3>
+
+
+            <p class="description">
+
+                Closures podem ser úteis quando precisamos manter um
+                pequeno estado associado a uma função.
+
+            </p>
+
+
+            <p class="description">
+
+                Quando a estrutura começa a ficar mais complexa,
+                uma classe pode ser uma alternativa mais adequada.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Closure:</strong>
+
+                <br>
+
+                Boa para comportamentos simples e encapsulados.
+
+                <br><br>
+
+                <strong>Classe:</strong>
+
+                <br>
+
+                Boa para objetos com vários atributos e métodos.
+
+            </div>
+
+
+            <!-- =================================================
+                 VANTAGENS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ Vantagens das Closures
+
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    Permitem encapsular estado.
+                </li>
+
+                <li>
+                    Evitam algumas variáveis globais.
+                </li>
+
+                <li>
+                    Permitem criar funções configuráveis.
+                </li>
+
+                <li>
+                    São muito utilizadas em decorators.
+                </li>
+
+                <li>
+                    Fazem parte dos recursos de programação funcional
+                    do Python.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 CUIDADOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ Cuidados
+
+            </h3>
+
+
+            <p class="description">
+
+                Apesar de úteis, closures podem deixar o código mais
+                difícil de entender quando são utilizadas em excesso.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Boa prática:</strong>
+
+                <br><br>
+
+                Utilize closures quando elas deixarem o código mais
+                simples e expressivo.
+
+                <br><br>
+
+                Se o estado ou comportamento ficar complexo,
+                considere utilizar uma classe.
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Projeto — Sistema de descontos
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos criar uma closure que representa um sistema
+                de desconto.
+
+                A função externa receberá o percentual de desconto e
+                retornará uma função capaz de calcular o preço final.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        desconto.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            criar_desconto(percentual):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            aplicar(preco):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            desconto = preco *
+                            percentual / 100
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            preco - desconto
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            aplicar
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora podemos criar diferentes tipos de desconto:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        usar_desconto.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            desconto_10 =
+                            criar_desconto(10)
+
+                        </div>
+
+
+                        <div>
+
+                            desconto_20 =
+                            criar_desconto(20)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(desconto_10(100))
+
+                        </div>
+
+
+                        <div>
+
+                            print(desconto_20(100))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        90.0
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        80.0
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Exercícios
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora é hora de praticar.
+
+            </p>
+
+
+            <strong>
+                Exercício 1 — Potência
+            </strong>
+
+
+            <p class="description">
+
+                Crie uma função <code>criar_potencia()</code> que receba
+                um número e retorne uma closure capaz de elevar outros
+                números àquela potência.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+
+                    quadrado = criar_potencia(2)
+
+                    <br><br>
+
+                    print(quadrado(5))
+
+                    <br><br>
+
+                    Resultado esperado: 25
+
+                </code>
+
+            </div>
+
+
+            <strong>
+                Exercício 2 — Contador
+            </strong>
+
+
+            <p class="description">
+
+                Crie uma closure que mantenha um contador interno e
+                permita incrementar esse contador a cada chamada.
+
+            </p>
+
+
+            <strong>
+                Exercício 3 — Prefixo
+            </strong>
+
+
+            <p class="description">
+
+                Crie uma função que receba um prefixo e retorne uma
+                closure capaz de adicionar esse prefixo a qualquer texto.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <code>
+
+                    criar_prefixo("Python: ")
+
+                    <br><br>
+
+                    → "Python: Aprendendo closures"
+
+                </code>
+
+            </div>
+
+
+            <strong>
+                Exercício 4 — Desconto
+            </strong>
+
+
+            <p class="description">
+
+                Crie closures para descontos de 5%, 10% e 15%.
+
+                Depois aplique cada uma delas a diferentes preços.
+
+            </p>
+
+
+            <strong>
+                Exercício 5 — Desafio
+            </strong>
+
+
+            <p class="description">
+
+                Crie uma closure que funcione como um acumulador.
+
+                Cada chamada deve receber um número e adicionar esse
+                número ao total acumulado.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo:</strong>
+
+                <br><br>
+
+                acumulador(10) → 10
+
+                <br>
+
+                acumulador(5) → 15
+
+                <br>
+
+                acumulador(20) → 35
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que são <strong>Closures</strong>.<br>
+
+                • Como funções internas funcionam.<br>
+
+                • Como uma função pode manter acesso ao escopo externo.<br>
+
+                • Como closures podem preservar estado.<br>
+
+                • Como utilizar <code>nonlocal</code>.<br>
+
+                • Como utilizar closures com <code>lambda</code>.<br>
+
+                • Como closures são utilizadas em decorators.<br>
+
+                • Como criar closures independentes.<br>
+
+                • Quando utilizar closures e quando considerar classes.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Você aprendeu Closures!
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora você já entende como uma função pode carregar
+                informações do ambiente onde foi criada.
+
+                Closures são um recurso poderoso do Python e aparecem
+                em vários conceitos mais avançados da linguagem,
+                especialmente em decorators e programação funcional.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Função externa
+
+                    →
+
+                    Variável
+
+                    →
+
+                    Função interna
+
+                    →
+
+                    Closure
+
+                </strong>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Próxima etapa:</strong>
+
+                <br><br>
+
+                Na próxima aula, vamos continuar avançando nos recursos
+                mais poderosos do Python e explorar novos conceitos que
+                ajudam a escrever código mais elegante, reutilizável
+                e expressivo.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

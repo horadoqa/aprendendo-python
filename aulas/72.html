@@ -1,0 +1,2964 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">72</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA 72 — GENERATORS E YIELD
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+                AULA 72
+            </span>
+
+
+            <h2>
+                Generators e yield
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos conhecer os
+                <strong>Generators</strong>, um recurso muito importante
+                do Python para trabalhar com sequências de valores de
+                maneira eficiente.
+
+                Vamos aprender como utilizar
+                <strong>yield</strong>,
+                <strong>next()</strong>,
+                <strong>for</strong> e
+                <strong>generator expressions</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Aprender a criar funções generator e entender como o
+                Python produz valores sob demanda, evitando armazenar
+                toda a sequência na memória de uma vez.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É GENERATOR?
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔥 O que é um Generator?
+
+            </h3>
+
+
+            <p class="description">
+
+                Um <strong>generator</strong> é uma forma especial de
+                criar um iterador utilizando uma função.
+
+            </p>
+
+
+            <p class="description">
+
+                Em vez de criar todos os valores de uma vez, um generator
+                produz cada valor somente quando ele é necessário.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Ideia principal:</strong>
+
+                <br><br>
+
+                Uma função tradicional normalmente calcula um resultado
+                e utiliza <code>return</code>.
+
+                <br><br>
+
+                Uma função generator utiliza <code>yield</code> para
+                produzir um valor e pausar sua execução.
+
+                <br><br>
+
+                Quando o próximo valor é solicitado, a execução continua
+                de onde havia parado.
+
+            </div>
+
+
+            <!-- =================================================
+                 RETURN X YIELD
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 return x yield
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos comparar uma função tradicional com uma função
+                generator.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        return.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            numeros():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            valores = [1, 2, 3]
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            valores
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(numeros())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse caso, a lista inteira é criada e retornada.
+
+            </p>
+
+
+            <p class="description">
+
+                Agora podemos utilizar <code>yield</code>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        yield.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            numeros():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            1
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            2
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            3
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            gerador = numeros()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora a função não retorna uma lista.
+
+                Ela cria um <strong>generator</strong> que produz os
+                valores conforme são solicitados.
+
+            </p>
+
+
+            <!-- =================================================
+                 YIELD
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏭 Como funciona o yield?
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando Python encontra <code>yield</code>, ele entrega
+                o valor para quem chamou a função e pausa a execução.
+
+            </p>
+
+
+            <p class="description">
+
+                Quando o próximo valor é solicitado, a função continua
+                exatamente do ponto onde havia parado.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    yield
+
+                    →
+
+                    produz um valor
+
+                    →
+
+                    pausa
+
+                    →
+
+                    continua depois
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Observe o exemplo:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        exemplo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            exemplo():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print("Início")
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            10
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print("Continuação")
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            20
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 NEXT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶️ Utilizando next()
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos solicitar manualmente o próximo valor de um
+                generator utilizando <code>next()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        next.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            numeros():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            10
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            20
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            30
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            gerador = numeros()
+
+                        </div>
+
+
+                        <div>
+
+                            print(next(gerador))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        10
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos continuar solicitando valores:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        next.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            print(next(gerador))
+
+                        </div>
+
+
+                        <div>
+
+                            print(next(gerador))
+
+                        </div>
+
+
+                        <div>
+
+                            print(next(gerador))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        20
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        30
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 STOP ITERATION
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛑 StopIteration
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando o generator não possui mais valores para produzir,
+                uma chamada adicional de <code>next()</code> provoca a
+                exceção <code>StopIteration</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        stop.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            numeros():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            1
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            2
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            gerador = numeros()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Depois que os valores <code>1</code> e <code>2</code>
+                forem consumidos, não haverá mais valores disponíveis.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                Normalmente não precisamos tratar
+                <code>StopIteration</code> manualmente quando utilizamos
+                um generator em um loop <code>for</code>.
+
+                O próprio Python cuida disso.
+
+            </div>
+
+
+            <!-- =================================================
+                 FOR
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Generators com for
+
+            </h3>
+
+
+            <p class="description">
+
+                A maneira mais comum de consumir um generator é utilizando
+                um loop <code>for</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        for_generator.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            numeros():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            1
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            2
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            3
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            numeros():
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos completar o exemplo imprimindo cada valor:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        for_generator.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            numeros():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            1
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            2
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            3
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            numeros():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(numero)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        1
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        3
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FOR POR BAIXO DOS PANOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔍 O for por baixo dos panos
+
+            </h3>
+
+
+            <p class="description">
+
+                O loop <code>for</code> utiliza o protocolo de iteração
+                do Python.
+
+                Internamente, ele obtém um iterador e solicita os próximos
+                valores até que aconteça <code>StopIteration</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    for
+
+                    →
+
+                    iter()
+
+                    →
+
+                    next()
+
+                    →
+
+                    StopIteration
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos observar uma ideia semelhante manualmente:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        manual.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            valores = [10, 20, 30]
+
+                        </div>
+
+
+                        <div>
+
+                            iterador = iter(valores)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(next(iterador))
+
+                        </div>
+
+
+                        <div>
+
+                            print(next(iterador))
+
+                        </div>
+
+
+                        <div>
+
+                            print(next(iterador))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O generator segue esse mesmo conceito de iteração, mas
+                produz os valores sob demanda.
+
+            </p>
+
+
+            <!-- =================================================
+                 LAZY EVALUATION
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Lazy Evaluation
+
+            </h3>
+
+
+            <p class="description">
+
+                Generators utilizam uma estratégia chamada
+                <strong>lazy evaluation</strong>, ou avaliação preguiçosa.
+
+            </p>
+
+
+            <p class="description">
+
+                Isso significa que os valores não precisam ser calculados
+                todos de uma vez.
+
+                Eles são produzidos somente quando solicitados.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Lista:</strong>
+
+                <br>
+
+                Calcula e armazena os valores.
+
+                <br><br>
+
+                <strong>Generator:</strong>
+
+                <br>
+
+                Produz os valores conforme são necessários.
+
+            </div>
+
+
+            <!-- =================================================
+                 GENERATOR COM LOOP
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔢 Generator com loop
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar <code>yield</code> dentro de um loop
+                para produzir vários valores.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        contador.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            contador(limite):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(limite):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            numero
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            contador(5):
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos imprimir os valores:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        contador.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            contador(5):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(numero)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        0
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        1
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        3
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        4
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 GENERATOR COM CONDIÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Generator com condições
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos utilizar condições dentro de uma função
+                generator.
+
+                Por exemplo, podemos produzir somente números pares.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        pares.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            pares(limite):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(limite):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            numero % 2 == 0:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            numero
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(list(pares(10)))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [0, 2, 4, 6, 8]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 GENERATOR EXPRESSIONS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚡ Generator Expressions
+
+            </h3>
+
+
+            <p class="description">
+
+                Assim como temos <strong>list comprehensions</strong>,
+                também podemos criar generators utilizando uma sintaxe
+                compacta chamada <strong>generator expression</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Observe a diferença:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        expressions.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            lista = [x * 2
+                            <span class="keyword">
+                                for
+                            </span>
+                            x
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(5)]
+
+                        </div>
+
+
+                        <div>
+
+                            gerador = (x * 2
+                            <span class="keyword">
+                                for
+                            </span>
+                            x
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(5))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Os colchetes <code>[]</code> criam uma lista.
+
+                <br><br>
+
+                Os parênteses <code>()</code> criam um generator expression.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                Se você precisa armazenar todos os resultados, uma lista
+                pode ser adequada.
+
+                <br><br>
+
+                Se deseja produzir os valores sob demanda, um generator
+                pode ser uma opção melhor.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO PRÁTICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Exemplo prático — Processando arquivos
+
+            </h3>
+
+
+            <p class="description">
+
+                Generators são especialmente úteis quando precisamos
+                processar grandes quantidades de dados.
+
+            </p>
+
+
+            <p class="description">
+
+                Imagine um arquivo contendo milhares de linhas.
+
+                Em vez de carregar todas as linhas na memória, podemos
+                produzir uma linha por vez.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        arquivo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            linhas(nome):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                with
+                            </span>
+                            open(nome,
+                            encoding="utf-8")
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            linha
+                            <span class="keyword">
+                                in
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            linha.strip()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            linha
+                            <span class="keyword">
+                                in
+                            </span>
+                            linhas("dados.txt"):
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, cada linha pode ser processada conforme
+                é solicitada, sem precisar criar uma grande lista
+                contendo todo o conteúdo do arquivo.
+
+            </p>
+
+
+            <!-- =================================================
+                 VANTAGENS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Vantagens dos Generators
+
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    Podem economizar memória.
+                </li>
+
+                <li>
+                    Produzem valores sob demanda.
+                </li>
+
+                <li>
+                    São úteis para grandes volumes de dados.
+                </li>
+
+                <li>
+                    Permitem criar sequências infinitas.
+                </li>
+
+                <li>
+                    Podem deixar determinados algoritmos mais eficientes.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                Um generator não deve ser confundido com uma lista.
+
+                <br><br>
+
+                Depois que seus valores são consumidos, eles não ficam
+                disponíveis novamente no mesmo generator.
+
+            </div>
+
+
+            <!-- =================================================
+                 GENERATOR INFINITO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ♾️ Generators infinitos
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma característica interessante dos generators é que
+                podemos criar sequências que não possuem um fim definido.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, um contador infinito:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        infinito.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            contador():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            numero = 0
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                while
+                            </span>
+                            True:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            numero
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            numero += 1
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Como essa sequência é infinita, precisamos controlar
+                quantos valores queremos consumir.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        consumir.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            gerador = contador()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            _ <span class="keyword">
+                                in
+                            </span>
+                            range(5):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(next(gerador))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        0
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        1
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        3
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        4
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 YIELD E ESTADO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 O estado da função
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma característica importante de um generator é que ele
+                preserva seu estado entre uma chamada e outra.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        estado.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            exemplo():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print("A")
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            1
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print("B")
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            2
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            gerador = exemplo()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Ao chamar <code>next()</code>, a execução começa.
+
+                Ao encontrar <code>yield</code>, ela pausa.
+
+                Na próxima chamada, continua exatamente depois daquele
+                <code>yield</code>.
+
+            </p>
+
+
+            <!-- =================================================
+                 COMPARAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚖️ Lista x Generator
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>Lista:</strong>
+
+                <br><br>
+
+                <code>[x * 2 for x in range(1000000)]</code>
+
+                <br><br>
+
+                Cria e armazena todos os resultados.
+
+                <br><br><br>
+
+                <strong>Generator:</strong>
+
+                <br><br>
+
+                <code>(x * 2 for x in range(1000000))</code>
+
+                <br><br>
+
+                Produz os resultados conforme são consumidos.
+
+            </div>
+
+
+            <p class="description">
+
+                Para sequências muito grandes, essa diferença pode ser
+                importante para o consumo de memória.
+
+            </p>
+
+
+            <!-- =================================================
+                 EXERCÍCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Exercícios
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora é hora de praticar.
+
+            </p>
+
+
+            <strong>
+                Exercício 1 — Números de 1 a 10
+            </strong>
+
+
+            <p class="description">
+
+                Crie uma função generator chamada
+                <code>numeros()</code> que produza os números de
+                <code>1</code> até <code>10</code>.
+
+            </p>
+
+
+            <strong>
+                Exercício 2 — Números pares
+            </strong>
+
+
+            <p class="description">
+
+                Crie um generator que receba um limite e produza apenas
+                os números pares até esse limite.
+
+            </p>
+
+
+            <strong>
+                Exercício 3 — Quadrados
+            </strong>
+
+
+            <p class="description">
+
+                Crie um generator que receba uma lista de números e
+                produza o quadrado de cada número.
+
+            </p>
+
+
+            <strong>
+                Exercício 4 — Contador
+            </strong>
+
+
+            <p class="description">
+
+                Crie um generator que receba um valor inicial e produza
+                números incrementando de um em um.
+
+            </p>
+
+
+            <strong>
+                Exercício 5 — Generator expression
+            </strong>
+
+
+            <p class="description">
+
+                Crie um generator expression que produza o dobro dos
+                números de <code>0</code> até <code>9</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Crie um generator que produza números da sequência de
+                Fibonacci.
+
+                <br><br>
+
+                O generator deve produzir valores continuamente e você
+                deve controlar quantos valores deseja consumir.
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Mini projeto — Gerador de dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos criar um pequeno generator para simular a produção
+                de dados.
+
+                Imagine que um sistema recebe números continuamente.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        projeto.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            gerar_dados():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            numero = 1
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                while
+                            </span>
+                            numero &lt;= 10:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            "id": numero
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            }
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            numero += 1
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            dado
+                            <span class="keyword">
+                                in
+                            </span>
+                            gerar_dados():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(dado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Esse padrão pode ser utilizado em situações nas quais
+                os dados são produzidos aos poucos.
+
+            </p>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que são <strong>Generators</strong>.<br>
+
+                • A diferença entre <code>return</code> e
+                <code>yield</code>.<br>
+
+                • Como utilizar <code>yield</code>.<br>
+
+                • Como utilizar <code>next()</code>.<br>
+
+                • Como generators funcionam com <code>for</code>.<br>
+
+                • O conceito de <strong>lazy evaluation</strong>.<br>
+
+                • Como utilizar <code>yield</code> dentro de loops.<br>
+
+                • Como utilizar condições em generators.<br>
+
+                • O que são <strong>Generator Expressions</strong>.<br>
+
+                • Como generators podem economizar memória.<br>
+
+                • Como criar sequências infinitas.<br>
+
+                • Como o generator preserva seu estado.<br>
+
+                • O que é <code>StopIteration</code>.<br>
+
+                • Como utilizar generators em situações práticas.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Você aprendeu a produzir valores sob demanda!
+
+            </h3>
+
+
+            <p class="description">
+
+                Generators são uma ferramenta poderosa do Python para
+                trabalhar com sequências de dados de maneira eficiente.
+
+                Em vez de gerar tudo antecipadamente, podemos produzir
+                cada valor somente quando ele for necessário.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Generator
+
+                    →
+
+                    yield
+
+                    →
+
+                    pausa
+
+                    →
+
+                    next()
+
+                    →
+
+                    continua
+
+                </strong>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Próxima etapa:</strong>
+
+                <br><br>
+
+                Na próxima aula, vamos avançar para outro recurso
+                importante do Python:
+
+                <strong>decorators</strong>.
+
+                Vamos entender como funções podem ser modificadas ou
+                estendidas sem alterar diretamente seu código.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,2496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">80</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA 80 — ARQUITETURA DE SOFTWARE
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+                AULA 80
+            </span>
+
+
+            <h2>
+                Arquitetura de software
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula vamos conhecer conceitos fundamentais de
+                <strong>arquitetura de software</strong>.
+
+                À medida que nossos projetos crescem, colocar todo o
+                código em um único arquivo começa a gerar problemas.
+
+                A arquitetura ajuda a organizar o sistema em partes
+                bem definidas, facilitando a manutenção, os testes e
+                a evolução do projeto.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Aprender como organizar aplicações Python utilizando
+                <strong>camadas</strong>,
+                <strong>serviços</strong>,
+                <strong>repositórios</strong> e conceitos de
+                <strong>Clean Architecture</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É ARQUITETURA?
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏗️ O que é arquitetura de software?
+
+            </h3>
+
+
+            <p class="description">
+
+                Arquitetura de software é a forma como organizamos
+                as diferentes partes de uma aplicação e definimos
+                como essas partes se relacionam.
+
+            </p>
+
+
+            <p class="description">
+
+                Em projetos pequenos, podemos começar com poucos
+                arquivos.
+
+                Porém, conforme a aplicação cresce, separar as
+                responsabilidades se torna cada vez mais importante.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Uma boa arquitetura ajuda a:</strong>
+
+                <br><br>
+
+                • Organizar o código.<br>
+
+                • Separar responsabilidades.<br>
+
+                • Facilitar os testes.<br>
+
+                • Reduzir acoplamento.<br>
+
+                • Facilitar manutenção.<br>
+
+                • Permitir evolução do sistema.
+
+            </div>
+
+
+            <!-- =================================================
+                 PROBLEMA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ O problema do código desorganizado
+
+            </h3>
+
+
+            <p class="description">
+
+                Imagine uma aplicação que coloca banco de dados,
+                regras de negócio, validações e interface no mesmo
+                arquivo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        sistema.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            sqlite3
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            conexao = sqlite3.connect(
+                            "banco.db")
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            nome = input(
+                            "Nome: ")
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                if
+                            </span>
+                            nome:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            conexao.execute(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            "INSERT INTO usuarios
+                            VALUES (?)",
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            (nome,)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Esse código pode funcionar, mas mistura várias
+                responsabilidades.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🚨 Problema:</strong>
+
+                <br><br>
+
+                Interface + regra de negócio + banco de dados
+                estão misturados.
+
+            </div>
+
+
+            <!-- =================================================
+                 CAMADAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧱 1. Camadas
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma estratégia comum é dividir a aplicação em
+                <strong>camadas</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Cada camada possui uma responsabilidade específica.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Interface
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Serviço
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Repositório
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Banco de dados
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Por exemplo:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>Interface:</strong> recebe requisições.
+                </li>
+
+                <li>
+                    <strong>Serviço:</strong> executa regras de negócio.
+                </li>
+
+                <li>
+                    <strong>Repositório:</strong> acessa os dados.
+                </li>
+
+                <li>
+                    <strong>Banco:</strong> armazena informações.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 ESTRUTURA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📁 Estrutura de um projeto
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma aplicação Python pode ser organizada em
+                diferentes diretórios.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        estrutura
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            projeto/
+                        </div>
+
+                        <div>
+                            ├── main.py
+                        </div>
+
+                        <div>
+                            ├── controllers/
+                        </div>
+
+                        <div>
+                            ├── services/
+                        </div>
+
+                        <div>
+                            ├── repositories/
+                        </div>
+
+                        <div>
+                            ├── models/
+                        </div>
+
+                        <div>
+                            └── tests/
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SERVIÇOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚙️ 2. Serviços
+
+            </h3>
+
+
+            <p class="description">
+
+                A camada de <strong>serviços</strong> normalmente
+                concentra as regras de negócio da aplicação.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, imagine um sistema bancário.
+
+                A operação de sacar dinheiro possui uma regra:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Saldo suficiente?
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Sim → realizar saque
+
+                    <br>
+
+                    Não → rejeitar operação
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Essa regra pode ficar dentro de um serviço.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        services/conta_service.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            ContaService:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __init__(
+                            self,
+                            repository):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            self.repository =
+                            repository
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            sacar(
+                            self,
+                            conta_id,
+                            valor):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            conta =
+                            self.repository.buscar(
+                            conta_id)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            conta.saldo &lt; valor:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                raise
+                            </span>
+                            ValueError(
+                            "Saldo insuficiente")
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Observe que o serviço não precisa saber exatamente
+                como os dados são armazenados.
+
+                Ele apenas utiliza o repositório.
+
+            </p>
+
+
+            <!-- =================================================
+                 REPOSITÓRIOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗄️ 3. Repositórios
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>Repository</strong> é responsável pelo
+                acesso aos dados.
+
+            </p>
+
+
+            <p class="description">
+
+                Ele pode conversar com:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    SQLite.
+                </li>
+
+                <li>
+                    PostgreSQL.
+                </li>
+
+                <li>
+                    MySQL.
+                </li>
+
+                <li>
+                    APIs externas.
+                </li>
+
+                <li>
+                    Outros sistemas de armazenamento.
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Um exemplo simples:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        repositories/usuario_repository.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            UsuarioRepository:
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            buscar(
+                            self,
+                            usuario_id):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            banco.buscar(
+                            usuario_id)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            salvar(
+                            self,
+                            usuario):
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Ideia principal:</strong>
+
+                <br><br>
+
+                O serviço cuida da regra de negócio.
+
+                <br><br>
+
+                O repositório cuida do acesso aos dados.
+
+            </div>
+
+
+            <!-- =================================================
+                 SEPARAÇÃO DE RESPONSABILIDADES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎯 Separação de responsabilidades
+
+            </h3>
+
+
+            <p class="description">
+
+                Um dos princípios mais importantes de uma boa
+                arquitetura é o <strong>Separation of Concerns</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Cada parte do sistema deve ter uma responsabilidade
+                    bem definida.
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Por exemplo:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        responsabilidades
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            Controller → HTTP
+                        </div>
+
+                        <div>
+                            Service → Regras
+                        </div>
+
+                        <div>
+                            Repository → Dados
+                        </div>
+
+                        <div>
+                            Model → Estrutura
+                        </div>
+
+                        <div>
+                            Database → Persistência
+                        </div>
+
+                        <div>
+                            Testes → Qualidade
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CLEAN ARCHITECTURE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧹 4. Clean Architecture
+
+            </h3>
+
+
+            <p class="description">
+
+                A <strong>Clean Architecture</strong> é uma abordagem
+                para organizar sistemas de forma que as regras
+                importantes da aplicação fiquem independentes de
+                detalhes externos.
+
+            </p>
+
+
+            <p class="description">
+
+                A ideia central é reduzir o acoplamento entre as
+                regras de negócio e tecnologias específicas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Regras de negócio
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Casos de uso
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    Infraestrutura
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos imaginar a aplicação como círculos.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    🌐 Interface
+
+                    <br><br>
+
+                    ⚙️ Infraestrutura
+
+                    <br><br>
+
+                    📦 Casos de uso
+
+                    <br><br>
+
+                    🧠 Regras de negócio
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Quanto mais importante for a regra de negócio,
+                menos ela deve depender de detalhes externos.
+
+            </p>
+
+
+            <!-- =================================================
+                 DEPENDENCY RULE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔗 Regra de dependência
+
+            </h3>
+
+
+            <p class="description">
+
+                Um dos conceitos fundamentais da Clean Architecture
+                é a <strong>Dependency Rule</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    As dependências devem apontar para dentro.
+
+                </strong>
+
+                <br><br>
+
+                A regra de negócio não deve depender diretamente de
+                banco de dados, framework ou interface.
+
+            </div>
+
+
+            <p class="description">
+
+                Por exemplo, em vez de fazer a regra de negócio
+                depender diretamente do PostgreSQL, podemos depender
+                de uma abstração.
+
+            </p>
+
+
+            <!-- =================================================
+                 INTERFACE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 Interfaces e abstrações
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos utilizar classes abstratas ou protocolos para
+                definir contratos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        repositories/base.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            abc
+                            <span class="keyword">
+                                import
+                            </span>
+                            ABC,
+                            abstractmethod
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            UsuarioRepository(
+                            ABC):
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            @abstractmethod
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            buscar(
+                            self,
+                            usuario_id):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                pass
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Agora podemos criar diferentes implementações desse
+                contrato.
+
+            </p>
+
+
+            <!-- =================================================
+                 IMPLEMENTAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔌 Implementando um repositório
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        repositories/postgres.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            PostgresRepository(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            UsuarioRepository
+
+                        </div>
+
+
+                        <div>
+
+                            ):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            buscar(
+                            self,
+                            usuario_id):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            "Usuário encontrado"
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 INJEÇÃO DE DEPENDÊNCIA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💉 Injeção de dependência
+
+            </h3>
+
+
+            <p class="description">
+
+                O serviço pode receber o repositório por parâmetro,
+                em vez de criá-lo internamente.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        service.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            UsuarioService:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __init__(
+                            self,
+                            repository):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            self.repository =
+                            repository
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            buscar_usuario(
+                            self,
+                            usuario_id):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            self.repository.buscar(
+                            usuario_id)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Vantagem:</strong>
+
+                <br><br>
+
+                Podemos trocar a implementação do repositório sem
+                precisar alterar a regra de negócio.
+
+            </div>
+
+
+            <!-- =================================================
+                 TESTES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Arquitetura e testes
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma arquitetura bem organizada também facilita os
+                testes automatizados.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos criar um repositório falso para testar o
+                serviço sem utilizar um banco de dados real.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        test_service.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            FakeRepository:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            buscar(
+                            self,
+                            usuario_id):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            {
+                            "id":
+                            usuario_id
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            repository =
+                            FakeRepository()
+
+                        </div>
+
+
+                        <div>
+
+                            service =
+                            UsuarioService(
+                            repository)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(
+                            service.buscar_usuario(
+                            1))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        {'id': 1}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ESTRUTURA COMPLETA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗂️ Uma arquitetura completa
+
+            </h3>
+
+
+            <p class="description">
+
+                Um projeto Python maior pode utilizar uma estrutura
+                semelhante a esta:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        projeto/
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            projeto/
+                        </div>
+
+                        <div>
+                            ├── main.py
+                        </div>
+
+                        <div>
+                            ├── domain/
+                        </div>
+
+                        <div>
+                            │ ├── entities/
+                        </div>
+
+                        <div>
+                            │ └── repositories/
+                        </div>
+
+                        <div>
+                            │
+                        </div>
+
+                        <div>
+                            ├── application/
+                        </div>
+
+                        <div>
+                            │ └── services/
+                        </div>
+
+                        <div>
+                            │
+                        </div>
+
+                        <div>
+                            ├── infrastructure/
+                        </div>
+
+                        <div>
+                            │ └── database/
+                        </div>
+
+                        <div>
+                            └── tests/
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FLUXO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Fluxo da aplicação
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma requisição pode percorrer as diferentes camadas
+                da aplicação.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    🌐 Requisição
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🎛️ Controller
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    ⚙️ Service
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🗄️ Repository
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    💾 Banco de dados
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    📦 Resposta
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Projeto prático
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora vamos imaginar um pequeno sistema de cadastro
+                de usuários.
+
+            </p>
+
+
+            <p class="description">
+
+                O sistema deverá permitir:
+
+            </p>
+
+
+            <ol>
+
+                <li>
+                    Criar usuários.
+                </li>
+
+                <li>
+                    Buscar usuários.
+                </li>
+
+                <li>
+                    Atualizar usuários.
+                </li>
+
+                <li>
+                    Remover usuários.
+                </li>
+
+                <li>
+                    Validar regras de negócio.
+                </li>
+
+            </ol>
+
+
+            <p class="description">
+
+                Podemos dividir o projeto da seguinte maneira:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Controller
+
+                    →
+                    recebe a requisição
+
+                    <br><br>
+
+                    Service
+
+                    →
+                    executa as regras
+
+                    <br><br>
+
+                    Repository
+
+                    →
+                    acessa os dados
+
+                    <br><br>
+
+                    Model
+
+                    →
+                    representa o usuário
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO SERVICE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                👤 Criando o serviço de usuários
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        usuario_service.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                class
+                            </span>
+                            UsuarioService:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            __init__(
+                            self,
+                            repository):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            self.repository =
+                            repository
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                def
+                            </span>
+                            criar_usuario(
+                            self,
+                            nome):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if not
+                            </span>
+                            nome:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                raise
+                            </span>
+                            ValueError(
+                            "Nome obrigatório")
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            self.repository.salvar(
+                            nome)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 BENEFÍCIOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌟 Benefícios de uma boa arquitetura
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    🧹 Código organizado
+
+                    <br><br>
+
+                    🧪 Testes mais simples
+
+                    <br><br>
+
+                    🔄 Fácil manutenção
+
+                    <br><br>
+
+                    📈 Facilidade para crescer
+
+                    <br><br>
+
+                    🔌 Menor dependência de tecnologias
+
+                    <br><br>
+
+                    👥 Melhor trabalho em equipe
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 CUIDADOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ Não complique sem necessidade
+
+            </h3>
+
+
+            <p class="description">
+
+                Arquitetura não significa criar dezenas de arquivos
+                apenas para deixar o projeto mais sofisticado.
+
+            </p>
+
+
+            <p class="description">
+
+                Um projeto pequeno pode não precisar de todas essas
+                camadas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Regra prática:</strong>
+
+                <br><br>
+
+                Comece simples.
+
+                <br><br>
+
+                Conforme o sistema cresce, extraia responsabilidades
+                quando isso realmente trouxer benefícios.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏆 Exercício
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie uma pequena aplicação de gerenciamento de
+                produtos utilizando separação de responsabilidades.
+
+            </p>
+
+
+            <strong>
+                Desafio — Sistema de produtos
+            </strong>
+
+
+            <p class="description">
+
+                O sistema deve possuir:
+
+            </p>
+
+
+            <ol>
+
+                <li>
+                    Um model para representar o produto.
+                </li>
+
+                <li>
+                    Um repository para armazenar produtos.
+                </li>
+
+                <li>
+                    Um service para aplicar regras.
+                </li>
+
+                <li>
+                    Uma camada responsável pela interface.
+                </li>
+
+                <li>
+                    Testes para o service.
+                </li>
+
+            </ol>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Crie duas implementações do repository:
+
+                <br><br>
+
+                <code>
+
+                    MemoryProductRepository
+
+                    <br>
+
+                    SQLiteProductRepository
+
+                </code>
+
+                <br><br>
+
+                Faça o service funcionar com ambas sem precisar
+                alterar sua regra de negócio.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que é arquitetura de software.<br>
+
+                • Por que organizar aplicações.<br>
+
+                • O conceito de camadas.<br>
+
+                • Separação de responsabilidades.<br>
+
+                • O papel dos serviços.<br>
+
+                • O papel dos repositórios.<br>
+
+                • Como estruturar projetos Python.<br>
+
+                • O conceito de Clean Architecture.<br>
+
+                • A regra de dependência.<br>
+
+                • Interfaces e abstrações.<br>
+
+                • Injeção de dependência.<br>
+
+                • Como arquitetura facilita testes.<br>
+
+                • Como reduzir acoplamento.<br>
+
+                • Como organizar aplicações maiores.
+
+            </div>
+
+
+            <!-- =================================================
+                 FLUXO FINAL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧭 O fluxo da arquitetura
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    🌐 Interface
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🎛️ Controller
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    ⚙️ Service
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🧠 Regra de negócio
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🗄️ Repository
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    💾 Banco de dados
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Você chegou à arquitetura de software!
+
+            </h3>
+
+
+            <p class="description">
+
+                Ao longo desta aula você aprendeu que construir
+                software não significa apenas escrever código que
+                funciona.
+
+                Também precisamos pensar em como esse código será
+                organizado, testado, mantido e evoluído.
+
+            </p>
+
+
+            <p class="description">
+
+                Camadas, serviços, repositórios e Clean Architecture
+                são ferramentas que ajudam a controlar a complexidade
+                de aplicações maiores.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Organização
+
+                    →
+
+                    Separação
+
+                    →
+
+                    Baixo acoplamento
+
+                    →
+
+                    Testabilidade
+
+                    →
+
+                    Manutenção
+
+                    →
+
+                    Evolução
+
+                </strong>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Parabéns!</strong>
+
+                <br><br>
+
+                Você chegou à <strong>Aula 80</strong> e percorreu uma
+                grande jornada pelo Python.
+
+                <br><br>
+
+                Agora você já conhece desde os fundamentos da linguagem
+                até conceitos avançados de programação, APIs, bancos
+                de dados, automação, análise de dados, Machine Learning,
+                Deep Learning, concorrência, programação assíncrona e
+                arquitetura de software.
+
+            </div>
+
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO FINAL
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                🎓 Fim da trilha principal — Parabéns!
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

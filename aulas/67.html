@@ -1,0 +1,2759 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">67</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 67
+
+            </span>
+
+
+            <h2>
+
+                Projeto de Machine Learning
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos colocar em prática os conceitos
+                estudados nas aulas anteriores e construir um
+                pequeno projeto completo de
+                <strong>Machine Learning</strong>.
+
+                Vamos passar por todas as etapas principais:
+
+                <strong>dataset</strong>,
+                <strong>preparação</strong>,
+                <strong>treinamento</strong>,
+                <strong>avaliação</strong> e
+                <strong>predição</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Construir um modelo de Machine Learning do início
+                ao fim, entendendo o papel de cada etapa do projeto.
+
+            </div>
+
+
+            <!-- =================================================
+                 VISÃO GERAL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧭 O projeto completo
+
+            </h3>
+
+
+            <p class="description">
+
+                Um projeto simples de Machine Learning pode seguir
+                este fluxo:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    📊 Dataset
+                    →
+                    🧹 Preparação
+                    →
+                    ✂️ Treino/Teste
+                    →
+                    🧠 Treinamento
+                    →
+                    📏 Avaliação
+                    →
+                    🔮 Predição
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Cada etapa possui uma finalidade.
+
+                Não devemos simplesmente jogar os dados em um
+                algoritmo e esperar que ele produza bons resultados.
+
+            </p>
+
+
+            <!-- =================================================
+                 PROBLEMA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏠 Nosso problema
+
+            </h3>
+
+
+            <p class="description">
+
+                Para nosso projeto, vamos trabalhar com um problema
+                de <strong>classificação</strong>.
+
+                Queremos prever se uma pessoa irá comprar ou não
+                determinado produto com base em algumas informações.
+
+            </p>
+
+
+            <p class="description">
+
+                Teremos duas features:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Idade.
+                </li>
+
+                <li>
+                    Salário.
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                E teremos como label:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>0</strong> — não comprou.
+                </li>
+
+                <li>
+                    <strong>1</strong> — comprou.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Nosso objetivo:</strong>
+
+                <br><br>
+
+                Dado um novo cliente, tentar prever se ele
+                realizará a compra.
+
+            </div>
+
+
+            <!-- =================================================
+                 DATASET
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📊 1. Dataset
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>dataset</strong> é o conjunto de dados
+                utilizado pelo modelo.
+
+                Neste exemplo, vamos criar um pequeno dataset
+                diretamente no Python.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        dataset.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            X = [
+
+                        </div>
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;[18, 1800],
+
+                        </div>
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;[22, 2200],
+
+                        </div>
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;[25, 2500],
+
+                        </div>
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;[30, 3200],
+
+                        </div>
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;[35, 4000],
+
+                        </div>
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;[40, 5000],
+
+                        </div>
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;[45, 6500],
+
+                        </div>
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;[50, 8000]
+
+                        </div>
+
+                        <div>
+
+                            ]
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Aqui, cada linha representa um cliente.
+
+                A primeira coluna representa a idade e a segunda
+                representa o salário.
+
+            </p>
+
+
+            <p class="description">
+
+                Agora precisamos definir os labels:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        labels.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            y = [
+
+                        </div>
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;0, 0, 0, 1,
+
+                        </div>
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;1, 1, 1, 1
+
+                        </div>
+
+                        <div>
+
+                            ]
+
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🧠 Lembre-se:</strong>
+
+                <br><br>
+
+                <strong>X</strong> representa as features.
+
+                <br>
+
+                <strong>y</strong> representa o label.
+
+            </div>
+
+
+            <!-- =================================================
+                 PREPARAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧹 2. Preparação dos dados
+
+            </h3>
+
+
+            <p class="description">
+
+                Antes de treinar o modelo, precisamos preparar os
+                dados.
+
+                Uma das etapas mais importantes é separar os dados
+                em conjuntos de treinamento e teste.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        preparacao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.model_selection
+                            <span class="keyword">
+                                import
+                            </span>
+                            train_test_split
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            X_train, X_test, y_train, y_test =
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            train_test_split(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            X, y,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            test_size=0.25,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            random_state=42
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Com <code>test_size=0.25</code>, aproximadamente
+                25% dos dados serão utilizados para teste.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Por que separar?</strong>
+
+                <br><br>
+
+                O modelo precisa ser avaliado com dados que não
+                foram utilizados durante o treinamento.
+
+                Isso nos ajuda a verificar se ele consegue
+                generalizar para novos exemplos.
+
+            </div>
+
+
+            <!-- =================================================
+                 PADRONIZAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📏 Padronizando as features
+
+            </h3>
+
+
+            <p class="description">
+
+                Observe que idade e salário possuem escalas muito
+                diferentes.
+
+                A idade pode variar entre dezenas de unidades,
+                enquanto o salário pode estar na casa dos milhares.
+
+            </p>
+
+
+            <p class="description">
+
+                Para alguns algoritmos, pode ser interessante
+                padronizar essas características.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        scaler.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.preprocessing
+                            <span class="keyword">
+                                import
+                            </span>
+                            StandardScaler
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            scaler = StandardScaler()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            X_train = scaler.fit_transform(
+                            X_train)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            X_test = scaler.transform(
+                            X_test)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                O <code>scaler</code> deve aprender os parâmetros
+                utilizando apenas os dados de treinamento.
+
+                <br><br>
+
+                Por isso usamos:
+
+                <br><br>
+
+                <code>fit_transform()</code> no treino.
+
+                <br>
+
+                <code>transform()</code> no teste.
+
+            </div>
+
+
+            <!-- =================================================
+                 TREINAMENTO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 3. Treinamento
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora podemos criar nosso modelo.
+
+                Vamos utilizar a
+                <strong>LogisticRegression</strong> para realizar
+                a classificação.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        treinamento.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.linear_model
+                            <span class="keyword">
+                                import
+                            </span>
+                            LogisticRegression
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            modelo = LogisticRegression()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            modelo.fit(
+                            X_train,
+                            y_train)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O método <code>fit()</code> é responsável pelo
+                treinamento.
+
+                É nesse momento que o algoritmo aprende padrões
+                existentes nos dados.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                O modelo não recebe os dados de teste durante o
+                treinamento.
+
+                Ele aprende somente com
+                <strong>X_train</strong> e
+                <strong>y_train</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 PREDIÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔮 4. Predição
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois que o modelo foi treinado, podemos utilizá-lo
+                para realizar previsões.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        predicao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            previsoes =
+                            modelo.predict(X_test)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(previsoes)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O resultado será uma sequência de classes previstas
+                pelo modelo.
+
+            </p>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [0 1]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROBABILIDADES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎲 Probabilidades
+
+            </h3>
+
+
+            <p class="description">
+
+                Alguns modelos também conseguem fornecer
+                probabilidades associadas às classes.
+
+                Na regressão logística, podemos utilizar
+                <code>predict_proba()</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        probabilidade.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            probabilidades =
+                            modelo.predict_proba(X_test)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(probabilidades)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [[0.82 0.18]
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [0.25 0.75]]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Cada linha representa um exemplo e as colunas
+                representam as probabilidades associadas às classes.
+
+            </p>
+
+
+            <!-- =================================================
+                 AVALIAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📏 5. Avaliação
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora precisamos descobrir como o modelo se saiu
+                nos dados de teste.
+
+                Podemos utilizar as métricas estudadas na aula
+                anterior.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        avaliacao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.metrics
+                            <span class="keyword">
+                                import
+                            </span>
+                            (
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            accuracy_score,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            precision_score,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            recall_score,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            f1_score
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(
+                            accuracy_score(
+                            y_test,
+                            previsoes))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Também podemos gerar um relatório completo:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        relatorio.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.metrics
+                            <span class="keyword">
+                                import
+                            </span>
+                            classification_report
+
+                        </div>
+
+
+                        <div>
+
+                            print(
+                            classification_report(
+                            y_test,
+                            previsoes))
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        precision recall f1-score
+
+                    </div>
+
+
+                    <div>
+
+                        0.90 1.00 0.95
+
+                    </div>
+
+
+                    <div>
+
+                        1.00 0.80 0.89
+
+                    </div>
+
+
+                    <div>
+
+                        accuracy 0.92
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CROSS VALIDATION
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Validando o modelo
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma única divisão entre treino e teste pode não ser
+                suficiente para avaliar a estabilidade do modelo.
+
+                Podemos utilizar <strong>Cross-validation</strong>
+                para obter uma avaliação mais robusta.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        cross_validation.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.model_selection
+                            <span class="keyword">
+                                import
+                            </span>
+                            cross_val_score
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            scores = cross_val_score(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            modelo,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            X,
+
+                            y,
+
+                            cv=5
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos calcular a média dos resultados:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        media.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            print(scores.mean())
+
+                        </div>
+
+
+                        <div>
+
+                            print(scores)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 NOVO CLIENTE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔮 Fazendo uma previsão para um novo cliente
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois que o modelo foi treinado, podemos utilizá-lo
+                para analisar um cliente que não fazia parte do
+                dataset original.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        novo_cliente.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            novo_cliente = [[32, 4500]]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado =
+                            modelo.predict(
+                            scaler.transform(
+                            novo_cliente))
+
+                        </div>
+
+
+                        <div>
+
+                            print(resultado)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        [1]
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🎉 Resultado:</strong>
+
+                <br><br>
+
+                O modelo classificou o novo cliente como
+                <strong>1</strong>, indicando a classe que ele
+                aprendeu como "comprou".
+
+            </div>
+
+
+            <!-- =================================================
+                 PIPELINE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔗 Organizando tudo com Pipeline
+
+            </h3>
+
+
+            <p class="description">
+
+                Perceba que temos várias etapas:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Padronização dos dados.
+                </li>
+
+                <li>
+                    Treinamento do modelo.
+                </li>
+
+                <li>
+                    Predição.
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                O Scikit-learn possui <strong>Pipeline</strong>,
+                que permite organizar essas etapas em uma sequência.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        pipeline.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.pipeline
+                            <span class="keyword">
+                                import
+                            </span>
+                            Pipeline
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.preprocessing
+                            <span class="keyword">
+                                import
+                            </span>
+                            StandardScaler
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.linear_model
+                            <span class="keyword">
+                                import
+                            </span>
+                            LogisticRegression
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            pipeline = Pipeline([
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;(
+                            "scaler",
+                            StandardScaler()),
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;(
+                            "modelo",
+                            LogisticRegression())
+
+                        </div>
+
+
+                        <div>
+
+                            ])
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            pipeline.fit(
+                            X_train,
+                            y_train)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Depois podemos fazer a previsão diretamente pelo
+                pipeline:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        pipeline_predict.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            previsoes =
+                            pipeline.predict(
+                            X_test)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(previsoes)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Vantagem:</strong>
+
+                <br><br>
+
+                O Pipeline ajuda a manter as etapas de preparação
+                e treinamento organizadas e reduz o risco de aplicar
+                transformações de maneira incorreta.
+
+            </div>
+
+
+            <!-- =================================================
+                 ESTRUTURA COMPLETA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🏗️ Estrutura mental do projeto
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>1️⃣ Dataset</strong>
+
+                <br>
+
+                Encontrar ou criar os dados.
+
+                <br><br>
+
+
+                <strong>2️⃣ Preparação</strong>
+
+                <br>
+
+                Limpar, transformar e separar os dados.
+
+                <br><br>
+
+
+                <strong>3️⃣ Treinamento</strong>
+
+                <br>
+
+                Ensinar o algoritmo utilizando os dados de treino.
+
+                <br><br>
+
+
+                <strong>4️⃣ Avaliação</strong>
+
+                <br>
+
+                Medir o desempenho utilizando dados que o modelo
+                não viu durante o treinamento.
+
+                <br><br>
+
+
+                <strong>5️⃣ Predição</strong>
+
+                <br>
+
+                Utilizar o modelo treinado para fazer previsões
+                sobre novos dados.
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJETO COMPLETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💻 Código completo
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora podemos reunir as principais etapas em um
+                único programa:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        projeto_ml.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+                        <div>17</div>
+                        <div>18</div>
+                        <div>19</div>
+                        <div>20</div>
+                        <div>21</div>
+                        <div>22</div>
+                        <div>23</div>
+                        <div>24</div>
+                        <div>25</div>
+                        <div>26</div>
+                        <div>27</div>
+                        <div>28</div>
+                        <div>29</div>
+                        <div>30</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.model_selection
+                            <span class="keyword">
+                                import
+                            </span>
+                            train_test_split
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.pipeline
+                            <span class="keyword">
+                                import
+                            </span>
+                            Pipeline
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.preprocessing
+                            <span class="keyword">
+                                import
+                            </span>
+                            StandardScaler
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.linear_model
+                            <span class="keyword">
+                                import
+                            </span>
+                            LogisticRegression
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                from
+                            </span>
+                            sklearn.metrics
+                            <span class="keyword">
+                                import
+                            </span>
+                            accuracy_score
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            X = [
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [18, 1800],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [22, 2200],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [25, 2500],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [30, 3200],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [35, 4000],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [40, 5000],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [45, 6500],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            [50, 8000]
+
+                        </div>
+
+
+                        <div>
+
+                            ]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            y = [0, 0, 0, 1, 1, 1, 1, 1]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            X_train, X_test, y_train, y_test =
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            train_test_split(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            X, y,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            test_size=0.25,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            random_state=42
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            modelo = Pipeline([
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            (
+                            "scaler",
+                            StandardScaler()),
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            (
+                            "classifier",
+                            LogisticRegression())
+
+                        </div>
+
+
+                        <div>
+
+                            ])
+
+                        </div>
+
+
+                        <div>
+
+                            modelo.fit(
+                            X_train,
+                            y_train)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        avaliacao_final.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            previsoes =
+                            modelo.predict(
+                            X_test)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            accuracy =
+                            accuracy_score(
+                            y_test,
+                            previsoes)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(
+                            "Accuracy:",
+                            accuracy)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+                    Terminal
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Accuracy: 1.0
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 INTERPRETAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔍 Interpretando o resultado
+
+            </h3>
+
+
+            <p class="description">
+
+                Suponha que o modelo apresentou uma accuracy de
+                <strong>90%</strong>.
+
+                Isso significa que ele acertou aproximadamente
+                90% das previsões no conjunto utilizado para
+                avaliação.
+
+            </p>
+
+
+            <p class="description">
+
+                Mas não devemos parar por aí.
+
+                Dependendo do problema, também podemos analisar
+                Precision, Recall, F1-score e outras métricas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Uma métrica isolada não conta toda a
+                    história.</strong>
+
+                <br><br>
+
+                Sempre devemos interpretar o resultado levando em
+                consideração o problema que estamos tentando
+                resolver.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Exercício final
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora é sua vez de criar um pequeno projeto de
+                Machine Learning.
+
+            </p>
+
+
+            <strong>Desafio — Previsão de aprovação</strong>
+
+
+            <p class="description">
+
+                Crie um dataset contendo informações de estudantes.
+
+                Utilize como features:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Horas estudadas.
+                </li>
+
+                <li>
+                    Número de exercícios realizados.
+                </li>
+
+                <li>
+                    Frequência nas aulas.
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                O label deverá indicar:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>0</strong> — reprovado.
+                </li>
+
+                <li>
+                    <strong>1</strong> — aprovado.
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Depois:
+
+            </p>
+
+
+            <ol>
+
+                <li>
+                    Separe treino e teste.
+                </li>
+
+                <li>
+                    Prepare os dados.
+                </li>
+
+                <li>
+                    Crie um modelo de classificação.
+                </li>
+
+                <li>
+                    Treine o modelo.
+                </li>
+
+                <li>
+                    Faça previsões.
+                </li>
+
+                <li>
+                    Calcule Accuracy.
+                </li>
+
+                <li>
+                    Calcule Precision.
+                </li>
+
+                <li>
+                    Calcule Recall.
+                </li>
+
+                <li>
+                    Calcule F1-score.
+                </li>
+
+                <li>
+                    Teste um novo estudante.
+                </li>
+
+            </ol>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Utilize <code>cross_val_score()</code> para avaliar
+                o modelo utilizando cinco folds.
+
+                <br><br>
+
+                Depois compare a média da cross-validation com o
+                resultado obtido no conjunto de teste.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Como estruturar um projeto simples de
+                Machine Learning.<br>
+
+                • O que é um <strong>dataset</strong>.<br>
+
+                • Como separar features e labels.<br>
+
+                • Como separar dados de treino e teste.<br>
+
+                • Como utilizar <strong>StandardScaler</strong>.<br>
+
+                • Como criar um modelo com
+                <strong>LogisticRegression</strong>.<br>
+
+                • Como treinar um modelo utilizando
+                <code>fit()</code>.<br>
+
+                • Como fazer previsões utilizando
+                <code>predict()</code>.<br>
+
+                • Como obter probabilidades com
+                <code>predict_proba()</code>.<br>
+
+                • Como avaliar o modelo utilizando métricas.<br>
+
+                • Como utilizar <strong>Cross-validation</strong>.<br>
+
+                • Como organizar etapas utilizando
+                <strong>Pipeline</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Seu primeiro projeto de Machine Learning!
+
+            </h3>
+
+
+            <p class="description">
+
+                Nesta aula, você percorreu praticamente todo o
+                ciclo de um projeto básico de Machine Learning.
+
+                Você começou com dados, preparou as informações,
+                treinou um modelo, avaliou seu desempenho e,
+                finalmente, utilizou o modelo para realizar uma
+                nova previsão.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Próxima etapa:</strong>
+
+                <br><br>
+
+                Na próxima aula, vamos entrar em um novo assunto:
+                <strong>automação e inteligência artificial</strong>,
+                explorando como utilizar Python para construir
+                soluções cada vez mais inteligentes.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

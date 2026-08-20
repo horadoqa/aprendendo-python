@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">40</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 40
+
+            </span>
+
+
+            <h2>
+
+                Git e GitHub
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender os principais conceitos
+                do <strong>Git</strong> e do <strong>GitHub</strong>.
+
+                Vamos entender o que são repositórios, commits,
+                branches, merges e pull requests.
+
+            </p>
+
+
+            <p class="description">
+
+                Essas ferramentas são fundamentais no desenvolvimento
+                de software e também fazem parte da rotina de
+                profissionais de <strong>QA</strong>, principalmente
+                em projetos de automação de testes.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                O <strong>Git</strong> é um sistema de controle de
+                versão.
+
+                <br><br>
+
+                O <strong>GitHub</strong> é uma plataforma que permite
+                hospedar repositórios Git e colaborar com outras
+                pessoas.
+
+            </div>
+
+
+            <!-- =================================================
+                 GIT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 O que é Git?
+
+            </h3>
+
+
+            <p class="description">
+
+                O Git é uma ferramenta de controle de versão.
+
+                Ele permite acompanhar as alterações feitas nos
+                arquivos de um projeto ao longo do tempo.
+
+            </p>
+
+
+            <p class="description">
+
+                Imagine que você está desenvolvendo um projeto de
+                automação de testes.
+
+                Durante o desenvolvimento, você pode criar novos
+                testes, corrigir bugs e modificar arquivos.
+
+                O Git registra essas alterações e permite consultar
+                o histórico do projeto.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>✅ Com Git podemos:</strong>
+
+                <br><br>
+
+                • Registrar alterações.<br>
+
+                • Consultar o histórico do projeto.<br>
+
+                • Criar versões do código.<br>
+
+                • Trabalhar em diferentes funcionalidades.<br>
+
+                • Colaborar com outras pessoas.<br>
+
+                • Recuperar versões anteriores do código.
+
+            </div>
+
+
+            <!-- =================================================
+                 GITHUB
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ☁️ O que é GitHub?
+
+            </h3>
+
+
+            <p class="description">
+
+                O GitHub é uma plataforma online utilizada para
+                hospedar repositórios Git e facilitar a colaboração
+                entre desenvolvedores e equipes.
+
+            </p>
+
+
+            <p class="description">
+
+                Um projeto pode existir localmente no computador e
+                também ser enviado para um repositório no GitHub.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Git x GitHub</strong>
+
+                <br><br>
+
+                <strong>Git</strong> → ferramenta de controle de
+                versão.
+
+                <br><br>
+
+                <strong>GitHub</strong> → plataforma para hospedar
+                repositórios Git e colaborar com outras pessoas.
+
+            </div>
+
+
+            <!-- =================================================
+                 REPOSITÓRIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Repositórios
+
+            </h3>
+
+
+            <p class="description">
+
+                Um <strong>repositório</strong> é o local onde o
+                projeto e seu histórico de versões são armazenados.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos criar um repositório local utilizando:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            git init
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O comando <code>git init</code> inicializa um novo
+                repositório Git na pasta atual.
+
+            </p>
+
+
+            <!-- =================================================
+                 STATUS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Verificando alterações
+
+            </h3>
+
+
+            <p class="description">
+
+                O comando <code>git status</code> mostra o estado
+                atual do repositório.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            git status
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Esse comando é muito útil para verificar quais
+                arquivos foram modificados, adicionados ou ainda
+                não estão sendo rastreados pelo Git.
+
+            </p>
+
+
+            <!-- =================================================
+                 COMMIT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                💾 Commit
+
+            </h3>
+
+
+            <p class="description">
+
+                Um <strong>commit</strong> representa um registro
+                das alterações realizadas no projeto.
+
+            </p>
+
+
+            <p class="description">
+
+                Antes de criar um commit, precisamos adicionar os
+                arquivos à área de preparação do Git.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            git add .
+
+                        </div>
+
+
+                        <div>
+
+                            git commit -m
+                            <span class="string">
+                                "Adiciona testes de login"
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O comando <code>git add</code> adiciona alterações
+                à área de preparação.
+
+                Depois, <code>git commit</code> registra essas
+                alterações no histórico.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Boa prática:</strong>
+
+                <br><br>
+
+                Escreva mensagens de commit claras e objetivas.
+
+                <br><br>
+
+                Exemplo:
+
+                <br>
+
+                <code>git commit -m "Adiciona teste de login"</code>
+
+            </div>
+
+
+            <!-- =================================================
+                 HISTÓRICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📜 Histórico de commits
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos visualizar o histórico de commits utilizando
+                o comando:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            git log
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Para visualizar um histórico mais resumido:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            git log --oneline
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 BRANCH
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌿 Branch
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma <strong>branch</strong> é uma linha independente
+                de desenvolvimento.
+
+            </p>
+
+
+            <p class="description">
+
+                Branches permitem desenvolver uma nova funcionalidade
+                sem alterar diretamente a branch principal do projeto.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, podemos criar uma branch para desenvolver
+                um novo teste:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            git switch -c teste-login
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O comando cria uma nova branch chamada
+                <code>teste-login</code> e muda para ela.
+
+            </p>
+
+
+            <p class="description">
+
+                Também podemos listar as branches existentes:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            git branch
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TROCAR BRANCH
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔀 Trocando de branch
+
+            </h3>
+
+
+            <p class="description">
+
+                Para mudar para uma branch existente:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            git switch main
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MERGE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔗 Merge
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>merge</strong> é utilizado para unir as
+                alterações de uma branch em outra.
+
+            </p>
+
+
+            <p class="description">
+
+                Imagine que você criou a branch
+                <code>teste-login</code>, desenvolveu os testes
+                e realizou alguns commits.
+
+                Agora queremos incorporar essas alterações à
+                branch principal.
+
+            </p>
+
+
+            <p class="description">
+
+                Primeiro, mudamos para a branch que receberá
+                as alterações:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            git switch main
+
+                        </div>
+
+
+                        <div>
+
+                            git merge teste-login
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Atenção:</strong>
+
+                <br><br>
+
+                Um merge pode gerar conflitos quando as mesmas
+                partes de arquivos foram alteradas de maneiras
+                incompatíveis.
+
+                <br><br>
+
+                Nesses casos, é necessário analisar e resolver
+                os conflitos antes de concluir o merge.
+
+            </div>
+
+
+            <!-- =================================================
+                 GITHUB
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ☁️ Enviando o projeto para o GitHub
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois de criar um repositório no GitHub, podemos
+                conectar o repositório local ao repositório remoto.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            git remote add origin
+                            https://github.com/usuario/projeto.git
+
+                        </div>
+
+
+                        <div>
+
+                            git branch -M main
+
+                        </div>
+
+
+                        <div>
+
+                            git push -u origin main
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O comando <code>git remote add origin</code>
+                associa o repositório local ao repositório remoto.
+
+            </p>
+
+
+            <p class="description">
+
+                O comando <code>git push</code> envia os commits
+                locais para o GitHub.
+
+            </p>
+
+
+            <!-- =================================================
+                 PULL
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📥 Pull
+
+            </h3>
+
+
+            <p class="description">
+
+                O comando <code>git pull</code> busca alterações
+                do repositório remoto e atualiza a branch local.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            git pull
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Na prática:</strong>
+
+                <br><br>
+
+                Antes de começar a trabalhar em um projeto
+                compartilhado, é comum atualizar sua branch
+                local para receber as alterações mais recentes.
+
+            </div>
+
+
+            <!-- =================================================
+                 PULL REQUEST
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Pull Request
+
+            </h3>
+
+
+            <p class="description">
+
+                Um <strong>Pull Request (PR)</strong> é uma solicitação
+                para que as alterações de uma branch sejam revisadas
+                e, posteriormente, incorporadas a outra branch.
+
+            </p>
+
+
+            <p class="description">
+
+                Um fluxo bastante comum é:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🔄 Fluxo de Pull Request:</strong>
+
+                <br><br>
+
+                1. Criar uma branch.<br>
+
+                2. Desenvolver a funcionalidade.<br>
+
+                3. Fazer commits.<br>
+
+                4. Enviar a branch para o GitHub.<br>
+
+                5. Criar um Pull Request.<br>
+
+                6. Outros membros revisam o código.<br>
+
+                7. Corrigir os pontos encontrados, se necessário.<br>
+
+                8. Aprovar o Pull Request.<br>
+
+                9. Fazer o merge.
+
+            </div>
+
+
+            <p class="description">
+
+                Por exemplo, podemos enviar nossa branch para o
+                GitHub utilizando:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        Terminal
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            git push -u origin teste-login
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Depois disso, podemos abrir um Pull Request no
+                GitHub solicitando a revisão das alterações.
+
+            </p>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Git no dia a dia do QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Git faz parte da rotina de muitos profissionais
+                de QA.
+
+                Em projetos de automação, por exemplo, um QA pode
+                criar uma branch para desenvolver novos testes.
+
+            </p>
+
+
+            <p class="description">
+
+                Um fluxo poderia ser:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        fluxo-qa.txt
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            git switch main
+
+                        </div>
+
+
+                        <div>
+
+                            git pull
+
+                        </div>
+
+
+                        <div>
+
+                            git switch -c teste-cadastro
+
+                        </div>
+
+
+                        <div>
+
+                            git add .
+
+                        </div>
+
+
+                        <div>
+
+                            git commit -m
+                            <span class="string">
+                                "Adiciona testes de cadastro"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            git push -u origin teste-cadastro
+
+                        </div>
+
+
+                        <div>
+
+                            # Criar Pull Request no GitHub
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo de rotina:</strong>
+
+                <br><br>
+
+                O QA cria os testes em uma branch separada,
+                envia as alterações para o GitHub e abre um
+                Pull Request.
+
+                <br><br>
+
+                Outro profissional pode revisar os testes antes
+                que eles sejam incorporados ao projeto principal.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONFLITOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ Conflitos de merge
+
+            </h3>
+
+
+            <p class="description">
+
+                Um conflito pode acontecer quando duas branches
+                modificam a mesma parte de um arquivo de maneiras
+                incompatíveis.
+
+            </p>
+
+
+            <p class="description">
+
+                Quando isso acontece, o Git indica que existe um
+                conflito que precisa ser resolvido manualmente.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        exemplo.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+
+                        </div>
+
+
+                        <div>
+
+                            mensagem = "Teste de login"
+
+                        </div>
+
+
+                        <div>
+
+                            =======
+
+                        </div>
+
+
+                        <div>
+
+                            mensagem = "Teste de cadastro"
+
+                        </div>
+
+
+                        <div>
+
+                            &gt;&gt;&gt;&gt;&gt;&gt;&gt; teste-cadastro
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Precisamos escolher qual alteração deve permanecer
+                ou combinar as duas quando isso fizer sentido.
+
+            </p>
+
+
+            <!-- =================================================
+                 COMANDOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛠️ Principais comandos
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        comandos-git.txt
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            git init
+
+                        </div>
+
+
+                        <div>
+
+                            git status
+
+                        </div>
+
+
+                        <div>
+
+                            git add .
+
+                        </div>
+
+
+                        <div>
+
+                            git commit -m
+                            <span class="string">
+                                "mensagem"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            git log
+
+                        </div>
+
+
+                        <div>
+
+                            git branch
+
+                        </div>
+
+
+                        <div>
+
+                            git switch -c nome-da-branch
+
+                        </div>
+
+
+                        <div>
+
+                            git switch main
+
+                        </div>
+
+
+                        <div>
+
+                            git merge nome-da-branch
+
+                        </div>
+
+
+                        <div>
+
+                            git pull
+
+                        </div>
+
+
+                        <div>
+
+                            git push
+
+                        </div>
+
+
+                        <div>
+
+                            git remote -v
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um pequeno projeto Python e utilize Git para
+                controlar suas alterações.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • Crie uma pasta chamada
+                <code>projeto_git</code>.<br>
+
+                • Inicialize um repositório com
+                <code>git init</code>.<br>
+
+                • Crie um arquivo Python simples.<br>
+
+                • Verifique as alterações com
+                <code>git status</code>.<br>
+
+                • Faça o primeiro commit.<br>
+
+                • Crie uma branch chamada
+                <code>feature-teste</code>.<br>
+
+                • Faça uma alteração no projeto.<br>
+
+                • Crie um novo commit.<br>
+
+                • Envie a branch para o GitHub.<br>
+
+                • Crie um Pull Request.<br>
+
+                • Faça o merge da branch depois da revisão.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Git é um sistema de controle de versão.<br>
+
+                • GitHub é uma plataforma para hospedar e
+                colaborar em repositórios Git.<br>
+
+                • Um repositório armazena o projeto e seu
+                histórico.<br>
+
+                • <code>git add</code> adiciona alterações à
+                área de preparação.<br>
+
+                • <code>git commit</code> registra alterações
+                no histórico.<br>
+
+                • Branches permitem trabalhar em diferentes
+                linhas de desenvolvimento.<br>
+
+                • <code>git merge</code> une alterações de
+                diferentes branches.<br>
+
+                • <code>git push</code> envia alterações para
+                o repositório remoto.<br>
+
+                • <code>git pull</code> atualiza o repositório
+                local com alterações remotas.<br>
+
+                • Pull Requests permitem revisar alterações
+                antes do merge.<br>
+
+                • Git e GitHub são ferramentas importantes para
+                colaboração e controle de qualidade em projetos
+                de software.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

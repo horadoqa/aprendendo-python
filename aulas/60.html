@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">60</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 60
+
+            </span>
+
+
+            <h2>
+
+                Pandas
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos conhecer o
+                <strong>Pandas</strong>, uma das principais
+                bibliotecas do Python para trabalhar com dados.
+
+                Vamos aprender a utilizar
+                <strong>Series</strong> e
+                <strong>DataFrames</strong>, realizar filtros,
+                agrupar informações e combinar diferentes
+                conjuntos de dados utilizando
+                <strong>merge()</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Aprender a carregar, organizar, consultar e
+                combinar dados utilizando Pandas.
+
+                Esses recursos são muito úteis em análise de
+                dados, automação de testes, geração de relatórios
+                e atividades de QA.
+
+            </div>
+
+
+            <!-- =================================================
+                 INSTALAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Instalando o Pandas
+
+            </h3>
+
+
+            <p class="description">
+
+                O Pandas é uma biblioteca externa e pode ser
+                instalada utilizando o <strong>pip</strong>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        terminal
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            pip install pandas
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 IMPORT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐼 Importando o Pandas
+
+            </h3>
+
+
+            <p class="description">
+
+                A convenção mais utilizada é importar o Pandas
+                utilizando o apelido <strong>pd</strong>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        pandas.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            pandas
+                            <span class="keyword">
+                                as
+                            </span>
+                            pd
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(pd.__version__)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SERIES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📋 Series
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma <strong>Series</strong> é uma estrutura
+                unidimensional do Pandas.
+
+                Podemos imaginá-la como uma coluna de dados
+                acompanhada de índices.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        series.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            pandas
+                            <span class="keyword">
+                                as
+                            </span>
+                            pd
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            notas = pd.Series(
+                            [7, 8, 9, 10])
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(notas)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(notas[0])
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        0&nbsp;&nbsp;&nbsp;&nbsp;7
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        1&nbsp;&nbsp;&nbsp;&nbsp;8
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2&nbsp;&nbsp;&nbsp;&nbsp;9
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        3&nbsp;&nbsp;&nbsp;10
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        dtype: int64
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        7
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DATAFRAME
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🗃️ DataFrame
+
+            </h3>
+
+
+            <p class="description">
+
+                O <strong>DataFrame</strong> é uma estrutura
+                bidimensional formada por linhas e colunas.
+
+                Ele é muito utilizado para representar dados
+                semelhantes aos encontrados em uma planilha ou
+                tabela de banco de dados.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        dataframe.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            pandas
+                            <span class="keyword">
+                                as
+                            </span>
+                            pd
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            dados = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "nome"
+                            </span>:
+                            [<span class="string">
+                                "Ana"
+                            </span>,
+                            <span class="string">
+                                "Bruno"
+                            </span>,
+                            <span class="string">
+                                "Carlos"
+                            </span>],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "idade"
+                            </span>:
+                            [25, 30, 22],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "aprovado"
+                            </span>:
+                            [True, True, False]
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div>
+
+                            tabela = pd.DataFrame(dados)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos visualizar o conteúdo utilizando
+                <code>print()</code>:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        visualizacao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(tabela)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;nome&nbsp;&nbsp;
+                        idade&nbsp;&nbsp; aprovado
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        0&nbsp;&nbsp;Ana&nbsp;&nbsp;&nbsp;&nbsp;
+                        25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;True
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        1&nbsp;&nbsp;Bruno&nbsp;&nbsp;
+                        30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;True
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        2&nbsp;&nbsp;Carlos&nbsp;&nbsp;
+                        22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;False
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ACESSANDO COLUNAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔎 Acessando colunas
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos acessar uma coluna utilizando o nome dela
+                entre colchetes.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        colunas.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            nomes = tabela[
+                            <span class="string">
+                                "nome"
+                            </span>]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(nomes)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FILTRAGEM
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔍 Filtragem
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das tarefas mais comuns ao trabalhar com
+                dados é encontrar somente os registros que
+                atendem a determinada condição.
+
+                No Pandas, podemos fazer isso utilizando filtros.
+
+            </p>
+
+
+            <p class="description">
+
+                Por exemplo, podemos encontrar somente as pessoas
+                com idade maior ou igual a 25 anos:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        filtro.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            resultado = tabela[
+                            tabela[
+                            <span class="string">
+                                "idade"
+                            </span>
+                            ] &gt;= 25]
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Ana&nbsp;&nbsp;&nbsp;&nbsp;25&nbsp;&nbsp;
+                        True
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Bruno&nbsp;&nbsp;30&nbsp;&nbsp;
+                        True
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                Os filtros podem utilizar operadores como
+                <code>==</code>, <code>!=</code>,
+                <code>&gt;</code>, <code>&lt;</code>,
+                <code>&gt;=</code> e <code>&lt;=</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 FILTROS MÚLTIPLOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔀 Filtros com múltiplas condições
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos combinar condições.
+
+                No Pandas, normalmente utilizamos
+                <code>&amp;</code> para representar
+                <strong>AND</strong> e <code>|</code> para
+                representar <strong>OR</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        filtros.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            resultado = tabela[
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            (tabela[
+                            <span class="string">
+                                "idade"
+                            </span>
+                            ] &gt; 20) &amp;
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            (tabela[
+                            <span class="string">
+                                "aprovado"
+                            </span>
+                            ] == True)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 AGRUPAMENTO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📊 Agrupamento
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <code>groupby()</code> permite agrupar
+                registros de acordo com uma determinada coluna.
+
+                Isso é muito útil para calcular médias, somas,
+                contagens e outras métricas por categoria.
+
+            </p>
+
+
+            <p class="description">
+
+                Vamos criar um exemplo utilizando resultados de
+                testes:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        agrupamento.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            dados = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "tipo"
+                            </span>:
+                            [<span class="string">
+                                "API"
+                            </span>,
+                            <span class="string">
+                                "API"
+                            </span>,
+                            <span class="string">
+                                "Web"
+                            </span>],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "tempo"
+                            </span>:
+                            [120, 150, 200]
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            df = pd.DataFrame(dados)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            media = df.groupby(
+                            <span class="string">
+                                "tipo"
+                            </span>
+                            )[
+                            <span class="string">
+                                "tempo"
+                            </span>
+                            ].mean()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        API&nbsp;&nbsp;&nbsp;&nbsp;135.0
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Web&nbsp;&nbsp;&nbsp;&nbsp;200.0
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Pense como QA:</strong>
+
+                <br><br>
+
+                O agrupamento pode ser utilizado para descobrir,
+                por exemplo, qual tipo de teste possui o maior
+                tempo médio de execução.
+
+            </div>
+
+
+            <!-- =================================================
+                 MERGE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔗 Merge
+
+            </h3>
+
+
+            <p class="description">
+
+                O <code>merge()</code> permite combinar dois
+                DataFrames utilizando uma coluna em comum.
+
+                O conceito é semelhante a um
+                <strong>JOIN</strong> em bancos de dados SQL.
+
+            </p>
+
+
+            <p class="description">
+
+                Imagine que temos uma tabela com informações dos
+                testes e outra com informações dos responsáveis.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        merge.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            testes = pd.DataFrame({
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "id"
+                            </span>: [1, 2, 3],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "resultado"
+                            </span>:
+                            [<span class="string">
+                                "Passou"
+                            </span>,
+                            <span class="string">
+                                "Falhou"
+                            </span>,
+                            <span class="string">
+                                "Passou"
+                            </span>]
+
+                        </div>
+
+
+                        <div>
+
+                            })
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            responsaveis = pd.DataFrame({
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "id"
+                            </span>: [1, 2, 3],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "qa"
+                            </span>:
+                            [<span class="string">
+                                "Ana"
+                            </span>,
+                            <span class="string">
+                                "Bruno"
+                            </span>,
+                            <span class="string">
+                                "Carlos"
+                            </span>]
+
+                        </div>
+
+
+                        <div>
+
+                            })
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            resultado = pd.merge(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            testes,
+                            responsaveis,
+                            on=<span class="string">
+                                "id"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O parâmetro <code>on</code> informa qual coluna
+                será utilizada como chave para realizar a
+                combinação.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🔗 Pandas + SQL:</strong>
+
+                <br><br>
+
+                Se você já conhece SQL, pode pensar no
+                <code>merge()</code> como uma operação semelhante
+                a um <code>JOIN</code> entre tabelas.
+
+                <br><br>
+
+                Isso torna o Pandas especialmente útil para quem
+                trabalha com bancos de dados e análise de
+                informações.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Pandas no dia a dia do QA
+
+            </h3>
+
+
+            <p class="description">
+
+                O Pandas pode ser muito útil em atividades de QA.
+
+                Podemos utilizar a biblioteca para analisar
+                resultados de testes, comparar dados, gerar
+                relatórios e identificar padrões.
+
+            </p>
+
+
+            <p class="description">
+
+                Imagine que temos os resultados de vários testes:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        relatorio.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            df = pd.DataFrame({
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "teste"
+                            </span>:
+                            [<span class="string">
+                                "Login"
+                            </span>,
+                            <span class="string">
+                                "Cadastro"
+                            </span>,
+                            <span class="string">
+                                "Logout"
+                            </span>],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "status"
+                            </span>:
+                            [<span class="string">
+                                "Passou"
+                            </span>,
+                            <span class="string">
+                                "Falhou"
+                            </span>,
+                            <span class="string">
+                                "Passou"
+                            </span>],
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "tempo"
+                            </span>: [1.2, 3.5, 0.8]
+
+                        </div>
+
+
+                        <div>
+
+                            })
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            falhas = df[
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            df[
+                            <span class="string">
+                                "status"
+                            </span>
+                            ] ==
+                            <span class="string">
+                                "Falhou"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            ]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(falhas)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Aplicação prática:</strong>
+
+                <br><br>
+
+                Com poucas linhas de código podemos filtrar os
+                testes que falharam e utilizar esses dados para
+                construir relatórios ou análises posteriores.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio da aula
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um DataFrame contendo pelo menos cinco
+                testes automatizados.
+
+                Para cada teste, registre:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Nome do teste.
+                </li>
+
+                <li>
+                    Tipo do teste.
+                </li>
+
+                <li>
+                    Status.
+                </li>
+
+                <li>
+                    Tempo de execução.
+                </li>
+
+                <li>
+                    Responsável.
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Depois, realize as seguintes operações:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Filtre somente os testes que falharam.
+                </li>
+
+                <li>
+                    Encontre os testes com tempo superior a
+                    2 segundos.
+                </li>
+
+                <li>
+                    Calcule o tempo médio dos testes.
+                </li>
+
+                <li>
+                    Agrupe os testes pelo tipo.
+                </li>
+
+                <li>
+                    Calcule a quantidade de testes por status.
+                </li>
+
+                <li>
+                    Crie um segundo DataFrame com informações dos
+                    responsáveis.
+                </li>
+
+                <li>
+                    Utilize <code>merge()</code> para combinar os
+                    dois DataFrames.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio extra:</strong>
+
+                <br><br>
+
+                Crie um relatório mostrando, para cada responsável,
+                quantos testes foram executados e quantos deles
+                falharam.
+
+                <br><br>
+
+                Depois calcule a taxa de aprovação de cada
+                responsável.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que é o Pandas.<br>
+
+                • Como instalar e importar a biblioteca.<br>
+
+                • O que é uma <code>Series</code>.<br>
+
+                • O que é um <code>DataFrame</code>.<br>
+
+                • Como criar DataFrames.<br>
+
+                • Como acessar colunas.<br>
+
+                • Como filtrar dados.<br>
+
+                • Como combinar múltiplas condições.<br>
+
+                • Como utilizar <code>groupby()</code> para
+                agrupamentos.<br>
+
+                • Como calcular métricas agrupadas.<br>
+
+                • Como combinar DataFrames com
+                <code>merge()</code>.<br>
+
+                • Como utilizar Pandas para analisar resultados
+                de testes.<br>
+
+                • Como transformar dados brutos em informações
+                úteis para QA.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Aula concluída!
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora você já consegue trabalhar com estruturas
+                tabulares utilizando Pandas, filtrar informações,
+                criar agrupamentos e combinar diferentes fontes
+                de dados.
+
+                Esses conhecimentos serão fundamentais para as
+                próximas aulas de análise e processamento de
+                dados com Python.
+
+            </p>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

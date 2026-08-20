@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+
+                    Hora do QA
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+
+                    🐍 APRENDENDO PYTHON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">25</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 25
+
+            </span>
+
+
+            <h2>
+
+                Arquivos de texto em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como trabalhar
+                com arquivos de texto em Python.
+
+                Vamos aprender como <strong>abrir</strong>,
+                <strong>ler</strong> e <strong>escrever</strong>
+                arquivos, além de conhecer a forma recomendada
+                de trabalhar com arquivos utilizando
+                <strong>with open()</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 CONCEITO 1
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📄 Trabalhando com arquivos
+
+            </h3>
+
+
+            <p class="description">
+
+                Arquivos de texto permitem armazenar informações
+                que podem ser utilizadas posteriormente pelo
+                programa.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos utilizar arquivos para guardar nomes,
+                configurações, resultados de testes, logs,
+                informações de usuários e muitos outros dados.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Uma variável guarda informações enquanto o
+                programa está sendo executado.
+
+                <br><br>
+
+                Um arquivo pode guardar informações para serem
+                utilizadas mesmo depois que o programa for
+                encerrado.
+
+            </div>
+
+
+            <!-- =================================================
+                 ABRINDO ARQUIVOS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📂 Abrindo arquivos
+
+            </h3>
+
+
+            <p class="description">
+
+                Para abrir um arquivo em Python, utilizamos a
+                função <strong>open()</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                O primeiro argumento é o nome ou caminho do
+                arquivo.
+
+                O segundo argumento define o modo de abertura.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Principais modos:</strong>
+
+                <br><br>
+
+                <code>"r"</code> — leitura do arquivo.<br>
+
+                <code>"w"</code> — escrita no arquivo.<br>
+
+                <code>"a"</code> — adicionar conteúdo ao final
+                do arquivo.
+
+            </div>
+
+
+            <!-- =================================================
+                 LEITURA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📖 Lendo um arquivo
+
+            </h3>
+
+
+            <p class="description">
+
+                Para ler o conteúdo de um arquivo, podemos
+                utilizar o método <strong>read()</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        leitura.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            arquivo =
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "mensagem.txt"
+                            </span>,
+                            <span class="string">
+                                "r"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            conteudo =
+                            arquivo.<span class="function">
+                                read
+                            </span>()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(conteudo)
+
+                        </div>
+
+
+                        <div>
+
+                            arquivo.close()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Nesse exemplo, o arquivo
+                <code>mensagem.txt</code> é aberto no modo
+                de leitura.
+
+                Depois, <code>read()</code> obtém todo o
+                conteúdo do arquivo.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                Quando utilizamos <code>open()</code> dessa
+                maneira, precisamos fechar o arquivo com
+                <code>close()</code> depois de terminar seu uso.
+
+            </div>
+
+
+            <!-- =================================================
+                 CLOSE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔒 Fechando arquivos
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>close()</strong> fecha o
+                arquivo que foi aberto.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        fechar.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            arquivo =
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "dados.txt"
+                            </span>,
+                            <span class="string">
+                                "r"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            conteudo =
+                            arquivo.<span class="function">
+                                read
+                            </span>()
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(conteudo)
+
+                        </div>
+
+
+                        <div>
+
+                            arquivo.close()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 WITH OPEN
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⭐ Usando <code>with open()</code>
+
+            </h3>
+
+
+            <p class="description">
+
+                Em Python, a forma mais recomendada de trabalhar
+                com arquivos é utilizar
+                <strong>with open()</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                Com essa estrutura, Python gerencia o fechamento
+                do arquivo automaticamente depois que o bloco
+                termina.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        with_open.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "mensagem.txt"
+                            </span>,
+                            <span class="string">
+                                "r"
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            conteudo =
+                            arquivo.<span class="function">
+                                read
+                            </span>()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(conteudo)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # O arquivo será fechado automaticamente
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Boa prática:</strong>
+
+                <br><br>
+
+                Prefira <code>with open()</code> em vez de
+                abrir e fechar arquivos manualmente.
+
+                <br><br>
+
+                Isso torna o código mais seguro e evita esquecer
+                de fechar o arquivo.
+
+            </div>
+
+
+            <!-- =================================================
+                 ESCREVENDO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✏️ Escrevendo em arquivos
+
+            </h3>
+
+
+            <p class="description">
+
+                Para escrever conteúdo em um arquivo, podemos
+                utilizar o modo <code>"w"</code>.
+
+            </p>
+
+
+            <p class="description">
+
+                O método <strong>write()</strong> permite
+                adicionar texto ao arquivo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        escrita.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "mensagem.txt"
+                            </span>,
+                            <span class="string">
+                                "w"
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            arquivo.<span class="function">
+                                write
+                            </span>(
+                            <span class="string">
+                                "Olá, Python!"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # O arquivo será fechado
+                                # automaticamente
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção ao modo "w":</strong>
+
+                <br><br>
+
+                O modo <code>"w"</code> escreve no arquivo e
+                pode substituir o conteúdo que já existia.
+
+                <br><br>
+
+                Se você precisa preservar o conteúdo existente
+                e adicionar novas informações, utilize o modo
+                <code>"a"</code>.
+
+            </div>
+
+
+            <!-- =================================================
+                 APPEND
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ➕ Adicionando conteúdo
+
+            </h3>
+
+
+            <p class="description">
+
+                O modo <code>"a"</code> permite adicionar
+                informações ao final do arquivo sem substituir
+                o conteúdo existente.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        adicionar.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "log.txt"
+                            </span>,
+                            <span class="string">
+                                "a"
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            arquivo.<span class="function">
+                                write
+                            </span>(
+                            <span class="string">
+                                "Novo registro\n"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Conteúdo anterior é preservado
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 LINHAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📚 Lendo linha por linha
+
+            </h3>
+
+
+            <p class="description">
+
+                Também podemos percorrer o arquivo utilizando
+                um loop <code>for</code>.
+
+                Essa abordagem é útil quando queremos trabalhar
+                com cada linha separadamente.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        linhas.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "nomes.txt"
+                            </span>,
+                            <span class="string">
+                                "r"
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            linha
+                            <span class="keyword">
+                                in
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(linha)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="comment">
+                                # Cada linha é processada
+                                # separadamente
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 READLINES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📑 Lendo todas as linhas
+
+            </h3>
+
+
+            <p class="description">
+
+                O método <strong>readlines()</strong> retorna
+                as linhas do arquivo em uma lista.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        readlines.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "nomes.txt"
+                            </span>,
+                            <span class="string">
+                                "r"
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            linhas =
+                            arquivo.<span class="function">
+                                readlines
+                            </span>()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            linha
+                            <span class="keyword">
+                                in
+                            </span>
+                            linhas:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">
+                                print
+                            </span>(linha)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 NEWLINE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ↩️ Quebra de linha
+
+            </h3>
+
+
+            <p class="description">
+
+                O caractere especial <code>\n</code> representa
+                uma quebra de linha.
+
+                Ele é muito utilizado quando estamos escrevendo
+                várias linhas em um arquivo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        linhas_escrita.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "nomes.txt"
+                            </span>,
+                            <span class="string">
+                                "w"
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            arquivo.<span class="function">
+                                write
+                            </span>(
+                            <span class="string">
+                                "Maria\n"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            arquivo.<span class="function">
+                                write
+                            </span>(
+                            <span class="string">
+                                "João\n"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            arquivo.<span class="function">
+                                write
+                            </span>(
+                            <span class="string">
+                                "Ana\n"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO PRÁTICO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Exemplo prático
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos combinar entrada de dados com arquivos
+                para criar pequenos programas úteis.
+
+                Por exemplo, podemos solicitar o nome de uma
+                pessoa e salvar a informação em um arquivo.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        cadastro.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            nome =
+                            <span class="function">
+                                input
+                            </span>(
+                            <span class="string">
+                                "Digite seu nome: "
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                with
+                            </span>
+                            <span class="function">
+                                open
+                            </span>(
+                            <span class="string">
+                                "usuarios.txt"
+                            </span>,
+                            <span class="string">
+                                "a"
+                            </span>)
+                            <span class="keyword">
+                                as
+                            </span>
+                            arquivo:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            arquivo.<span class="function">
+                                write
+                            </span>(
+                            nome + <span class="string">
+                                "\n"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(
+                            <span class="string">
+                                "Nome salvo com sucesso!"
+                            </span>)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Digite seu nome: Maria
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Nome salvo com sucesso!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Arquivos no QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Arquivos de texto também podem ser muito úteis
+                em projetos de QA e automação.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos utilizar arquivos para armazenar dados
+                de teste, resultados, configurações e registros
+                de execução.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplos no QA:</strong>
+
+                <br><br>
+
+                • Guardar dados utilizados em testes.<br>
+
+                • Ler uma lista de usuários para uma automação.<br>
+
+                • Registrar resultados de uma execução.<br>
+
+                • Criar arquivos de log.<br>
+
+                • Armazenar configurações simples.<br>
+
+                • Ler cenários de teste de um arquivo.
+
+            </div>
+
+
+            <!-- =================================================
+                 DESAFIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa que solicite três nomes ao
+                usuário e salve todos eles em um arquivo chamado
+                <code>nomes.txt</code>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Requisitos:</strong>
+
+                <br><br>
+
+                • Solicite três nomes utilizando
+                <code>input()</code>.<br>
+
+                • Utilize <code>with open()</code>.<br>
+
+                • Abra o arquivo no modo <code>"w"</code>.<br>
+
+                • Salve cada nome em uma linha diferente.<br>
+
+                • Ao final, mostre uma mensagem informando que
+                os nomes foram salvos.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • <code>open()</code> é utilizado para abrir
+                arquivos.<br>
+
+                • O modo <code>"r"</code> é utilizado para
+                leitura.<br>
+
+                • O modo <code>"w"</code> é utilizado para
+                escrita e pode substituir o conteúdo existente.<br>
+
+                • O modo <code>"a"</code> adiciona conteúdo ao
+                final do arquivo.<br>
+
+                • <code>read()</code> lê o conteúdo do arquivo.<br>
+
+                • <code>readlines()</code> retorna as linhas
+                do arquivo.<br>
+
+                • <code>write()</code> escreve conteúdo no
+                arquivo.<br>
+
+                • <code>\n</code> representa uma quebra de
+                linha.<br>
+
+                • <code>close()</code> fecha um arquivo aberto
+                manualmente.<br>
+
+                • <code>with open()</code> é a forma recomendada
+                para trabalhar com arquivos.<br>
+
+                • Arquivos podem ser utilizados para armazenar
+                dados, logs e informações de testes.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

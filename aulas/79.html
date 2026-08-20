@@ -1,0 +1,2688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">79</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA 79 — PERFORMANCE
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+                AULA 79
+            </span>
+
+
+            <h2>
+                Performance
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, vamos aprender como analisar e melhorar
+                o desempenho de programas Python.
+
+                Vamos conhecer conceitos importantes como
+                <strong>profiling</strong>,
+                <strong>complexidade de algoritmos</strong> e
+                <strong>otimização</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo da aula:</strong>
+
+                <br><br>
+
+                Aprender a identificar partes lentas de um programa,
+                compreender a complexidade dos algoritmos e aplicar
+                técnicas de otimização de forma consciente.
+
+            </div>
+
+
+            <!-- =================================================
+                 O QUE É PERFORMANCE?
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚡ O que é performance?
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>Performance</strong> representa a eficiência
+                com que um programa executa suas tarefas.
+
+                Um programa pode produzir o resultado correto e ainda
+                assim apresentar uma performance ruim.
+
+            </p>
+
+
+            <p class="description">
+
+                Quando falamos de performance, podemos analisar
+                diferentes aspectos:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Tempo de execução.
+                </li>
+
+                <li>
+                    Consumo de memória.
+                </li>
+
+                <li>
+                    Uso de CPU.
+                </li>
+
+                <li>
+                    Uso de recursos externos.
+                </li>
+
+                <li>
+                    Quantidade de operações realizadas.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Ideia principal:</strong>
+
+                <br><br>
+
+                Antes de otimizar um programa, precisamos descobrir
+                onde realmente está o problema.
+
+            </div>
+
+
+            <!-- =================================================
+                 REGRA DE OURO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔍 Primeiro medir, depois otimizar
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das regras mais importantes de performance é:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Medir → Identificar o problema → Otimizar → Medir novamente
+
+                </strong>
+
+            </div>
+
+
+            <p class="description">
+
+                Fazer alterações no código apenas por
+                "parecer mais rápido" pode gerar código mais complexo
+                sem trazer uma melhoria real.
+
+            </p>
+
+
+            <p class="description">
+
+                Por isso utilizamos ferramentas de medição e
+                <strong>profiling</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+                 TIME
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⏱️ Medindo o tempo de execução
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma maneira simples de analisar performance é medir
+                quanto tempo uma operação demora.
+
+                O módulo <code>time</code> pode ser utilizado para
+                isso.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        tempo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            time
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            inicio = time.perf_counter()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            i
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(1000000):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            resultado = i * 2
+
+                        </div>
+
+
+                        <div>
+
+                            fim = time.perf_counter()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos calcular o tempo decorrido:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        tempo.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            print(f"Tempo: {fim - inicio:.4f}s")
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Por que usar <code>perf_counter()</code>?</strong>
+
+                <br><br>
+
+                Ele é apropriado para medir intervalos de tempo
+                durante a execução de programas.
+
+            </div>
+
+
+            <!-- =================================================
+                 TIMEIT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 1. timeit
+
+            </h3>
+
+
+            <p class="description">
+
+                O módulo <code>timeit</code> foi criado especificamente
+                para realizar medições de pequenas partes de código.
+
+            </p>
+
+
+            <p class="description">
+
+                Ele executa uma operação várias vezes para obter uma
+                medição mais confiável.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        timeit.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            timeit
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            tempo = timeit.timeit(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            "sum(range(1000))",
+
+                        </div>
+
+
+                        <div>
+
+                            number=10000
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos exibir o resultado:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        timeit.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            print(tempo)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    timeit → medir pequenas operações
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROFILING
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔬 2. Profiling
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>Profiling</strong> é o processo de analisar
+                detalhadamente onde um programa está gastando seu
+                tempo e seus recursos.
+
+            </p>
+
+
+            <p class="description">
+
+                Em vez de analisar o programa inteiro manualmente,
+                podemos utilizar ferramentas que mostram quais funções
+                estão consumindo mais tempo.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Objetivo do profiling:</strong>
+
+                <br><br>
+
+                Descobrir os chamados
+                <strong>gargalos</strong> do programa.
+
+            </div>
+
+
+            <!-- =================================================
+                 CPROFILE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🐍 cProfile
+
+            </h3>
+
+
+            <p class="description">
+
+                O Python possui uma ferramenta de profiling integrada
+                chamada <code>cProfile</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        programa.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            calcular():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            total = 0
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            i
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(1000000):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            total += i
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            total
+
+                        </div>
+
+
+                        <div>
+
+                            calcular()
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Podemos executar o programa utilizando:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        terminal
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            python -m cProfile programa.py
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O resultado apresenta informações sobre chamadas de
+                funções e o tempo gasto em cada uma delas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo de análise:</strong>
+
+                <br><br>
+
+                Se uma função representa uma grande parte do tempo
+                total de execução, ela pode ser um bom candidato
+                para investigação e possível otimização.
+
+            </div>
+
+
+            <!-- =================================================
+                 COMPLEXIDADE
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📈 3. Complexidade de algoritmos
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma das formas mais importantes de analisar um
+                algoritmo é estudar sua <strong>complexidade</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                A complexidade ajuda a entender como o custo de um
+                algoritmo cresce conforme aumentamos a quantidade
+                de dados.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Complexidade não é exatamente o tempo em segundos.
+
+                </strong>
+
+                <br><br>
+
+                Ela descreve como o número de operações cresce
+                em relação ao tamanho da entrada.
+
+            </div>
+
+
+            <!-- =================================================
+                 BIG O
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧮 Big O
+
+            </h3>
+
+
+            <p class="description">
+
+                A notação <strong>Big O</strong> é utilizada para
+                representar a complexidade de um algoritmo.
+
+            </p>
+
+
+            <p class="description">
+
+                Algumas complexidades comuns são:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>O(1)</strong> — constante.
+                </li>
+
+                <li>
+                    <strong>O(log n)</strong> — logarítmica.
+                </li>
+
+                <li>
+                    <strong>O(n)</strong> — linear.
+                </li>
+
+                <li>
+                    <strong>O(n log n)</strong> — comum em algoritmos
+                    eficientes de ordenação.
+                </li>
+
+                <li>
+                    <strong>O(n²)</strong> — quadrática.
+                </li>
+
+                <li>
+                    <strong>O(2ⁿ)</strong> — exponencial.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Regra geral:</strong>
+
+                <br><br>
+
+                Quanto mais rapidamente a complexidade cresce,
+                mais difícil tende a ser lidar com entradas grandes.
+
+            </div>
+
+
+            <!-- =================================================
+                 O(1)
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🟢 O(1) — Constante
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma operação de complexidade O(1) possui custo
+                aproximadamente constante em relação ao tamanho
+                da entrada.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        constante.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [10, 20, 30, 40]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            primeiro = numeros[0]
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 O(N)
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔵 O(n) — Linear
+
+            </h3>
+
+
+            <p class="description">
+
+                Um algoritmo O(n) normalmente percorre os elementos
+                da entrada uma vez.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        linear.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [1, 2, 3, 4, 5]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            numeros:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(numero)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Se a lista possuir <code>n</code> elementos,
+                o loop será executado aproximadamente <code>n</code>
+                vezes.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    5 elementos → aproximadamente 5 operações
+
+                    <br>
+
+                    1.000 elementos → aproximadamente 1.000 operações
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 O(N²)
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔴 O(n²) — Quadrática
+
+            </h3>
+
+
+            <p class="description">
+
+                Quando temos dois loops aninhados que percorrem
+                a mesma entrada, frequentemente temos uma
+                complexidade O(n²).
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        quadratica.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = [1, 2, 3, 4, 5]
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            a
+                            <span class="keyword">
+                                in
+                            </span>
+                            numeros:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            b
+                            <span class="keyword">
+                                in
+                            </span>
+                            numeros:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(a, b)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Para cada elemento de <code>n</code>, percorremos
+                novamente aproximadamente <code>n</code> elementos.
+
+                Portanto:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    n × n = n²
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO DE OTIMIZAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 4. Otimização
+
+            </h3>
+
+
+            <p class="description">
+
+                Otimizar significa modificar um programa para melhorar
+                seu desempenho, mantendo seu comportamento correto.
+
+            </p>
+
+
+            <p class="description">
+
+                Existem várias estratégias possíveis.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Escolher algoritmos melhores.
+                </li>
+
+                <li>
+                    Utilizar estruturas de dados adequadas.
+                </li>
+
+                <li>
+                    Evitar cálculos desnecessários.
+                </li>
+
+                <li>
+                    Evitar trabalho repetido.
+                </li>
+
+                <li>
+                    Utilizar recursos da biblioteca padrão.
+                </li>
+
+                <li>
+                    Reduzir operações dentro de loops.
+                </li>
+
+                <li>
+                    Utilizar profiling para encontrar gargalos.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 EXEMPLO LIST VS SET
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📦 Estruturas de dados e performance
+
+            </h3>
+
+
+            <p class="description">
+
+                A escolha da estrutura de dados pode ter grande
+                impacto na performance.
+
+                Por exemplo, procurar um elemento em uma lista
+                geralmente exige percorrer seus elementos.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        lista.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = list(range(100000))
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(99999
+                            <span class="keyword">
+                                in
+                            </span>
+                            numeros)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Para testes de pertencimento frequentes, um
+                <code>set</code> pode ser mais apropriado:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        conjunto.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = set(range(100000))
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            print(99999
+                            <span class="keyword">
+                                in
+                            </span>
+                            numeros)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                A estrutura correta depende do problema.
+
+                Performance não significa simplesmente escolher
+                a estrutura "mais rápida", mas escolher a estrutura
+                adequada para a operação que será realizada.
+
+            </div>
+
+
+            <!-- =================================================
+                 EVITANDO TRABALHO REPETIDO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ♻️ Evitando cálculos repetidos
+
+            </h3>
+
+
+            <p class="description">
+
+                Um erro comum é realizar várias vezes um cálculo
+                que poderia ser feito apenas uma vez.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        repeticao.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = range(1000)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            total = sum(numeros)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            i
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(10):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(total)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                O valor de <code>total</code> é calculado uma única
+                vez e depois reutilizado.
+
+            </p>
+
+
+            <!-- =================================================
+                 LIST COMPREHENSION
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Código Python idiomático
+
+            </h3>
+
+
+            <p class="description">
+
+                Algumas construções da linguagem Python permitem
+                escrever operações de forma mais clara e eficiente.
+
+                Um exemplo são as <strong>list comprehensions</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        comprehension.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            numeros = range(10)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            quadrados = [x ** 2 <span class="keyword">for</span> x <span class="keyword">in</span>
+                            numeros]
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Entretanto, escrever menos código não significa
+                automaticamente que o código será mais rápido.
+
+                A prioridade deve ser manter o código correto,
+                legível e adequado ao problema.
+
+            </p>
+
+
+            <!-- =================================================
+                 GERADORES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🌱 Geradores e memória
+
+            </h3>
+
+
+            <p class="description">
+
+                Em situações que envolvem grandes quantidades de dados,
+                podemos evitar armazenar tudo na memória de uma vez.
+
+                Geradores podem produzir valores sob demanda.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        gerador.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            numeros():
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            i
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(1000000):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                yield
+                            </span>
+                            i
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            numero
+                            <span class="keyword">
+                                in
+                            </span>
+                            numeros():
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Geradores podem ajudar a reduzir o consumo de
+                    memória quando os dados podem ser processados
+                    gradualmente.
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 OTIMIZAÇÃO PREMATURA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ⚠️ Cuidado com otimização prematura
+
+            </h3>
+
+
+            <p class="description">
+
+                Existe uma frase muito conhecida na área de
+                desenvolvimento:
+
+                <strong>"Não otimize antes de medir."</strong>
+
+            </p>
+
+
+            <p class="description">
+
+                Uma otimização pode tornar o código mais difícil de
+                entender e manter.
+
+                Se ela não resolver um problema real de performance,
+                pode não valer a pena.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Prioridade:</strong>
+
+                <br><br>
+
+                1. Código correto
+
+                <br>
+
+                2. Código legível
+
+                <br>
+
+                3. Código testado
+
+                <br>
+
+                4. Medir performance
+
+                <br>
+
+                5. Otimizar gargalos reais
+
+            </div>
+
+
+            <!-- =================================================
+                 EXEMPLO COMPLETO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Exemplo completo de análise
+
+            </h3>
+
+
+            <p class="description">
+
+                Vamos criar duas funções que verificam se existem
+                elementos repetidos em uma lista.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        performance.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            possui_duplicados(lista):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            i
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(len(lista)):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            j
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(i + 1, len(lista)):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                if
+                            </span>
+                            lista[i] == lista[j]:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            True
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            False
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                def
+                            </span>
+                            possui_duplicados_rapido(lista):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                return
+                            </span>
+                            len(lista) != len(set(lista))
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            numeros = [1, 2, 3, 4, 3]
+
+                        </div>
+
+
+                        <div>
+
+                            print(possui_duplicados(numeros))
+
+                        </div>
+
+
+                        <div>
+
+                            print(possui_duplicados_rapido(numeros))
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                A primeira implementação compara diversos pares de
+                elementos e possui complexidade aproximadamente
+                <strong>O(n²)</strong>.
+
+            </p>
+
+
+            <p class="description">
+
+                A segunda utiliza um <code>set</code> e pode reduzir
+                significativamente o trabalho em muitos cenários.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Lição:</strong>
+
+                <br><br>
+
+                Muitas vezes, uma grande melhoria de performance
+                vem da escolha de um algoritmo ou estrutura de dados
+                melhor, e não de pequenas alterações na sintaxe.
+
+            </div>
+
+
+            <!-- =================================================
+                 MEMÓRIA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Performance e memória
+
+            </h3>
+
+
+            <p class="description">
+
+                Performance não significa apenas velocidade.
+
+                Um programa também pode consumir muita memória.
+
+            </p>
+
+
+            <p class="description">
+
+                Podemos utilizar ferramentas como
+                <code>tracemalloc</code> para investigar o uso de
+                memória em programas Python.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        memoria.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                import
+                            </span>
+                            tracemalloc
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            tracemalloc.start()
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            dados = [i <span class="keyword">for</span> i <span class="keyword">in</span> range(100000)]
+
+                        </div>
+
+
+                        <div>
+
+                            print(tracemalloc.get_traced_memory())
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 BOAS PRÁTICAS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                ✅ Boas práticas de performance
+
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    Meça antes de otimizar.
+                </li>
+
+                <li>
+                    Use profiling para encontrar gargalos.
+                </li>
+
+                <li>
+                    Escolha algoritmos adequados.
+                </li>
+
+                <li>
+                    Escolha estruturas de dados adequadas.
+                </li>
+
+                <li>
+                    Evite cálculos desnecessários.
+                </li>
+
+                <li>
+                    Evite processamento repetido.
+                </li>
+
+                <li>
+                    Considere o consumo de memória.
+                </li>
+
+                <li>
+                    Prefira código simples e legível.
+                </li>
+
+                <li>
+                    Faça testes depois das otimizações.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 FLUXO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧭 Processo de otimização
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    📝 Escrever código
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🧪 Testar
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    ⏱️ Medir
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🔬 Fazer profiling
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🔍 Encontrar gargalo
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🚀 Otimizar
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    🧪 Testar novamente
+
+                    <br>
+
+                    ↓
+
+                    <br>
+
+                    📊 Medir novamente
+
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Exercícios
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora é hora de praticar os conceitos de performance.
+
+            </p>
+
+
+            <strong>
+                Desafio 1 — Medindo tempo
+            </strong>
+
+
+            <p class="description">
+
+                Crie duas funções que realizem a mesma tarefa e utilize
+                <code>timeit</code> para comparar o tempo de execução.
+
+            </p>
+
+
+            <strong>
+                Desafio 2 — Complexidade
+            </strong>
+
+
+            <p class="description">
+
+                Analise os algoritmos abaixo e tente identificar
+                suas complexidades:
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        exercicio.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            i
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(n):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            print(i)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            <span class="keyword">
+                                for
+                            </span>
+                            i
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(n):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">
+                                for
+                            </span>
+                            j
+                            <span class="keyword">
+                                in
+                            </span>
+                            range(n):
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            print(i, j)
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Identifique a complexidade de cada trecho utilizando
+                a notação Big O.
+
+            </p>
+
+
+            <strong>
+                Desafio 3 — Melhorando um algoritmo
+            </strong>
+
+
+            <p class="description">
+
+                Crie uma função que verifica se uma lista possui
+                valores duplicados.
+
+                Primeiro utilize loops aninhados.
+
+                Depois tente criar uma solução utilizando
+                <code>set</code>.
+
+            </p>
+
+
+            <strong>
+                Desafio extra — Profiling
+            </strong>
+
+
+            <p class="description">
+
+                Crie um programa com pelo menos três funções diferentes
+                e execute-o utilizando o <code>cProfile</code>.
+
+                Descubra qual função consome mais tempo.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>🏆 Desafio final:</strong>
+
+                <br><br>
+
+                Crie um programa que processe uma lista com
+                1.000.000 de números.
+
+                <br><br>
+
+                Compare diferentes estratégias para:
+
+                <br>
+
+                • procurar valores;
+
+                <br>
+
+                • calcular resultados;
+
+                <br>
+
+                • armazenar dados.
+
+                <br><br>
+
+                Utilize <code>timeit</code> para medir os tempos e
+                explique qual solução apresentou melhor performance
+                e por quê.
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • O que é performance.<br>
+
+                • Por que devemos medir antes de otimizar.<br>
+
+                • Como medir tempo de execução.<br>
+
+                • Como utilizar <code>time.perf_counter()</code>.<br>
+
+                • Como utilizar <code>timeit</code>.<br>
+
+                • O que é profiling.<br>
+
+                • Como utilizar <code>cProfile</code>.<br>
+
+                • O que são gargalos de performance.<br>
+
+                • O conceito de complexidade de algoritmos.<br>
+
+                • O que significa Big O.<br>
+
+                • O que são complexidades O(1), O(log n), O(n),
+                O(n log n) e O(n²).<br>
+
+                • Como loops podem afetar a complexidade.<br>
+
+                • Como escolher estruturas de dados adequadas.<br>
+
+                • Como reduzir cálculos desnecessários.<br>
+
+                • Como geradores podem ajudar no consumo de memória.<br>
+
+                • O que é otimização prematura.<br>
+
+                • Como analisar e otimizar um programa de forma
+                sistemática.
+
+            </div>
+
+
+            <!-- =================================================
+                 CONCLUSÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎓 Agora você sabe analisar performance!
+
+            </h3>
+
+
+            <p class="description">
+
+                Performance é uma parte importante do desenvolvimento
+                de software.
+
+                Um bom programador não precisa tentar tornar todo
+                código extremamente rápido.
+
+                O mais importante é saber identificar quando existe
+                um problema e encontrar onde ele está.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>
+
+                    Medir
+                    →
+                    Profiling
+                    →
+                    Encontrar gargalo
+                    →
+                    Otimizar
+                    →
+                    Medir novamente
+
+                </strong>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>🚀 Próxima etapa:</strong>
+
+                <br><br>
+
+                Na próxima aula, vamos concluir esta sequência com
+                um grande projeto prático, reunindo diversos conceitos
+                aprendidos ao longo do curso.
+
+                Será o momento de colocar seus conhecimentos em
+                prática e construir uma aplicação completa.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>

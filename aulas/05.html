@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+     CONTEÚDO
+====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+         PAGINAÇÃO
+    ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">5</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+         AULA
+    ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 05
+
+            </span>
+
+
+            <h2>
+
+                Condições em Python
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender como fazer o programa
+                <strong>tomar decisões</strong> utilizando
+                estruturas condicionais.
+
+                Vamos conhecer <strong>if</strong>,
+                <strong>elif</strong> e <strong>else</strong>,
+                aprender a criar condições aninhadas e combinar
+                diferentes condições utilizando os operadores
+                <strong>and</strong>, <strong>or</strong> e
+                <strong>not</strong>.
+
+            </p>
+
+
+            <!-- =================================================
+             CONCEITO 1
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🤔 O comando if
+
+            </h3>
+
+            <p class="description">
+
+                O comando <strong>if</strong> permite executar um
+                determinado trecho de código somente quando uma
+                condição for verdadeira.
+
+                Em Python, o código que pertence ao <code>if</code>
+                é definido pela <strong>indentação</strong>.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Pense no <code>if</code> como uma pergunta:
+
+                <br><br>
+
+                <strong>"Se esta condição for verdadeira, o que
+                    devo fazer?"</strong>
+
+            </div>
+
+
+            <!-- =================================================
+             CÓDIGO IF
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                💻 Código
+
+            </h3>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        if.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            idade = 20
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">if</span>
+                            idade &gt;= 18:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Você é maior de idade."</span>)
+                        </div>
+
+                        <div>
+                            <span class="comment">
+                                # A condição é verdadeira
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             RESULTADO
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Você é maior de idade.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 2
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🔀 if e else
+
+            </h3>
+
+            <p class="description">
+
+                Quando precisamos executar um código caso a
+                condição seja verdadeira e outro código caso ela
+                seja falsa, utilizamos o <strong>else</strong>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        if_else.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            idade = 16
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">if</span>
+                            idade &gt;= 18:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Maior de idade."</span>)
+                        </div>
+
+                        <div>
+                            <span class="keyword">else</span>:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Menor de idade."</span>)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                O <code>else</code> não possui uma condição própria.
+                Ele será executado quando a condição do
+                <code>if</code> for falsa.
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 3
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🔢 elif
+
+            </h3>
+
+            <p class="description">
+
+                O <strong>elif</strong> significa
+                <em>"else if"</em>.
+
+                Ele permite verificar uma nova condição quando
+                a condição anterior for falsa.
+
+                Podemos utilizar vários <code>elif</code> em uma
+                mesma estrutura condicional.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        elif.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            nota = 7
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">if</span> nota &gt;= 9:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Excelente!"</span>)
+                        </div>
+
+                        <div>
+                            <span class="keyword">elif</span> nota &gt;= 7:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Bom trabalho!"</span>)
+                        </div>
+
+                        <div>
+                            <span class="keyword">elif</span> nota &gt;= 5:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Pode melhorar."</span>)
+                        </div>
+
+                        <div>
+                            <span class="keyword">else</span>:
+                            <span class="function">print</span>(
+                            <span class="string">"Precisa estudar mais."</span>)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 4
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🪆 Condições aninhadas
+
+            </h3>
+
+
+            <p class="description">
+
+                Uma condição aninhada acontece quando colocamos
+                um <strong>if</strong> dentro de outro
+                <strong>if</strong>.
+
+                Isso permite criar decisões mais específicas,
+                verificando uma condição somente depois que outra
+                condição foi satisfeita.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Exemplo:</strong>
+
+                <br><br>
+
+                Primeiro podemos verificar se uma pessoa é maior
+                de idade.
+
+                Depois, dentro desse <code>if</code>, podemos
+                verificar se ela possui uma carteira de motorista.
+
+            </div>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        aninhadas.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            idade = 25
+                        </div>
+
+                        <div>
+                            carteira = <span class="keyword">True</span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">if</span> idade &gt;= 18:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">if</span> carteira:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Pode dirigir."</span>)
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">else</span>:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Precisa de carteira."</span>)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 5
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Operador and
+
+            </h3>
+
+
+            <p class="description">
+
+                O operador <strong>and</strong> permite combinar
+                duas ou mais condições.
+
+                O resultado será verdadeiro somente quando
+                <strong>todas</strong> as condições forem
+                verdadeiras.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        and.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            idade = 25
+                        </div>
+
+                        <div>
+                            aprovado = <span class="keyword">True</span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">if</span>
+                            idade &gt;= 18
+                            <span class="keyword">and</span>
+                            aprovado:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Pode realizar o cadastro."</span>)
+                        </div>
+
+                        <div>
+                            <span class="comment">
+                                # As duas condições precisam ser verdadeiras
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 6
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🔀 Operador or
+
+            </h3>
+
+
+            <p class="description">
+
+                O operador <strong>or</strong> também combina
+                condições.
+
+                Porém, basta que <strong>uma das condições seja
+                    verdadeira</strong> para que o resultado seja
+                verdadeiro.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        or.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            dia = <span class="string">"sábado"</span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">if</span>
+                            dia == <span class="string">"sábado"</span>
+                            <span class="keyword">or</span>
+                            dia == <span class="string">"domingo"</span>:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"É fim de semana!"</span>)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             CONCEITO 7
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Operador not
+
+            </h3>
+
+
+            <p class="description">
+
+                O operador <strong>not</strong> inverte o resultado
+                de uma condição.
+
+                Se uma condição for <code>True</code>, o
+                <code>not</code> transforma o resultado em
+                <code>False</code>.
+
+                Se for <code>False</code>, transforma em
+                <code>True</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        not.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            bloqueado = <span class="keyword">False</span>
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">if</span>
+                            <span class="keyword">not</span> bloqueado:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Acesso permitido."</span>)
+                        </div>
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             PROGRAMA INTERATIVO
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🎮 Programa interativo
+
+            </h3>
+
+
+            <p class="description">
+
+                Agora vamos combinar <strong>input()</strong>,
+                conversão de tipos, condições e operadores lógicos
+                em um pequeno programa.
+
+                O programa vai verificar se uma pessoa pode entrar
+                em um evento.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+                        evento.py
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+                            idade =
+                            <span class="function">int</span>(
+                            <span class="function">input</span>(
+                            <span class="string">"Digite sua idade: "</span>))
+                        </div>
+
+                        <div>
+                            ingresso =
+                            <span class="function">input</span>(
+                            <span class="string">"Possui ingresso? "</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="keyword">if</span>
+                            idade &gt;= 18
+                            <span class="keyword">and</span>
+                            ingresso == <span class="string">"sim"</span>:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Entrada permitida!"</span>)
+                        </div>
+
+                        <div>
+                            <span class="keyword">elif</span>
+                            idade &lt; 18:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Entrada não permitida para menores."</span>)
+                        </div>
+
+                        <div>
+                            <span class="keyword">else</span>:
+                        </div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="function">print</span>(
+                            <span class="string">"Você precisa apresentar o ingresso."</span>)
+                        </div>
+
+                        <div></div>
+
+                        <div>
+                            <span class="comment">
+                                # O programa combina if, elif, else e and
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             RESULTADO
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                ▶ Resultado
+
+            </h3>
+
+
+            <div class="result">
+
+                <div class="result-header">
+
+                    Terminal
+
+                </div>
+
+
+                <div class="result-body">
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Digite sua idade: 25
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Possui ingresso? sim
+
+                    </div>
+
+                    <div>
+
+                        <span class="terminal-prompt">
+                            >
+                        </span>
+
+                        Entrada permitida!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+             DESAFIO
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🚀 Desafio
+
+            </h3>
+
+
+            <p class="description">
+
+                Crie um programa que receba a idade de uma pessoa
+                e informe sua classificação:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Menor de 12 anos → <strong>Criança</strong>
+                </li>
+
+                <li>
+                    De 12 a 17 anos → <strong>Adolescente</strong>
+                </li>
+
+                <li>
+                    De 18 a 59 anos → <strong>Adulto</strong>
+                </li>
+
+                <li>
+                    60 anos ou mais → <strong>Idoso</strong>
+                </li>
+
+            </ul>
+
+
+            <p class="description">
+
+                Depois, adicione uma segunda condição para informar
+                se a pessoa possui direito a meia-entrada.
+
+                Utilize <strong>if</strong>,
+                <strong>elif</strong>, <strong>else</strong> e,
+                em pelo menos uma parte do programa, um operador
+                lógico.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Dica:</strong>
+
+                <br><br>
+
+                Comece criando a variável:
+
+                <br><br>
+
+                <code>idade = int(input("Digite sua idade: "))</code>
+
+                <br><br>
+
+                Depois, utilize as estruturas condicionais para
+                verificar cada faixa de idade.
+
+            </div>
+
+
+            <!-- =================================================
+             RESUMO
+        ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • <code>if</code> executa um código quando uma
+                condição é verdadeira.<br>
+
+                • <code>else</code> executa um código quando a
+                condição do <code>if</code> é falsa.<br>
+
+                • <code>elif</code> permite verificar condições
+                adicionais.<br>
+
+                • Condições aninhadas são estruturas condicionais
+                dentro de outras estruturas condicionais.<br>
+
+                • <code>and</code> exige que todas as condições
+                sejam verdadeiras.<br>
+
+                • <code>or</code> retorna verdadeiro quando pelo
+                menos uma condição é verdadeira.<br>
+
+                • <code>not</code> inverte o resultado de uma
+                condição.<br>
+
+                • A indentação é fundamental para definir os blocos
+                de código em Python.<br>
+
+                • Condições permitem criar programas capazes de
+                tomar decisões.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+         PAGINAÇÃO INFERIOR
+    ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+     FOOTER
+====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+    <script src="../assets/script.js"></script>
+
+
+</body>
+
+</html>

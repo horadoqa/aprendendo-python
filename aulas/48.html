@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/styles.css">
+
+    <title>Hora do QA | Aprendendo Python</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
+
+                </div>
+
+                <div class="logo-text">
+                    Hora do QA
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="theme-switch">
+
+                    <span class="theme-label">
+                        Tema
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="python-badge">
+                    🐍 APRENDENDO PYTHON
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+
+                Aprendendo
+                <span>PYTHON</span>
+
+            </h1>
+
+            <p>
+
+                Aprenda Python passo a passo, começando pelos
+                principais comandos e conceitos da linguagem.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PAGINAÇÃO
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Aula
+                <strong id="currentPage">48</strong>
+                de
+                <strong id="totalPages">80</strong>
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AULA
+        ================================================== -->
+
+        <article class="lesson">
+
+            <span class="lesson-number">
+
+                AULA 48
+
+            </span>
+
+
+            <h2>
+
+                Autenticação
+
+            </h2>
+
+
+            <p class="description">
+
+                Nesta aula, você vai aprender os conceitos básicos
+                de <strong>autenticação</strong> em APIs.
+
+                Vamos entender como funciona um processo de
+                <strong>login</strong>, o que são
+                <strong>tokens</strong>, como funciona o
+                <strong>JWT</strong> e quais cuidados básicos
+                devemos ter ao proteger uma aplicação.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Para lembrar:</strong>
+
+                <br><br>
+
+                Autenticação responde à pergunta:
+
+                <br><br>
+
+                <strong>"Quem é você?"</strong>
+
+                <br><br>
+
+                Já a autorização responde:
+
+                <br><br>
+
+                <strong>"O que você pode fazer?"</strong>
+
+            </div>
+
+
+            <!-- =================================================
+                 AUTENTICAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔐 O que é autenticação?
+
+            </h3>
+
+
+            <p class="description">
+
+                Autenticação é o processo utilizado para verificar
+                a identidade de uma pessoa ou sistema.
+
+            </p>
+
+
+            <p class="description">
+
+                Um exemplo muito comum é o login em uma aplicação.
+
+                O usuário informa suas credenciais e a aplicação
+                verifica se elas são válidas.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo:</strong>
+
+                <br><br>
+
+                Usuário:
+
+                <code>maria</code>
+
+                <br><br>
+
+                Senha:
+
+                <code>********</code>
+
+                <br><br>
+
+                A aplicação verifica as credenciais e, se estiverem
+                corretas, permite o acesso.
+
+            </div>
+
+
+            <!-- =================================================
+                 FLUXO DE LOGIN
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔄 Fluxo de login
+
+            </h3>
+
+
+            <p class="description">
+
+                Em uma API, o processo de autenticação normalmente
+                segue algumas etapas:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>1.</strong> O usuário envia login e senha.
+
+                <br><br>
+
+                <strong>2.</strong> A API verifica as credenciais.
+
+                <br><br>
+
+                <strong>3.</strong> Se estiverem corretas, a API
+                gera um token.
+
+                <br><br>
+
+                <strong>4.</strong> O cliente armazena o token.
+
+                <br><br>
+
+                <strong>5.</strong> O token é enviado nas próximas
+                requisições protegidas.
+
+                <br><br>
+
+                <strong>6.</strong> A API valida o token antes
+                de permitir o acesso.
+
+            </div>
+
+
+            <!-- =================================================
+                 LOGIN
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                👤 Criando um login
+
+            </h3>
+
+
+            <p class="description">
+
+                Podemos criar um endpoint responsável por receber
+                as credenciais do usuário.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        login.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">@app.post</span>(
+                            <span class="string">
+                                "/login"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                login
+                            </span>(usuario, senha):
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">if</span>
+                            usuario == <span class="string">
+                                "maria"
+                            </span>
+                            <span class="keyword">and</span>
+                            senha == <span class="string">
+                                "123456"
+                            </span>:
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span> {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "mensagem"
+                            </span>:
+                            <span class="string">
+                                "Login realizado"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span> {
+
+                            <span class="string">
+                                "erro"
+                            </span>:
+                            <span class="string">
+                                "Credenciais inválidas"
+                            </span>
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Importante:</strong>
+
+                <br><br>
+
+                O exemplo acima é apenas didático.
+
+                <br><br>
+
+                Em uma aplicação real, nunca devemos armazenar
+                senhas diretamente no código ou compará-las dessa
+                forma.
+
+            </div>
+
+
+            <!-- =================================================
+                 TOKENS
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🎟️ O que são tokens?
+
+            </h3>
+
+
+            <p class="description">
+
+                Um token é uma informação que pode ser utilizada
+                para representar uma sessão autenticada.
+
+            </p>
+
+
+            <p class="description">
+
+                Depois que o usuário realiza o login, a API pode
+                fornecer um token para que ele seja utilizado
+                nas próximas requisições.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Fluxo simplificado:</strong>
+
+                <br><br>
+
+                Login → API valida usuário → Token
+
+                <br><br>
+
+                Depois:
+
+                <br><br>
+
+                Token → API → Recurso protegido
+
+            </div>
+
+
+            <!-- =================================================
+                 BEARER TOKEN
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📡 Enviando o token
+
+            </h3>
+
+
+            <p class="description">
+
+                É comum enviar tokens de autenticação no header
+                <code>Authorization</code>.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        request.http
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            GET /produtos
+
+                        </div>
+
+
+                        <div>
+
+                            Authorization:
+                            Bearer
+                            <span class="string">
+                                SEU_TOKEN
+                            </span>
+
+                        </div>
+
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>Bearer</strong> indica que o token está
+                sendo enviado como credencial de acesso.
+
+            </div>
+
+
+            <!-- =================================================
+                 JWT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔑 O que é JWT?
+
+            </h3>
+
+
+            <p class="description">
+
+                <strong>JWT</strong> significa
+                <strong>JSON Web Token</strong>.
+
+                É um formato utilizado para transportar
+                informações entre sistemas de forma estruturada.
+
+            </p>
+
+
+            <p class="description">
+
+                Um JWT possui três partes principais:
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Header</strong>
+
+                <br>
+
+                Contém informações sobre o token e o algoritmo
+                utilizado.
+
+                <br><br>
+
+                <strong>Payload</strong>
+
+                <br>
+
+                Contém informações, chamadas de claims, relacionadas
+                ao token.
+
+                <br><br>
+
+                <strong>Signature</strong>
+
+                <br>
+
+                É utilizada para verificar a integridade do token.
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>Estrutura visual:</strong>
+
+                <br><br>
+
+                <code>
+                    HEADER.PAYLOAD.SIGNATURE
+                </code>
+
+            </div>
+
+
+            <!-- =================================================
+                 JWT EXEMPLO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧩 Criando um JWT
+
+            </h3>
+
+
+            <p class="description">
+
+                Em Python, bibliotecas como
+                <strong>PyJWT</strong> podem ser utilizadas para
+                trabalhar com JSON Web Tokens.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        token.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            jwt
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            dados = {
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "usuario"
+                            </span>:
+                            <span class="string">
+                                "maria"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            }
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            token = jwt.encode(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            dados,
+                            <span class="string">
+                                "chave-secreta"
+                            </span>,
+                            algorithm=<span class="string">
+                                "HS256"
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>⚠️ Atenção:</strong>
+
+                <br><br>
+
+                Nunca coloque uma chave secreta diretamente no
+                código de uma aplicação real.
+
+                <br><br>
+
+                Utilize variáveis de ambiente ou um sistema
+                apropriado de gerenciamento de segredos.
+
+            </div>
+
+
+            <!-- =================================================
+                 DECODIFICANDO JWT
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔍 Validando um JWT
+
+            </h3>
+
+
+            <p class="description">
+
+                Ao receber um token, a aplicação precisa verificar
+                se ele é válido antes de permitir o acesso ao
+                recurso protegido.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        validar_token.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">import</span>
+                            jwt
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            dados = jwt.decode(
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            token,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="string">
+                                "chave-secreta"
+                            </span>,
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            algorithms=[
+                            <span class="string">
+                                "HS256"
+                            </span>]
+
+                        </div>
+
+
+                        <div>
+
+                            )
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="function">
+                                print
+                            </span>(dados)
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Importante:</strong>
+
+                <br><br>
+
+                Decodificar o conteúdo de um JWT não significa,
+                por si só, confiar nele.
+
+                <br><br>
+
+                A aplicação precisa validar a assinatura e as
+                demais regras de segurança antes de aceitar
+                as informações do token.
+
+            </div>
+
+
+            <!-- =================================================
+                 ROTA PROTEGIDA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛡️ Protegendo uma rota
+
+            </h3>
+
+
+            <p class="description">
+
+                Depois da autenticação, podemos proteger
+                determinados endpoints para que apenas usuários
+                autenticados possam acessá-los.
+
+            </p>
+
+
+            <div class="editor">
+
+                <div class="editor-header">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="filename">
+
+                        protected.py
+
+                    </span>
+
+                </div>
+
+
+                <div class="code-container">
+
+                    <div class="line-numbers">
+
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+
+                    </div>
+
+
+                    <div class="code">
+
+                        <div>
+
+                            <span class="keyword">@app.get</span>(
+                            <span class="string">
+                                "/perfil"
+                            </span>)
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="keyword">def</span>
+                            <span class="function">
+                                perfil
+                            </span>(token):
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="comment">
+                                # Validar o token
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            usuario = validar_token(token)
+
+                        </div>
+
+
+                        <div></div>
+
+
+                        <div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="keyword">return</span>
+                            usuario
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 AUTENTICAÇÃO X AUTORIZAÇÃO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🔐 Autenticação x autorização
+
+            </h3>
+
+
+            <p class="description">
+
+                Esses dois conceitos são importantes e não devem
+                ser confundidos.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>Autenticação</strong>
+
+                <br><br>
+
+                Verifica a identidade do usuário.
+
+                <br><br>
+
+                <strong>Autorização</strong>
+
+                <br><br>
+
+                Define quais recursos ou ações aquele usuário
+                pode acessar.
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>Exemplo:</strong>
+
+                <br><br>
+
+                João fez login corretamente.
+
+                <br><br>
+
+                Portanto, ele foi <strong>autenticado</strong>.
+
+                <br><br>
+
+                Porém, João pode não ter permissão para excluir
+                usuários.
+
+                <br><br>
+
+                Nesse caso, ele está autenticado, mas não está
+                <strong>autorizado</strong> a executar essa ação.
+
+            </div>
+
+
+            <!-- =================================================
+                 SEGURANÇA BÁSICA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🛡️ Segurança básica
+
+            </h3>
+
+
+            <p class="description">
+
+                Ao criar uma API com autenticação, alguns cuidados
+                são fundamentais.
+
+            </p>
+
+
+            <ul>
+
+                <li>
+
+                    Nunca armazene senhas em texto puro.
+
+                </li>
+
+
+                <li>
+
+                    Utilize algoritmos adequados para
+                    armazenamento seguro de senhas.
+
+                </li>
+
+
+                <li>
+
+                    Nunca coloque chaves secretas diretamente
+                    no código de produção.
+
+                </li>
+
+
+                <li>
+
+                    Utilize HTTPS para proteger a comunicação.
+
+                </li>
+
+
+                <li>
+
+                    Valide os dados recebidos pela API.
+
+                </li>
+
+
+                <li>
+
+                    Defina tempo de expiração para tokens.
+
+                </li>
+
+
+                <li>
+
+                    Não coloque informações sensíveis dentro
+                    do payload do JWT.
+
+                </li>
+
+
+                <li>
+
+                    Controle corretamente as permissões dos
+                    usuários.
+
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🚨 Nunca faça isso:</strong>
+
+                <br><br>
+
+                <code>
+                    senha = "123456"
+                </code>
+
+                <br><br>
+
+                ou:
+
+                <br><br>
+
+                <code>
+                    SECRET_KEY = "minha-chave-secreta"
+                </code>
+
+                <br><br>
+
+                em código de produção.
+
+            </div>
+
+
+            <!-- =================================================
+                 STATUS CODES
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📡 Status codes relacionados à autenticação
+
+            </h3>
+
+
+            <p class="description">
+
+                Alguns códigos HTTP aparecem frequentemente em
+                APIs que possuem autenticação.
+
+            </p>
+
+
+            <div class="highlight-box">
+
+                <strong>200 OK</strong>
+
+                <br>
+
+                Requisição realizada com sucesso.
+
+                <br><br>
+
+                <strong>201 Created</strong>
+
+                <br>
+
+                Um recurso foi criado.
+
+                <br><br>
+
+                <strong>401 Unauthorized</strong>
+
+                <br>
+
+                A autenticação é necessária ou as credenciais
+                fornecidas são inválidas.
+
+                <br><br>
+
+                <strong>403 Forbidden</strong>
+
+                <br>
+
+                O usuário foi identificado, mas não possui
+                permissão para executar aquela ação.
+
+            </div>
+
+
+            <!-- =================================================
+                 QA
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧪 Autenticação para QA
+
+            </h3>
+
+
+            <p class="description">
+
+                Para QA, autenticação gera diversos cenários
+                importantes de teste.
+
+            </p>
+
+
+            <p class="description">
+
+                Além do login válido, devemos testar situações
+                como:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Login com usuário inexistente.
+                </li>
+
+                <li>
+                    Login com senha incorreta.
+                </li>
+
+                <li>
+                    Campos obrigatórios ausentes.
+                </li>
+
+                <li>
+                    Token ausente.
+                </li>
+
+                <li>
+                    Token inválido.
+                </li>
+
+                <li>
+                    Token expirado.
+                </li>
+
+                <li>
+                    Token alterado.
+                </li>
+
+                <li>
+                    Usuário sem permissão.
+                </li>
+
+                <li>
+                    Acesso a endpoint protegido.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>🎯 Pense como QA:</strong>
+
+                <br><br>
+
+                Um endpoint protegido não deve funcionar apenas
+                quando o usuário envia um token válido.
+
+                <br><br>
+
+                Também precisamos verificar se a API rejeita
+                corretamente tokens inválidos, ausentes ou
+                expirados.
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCÍCIO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                📝 Exercício
+
+            </h3>
+
+
+            <p class="description">
+
+                Imagine uma API de um sistema bancário.
+
+                <br><br>
+
+                Crie mentalmente o fluxo de autenticação para
+                um usuário acessar sua conta.
+
+            </p>
+
+
+            <p class="description">
+
+                Pense nos seguintes passos:
+
+            </p>
+
+
+            <ul>
+
+                <li>
+                    O usuário realiza login.
+                </li>
+
+                <li>
+                    A API verifica suas credenciais.
+                </li>
+
+                <li>
+                    A API gera um token.
+                </li>
+
+                <li>
+                    O usuário envia o token ao consultar sua conta.
+                </li>
+
+                <li>
+                    A API valida o token.
+                </li>
+
+                <li>
+                    A API verifica as permissões do usuário.
+                </li>
+
+                <li>
+                    A API retorna os dados permitidos.
+                </li>
+
+            </ul>
+
+
+            <div class="highlight-box">
+
+                <strong>💡 Desafio extra:</strong>
+
+                <br><br>
+
+                Liste pelo menos cinco testes negativos que você
+                faria nesse fluxo de autenticação.
+
+                <br><br>
+
+                Exemplo:
+
+                <br>
+
+                <code>
+                    Login com senha incorreta
+                </code>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <h3 class="section-title">
+
+                🧠 Resumo da aula
+
+            </h3>
+
+
+            <div class="highlight-box">
+
+                <strong>O que você aprendeu:</strong>
+
+                <br><br>
+
+                • Autenticação verifica a identidade do usuário.<br>
+
+                • O login normalmente utiliza credenciais como
+                usuário e senha.<br>
+
+                • Tokens podem representar uma sessão autenticada.<br>
+
+                • O JWT é um formato utilizado para transportar
+                informações de autenticação.<br>
+
+                • JWT possui Header, Payload e Signature.<br>
+
+                • Tokens podem ser enviados através do header
+                <code>Authorization</code>.<br>
+
+                • <code>Bearer</code> é um esquema comum para
+                envio de tokens.<br>
+
+                • Autenticação e autorização são conceitos
+                diferentes.<br>
+
+                • Rotas podem ser protegidas para exigir
+                autenticação.<br>
+
+                • Senhas nunca devem ser armazenadas em texto
+                puro.<br>
+
+                • Chaves secretas não devem ficar expostas no
+                código de produção.<br>
+
+                • HTTPS deve ser utilizado para proteger a
+                comunicação.<br>
+
+                • Tokens devem possuir regras adequadas de
+                expiração e validação.<br>
+
+                • Para QA, é importante testar tanto cenários
+                positivos quanto negativos de autenticação.
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PAGINAÇÃO INFERIOR
+        ================================================== -->
+
+        <div class="pagination">
+
+            <div class="page-info">
+
+                Continue seus estudos 🚀
+
+            </div>
+
+
+            <div class="pagination-buttons">
+
+                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
+
+                    ← Anterior
+
+                </button>
+
+
+                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
+
+                    Próxima →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+
+            Feito com ❤️ pela
+            <strong>Hora do QA</strong>
+
+        </p>
+
+
+        <p>
+
+            Aprendendo Python passo a passo.
+
+        </p>
+
+    </footer>
+
+
+    <script src="../assets/script.js"></script>
+
+</body>
+
+</html>
