@@ -365,6 +365,14 @@ main {
     font-size: 17px;
 }
 
+ul, ol {
+   margin: 20px; 
+}
+
+h2, h3, h4 {
+   margin-top: 20px; 
+}
+
 
 /* =====================================================
            PAGINAÇÃO
@@ -1241,3 +1249,245 @@ footer {
     }
 
 }
+
+/* =====================================================
+   PESQUISA
+===================================================== */
+
+.search-container {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+.search-button {
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: inherit;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.search-button:hover {
+
+    background: rgba(128, 128, 128, 0.15);
+
+    transform: scale(1.05);
+
+}
+
+
+.search-box {
+
+    position: absolute;
+
+    right: 0;
+
+    top: 50px;
+
+    display: none;
+
+    width: 300px;
+
+    z-index: 1000;
+
+}
+
+
+.search-box.active {
+
+    display: flex;
+
+}
+
+
+.search-box input {
+
+    width: 100%;
+
+    padding: 12px 42px 12px 14px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    background: white;
+
+    color: #111827;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12);
+
+}
+
+
+.search-box input:focus {
+
+    border-color: #f59e0b;
+
+}
+
+
+.clear-search {
+
+    position: absolute;
+
+    right: 10px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    color: #6b7280;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+}
+
+
+.search-results {
+
+    position: absolute;
+
+    right: 0;
+
+    top: 105px;
+
+    width: 300px;
+
+    max-height: 400px;
+
+    overflow-y: auto;
+
+    z-index: 999;
+
+}
+
+
+.search-result {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    padding: 13px 15px;
+
+    background: white;
+
+    color: #111827;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    transition: 0.2s;
+
+}
+
+
+.search-result:first-child {
+
+    border-radius: 8px 8px 0 0;
+
+}
+
+
+.search-result:last-child {
+
+    border-radius: 0 0 8px 8px;
+
+}
+
+
+.search-result:hover {
+
+    background: #fff7ed;
+
+}
+
+
+.search-result-number {
+
+    color: #f59e0b;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+}
+
+
+.search-result-title {
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+}
+
+
+.search-no-results {
+
+    padding: 15px;
+
+    background: white;
+
+    color: #6b7280;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12);
+
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .search-box,
+    .search-results {
+
+        width: 260px;
+
+    }
+
+}
+

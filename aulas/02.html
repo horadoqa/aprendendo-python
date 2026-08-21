@@ -1,673 +1,305 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/styles.css">
-    <link rel="icon" type="image/png" href="../assets/logo.png">
-    <title>Hora do QA | Aprendendo Python</title>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<link href="../assets/styles.css" rel="stylesheet">
+	<link href="../assets/logo.png" rel="icon" type="image/png">
+	<title>Hora do QA | Aprendendo Python</title>
 </head>
-
 <body>
-
-    <!-- =====================================================
+	<!-- =====================================================
          HEADER
     ====================================================== -->
-
-    <header>
-
-        <div class="header-content">
-
-            <!-- LOGO -->
-
-            <div class="logo">
-
-                <div class="logo-icon">
-                    <img src="../assets/logo.png" alt="Logo Hora do QA" width="28">
-                </div>
-
-                <div class="logo-text">
-                    Hora do QA
-                </div>
-
-            </div>
-
-            <!-- CONTROLES -->
-
-            <div class="header-controls">
-
-                <div class="theme-switch">
-
-                    <span class="theme-label">
-                        Tema
-                    </span>
-
-                    <label class="switch">
-
-                        <input type="checkbox" id="darkModeToggle">
-
-                        <span class="slider"></span>
-
-                    </label>
-
-                </div>
-
-                <div class="python-badge">
-                    🐍 APRENDENDO PYTHON
-                </div>
-
-            </div>
-
-        </div>
-
-    </header>
-
-
-    <!-- =====================================================
+	<header>
+		<div class="header-content">
+			<!-- LOGO -->
+			<div class="logo">
+				<div class="logo-icon"><img alt="Logo Hora do QA" src="../assets/logo.png" width="28"></div>
+				<div class="logo-text">
+					Hora do QA
+				</div>
+			</div>
+			<div class="header-controls">
+				<div class="search-container">
+					<button aria-label="Pesquisar aulas" class="search-button" id="searchButton" title="Pesquisar aulas">🔍</button>
+					<div class="search-box" id="searchBox">
+						<input autocomplete="off" id="searchInput" placeholder="Pesquisar aula..." type="text"> <button class="clear-search" id="clearSearch" type="button">×</button>
+					</div>
+					<div class="search-results" id="searchResults"></div>
+				</div><!-- CONTROLES -->
+				<div class="header-controls">
+					<div class="theme-switch">
+						<span class="theme-label">Tema</span> <label class="switch"><input id="darkModeToggle" type="checkbox"> <span class="slider"></span></label>
+					</div>
+					<div class="python-badge">
+						🐍 APRENDENDO PYTHON
+					</div>
+				</div>
+			</div>
+		</div>
+	</header><!-- =====================================================
          CONTEÚDO
     ====================================================== -->
-
-    <main>
-
-        <section class="hero">
-
-            <h1>
-
-                Aprendendo
-                <span>PYTHON</span>
-
-            </h1>
-
-            <p>
-
-                Aprenda Python passo a passo, começando pelos
-                principais comandos e conceitos da linguagem.
-
-            </p>
-
-        </section>
-
-
-        <!-- =================================================
+	<main>
+		<section class="hero">
+			<h1>Aprendendo <span>PYTHON</span></h1>
+			<p>Aprenda Python passo a passo, começando pelos principais comandos e conceitos da linguagem.</p>
+		</section><!-- =================================================
              PAGINAÇÃO
         ================================================== -->
-
-        <div class="pagination">
-
-            <div class="page-info">
-
-                Aula
-                <strong id="currentPage">2</strong>
-                de
-                <strong id="totalPages">80</strong>
-
-            </div>
-
-            <div class="pagination-buttons">
-
-                <button id="previousButton"
-                        class="btn btn-secondary"
-                        onclick="previousPage()">
-
-                    ← Anterior
-
-                </button>
-
-                <button id="nextButton"
-                        class="btn btn-primary"
-                        onclick="nextPage()">
-
-                    Próxima →
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- =================================================
+		<div class="pagination">
+			<div class="page-info">
+				Aula <strong id="currentPage">2</strong> de <strong id="totalPages">80</strong>
+			</div>
+			<div class="pagination-buttons">
+				<button class="btn btn-secondary" id="previousButton" onclick="previousPage()">← Anterior</button> <button class="btn btn-primary" id="nextButton" onclick="nextPage()">Próxima →</button>
+			</div>
+		</div><!-- =================================================
              AULA
         ================================================== -->
-
-        <article class="lesson">
-
-            <span class="lesson-number">
-
-                AULA 02
-
-            </span>
-
-
-            <h2>
-
-                Variáveis e tipos de dados em Python
-
-            </h2>
-
-
-            <p class="description">
-
-                Nesta aula, você vai aprender como armazenar
-                informações em variáveis e conhecer alguns dos
-                principais tipos de dados do Python:
-                <strong>int</strong>, <strong>float</strong>,
-                <strong>str</strong> e <strong>bool</strong>.
-
-                Também veremos como descobrir o tipo de uma
-                variável usando <strong>type()</strong> e como
-                converter valores entre diferentes tipos.
-
-            </p>
-
-
-            <!-- =================================================
+		<article class="lesson">
+			<span class="lesson-number">AULA 02</span>
+			<h2>Variáveis e tipos de dados em Python</h2>
+			<p class="description">Nesta aula, você vai aprender como armazenar informações em variáveis e conhecer alguns dos principais tipos de dados do Python: <strong>int</strong>, <strong>float</strong>, <strong>str</strong> e <strong>bool</strong>. Também veremos como descobrir o tipo de uma variável usando <strong>type()</strong> e como converter valores entre diferentes tipos.</p><!-- =================================================
                  CONCEITO 1
             ================================================== -->
-
-            <h3 class="section-title">
-
-                📦 Variáveis
-
-            </h3>
-
-            <p class="description">
-
-                Uma variável é um nome que usamos para guardar
-                uma informação na memória do programa.
-
-                Em Python, basta escolher um nome e utilizar
-                o operador <strong>=</strong> para atribuir
-                um valor.
-
-            </p>
-
-
-            <div class="highlight-box">
-
-                <strong>💡 Para lembrar:</strong>
-
-                Pense em uma variável como uma "caixa" que
-                possui um nome e guarda um valor dentro dela.
-
-            </div>
-
-
-            <!-- =================================================
+			<h3 class="section-title">📦 Variáveis</h3>
+			<p class="description">Uma variável é um nome que usamos para guardar uma informação na memória do programa. Em Python, basta escolher um nome e utilizar o operador <strong>=</strong> para atribuir um valor.</p>
+			<div class="highlight-box">
+				<strong>💡 Para lembrar:</strong> Pense em uma variável como uma "caixa" que possui um nome e guarda um valor dentro dela.
+			</div><!-- =================================================
                  CONCEITO 2
             ================================================== -->
-
-            <h3 class="section-title">
-
-                🔢 Tipos de dados
-
-            </h3>
-
-            <div >
-            <p class="description">
-
-                Python possui diferentes tipos de dados.
-                Nesta aula, vamos trabalhar com quatro tipos
-                muito importantes:
-
-            </p>
-
-            <ul>
-
-                <li>
-                    <strong>int</strong> — números inteiros,
-                    como <code>10</code> ou <code>-5</code>.
-                </li>
-
-                <li>
-                    <strong>float</strong> — números com casas
-                    decimais, como <code>10.5</code>.
-                </li>
-
-                <li>
-                    <strong>str</strong> — textos, como
-                    <code>"Python"</code>.
-                </li>
-
-                <li>
-                    <strong>bool</strong> — valores lógicos:
-                    <code>True</code> ou <code>False</code>.
-                </li>
-
-            </ul>
-
-
-            <!-- =================================================
+			<h3 class="section-title">🔢 Tipos de dados</h3>
+			<div>
+				<p class="description">Python possui diferentes tipos de dados. Nesta aula, vamos trabalhar com quatro tipos muito importantes:</p>
+				<ul>
+					<li><strong>int</strong> — números inteiros, como <code>10</code> ou <code>-5</code>.</li>
+					<li><strong>float</strong> — números com casas decimais, como <code>10.5</code>.</li>
+					<li><strong>str</strong> — textos, como <code>"Python"</code>.</li>
+					<li><strong>bool</strong> — valores lógicos: <code>True</code> ou <code>False</code>.</li>
+				</ul><!-- =================================================
                  CÓDIGO
             ================================================== -->
-
-            <h3 class="section-title">
-
-                💻 Código
-
-            </h3>
-
-
-            <div class="editor">
-
-                <div class="editor-header">
-
-                    <span class="dot red"></span>
-
-                    <span class="dot yellow"></span>
-
-                    <span class="dot green"></span>
-
-                    <span class="filename">
-
-                        aula02.py
-
-                    </span>
-
-                </div>
-
-
-                <div class="code-container">
-
-                    <div class="line-numbers">
-
-                        <div>1</div>
-                        <div>2</div>
-                        <div>3</div>
-                        <div>4</div>
-                        <div>5</div>
-                        <div>6</div>
-                        <div>7</div>
-                        <div>8</div>
-                        <div>9</div>
-                        <div>10</div>
-                        <div>11</div>
-                        <div>12</div>
-                        <div>13</div>
-                        <div>14</div>
-
-                    </div>
-
-
-                    <div class="code">
-
-                        <div>
-                            <span class="comment">
-                                # Variáveis
-                            </span>
-                        </div>
-
-                        <div>
-                            nome =
-                            <span class="string">"Maria"</span>
-                        </div>
-
-                        <div>
-                            idade = 25
-                        </div>
-
-                        <div>
-                            altura = 1.65
-                        </div>
-
-                        <div>
-                            aprovado = <span class="keyword">True</span>
-                        </div>
-
-                        <div>
-                            <span class="function">print</span>(nome)
-                        </div>
-
-                        <div>
-                            <span class="function">print</span>(idade)
-                        </div>
-
-                        <div>
-                            <span class="function">print</span>(altura)
-                        </div>
-
-                        <div>
-                            <span class="function">print</span>(aprovado)
-                        </div>
-
-                        <div>
-                            <span class="comment">
-                                # Descobrindo os tipos
-                            </span>
-                        </div>
-
-                        <div>
-                            <span class="function">print</span>(
-                            <span class="function">type</span>(idade))
-                        </div>
-
-                        <div>
-                            <span class="function">print</span>(
-                            <span class="function">type</span>(altura))
-                        </div>
-
-                        <div>
-                            <span class="function">print</span>(
-                            <span class="function">type</span>(nome))
-                        </div>
-
-                        <div>
-                            <span class="function">print</span>(
-                            <span class="function">type</span>(aprovado))
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =================================================
+				<h3 class="section-title">💻 Código</h3>
+				<div class="editor">
+					<div class="editor-header">
+						<span class="dot red"></span> <span class="dot yellow"></span> <span class="dot green"></span> <span class="filename">aula02.py</span>
+					</div>
+					<div class="code-container">
+						<div class="line-numbers">
+							<div>
+								1
+							</div>
+							<div>
+								2
+							</div>
+							<div>
+								3
+							</div>
+							<div>
+								4
+							</div>
+							<div>
+								5
+							</div>
+							<div>
+								6
+							</div>
+							<div>
+								7
+							</div>
+							<div>
+								8
+							</div>
+							<div>
+								9
+							</div>
+							<div>
+								10
+							</div>
+							<div>
+								11
+							</div>
+							<div>
+								12
+							</div>
+							<div>
+								13
+							</div>
+							<div>
+								14
+							</div>
+						</div>
+						<div class="code">
+							<div>
+								<span class="comment"># Variáveis</span>
+							</div>
+							<div>
+								nome = <span class="string">"Maria"</span>
+							</div>
+							<div>
+								idade = 25
+							</div>
+							<div>
+								altura = 1.65
+							</div>
+							<div>
+								aprovado = <span class="keyword">True</span>
+							</div>
+							<div>
+								<span class="function">print</span>(nome)
+							</div>
+							<div>
+								<span class="function">print</span>(idade)
+							</div>
+							<div>
+								<span class="function">print</span>(altura)
+							</div>
+							<div>
+								<span class="function">print</span>(aprovado)
+							</div>
+							<div>
+								<span class="comment"># Descobrindo os tipos</span>
+							</div>
+							<div>
+								<span class="function">print</span>( <span class="function">type</span>(idade))
+							</div>
+							<div>
+								<span class="function">print</span>( <span class="function">type</span>(altura))
+							</div>
+							<div>
+								<span class="function">print</span>( <span class="function">type</span>(nome))
+							</div>
+							<div>
+								<span class="function">print</span>( <span class="function">type</span>(aprovado))
+							</div>
+						</div>
+					</div>
+				</div><!-- =================================================
                  RESULTADO
             ================================================== -->
-
-            <h3 class="section-title">
-
-                ▶ Resultado
-
-            </h3>
-
-
-            <div class="result">
-
-                <div class="result-header">
-
-                    Terminal
-
-                </div>
-
-
-                <div class="result-body">
-
-                    <div>
-
-                        <span class="terminal-prompt">
-                            >
-                        </span>
-
-                        Maria
-
-                    </div>
-
-                    <div>
-
-                        <span class="terminal-prompt">
-                            >
-                        </span>
-
-                        25
-
-                    </div>
-
-                    <div>
-
-                        <span class="terminal-prompt">
-                            >
-                        </span>
-
-                        1.65
-
-                    </div>
-
-                    <div>
-
-                        <span class="terminal-prompt">
-                            >
-                        </span>
-
-                        True
-
-                    </div>
-
-                    <div>
-
-                        <span class="terminal-prompt">
-                            >
-                        </span>
-
-                        &lt;class 'int'&gt;
-
-                    </div>
-
-                    <div>
-
-                        <span class="terminal-prompt">
-                            >
-                        </span>
-
-                        &lt;class 'float'&gt;
-
-                    </div>
-
-                    <div>
-
-                        <span class="terminal-prompt">
-                            >
-                        </span>
-
-                        &lt;class 'str'&gt;
-
-                    </div>
-
-                    <div>
-
-                        <span class="terminal-prompt">
-                            >
-                        </span>
-
-                        &lt;class 'bool'&gt;
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =================================================
+				<h3 class="section-title">▶ Resultado</h3>
+				<div class="result">
+					<div class="result-header">
+						Terminal
+					</div>
+					<div class="result-body">
+						<div>
+							<span class="terminal-prompt">&gt;</span> Maria
+						</div>
+						<div>
+							<span class="terminal-prompt">&gt;</span> 25
+						</div>
+						<div>
+							<span class="terminal-prompt">&gt;</span> 1.65
+						</div>
+						<div>
+							<span class="terminal-prompt">&gt;</span> True
+						</div>
+						<div>
+							<span class="terminal-prompt">&gt;</span> &lt;class 'int'&gt;
+						</div>
+						<div>
+							<span class="terminal-prompt">&gt;</span> &lt;class 'float'&gt;
+						</div>
+						<div>
+							<span class="terminal-prompt">&gt;</span> &lt;class 'str'&gt;
+						</div>
+						<div>
+							<span class="terminal-prompt">&gt;</span> &lt;class 'bool'&gt;
+						</div>
+					</div>
+				</div><!-- =================================================
                  CONVERSÃO DE TIPOS
             ================================================== -->
-
-            <h3 class="section-title">
-
-                🔄 Conversão de tipos
-
-            </h3>
-
-
-            <p class="description">
-
-                Podemos converter um valor de um tipo para outro
-                utilizando funções como <strong>int()</strong>,
-                <strong>float()</strong> e <strong>str()</strong>.
-
-            </p>
-
-
-            <div class="highlight-box">
-
-                <strong>💡 Exemplo:</strong>
-
-                Um texto contendo o número <code>"25"</code>
-                pode ser convertido para o número inteiro
-                <code>25</code> utilizando <code>int()</code>.
-
-            </div>
-
-
-            <div class="editor">
-
-                <div class="editor-header">
-
-                    <span class="dot red"></span>
-
-                    <span class="dot yellow"></span>
-
-                    <span class="dot green"></span>
-
-                    <span class="filename">
-
-                        conversao.py
-
-                    </span>
-
-                </div>
-
-
-                <div class="code-container">
-
-                    <div class="line-numbers">
-
-                        <div>1</div>
-                        <div>2</div>
-                        <div>3</div>
-                        <div>4</div>
-                        <div>5</div>
-                        <div>6</div>
-
-                    </div>
-
-
-                    <div class="code">
-
-                        <div>
-                            idade =
-                            <span class="string">"25"</span>
-                        </div>
-
-                        <div>
-                            idade =
-                            <span class="function">int</span>(idade)
-                        </div>
-
-                        <div>
-                            altura =
-                            <span class="string">"1.75"</span>
-                        </div>
-
-                        <div>
-                            altura =
-                            <span class="function">float</span>(altura)
-                        </div>
-
-                        <div>
-                            numero = 100
-                        </div>
-
-                        <div>
-                            texto =
-                            <span class="function">str</span>(numero)
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =================================================
+				<h3 class="section-title">🔄 Conversão de tipos</h3>
+				<p class="description">Podemos converter um valor de um tipo para outro utilizando funções como <strong>int()</strong>, <strong>float()</strong> e <strong>str()</strong>.</p>
+				<div class="highlight-box">
+					<strong>💡 Exemplo:</strong> Um texto contendo o número <code>"25"</code> pode ser convertido para o número inteiro <code>25</code> utilizando <code>int()</code>.
+				</div>
+				<div class="editor">
+					<div class="editor-header">
+						<span class="dot red"></span> <span class="dot yellow"></span> <span class="dot green"></span> <span class="filename">conversao.py</span>
+					</div>
+					<div class="code-container">
+						<div class="line-numbers">
+							<div>
+								1
+							</div>
+							<div>
+								2
+							</div>
+							<div>
+								3
+							</div>
+							<div>
+								4
+							</div>
+							<div>
+								5
+							</div>
+							<div>
+								6
+							</div>
+						</div>
+						<div class="code">
+							<div>
+								idade = <span class="string">"25"</span>
+							</div>
+							<div>
+								idade = <span class="function">int</span>(idade)
+							</div>
+							<div>
+								altura = <span class="string">"1.75"</span>
+							</div>
+							<div>
+								altura = <span class="function">float</span>(altura)
+							</div>
+							<div>
+								numero = 100
+							</div>
+							<div>
+								texto = <span class="function">str</span>(numero)
+							</div>
+						</div>
+					</div>
+				</div><!-- =================================================
                  RESUMO
             ================================================== -->
-
-            <h3 class="section-title">
-
-                🧠 Resumo da aula
-
-            </h3>
-
-
-            <div class="highlight-box">
-
-                <strong>O que você aprendeu:</strong>
-
-                <br><br>
-
-                • Variáveis armazenam valores.<br>
-                • <code>int</code> representa números inteiros.<br>
-                • <code>float</code> representa números decimais.<br>
-                • <code>str</code> representa textos.<br>
-                • <code>bool</code> representa <code>True</code>
-                ou <code>False</code>.<br>
-                • <code>type()</code> mostra o tipo de um valor.<br>
-                • <code>int()</code>, <code>float()</code> e
-                <code>str()</code> podem converter valores.
-
-            </div>
-
-        </article>
-
-
-        <!-- =================================================
+				<h3 class="section-title">🧠 Resumo da aula</h3>
+				<div class="highlight-box">
+					<strong>O que você aprendeu:</strong><br>
+					<br>
+					• Variáveis armazenam valores.<br>
+					• <code>int</code> representa números inteiros.<br>
+					• <code>float</code> representa números decimais.<br>
+					• <code>str</code> representa textos.<br>
+					• <code>bool</code> representa <code>True</code> ou <code>False</code>.<br>
+					• <code>type()</code> mostra o tipo de um valor.<br>
+					• <code>int()</code>, <code>float()</code> e <code>str()</code> podem converter valores.
+				</div>
+			</div>
+		</article><!-- =================================================
              PAGINAÇÃO INFERIOR
         ================================================== -->
-
-        <div class="pagination">
-
-            <div class="page-info">
-
-                Continue seus estudos 🚀
-
-            </div>
-
-
-            <div class="pagination-buttons">
-
-                <button id="previousButtonBottom"
-                        class="btn btn-secondary"
-                        onclick="previousPage()">
-
-                    ← Anterior
-
-                </button>
-
-
-                <button id="nextButtonBottom"
-                        class="btn btn-primary"
-                        onclick="nextPage()">
-
-                    Próxima →
-
-                </button>
-
-            </div>
-
-        </div>
-
-    </main>
-
-
-    <!-- =====================================================
+		<div class="pagination">
+			<div class="page-info">
+				Continue seus estudos 🚀
+			</div>
+			<div class="pagination-buttons">
+				<button class="btn btn-secondary" id="previousButtonBottom" onclick="previousPage()">← Anterior</button> <button class="btn btn-primary" id="nextButtonBottom" onclick="nextPage()">Próxima →</button>
+			</div>
+		</div>
+	</main><!-- =====================================================
          FOOTER
     ====================================================== -->
-
-    <footer>
-
-        <p>
-
-            Feito com ❤️ pela
-            <strong>Hora do QA</strong>
-
-        </p>
-
-
-        <p>
-
-            Aprendendo Python passo a passo.
-
-        </p>
-
-    </footer>
-
-    <script src="../assets/script.js"></script>
-
+	<footer>
+		<p>Feito com ❤️ pela <strong>Hora do QA</strong></p>
+		<p>Aprendendo Python passo a passo.</p>
+	</footer>
+	<script src="../assets/script.js">
+	</script>
 </body>
-
 </html>

@@ -3,335 +3,153 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/styles.css">
-    <link rel="icon" type="image/png" href="../assets/logo.png">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="../assets/styles.css" rel="stylesheet">
+    <link href="../assets/logo.png" rel="icon" type="image/png">
     <title>Hora do QA | Aprendendo Python</title>
-
 </head>
 
 <body>
-
     <header>
-
         <div class="header-content">
-
-
             <div class="logo">
-
-                <div class="logo-icon">
-                    <img src="./assets/logo.png" alt="Logo Hora do QA" width="28">
-                </div>
-
+                <div class="logo-icon"><img alt="Logo Hora do QA" src="../assets/logo.png" width="28"></div>
                 <div class="logo-text">
-
                     Hora do QA
-
                 </div>
-
             </div>
 
             <div class="header-controls">
 
+                <div class="search-container">
 
-                <div class="theme-switch">
+                    <button id="searchButton" class="search-button" aria-label="Pesquisar aulas"
+                        title="Pesquisar aulas">
+                        🔍
+                    </button>
 
-                    <span class="theme-label">
-                        Tema
-                    </span>
+                    <div id="searchBox" class="search-box">
 
-                    <label class="switch">
+                        <input type="text" id="searchInput" placeholder="Pesquisar aula..." autocomplete="off">
 
-                        <input type="checkbox" id="darkModeToggle">
+                        <button id="clearSearch" class="clear-search" type="button">
+                            ×
+                        </button>
 
-                        <span class="slider"></span>
+                    </div>
 
-                    </label>
-
-                </div>
-
-
-                <div class="python-badge">
-
-                    🐍 APRENDENDO PYTHON
+                    <div id="searchResults" class="search-results"></div>
 
                 </div>
 
-
+                <div class="header-controls">
+                    <div class="theme-switch">
+                        <span class="theme-label">Tema</span> <label class="switch"><input id="darkModeToggle"
+                                type="checkbox"> <span class="slider"></span></label>
+                    </div>
+                    <div class="python-badge">
+                        🐍 APRENDENDO PYTHON
+                    </div>
+                </div>
             </div>
-
-        </div>
-
     </header>
-
     <main>
-
-
         <section class="hero">
-
-            <h1>
-
-                Aprendendo
-                <span>PYTHON</span>
-
-            </h1>
-
-            <p>
-
-                Aprenda Python passo a passo, começando pelos
-                principais comandos e conceitos da linguagem.
-
-            </p>
-
-        </section>
-
-
-
-        <!-- =================================================
+            <h1>Aprendendo <span>PYTHON</span></h1>
+            <p>Aprenda Python passo a passo, começando pelos principais comandos e conceitos da linguagem.</p>
+        </section><!-- =================================================
              PAGINAÇÃO
         ================================================== -->
-
         <div class="pagination">
-
             <div class="page-info">
-
-                Aula
-                <strong id="currentPage">1</strong>
-                de
-                <strong id="totalPages">80</strong>
-
+                Aula <strong id="currentPage">1</strong> de <strong id="totalPages">80</strong>
             </div>
-
-
             <div class="pagination-buttons">
-
-                <button id="previousButton" class="btn btn-secondary" onclick="previousPage()">
-
-                    ← Anterior
-
-                </button>
-
-
-                <button id="nextButton" class="btn btn-primary" onclick="nextPage()">
-
-                    Próxima →
-
-                </button>
-
+                <button class="btn btn-secondary" id="previousButton" onclick="previousPage()">← Anterior</button>
+                <button class="btn btn-primary" id="nextButton" onclick="nextPage()">Próxima →</button>
             </div>
-
         </div>
-
         <article class="lesson">
-
-
-            <span class="lesson-number">
-
-                AULA 01
-
-            </span>
-
-
-            <h2>
-
-                A primeira função a aprender no Python é o
-                <code>print()</code>
-
-            </h2>
-
-
-            <p class="description">
-
-                O comando <strong>print()</strong> é uma das
-                primeiras coisas que você aprende em Python.
-                Ele é utilizado para mostrar informações na tela,
-                como textos, números e resultados de operações.
-
-            </p>
-
-
-
-            <!-- BOX -->
-
+            <span class="lesson-number">AULA 01</span>
+            <h2>A primeira função a aprender no Python é o <code>print()</code></h2>
+            <p class="description">O comando <strong>print()</strong> é uma das primeiras coisas que você aprende em
+                Python. Ele é utilizado para mostrar informações na tela, como textos, números e resultados de
+                operações.</p><!-- BOX -->
             <div class="highlight-box">
-
-                <strong>💡 Para lembrar:</strong>
-
-                Sempre que você quiser pedir para o Python
-                mostrar alguma informação no terminal,
-                provavelmente utilizará o comando
-                <strong>print()</strong>.
-
-            </div>
-
-
-
-            <!-- CÓDIGO -->
-
-            <h3 class="section-title">
-
-                💻 Código
-
-            </h3>
-
-
+                <strong>💡 Para lembrar:</strong> Sempre que você quiser pedir para o Python mostrar alguma informação
+                no terminal, provavelmente utilizará o comando <strong>print()</strong>.
+            </div><!-- CÓDIGO -->
+            <h3 class="section-title">💻 Código</h3>
             <div class="editor">
-
-
                 <div class="editor-header">
-
-                    <span class="dot red"></span>
-
-                    <span class="dot yellow"></span>
-
-                    <span class="dot green"></span>
-
-                    <span class="filename">
-
-                        aula01.py
-
-                    </span>
-
+                    <span class="dot red"></span> <span class="dot yellow"></span> <span class="dot green"></span> <span
+                        class="filename">aula01.py</span>
                 </div>
-
-
-
                 <div class="code-container">
-
                     <div class="line-numbers">
-                        <div>1</div>
-                        <div>2</div>
-                        <div>3</div>
-                        <div>4</div>
-                    </div>
-
-                    <div class="code">
-                        <div><span class="comment"># Meu primeiro programa em Python</span></div>
-                        <div><span class="function">print</span>(<span class="string">"Olá, mundo!"</span>)</div>
-                        <div><span class="function">print</span>(<span class="string">"Estou aprendendo Python!"</span>)
+                        <div>
+                            1
                         </div>
-                        <div><span class="function">print</span>(<span class="string">"Hora do QA"</span>)</div>
+                        <div>
+                            2
+                        </div>
+                        <div>
+                            3
+                        </div>
+                        <div>
+                            4
+                        </div>
                     </div>
-
+                    <div class="code">
+                        <div>
+                            <span class="comment"># Meu primeiro programa em Python</span>
+                        </div>
+                        <div>
+                            <span class="function">print</span>(<span class="string">"Olá, mundo!"</span>)
+                        </div>
+                        <div>
+                            <span class="function">print</span>(<span class="string">"Estou aprendendo Python!"</span>)
+                        </div>
+                        <div>
+                            <span class="function">print</span>(<span class="string">"Hora do QA"</span>)
+                        </div>
+                    </div>
                 </div>
-
             </div>
-
-
-            <h3 class="section-title">
-
-                ▶ Resultado
-
-            </h3>
-
-
+            <h3 class="section-title">▶ Resultado</h3>
             <div class="result">
-
-
                 <div class="result-header">
-
                     Terminal
-
                 </div>
-
-
                 <div class="result-body">
-
-
                     <div>
-
-                        <span class="terminal-prompt">
-                            >
-                        </span>
-
-                        Olá, mundo!
-
+                        <span class="terminal-prompt">&gt;</span> Olá, mundo!
                     </div>
-
-
                     <div>
-
-                        <span class="terminal-prompt">
-                            >
-                        </span>
-
-                        Estou aprendendo Python!
-
+                        <span class="terminal-prompt">&gt;</span> Estou aprendendo Python!
                     </div>
-
-
                     <div>
-
-                        <span class="terminal-prompt">
-                            >
-                        </span>
-
-                        Hora do QA
-
+                        <span class="terminal-prompt">&gt;</span> Hora do QA
                     </div>
-
-
                 </div>
-
             </div>
-
         </article>
-
-
         <div class="pagination">
-
-
             <div class="page-info">
-
                 Continue seus estudos 🚀
-
             </div>
-
-
             <div class="pagination-buttons">
-
-
-                <button id="previousButtonBottom" class="btn btn-secondary" onclick="previousPage()">
-
-                    ← Anterior
-
-                </button>
-
-
-                <button id="nextButtonBottom" class="btn btn-primary" onclick="nextPage()">
-
-                    Próxima →
-
-                </button>
-
+                <button class="btn btn-secondary" id="previousButtonBottom" onclick="previousPage()">← Anterior</button>
+                <button class="btn btn-primary" id="nextButtonBottom" onclick="nextPage()">Próxima →</button>
             </div>
-
         </div>
-
-
     </main>
-
-
     <footer>
-
-        <p>
-
-            Feito com ❤️ pela
-            <strong>Hora do QA</strong>
-
-        </p>
-
-
-        <p>
-
-            Aprendendo Python passo a passo.
-
-        </p>
-
+        <p>Feito com ❤️ pela <strong>Hora do QA</strong></p>
+        <p>Aprendendo Python passo a passo.</p>
     </footer>
-
-    <script src="./assets/script.js"></script>
-
+    <script src="../assets/script.js">
+    </script>
 </body>
 
 </html>

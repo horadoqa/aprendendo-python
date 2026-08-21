@@ -120,4 +120,353 @@ darkModeToggle.addEventListener(
     }
 );
 
-updatePagination();
+// updatePagination();
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // =====================================================
+    // ELEMENTOS DA BUSCA
+    // =====================================================
+
+    const searchButton =
+        document.getElementById("searchButton");
+
+    const searchBox =
+        document.getElementById("searchBox");
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+    const clearSearch =
+        document.getElementById("clearSearch");
+
+    const searchResults =
+        document.getElementById("searchResults");
+
+
+    // =====================================================
+    // VERIFICAR ELEMENTOS
+    // =====================================================
+
+    if (!searchButton) {
+
+        console.error(
+            "❌ Botão de busca não encontrado."
+        );
+
+        return;
+
+    }
+
+
+    if (!searchBox) {
+
+        console.error(
+            "❌ Caixa de busca não encontrada."
+        );
+
+        return;
+
+    }
+
+
+    console.log(
+        "✅ Sistema de busca carregado."
+    );
+
+
+    // =====================================================
+    // ABRIR BUSCA
+    // =====================================================
+
+    searchButton.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+
+            searchBox.classList.toggle(
+                "active"
+            );
+
+
+            if (
+                searchBox.classList.contains(
+                    "active"
+                )
+            ) {
+
+                searchInput.focus();
+
+            }
+
+        }
+    );
+
+
+    // =====================================================
+    // LIMPAR BUSCA
+    // =====================================================
+
+    clearSearch.addEventListener(
+        "click",
+        function () {
+
+            searchInput.value = "";
+
+            searchResults.innerHTML = "";
+
+            searchInput.focus();
+
+        }
+    );
+
+
+    // =====================================================
+    // PESQUISAR
+    // =====================================================
+
+    searchInput.addEventListener(
+        "input",
+        function () {
+
+            const termo =
+                searchInput.value.trim();
+
+
+            if (!termo) {
+
+                searchResults.innerHTML = "";
+
+                return;
+
+            }
+
+
+            pesquisarAulas(termo);
+
+        }
+    );
+
+
+    // =====================================================
+    // FECHAR AO CLICAR FORA
+    // =====================================================
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !event.target.closest(
+                    ".search-container"
+                )
+            ) {
+
+                searchBox.classList.remove(
+                    "active"
+                );
+
+                searchResults.innerHTML = "";
+
+            }
+
+        }
+    );
+
+
+    // =====================================================
+    // CARREGAR AULAS
+    // =====================================================
+
+    let aulas = [];
+
+
+    async function carregarAulas() {
+
+        try {
+
+            const response =
+                await fetch("../aulas.json");
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Erro ao carregar aulas.json"
+                );
+
+            }
+
+
+            aulas =
+                await response.json();
+
+
+            console.log(
+                "✅ Aulas carregadas:",
+                aulas.length
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "❌ Erro:",
+                error
+            );
+
+        }
+
+    }
+
+
+    // =====================================================
+    // REGEX
+    // =====================================================
+
+    function pesquisarAulas(termo) {
+
+        let regex;
+
+
+        try {
+
+            const termoSeguro =
+                termo.replace(
+                    /[.*+?^${}()|[\]\\]/g,
+                    "\\$&"
+                );
+
+
+            regex =
+                new RegExp(
+                    termoSeguro,
+                    "i"
+                );
+
+
+        } catch (error) {
+
+            console.error(
+                "Erro na Regex:",
+                error
+            );
+
+            return;
+
+        }
+
+
+        const resultados =
+            aulas.filter(
+                function (aula) {
+
+                    return (
+
+                        regex.test(
+                            String(aula.numero)
+                        )
+
+                        ||
+
+                        regex.test(
+                            aula.titulo
+                        )
+
+                    );
+
+                }
+            );
+
+
+        mostrarResultados(
+            resultados
+        );
+
+    }
+
+
+    // =====================================================
+    // MOSTRAR RESULTADOS
+    // =====================================================
+
+    function mostrarResultados(
+        resultados
+    ) {
+
+        searchResults.innerHTML = "";
+
+
+        if (
+            resultados.length === 0
+        ) {
+
+            searchResults.innerHTML = `
+
+                <div class="search-no-results">
+
+                    🔎 Nenhuma aula encontrada.
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        resultados.forEach(
+            function (aula) {
+
+                const link =
+                    document.createElement("a");
+
+
+                link.className =
+                    "search-result";
+
+
+                link.href =
+                    "../" + aula.arquivo;
+
+
+                link.innerHTML = `
+
+                    <span class="search-result-number">
+
+                        Aula ${aula.numero}
+
+                    </span>
+
+                    <span class="search-result-title">
+
+                        ${aula.titulo}
+
+                    </span>
+
+                `;
+
+
+                searchResults.appendChild(
+                    link
+                );
+
+            }
+        );
+
+    }
+
+
+    // =====================================================
+    // INICIALIZAR
+    // =====================================================
+
+    carregarAulas();
+
+});
