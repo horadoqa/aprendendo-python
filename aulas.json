@@ -1,0 +1,402 @@
+[
+    {
+        "numero": 1,
+        "titulo": "Introdução ao Python",
+        "arquivo": "aulas/01.html"
+    },
+    {
+        "numero": 2,
+        "titulo": "Variáveis e tipos de dados",
+        "arquivo": "aulas/02.html"
+    },
+    {
+        "numero": 3,
+        "titulo": "Operadores",
+        "arquivo": "aulas/03.html"
+    },
+    {
+        "numero": 4,
+        "titulo": "Estruturas de controle",
+        "arquivo": "aulas/04.html"
+    },
+    {
+        "numero": 5,
+        "titulo": "Condições em Python",
+        "arquivo": "aulas/05.html"
+    },
+    {
+        "numero": 6,
+        "titulo": "Loops em Python",
+        "arquivo": "aulas/06.html"
+    },
+    {
+        "numero": 7,
+        "titulo": "Exercícios de lógica em Python",
+        "arquivo": "aulas/07.html"
+    },
+    {
+        "numero": 8,
+        "titulo": "Strings em Python",
+        "arquivo": "aulas/08.html"
+    },
+    {
+        "numero": 9,
+        "titulo": "Listas em Python",
+        "arquivo": "aulas/09.html"
+    },
+    {
+        "numero": 10,
+        "titulo": "Tuplas em Python",
+        "arquivo": "aulas/10.html"
+    },
+    {
+        "numero": 11,
+        "titulo": "Dicionários em Python",
+        "arquivo": "aulas/11.html"
+    },
+    {
+        "numero": 12,
+        "titulo": "Conjuntos em Python",
+        "arquivo": "aulas/12.html"
+    },
+    {
+        "numero": 13,
+        "titulo": "Estruturas de dados na prática",
+        "arquivo": "aulas/13.html"
+    },
+    {
+        "numero": 14,
+        "titulo": "Criando funções em Python",
+        "arquivo": "aulas/14.html"
+    },
+    {
+        "numero": 15,
+        "titulo": "Parâmetros avançados em Python",
+        "arquivo": "aulas/15.html"
+    },
+    {
+        "numero": 16,
+        "titulo": "Escopo de variáveis em Python",
+        "arquivo": "aulas/16.html"
+    },
+    {
+        "numero": 17,
+        "titulo": "Funções como objetos em Python",
+        "arquivo": "aulas/17.html"
+    },
+    {
+        "numero": 18,
+        "titulo": "Comprehension em Python",
+        "arquivo": "aulas/18.html"
+    },
+    {
+        "numero": 19,
+        "titulo": "Recursão em Python",
+        "arquivo": "aulas/19.html"
+    },
+    {
+        "numero": 20,
+        "titulo": "Módulos em Python",
+        "arquivo": "aulas/20.html"
+    },
+    {
+        "numero": 21,
+        "titulo": "Pacotes em Python",
+        "arquivo": "aulas/21.html"
+    },
+    {
+        "numero": 22,
+        "titulo": "Exceções em Python",
+        "arquivo": "aulas/22.html"
+    },
+    {
+        "numero": 23,
+        "titulo": "Criando exceções em Python",
+        "arquivo": "aulas/23.html"
+    },
+    {
+        "numero": 24,
+        "titulo": "Debugging em Python",
+        "arquivo": "aulas/24.html"
+    },
+    {
+        "numero": 25,
+        "titulo": "Arquivos de texto em Python",
+        "arquivo": "aulas/25.html"
+    },
+    {
+        "numero": 26,
+        "titulo": "Trabalhando com arquivos CSV",
+        "arquivo": "aulas/26.html"
+    },
+    {
+        "numero": 27,
+        "titulo": "Trabalhando com JSON em Python",
+        "arquivo": "aulas/27.html"
+    },
+    {
+        "numero": 28,
+        "titulo": "Datas e horários em Python",
+        "arquivo": "aulas/28.html"
+    },
+    {
+        "numero": 29,
+        "titulo": "Caminhos e diretórios em Python",
+        "arquivo": "aulas/29.html"
+    },
+    {
+        "numero": 30,
+        "titulo": "Introdução à Programação Orientada a Objetos",
+        "arquivo": "aulas/30.html"
+    },
+    {
+        "numero": 31,
+        "titulo": "Construtores e estado do objeto",
+        "arquivo": "aulas/31.html"
+    },
+    {
+        "numero": 32,
+        "titulo": "Encapsulamento",
+        "arquivo": "aulas/32.html"
+    },
+    {
+        "numero": 33,
+        "titulo": "Herança",
+        "arquivo": "aulas/33.html"
+    },
+    {
+        "numero": 34,
+        "titulo": "Polimorfismo",
+        "arquivo": "aulas/34.html"
+    },
+    {
+        "numero": 35,
+        "titulo": "Métodos especiais em Python",
+        "arquivo": "aulas/35.html"
+    },
+    {
+        "numero": 36,
+        "titulo": "Dataclasses",
+        "arquivo": "aulas/36.html"
+    },
+    {
+        "numero": 37,
+        "titulo": "Projeto de POO",
+        "arquivo": "aulas/37.html"
+    },
+    {
+        "numero": 38,
+        "titulo": "Ambientes virtuais",
+        "arquivo": "aulas/38.html"
+    },
+    {
+        "numero": 39,
+        "titulo": "Gerenciamento de dependências",
+        "arquivo": "aulas/39.html"
+    },
+    {
+        "numero": 40,
+        "titulo": "Git e GitHub",
+        "arquivo": "aulas/40.html"
+    },
+    {
+        "numero": 41,
+        "titulo": "Testes",
+        "arquivo": "aulas/41.html"
+    },
+    {
+        "numero": 42,
+        "titulo": "Type hints",
+        "arquivo": "aulas/42.html"
+    },
+    {
+        "numero": 43,
+        "titulo": "Boas práticas em Python",
+        "arquivo": "aulas/43.html"
+    },
+    {
+        "numero": 44,
+        "titulo": "HTTP",
+        "arquivo": "aulas/44.html"
+    },
+    {
+        "numero": 45,
+        "titulo": "Consumindo APIs",
+        "arquivo": "aulas/45.html"
+    },
+    {
+        "numero": 46,
+        "titulo": "Criando APIs com Python",
+        "arquivo": "aulas/46.html"
+    },
+    {
+        "numero": 47,
+        "titulo": "APIs com FastAPI",
+        "arquivo": "aulas/47.html"
+    },
+    {
+        "numero": 48,
+        "titulo": "Autenticação",
+        "arquivo": "aulas/48.html"
+    },
+    {
+        "numero": 49,
+        "titulo": "SQL",
+        "arquivo": "aulas/49.html"
+    },
+    {
+        "numero": 50,
+        "titulo": "SQLite",
+        "arquivo": "aulas/50.html"
+    },
+    {
+        "numero": 51,
+        "titulo": "PostgreSQL",
+        "arquivo": "aulas/51.html"
+    },
+    {
+        "numero": 52,
+        "titulo": "ORM com SQLAlchemy",
+        "arquivo": "aulas/52.html"
+    },
+    {
+        "numero": 53,
+        "titulo": "Projeto: API + PostgreSQL + Autenticação",
+        "arquivo": "aulas/53.html"
+    },
+    {
+        "numero": 54,
+        "titulo": "Automação de arquivos",
+        "arquivo": "aulas/54.html"
+    },
+    {
+        "numero": 55,
+        "titulo": "Automação de planilhas",
+        "arquivo": "aulas/55.html"
+    },
+    {
+        "numero": 56,
+        "titulo": "Web Scraping",
+        "arquivo": "aulas/56.html"
+    },
+    {
+        "numero": 57,
+        "titulo": "Automação Web",
+        "arquivo": "aulas/57.html"
+    },
+    {
+        "numero": 58,
+        "titulo": "Projeto de automação",
+        "arquivo": "aulas/58.html"
+    },
+    {
+        "numero": 59,
+        "titulo": "NumPy",
+        "arquivo": "aulas/59.html"
+    },
+    {
+        "numero": 60,
+        "titulo": "Pandas",
+        "arquivo": "aulas/60.html"
+    },
+    {
+        "numero": 61,
+        "titulo": "Limpeza de dados",
+        "arquivo": "aulas/61.html"
+    },
+    {
+        "numero": 62,
+        "titulo": "Visualização de dados",
+        "arquivo": "aulas/62.html"
+    },
+    {
+        "numero": 63,
+        "titulo": "Projeto de análise de dados",
+        "arquivo": "aulas/63.html"
+    },
+    {
+        "numero": 64,
+        "titulo": "Conceitos de Machine Learning",
+        "arquivo": "aulas/64.html"
+    },
+    {
+        "numero": 65,
+        "titulo": "Scikit-learn",
+        "arquivo": "aulas/65.html"
+    },
+    {
+        "numero": 66,
+        "titulo": "Avaliação de modelos",
+        "arquivo": "aulas/66.html"
+    },
+    {
+        "numero": 67,
+        "titulo": "Projeto de Machine Learning",
+        "arquivo": "aulas/67.html"
+    },
+    {
+        "numero": 68,
+        "titulo": "Introdução a redes neurais",
+        "arquivo": "aulas/68.html"
+    },
+    {
+        "numero": 69,
+        "titulo": "PyTorch",
+        "arquivo": "aulas/69.html"
+    },
+    {
+        "numero": 70,
+        "titulo": "Projeto de IA",
+        "arquivo": "aulas/70.html"
+    },
+    {
+        "numero": 71,
+        "titulo": "Iteradores e iteráveis",
+        "arquivo": "aulas/71.html"
+    },
+    {
+        "numero": 72,
+        "titulo": "Generators e yield",
+        "arquivo": "aulas/72.html"
+    },
+    {
+        "numero": 73,
+        "titulo": "Decorators",
+        "arquivo": "aulas/73.html"
+    },
+    {
+        "numero": 74,
+        "titulo": "Context managers",
+        "arquivo": "aulas/74.html"
+    },
+    {
+        "numero": 75,
+        "titulo": "Closures",
+        "arquivo": "aulas/75.html"
+    },
+    {
+        "numero": 76,
+        "titulo": "Programação funcional",
+        "arquivo": "aulas/76.html"
+    },
+    {
+        "numero": 77,
+        "titulo": "Concorrência",
+        "arquivo": "aulas/77.html"
+    },
+    {
+        "numero": 78,
+        "titulo": "Programação assíncrona",
+        "arquivo": "aulas/78.html"
+    },
+    {
+        "numero": 79,
+        "titulo": "Performance",
+        "arquivo": "aulas/79.html"
+    },
+    {
+        "numero": 80,
+        "titulo": "Arquitetura de software",
+        "arquivo": "aulas/80.html"
+    }
+]
